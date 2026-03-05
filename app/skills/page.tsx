@@ -47,6 +47,10 @@ const skills: Skill[] = [
   { name: 'AI News Oracle', description: 'AI新闻神谕（Hacker News+TechCrunch+Verge）', category: '金融分析', status: 'active', icon: '📰' },
   { name: 'Market Intelligence', description: '市场情报分析系统', category: '金融分析', status: 'active', icon: '🔍' },
   { name: 'Breadth Chart Analyst', description: '市场宽度图表分析', category: '金融分析', status: 'active', icon: '📊' },
+  { name: 'Biz Reporter', description: '商业智能报告（GA4+Search Console+Stripe）', category: '金融分析', status: 'active', icon: '📊' },
+  { name: 'Accounting Workflows', description: '会计工作流自动化', category: '金融分析', status: 'active', icon: '💼' },
+  { name: 'BBC News', description: 'BBC新闻抓取和分析', category: '金融分析', status: 'active', icon: '🗞️' },
+  { name: 'Apify Competitor Intelligence', description: '竞争对手情报分析', category: '金融分析', status: 'active', icon: '🔍' },
 
   // 投资组合与交易（7个）
   { name: 'Portfolio Tracking Skill', description: '投资组合追踪', category: '投资组合', status: 'active', icon: '📊' },
@@ -83,16 +87,27 @@ const skills: Skill[] = [
   { name: 'React NextJS Generator', description: 'React Next.js项目生成器', category: '网站开发', status: 'active', icon: '🚀' },
   { name: 'React Component Generator', description: 'React组件生成器', category: '网站开发', status: 'active', icon: '🧩' },
 
-  // 数据分析类（5个）
+  // 数据分析类（11个）
   { name: 'Data Analyst', description: '数据可视化+SQL查询+电子表格', category: '数据分析', status: 'active', icon: '📊' },
   { name: 'Finance Automation', description: '金融自动化', category: '数据分析', status: 'active', icon: '🤖' },
   { name: 'Google Analytics API', description: 'Google Analytics数据访问和分析', category: '数据分析', status: 'active', icon: '📈' },
   { name: 'Advanced Calendar', description: '高级日历管理（支持多种日历服务）', category: '数据分析', status: 'active', icon: '📅' },
   { name: 'Google Calendar', description: 'Google日历集成', category: '数据分析', status: 'active', icon: '📆' },
   { name: 'Daily Report', description: '每日业务报告生成', category: '数据分析', status: 'active', icon: '📊' },
+  { name: 'Agent Dashboard', description: 'Agent实时仪表板', category: '数据分析', status: 'active', icon: '📊' },
+  { name: 'CSV Pipeline', description: 'CSV数据处理管道', category: '数据分析', status: 'active', icon: '📊' },
+  { name: 'Chartclass', description: '图表类库（多种图表类型）', category: '数据分析', status: 'active', icon: '📊' },
+  { name: 'OpenClaw Dashboard', description: 'OpenClaw仪表板', category: '数据分析', status: 'active', icon: '📊' },
+  { name: 'OC Daily Business Report', description: '每日业务报告', category: '数据分析', status: 'active', icon: '📊' },
+
+  // 自动化与集成（3个）
+  { name: 'N8N Workflow Automation', description: 'N8N工作流自动化平台', category: '自动化', status: 'active', icon: '🔄' },
+  { name: 'AgentMail Integration', description: 'Agent邮件集成', category: '自动化', status: 'active', icon: '📧' },
+  { name: 'Prism Alerts', description: 'Prism提醒系统', category: '自动化', status: 'active', icon: '🔔' },
+  { name: 'Apipick Email Checker', description: '邮件检查API', category: '自动化', status: 'active', icon: '✉️' },
 ];
 
-const categories = ['全部', '金融分析', '投资组合', '交易系统', '数据抓取', '新闻情绪', 'AI分析', '网站开发', '数据分析'];
+const categories = ['全部', '金融分析', '投资组合', '交易系统', '数据抓取', '新闻情绪', 'AI分析', '网站开发', '数据分析', '自动化'];
 
 const categoryIcons: Record<string, string> = {
   '全部': '🌸',
@@ -104,6 +119,7 @@ const categoryIcons: Record<string, string> = {
   'AI分析': '🤖',
   '网站开发': '🚀',
   '数据分析': '📈',
+  '自动化': '🔄',
 };
 
 export default function SkillsPage() {
@@ -130,7 +146,7 @@ export default function SkillsPage() {
                 <span className="text-4xl">🌸</span>
                 <div>
                   <h1 className="text-2xl font-bold text-gray-900">花卷技能中心</h1>
-                  <p className="text-sm text-gray-500">69个专业技能 · 覆盖选股、分析、开发全流程</p>
+                  <p className="text-sm text-gray-500">82个专业技能 · 覆盖选股、分析、开发、自动化全流程</p>
                 </div>
               </a>
             </div>
@@ -207,9 +223,9 @@ export default function SkillsPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
         <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl p-6">
           <h2 className="text-2xl font-bold mb-6 text-center text-gray-900">📊 能力统计</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-4">
             <div className="text-center bg-white rounded-lg p-4 shadow-sm">
-              <div className="text-3xl font-bold text-pink-500 mb-1">27</div>
+              <div className="text-3xl font-bold text-pink-500 mb-1">37</div>
               <div className="text-sm text-gray-600">金融分析</div>
             </div>
             <div className="text-center bg-white rounded-lg p-4 shadow-sm">
@@ -227,6 +243,14 @@ export default function SkillsPage() {
             <div className="text-center bg-white rounded-lg p-4 shadow-sm">
               <div className="text-3xl font-bold text-orange-500 mb-1">6</div>
               <div className="text-sm text-gray-600">网站开发</div>
+            </div>
+            <div className="text-center bg-white rounded-lg p-4 shadow-sm">
+              <div className="text-3xl font-bold text-cyan-500 mb-1">11</div>
+              <div className="text-sm text-gray-600">数据分析</div>
+            </div>
+            <div className="text-center bg-white rounded-lg p-4 shadow-sm">
+              <div className="text-3xl font-bold text-indigo-500 mb-1">4</div>
+              <div className="text-sm text-gray-600">自动化</div>
             </div>
           </div>
         </div>
