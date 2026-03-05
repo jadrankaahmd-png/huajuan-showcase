@@ -142,9 +142,12 @@ const skills: Skill[] = [
   { name: 'Agent Reach YouTube', description: 'YouTube视频和字幕提取', category: 'Agent Reach', status: 'active', icon: '📹' },
   { name: 'Agent Reach Bilibili', description: 'B站视频和字幕提取', category: 'Agent Reach', status: 'active', icon: '🎬' },
   { name: 'Agent Reach Web Scraper', description: '任意网页读取（Jina Reader）', category: 'Agent Reach', status: 'active', icon: '🌐' },
+
+  // 交互式学习系统（1个）🆕
+  { name: 'Interactive Learning System', description: '基于Interactive Benchmarks论文的交互式学习系统', category: '交互式学习', status: 'active', icon: '🧠' },
 ];
 
-const categories = ['全部', '金融分析', '投资组合', '交易系统', '数据抓取', '新闻情绪', 'AI分析', '网站开发', '数据分析', '自动化', 'Google Workspace', 'Agent Reach'];
+const categories = ['全部', '金融分析', '投资组合', '交易系统', '数据抓取', '新闻情绪', 'AI分析', '网站开发', '数据分析', '自动化', 'Google Workspace', 'Agent Reach', '交互式学习'];
 
 const categoryIcons: Record<string, string> = {
   '全部': '🌸',
@@ -159,6 +162,7 @@ const categoryIcons: Record<string, string> = {
   '自动化': '🔄',
   'Google Workspace': '🏢',
   'Agent Reach': '🔗',
+  '交互式学习': '🧠',
 };
 
 export default function SkillsPage() {
@@ -185,7 +189,7 @@ export default function SkillsPage() {
                 <span className="text-4xl">🌸</span>
                 <div>
                   <h1 className="text-2xl font-bold text-gray-900">花卷技能中心</h1>
-                  <p className="text-sm text-gray-500">136个专业技能 · 覆盖选股、分析、开发、自动化、数据抓取全流程</p>
+                  <p className="text-sm text-gray-500">137个专业技能 · 覆盖选股、分析、开发、自动化、交互式学习全流程</p>
                 </div>
               </a>
             </div>
@@ -298,6 +302,10 @@ export default function SkillsPage() {
             <div className="text-center bg-white rounded-lg p-4 shadow-sm">
               <div className="text-3xl font-bold text-yellow-500 mb-1">7</div>
               <div className="text-sm text-gray-600">Agent Reach</div>
+            </div>
+            <div className="text-center bg-white rounded-lg p-4 shadow-sm">
+              <div className="text-3xl font-bold text-purple-600 mb-1">1</div>
+              <div className="text-sm text-gray-600">交互式学习</div>
             </div>
           </div>
         </div>
