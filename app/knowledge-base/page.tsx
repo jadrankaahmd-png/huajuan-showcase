@@ -72,6 +72,22 @@ const knowledgeBase: Knowledge[] = [
       '投资建议：是的，毫无疑问（Yes, Unequivocally）'
     ],
     category: '投资分析'
+  },
+  {
+    title: 'Phase 3: 假设验证机制',
+    source: 'Interactive Benchmarks论文应用',
+    date: '2026-03-05',
+    summary: '实现投资假设的量化验证系统，支持4种假设类型（股价目标、市值目标、涨幅、时间），提供合理性评分和信心度评估。',
+    insights: [
+      '4种假设类型识别与解析',
+      '量化验证模型（0-100%合理性）',
+      '信心度评估（very_high到very_low）',
+      '验证报告自动生成',
+      '关键因素和风险因素分析',
+      '投资建议智能推荐',
+      '测试：AAOI、AAPL、TSLA验证成功'
+    ],
+    category: '交互式学习'
   }
 ];
 
@@ -101,11 +117,11 @@ export default function KnowledgeBasePage() {
             </div>
             <div className="flex gap-4 text-sm flex-wrap">
               <div className="bg-pink-50 px-4 py-2 rounded-lg">
-                <div className="text-pink-600 font-semibold">4</div>
+                <div className="text-pink-600 font-semibold">5</div>
                 <div className="text-gray-600">知识条目</div>
               </div>
               <div className="bg-green-50 px-4 py-2 rounded-lg">
-                <div className="text-green-600 font-semibold">4</div>
+                <div className="text-green-600 font-semibold">5</div>
                 <div className="text-gray-600">分类</div>
               </div>
             </div>
