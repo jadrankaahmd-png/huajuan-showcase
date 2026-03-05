@@ -143,9 +143,10 @@ const skills: Skill[] = [
   { name: 'Agent Reach Bilibili', description: 'B站视频和字幕提取', category: 'Agent Reach', status: 'active', icon: '🎬' },
   { name: 'Agent Reach Web Scraper', description: '任意网页读取（Jina Reader）', category: 'Agent Reach', status: 'active', icon: '🌐' },
 
-  // 交互式学习系统（1个）🆕
+  // 交互式学习系统（3个）🆕
   { name: 'Interactive Learning System', description: '基于Interactive Benchmarks论文的交互式学习系统', category: '交互式学习', status: 'active', icon: '🧠' },
   { name: 'Information Gap Identifier', description: '信息缺口识别器（Phase 1）', category: '交互式学习', status: 'active', icon: '🔍' },
+  { name: 'Active Search Engine', description: '主动搜索引擎（Phase 2）- 整合Agent Reach 7个数据抓取渠道', category: '交互式学习', status: 'active', icon: '🚀' },
 ];
 
 const categories = ['全部', '金融分析', '投资组合', '交易系统', '数据抓取', '新闻情绪', 'AI分析', '网站开发', '数据分析', '自动化', 'Google Workspace', 'Agent Reach', '交互式学习'];
@@ -190,7 +191,7 @@ export default function SkillsPage() {
                 <span className="text-4xl">🌸</span>
                 <div>
                   <h1 className="text-2xl font-bold text-gray-900">花卷技能中心</h1>
-                  <p className="text-sm text-gray-500">138个专业技能 · 覆盖选股、分析、开发、自动化、交互式学习全流程</p>
+                  <p className="text-sm text-gray-500">139个专业技能 · 覆盖选股、分析、开发、自动化、交互式学习全流程</p>
                 </div>
               </a>
             </div>
@@ -305,7 +306,7 @@ export default function SkillsPage() {
               <div className="text-sm text-gray-600">Agent Reach</div>
             </div>
             <div className="text-center bg-white rounded-lg p-4 shadow-sm">
-              <div className="text-3xl font-bold text-purple-600 mb-1">2</div>
+              <div className="text-3xl font-bold text-purple-600 mb-1">3</div>
               <div className="text-sm text-gray-600">交互式学习</div>
             </div>
           </div>
