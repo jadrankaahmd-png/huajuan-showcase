@@ -1235,6 +1235,132 @@ export const capabilities = [
     icon: '🌐',
     items: [
       {
+        name: 'bird',
+        description: 'Twitter/X社交监控工具',
+        status: 'active',
+        type: '社交工具',
+        details: {
+          whatItDoes: 'Twitter/X数据扒取，监控推文、用户动态、热门话题',
+          howItWorks: 'bird CLI → Twitter数据 → 分析报告',
+          currentStatus: '✅ 已配置\n- 免费，无限制\n- 主力社交监控工具',
+          lastUpdate: '2026-02-04',
+          usage: 'bird search "NVDA"',
+          dependencies: ['Twitter Cookie']
+        }
+      },
+      {
+        name: 'obsidian-cli',
+        description: 'Obsidian笔记管理工具',
+        status: 'active',
+        type: '笔记工具',
+        details: {
+          whatItDoes: '管理Obsidian vault，创建、搜索、编辑股票研究笔记',
+          howItWorks: 'obsidian-cli → Markdown笔记 → 知识库',
+          currentStatus: '✅ 已配置\n- 免费，无限制\n- 主力笔记工具',
+          lastUpdate: '2026-02-04',
+          usage: 'obsidian new "NVDA分析"',
+          dependencies: ['Obsidian']
+        }
+      },
+      {
+        name: 'summarize',
+        description: '研报/文章总结工具',
+        status: 'active',
+        type: '文本工具',
+        details: {
+          whatItDoes: '总结研报、文章、长文本，提取关键信息',
+          howItWorks: 'Kimi API → 文本总结 → 输出摘要',
+          currentStatus: '✅ 已配置\n- Kimi额度支持\n- 主力总结工具',
+          lastUpdate: '2026-02-04',
+          usage: 'summarize "https://..."',
+          dependencies: ['Kimi API']
+        }
+      },
+      {
+        name: 'gh (GitHub CLI)',
+        description: 'GitHub代码管理工具',
+        status: 'active',
+        type: '代码工具',
+        details: {
+          whatItDoes: 'GitHub操作，管理代码、PR、Issues',
+          howItWorks: 'gh CLI → GitHub API → 操作代码库',
+          currentStatus: '✅ 已配置\n- 免费，无限制\n- 主力代码工具',
+          lastUpdate: '2026-02-04',
+          usage: 'gh repo list',
+          dependencies: ['GitHub Token: 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']
+        }
+      },
+      {
+        name: 'Brave Search API',
+        description: 'web_search底层搜索API',
+        status: 'active',
+        type: '搜索API',
+        details: {
+          whatItDoes: 'web_search工具的底层搜索API，提供网页搜索能力',
+          howItWorks: 'Brave Search API → 搜索结果 → 返回给web_search工具',
+          currentStatus: '✅ 已配置\n- OpenClaw内置\n- 无需单独调用',
+          lastUpdate: '2026-02-04',
+          usage: '自动调用（通过web_search工具）',
+          dependencies: ['API Key: BSAAKvroq-wexlNpVth1wkN80zVFdfT']
+        }
+      },
+      {
+        name: 'Kimi API',
+        description: 'summarize工具底层LLM API',
+        status: 'active',
+        type: 'LLM API',
+        details: {
+          whatItDoes: 'summarize工具的底层LLM API，提供文本总结能力',
+          howItWorks: 'Kimi API → 文本总结 → 返回给summarize工具',
+          currentStatus: '✅ 已配置\n- Moonshot AI\n- 长文本处理',
+          lastUpdate: '2026-02-04',
+          usage: '自动调用（通过summarize工具）',
+          dependencies: ['API Key: sk-WrB6ycMkQRHboVDVReUWNg32wvMhGQTolyeYxFuCWhTtGskS', 'Base URL: https://api.moonshot.cn/v1']
+        }
+      },
+      {
+        name: 'Twitter/X Cookie',
+        description: 'bird工具底层认证',
+        status: 'active',
+        type: '认证工具',
+        details: {
+          whatItDoes: 'bird工具的底层Twitter/X认证，提供Twitter数据访问',
+          howItWorks: 'Cookie认证 → Twitter API → 返回给bird工具',
+          currentStatus: '✅ 已配置\n- 免费访问\n- 无需API Key',
+          lastUpdate: '2026-02-04',
+          usage: '自动调用（通过bird工具）',
+          dependencies: ['Auth Token: 2b474e8ccbee3cb37e6ba3e37d5d53fcb399ac02', 'CT0: 42d0812e24a17a0aace033e6cab470ea3953a7b5c2c66bdeeb1c3df3a554ccbf...']
+        }
+      },
+      {
+        name: 'Alpha Vantage API',
+        description: '主力财务数据源',
+        status: 'active',
+        type: '数据API',
+        details: {
+          whatItDoes: '获取财报、现金流、利润表等财务数据',
+          howItWorks: 'RESTful API → JSON响应 → 财务分析',
+          currentStatus: '✅ 已配置\n- 免费25次/天\n- 主力财务数据源',
+          lastUpdate: '2026-02-04',
+          usage: 'https://www.alphavantage.co/query?function=INCOME_STATEMENT&symbol=NVDA',
+          dependencies: ['API Key: 28OXFFP2JWTDGBGD']
+        }
+      },
+      {
+        name: 'Financial Modeling Prep API',
+        description: '详细财务数据（Alpha备用）',
+        status: 'active',
+        type: '数据API',
+        details: {
+          whatItDoes: '获取详细财报、财务比率、估值数据',
+          howItWorks: 'RESTful API → JSON响应 → 财务分析',
+          currentStatus: '✅ 已配置\n- 免费250次/天\n- Alpha Vantage备用',
+          lastUpdate: '2026-02-04',
+          usage: 'https://financialmodelingprep.com/api/v3/income-statement/NVDA',
+          dependencies: ['API Key: AQpMi6zf0bH0QtCHpl15FxtQeNxEHniU']
+        }
+      },
+      {
         name: 'Finnhub API',
         description: '实时股价、新闻、财报数据',
         status: 'active',
@@ -1245,7 +1371,7 @@ export const capabilities = [
           currentStatus: '✅ 正常运行\n- API Key已配置\n- 每分钟60次调用限制',
           lastUpdate: '2026-02-09',
           usage: 'import finnhub\nfinnhub_client = finnhub.Client(api_key="YOUR_KEY")',
-          dependencies: ['API Key: d61gv49r01qufbsn7v90d61gv49r01qufbsn7v9g']
+          dependencies: ['API Key: 已配置（见SESSION_START.md）']
         }
       },
       {
@@ -1259,7 +1385,7 @@ export const capabilities = [
           currentStatus: '✅ 正常运行\n- API Key已配置\n- 免费100请求/天',
           lastUpdate: '2026-02-09',
           usage: 'import requests\nurl = f"https://newsapi.org/v2/everything?q={keyword}&apiKey={API_KEY}"',
-          dependencies: ['API Key: 332b7388f0fb42a9bf05d06a89fc10c9']
+          dependencies: ['API Key: 已配置（见SESSION_START.md）']
         }
       },
       {
@@ -1474,16 +1600,16 @@ export const capabilities = [
     items: [
       {
         name: '投资蒸馏系统',
-        description: '4201家机构持仓蒸馏',
+        description: '4201家机构持仓蒸馏（每天9点自动更新）',
         status: 'active',
         type: '机构系统',
         details: {
-          whatItDoes: '从4201家机构、926823个持仓中蒸馏出早期投资机会',
-          howItWorks: '早期机会发现（机构<=3家）→ 趋势追踪（3-5季度）→ 集体共识（>=5家机构）',
-          currentStatus: '✅ 正常运行\n- 4201家机构\n- 926823个持仓\n- 46791个早期机会\n- 6355个共识股票',
-          lastUpdate: '2026-03-03',
-          usage: 'investment_distillation/daily_update.py',
-          dependencies: ['SEC EDGAR', '13F Holdings']
+          whatItDoes: '从4201家机构、926823个持仓中蒸馏出早期投资机会，每天9点自动更新',
+          howItWorks: 'SEC EDGAR 13F数据 → 三大蒸馏维度：\n1. 早期机会发现（机构<=3家）→ 2. 趋势追踪（3-5季度）→ 3. 集体共识（>=5家机构）',
+          currentStatus: '✅ 正常运行（2026-03-05 16:57最新数据）\n- 4201家机构\n- 926823个持仓\n- 46791个早期机会\n- 6355个共识股票\n- 每天9点自动更新',
+          lastUpdate: '2026-03-05 16:57',
+          usage: 'investment_distillation/daily_update.py（自动运行）',
+          dependencies: ['SEC EDGAR', '13F Holdings', 'Heartbeat自动触发']
         }
       },
       {
@@ -1773,6 +1899,1224 @@ export const capabilities = [
           currentStatus: '✅ 正常运行\n- auto_git_commit.sh',
           usage: 'tools/auto_git_commit.sh',
           dependencies: ['Git']
+        }
+      }
+    ]
+  },
+
+  // 报告模版系统（新增）
+  {
+    category: 'templates',
+    name: '报告模版系统',
+    icon: '📝',
+    items: [
+      {
+        name: '买入报告模版',
+        description: '个股买入分析报告模版',
+        status: 'active',
+        type: '报告模版',
+        details: {
+          whatItDoes: '标准化的个股买入分析报告模版，包括基本面、技术面、情绪分析',
+          currentStatus: '✅ 正常运行\n- 报告备份/买入报告/',
+          usage: '用于生成买入决策报告',
+          dependencies: ['Markdown']
+        }
+      },
+      {
+        name: '卖出总结模版',
+        description: '卖出决策总结模版',
+        status: 'active',
+        type: '报告模版',
+        details: {
+          whatItDoes: '记录卖出原因、盈亏、经验教训',
+          currentStatus: '✅ 正常运行\n- 报告备份/卖出总结/',
+          usage: '用于记录卖出决策',
+          dependencies: ['Markdown']
+        }
+      },
+      {
+        name: '持仓跟踪模版',
+        description: '持仓定期跟踪报告模版',
+        status: 'active',
+        type: '报告模版',
+        details: {
+          whatItDoes: '定期跟踪持仓表现、风险变化、盈利情况',
+          currentStatus: '✅ 正常运行\n- 报告备份/持仓跟踪/',
+          usage: '每周/每月更新持仓状态',
+          dependencies: ['Markdown']
+        }
+      },
+      {
+        name: '逻辑优化模版',
+        description: '交易逻辑优化记录模版',
+        status: 'active',
+        type: '报告模版',
+        details: {
+          whatItDoes: '记录交易逻辑的优化过程和结果',
+          currentStatus: '✅ 正常运行\n- 报告备份/逻辑优化/',
+          usage: '记录策略改进',
+          dependencies: ['Markdown']
+        }
+      },
+      {
+        name: '进化报告',
+        description: '系统进化周报（自动生成）',
+        status: 'active',
+        type: '报告模版',
+        details: {
+          whatItDoes: '每周自动生成系统进化报告，总结学习和改进',
+          howItWorks: '每周一08:00自动运行 → 分析上周数据 → 生成洞察',
+          currentStatus: '✅ 正常运行\n- 虾虾交易报告/进化报告_*.md',
+          lastUpdate: '2026-03-02',
+          usage: '自动生成',
+          dependencies: ['Cron', 'Python']
+        }
+      },
+      {
+        name: '每日复盘报告',
+        description: 'AI执行系统每日复盘（05:30自动生成）',
+        status: 'active',
+        type: '报告模版',
+        details: {
+          whatItDoes: '每天美股收盘后（05:30）自动生成复盘报告',
+          howItWorks: '分析昨日交易 → 识别成功/失败模式 → 生成洞察',
+          currentStatus: '✅ 正常运行\n- AI执行系统/daily_report_*.md',
+          lastUpdate: '2026-02-12',
+          usage: '自动生成（每天05:30）',
+          dependencies: ['AI执行系统', 'Cron']
+        }
+      },
+      {
+        name: '周度洞察报告',
+        description: '每周一自动生成洞察报告',
+        status: 'active',
+        type: '报告模版',
+        details: {
+          whatItDoes: '每周一08:00自动分析最近7天执行数据，生成洞察',
+          howItWorks: '7天数据 → 模式识别 → 洞察生成',
+          currentStatus: '✅ 正常运行\n- AI执行系统/weekly_insights.json',
+          usage: '自动生成（每周一08:00）',
+          dependencies: ['AI执行系统', 'Cron']
+        }
+      }
+    ]
+  },
+
+  // 定时任务系统（新增）
+  {
+    category: 'automation',
+    name: '定时任务系统',
+    icon: '⏰',
+    items: [
+      {
+        name: '双重监控',
+        description: '每分钟检查OpenClaw和虾虾系统',
+        status: 'active',
+        type: '定时任务',
+        details: {
+          whatItDoes: '每分钟检查OpenClaw和虾虾系统运行状态',
+          howItWorks: 'dual_monitor.sh → 检查进程 → 自动重启',
+          currentStatus: '✅ 正常运行\n- */1 * * * *（每分钟）',
+          usage: '自动运行',
+          dependencies: ['Shell', 'Cron']
+        }
+      },
+      {
+        name: 'IB Gateway监控',
+        description: '每5分钟检查IB Gateway状态',
+        status: 'active',
+        type: '定时任务',
+        details: {
+          whatItDoes: '每5分钟检查IB Gateway运行状态，自动重启',
+          currentStatus: '✅ 正常运行\n- */5 * * * *（每5分钟）',
+          usage: '自动运行',
+          dependencies: ['IB Gateway', 'Cron']
+        }
+      },
+      {
+        name: '投资蒸馏定时任务',
+        description: '每天9点自动更新',
+        status: 'active',
+        type: '定时任务',
+        details: {
+          whatItDoes: '每天9点自动运行投资蒸馏系统',
+          howItWorks: '更新4201家机构持仓 → 生成早期机会报告',
+          currentStatus: '✅ 正常运行\n- 0 9 * * *（每天9点）',
+          usage: '自动运行',
+          dependencies: ['investment_distillation', 'Cron']
+        }
+      },
+      {
+        name: '市场价格更新',
+        description: '每5分钟更新实时价格',
+        status: 'active',
+        type: '定时任务',
+        details: {
+          whatItDoes: '每5分钟更新股票实时价格',
+          currentStatus: '✅ 正常运行\n- */5 * * * *（每5分钟）',
+          usage: '自动运行',
+          dependencies: ['yfinance', 'Cron']
+        }
+      },
+      {
+        name: 'AI每日复盘',
+        description: '每天05:30生成复盘报告',
+        status: 'active',
+        type: '定时任务',
+        details: {
+          whatItDoes: '每天美股收盘后（05:30）自动生成复盘报告',
+          currentStatus: '✅ 正常运行\n- 30 5 * * *（每天05:30）',
+          usage: '自动运行',
+          dependencies: ['AI执行系统', 'Cron']
+        }
+      },
+      {
+        name: '执行记录备份',
+        description: '每小时备份执行记录',
+        status: 'active',
+        type: '定时任务',
+        details: {
+          whatItDoes: '每小时备份执行记录到JSON文件',
+          currentStatus: '✅ 正常运行\n- 0 * * * *（每小时）',
+          usage: '自动运行',
+          dependencies: ['AI执行系统', 'Cron']
+        }
+      },
+      {
+        name: '周度洞察',
+        description: '每周一08:00生成周度洞察',
+        status: 'active',
+        type: '定时任务',
+        details: {
+          whatItDoes: '每周一08:00自动分析最近7天执行数据',
+          currentStatus: '✅ 正常运行\n- 0 8 * * 1（每周一08:00）',
+          usage: '自动运行',
+          dependencies: ['AI执行系统', 'Cron']
+        }
+      },
+      {
+        name: '预测检查',
+        description: '每天18:00检查预测结果',
+        status: 'active',
+        type: '定时任务',
+        details: {
+          whatItDoes: '每天18:00检查ML预测准确性',
+          currentStatus: '✅ 正常运行\n- 0 18 * * *（每天18:00）',
+          usage: '自动运行',
+          dependencies: ['ML模型', 'Cron']
+        }
+      }
+    ]
+  },
+
+  // Shell工具（新增）
+  {
+    category: 'shell',
+    name: 'Shell工具',
+    icon: '🐚',
+    items: [
+      {
+        name: 'backtest.sh',
+        description: '命令行回测工具（支持SMA/RSI/MACD）',
+        status: 'active',
+        type: 'Shell工具',
+        details: {
+          whatItDoes: '命令行回测工具，支持多种策略（SMA、RSI、MACD）',
+          howItWorks: './backtest.sh run NVDA sma --start 2024-01-01 --end 2025-12-31',
+          currentStatus: '✅ 正常运行\n- 支持SMA、RSI、MACD策略\n- 可自定义参数',
+          usage: './backtest.sh run NVDA sma --short 20 --long 50',
+          dependencies: ['Backtrader', 'yfinance']
+        }
+      },
+      {
+        name: 'news.sh',
+        description: '新闻监控工具（MarketAux API）',
+        status: 'active',
+        type: 'Shell工具',
+        details: {
+          whatItDoes: '命令行新闻监控工具，使用MarketAux API',
+          howItWorks: './news.sh latest 10 → 获取最新10条金融新闻',
+          currentStatus: '✅ 正常运行\n- 每日100次API限额\n- 支持股票、行业过滤',
+          usage: './news.sh symbol NVDA,AMD,TSLA',
+          dependencies: ['MarketAux API']
+        }
+      },
+      {
+        name: 'options.sh',
+        description: '期权工具',
+        status: 'active',
+        type: 'Shell工具',
+        details: {
+          whatItDoes: '命令行期权分析工具',
+          currentStatus: '✅ 正常运行',
+          usage: './options.sh',
+          dependencies: ['Finnhub']
+        }
+      },
+      {
+        name: 'finance.sh',
+        description: '财务工具',
+        status: 'active',
+        type: 'Shell工具',
+        details: {
+          whatItDoes: '命令行财务分析工具',
+          currentStatus: '✅ 正常运行',
+          usage: './finance.sh',
+          dependencies: ['yfinance']
+        }
+      },
+      {
+        name: 'deploy_to_cloudflare.sh',
+        description: 'Cloudflare部署工具',
+        status: 'active',
+        type: 'Shell工具',
+        details: {
+          whatItDoes: '自动部署网站到Cloudflare Pages',
+          currentStatus: '✅ 正常运行\n- 支持Git自动部署\n- 支持Wrangler CLI',
+          usage: './deploy_to_cloudflare.sh',
+          dependencies: ['Wrangler', 'Git']
+        }
+      }
+    ]
+  },
+
+  // 数据目录系统（新增）
+  {
+    category: 'data',
+    name: '数据目录系统',
+    icon: '📊',
+    items: [
+      {
+        name: 'Reddit数据',
+        description: 'Reddit情绪数据（29个JSON文件）',
+        status: 'active',
+        type: '数据目录',
+        details: {
+          whatItDoes: '存储Reddit情绪分析历史数据',
+          currentStatus: '✅ 正常运行\n- 29个JSON文件\n- 时间跨度：2026-02-14~2026-03-05',
+          usage: 'Reddit数据/',
+          dependencies: ['reddit_monitor.py']
+        }
+      },
+      {
+        name: '交易数据',
+        description: '交易记录数据',
+        status: 'active',
+        type: '数据目录',
+        details: {
+          whatItDoes: '存储交易记录数据',
+          currentStatus: '✅ 正常运行',
+          usage: '交易数据/',
+          dependencies: ['trade_logger.py']
+        }
+      },
+      {
+        name: '交易日志',
+        description: '交易日志文件',
+        status: 'active',
+        type: '数据目录',
+        details: {
+          whatItDoes: '存储Cron任务日志',
+          currentStatus: '✅ 正常运行\n- cron_trading.log\n- cron_ib_monitor.log\n- cron_dual_monitor.log',
+          usage: '交易日志/',
+          dependencies: ['Cron']
+        }
+      },
+      {
+        name: '交易记录',
+        description: '交易记录Python脚本',
+        status: 'active',
+        type: '数据目录',
+        details: {
+          whatItDoes: '存储交易记录相关Python脚本',
+          currentStatus: '✅ 正常运行',
+          usage: '交易记录/',
+          dependencies: ['Python']
+        }
+      },
+      {
+        name: '分析师追踪数据',
+        description: '分析师评级数据',
+        status: 'active',
+        type: '数据目录',
+        details: {
+          whatItDoes: '存储分析师评级历史数据',
+          currentStatus: '✅ 正常运行',
+          usage: '分析师追踪数据/',
+          dependencies: ['analyst_tracker.py']
+        }
+      },
+      {
+        name: '回测数据',
+        description: '回测结果数据',
+        status: 'active',
+        type: '数据目录',
+        details: {
+          whatItDoes: '存储策略回测结果',
+          currentStatus: '✅ 正常运行',
+          usage: '回测数据/',
+          dependencies: ['backtest_validator.py']
+        }
+      },
+      {
+        name: '大单监控数据',
+        description: '大单监控数据',
+        status: 'active',
+        type: '数据目录',
+        details: {
+          whatItDoes: '存储大单监控历史数据',
+          currentStatus: '✅ 正常运行',
+          usage: '大单监控数据/',
+          dependencies: ['whale_tracker.py']
+        }
+      },
+      {
+        name: '宏观数据',
+        description: '宏观经济数据',
+        status: 'active',
+        type: '数据目录',
+        details: {
+          whatItDoes: '存储宏观经济指标数据',
+          currentStatus: '✅ 正常运行',
+          usage: '宏观数据/',
+          dependencies: ['macro_monitor.py']
+        }
+      },
+      {
+        name: '新闻监控数据',
+        description: '新闻数据',
+        status: 'active',
+        type: '数据目录',
+        details: {
+          whatItDoes: '存储新闻监控历史数据',
+          currentStatus: '✅ 正常运行',
+          usage: '新闻监控数据/',
+          dependencies: ['news_aggregator.py']
+        }
+      },
+      {
+        name: '期权流数据',
+        description: '期权流数据',
+        status: 'active',
+        type: '数据目录',
+        details: {
+          whatItDoes: '存储期权流分析数据',
+          currentStatus: '✅ 正常运行',
+          usage: '期权流数据/',
+          dependencies: ['options_flow_analyzer.py']
+        }
+      },
+      {
+        name: '竞争力分析数据',
+        description: '竞争力分析数据',
+        status: 'active',
+        type: '数据目录',
+        details: {
+          whatItDoes: '存储竞争力分析结果',
+          currentStatus: '✅ 正常运行',
+          usage: '竞争力分析数据/',
+          dependencies: ['competitive_analyzer.py']
+        }
+      },
+      {
+        name: '纸面交易数据',
+        description: '纸面交易记录',
+        status: 'active',
+        type: '数据目录',
+        details: {
+          whatItDoes: '存储纸面交易记录',
+          currentStatus: '✅ 正常运行',
+          usage: '纸面交易数据/',
+          dependencies: ['paper_trading_tracker.py']
+        }
+      },
+      {
+        name: '行业轮动数据',
+        description: '行业轮动数据',
+        status: 'active',
+        type: '数据目录',
+        details: {
+          whatItDoes: '存储行业轮动分析数据',
+          currentStatus: '✅ 正常运行',
+          usage: '行业轮动数据/',
+          dependencies: ['sector_rotation_monitor.py']
+        }
+      },
+      {
+        name: '评分数据',
+        description: '多因子评分数据',
+        status: 'active',
+        type: '数据目录',
+        details: {
+          whatItDoes: '存储多因子评分结果',
+          currentStatus: '✅ 正常运行',
+          usage: '评分数据/',
+          dependencies: ['multi_factor_scorer_v2.py']
+        }
+      },
+      {
+        name: '风险预警数据',
+        description: '风险预警数据',
+        status: 'active',
+        type: '数据目录',
+        details: {
+          whatItDoes: '存储风险预警历史数据',
+          currentStatus: '✅ 正常运行',
+          usage: '风险预警数据/',
+          dependencies: ['risk_alert_system.py']
+        }
+      }
+    ]
+  },
+
+  // 系统目录（新增）
+  {
+    category: 'systems',
+    name: '系统目录',
+    icon: '🏢',
+    items: [
+      {
+        name: 'solo_wall_street_system',
+        description: '独立交易系统',
+        status: 'active',
+        type: '系统目录',
+        details: {
+          whatItDoes: '独立交易系统，包含agents、data、models、pipelines、utils',
+          currentStatus: '✅ 正常运行\n- agents/\n- data/\n- models/\n- pipelines/\n- utils/',
+          usage: 'solo_wall_street_system/',
+          dependencies: ['Python']
+        }
+      },
+      {
+        name: 'KOL监控',
+        description: 'KOL监控专用目录',
+        status: 'active',
+        type: '系统目录',
+        details: {
+          whatItDoes: '存储KOL监控相关文件',
+          currentStatus: '✅ 正常运行\n- 通用KOL列表_2026-02-08.md',
+          usage: 'KOL监控/',
+          dependencies: ['twitter_kol_monitor.py']
+        }
+      },
+      {
+        name: 'AI执行系统',
+        description: 'AI执行系统（ExecutionRecord + EmbeddingStore）',
+        status: 'active',
+        type: '系统目录',
+        details: {
+          whatItDoes: '记录所有执行任务，嵌入检索，每日复盘',
+          howItWorks: 'ExecutionRecord → EmbeddingStore → 每日复盘 → 周度洞察',
+          currentStatus: '✅ 正常运行\n- execution_system.py\n- daily_review_cron.py\n- trading_integration.py',
+          usage: 'AI执行系统/',
+          dependencies: ['Python', 'Embedding Store', 'Cron']
+        }
+      },
+      {
+        name: 'trading_integration',
+        description: '交易系统集成接口',
+        status: 'active',
+        type: '系统目录',
+        details: {
+          whatItDoes: '桥接现有交易系统和AI执行系统',
+          currentStatus: '✅ 正常运行\n- record_trade()\n- record_monitoring()\n- search_similar_trades()\n- get_trading_insights()',
+          usage: 'from trading_integration import get_trading_integration',
+          dependencies: ['AI执行系统']
+        }
+      },
+      {
+        name: 'MarketAux API',
+        description: '新闻API集成（news.sh）',
+        status: 'active',
+        type: '系统目录',
+        details: {
+          whatItDoes: '通过MarketAux API获取金融新闻',
+          howItWorks: 'news.sh → MarketAux API → 新闻数据',
+          currentStatus: '✅ 正常运行\n- 每日100次API限额\n- 支持股票、行业过滤',
+          usage: './news.sh latest 10',
+          dependencies: ['MarketAux API', 'Shell']
+        }
+      }
+    ]
+  },
+
+  // 其他能力（新增）
+  {
+    category: 'other',
+    name: '其他能力',
+    icon: '🔧',
+    items: [
+      {
+        name: 'QuantConnect集成',
+        description: '量化回测平台',
+        status: 'active',
+        type: '其他能力',
+        details: {
+          whatItDoes: '集成QuantConnect平台进行高级量化回测',
+          currentStatus: '✅ 正常运行\n- QuantConnect/\n- quantconnect_monitor.py',
+          usage: 'QuantConnect/',
+          dependencies: ['QuantConnect API']
+        }
+      },
+      {
+        name: 'Context保护系统',
+        description: '防止Context超限',
+        status: 'active',
+        type: '其他能力',
+        details: {
+          whatItDoes: '监控Context使用，防止超限（model_context_window_exceeded）',
+          howItWorks: '检查Context使用 → 超过阈值 → 自动压缩对话记录',
+          currentStatus: '✅ 正常运行\n- context_protector.py\n- 自动Git提交',
+          usage: 'python3 tools/context_protector.py',
+          dependencies: ['Python', 'Git']
+        }
+      }
+    ]
+  },
+
+  // 报告系统（核心能力）
+  {
+    category: 'reports',
+    name: '报告系统',
+    icon: '📊',
+    items: [
+      {
+        name: '团队报告（22:00汇报）',
+        description: '每晚10点向子涵汇报团队综合分析',
+        status: 'active',
+        type: '报告系统',
+        details: {
+          whatItDoes: '每晚22:00向子涵汇报团队综合分析结果，包括长期投资和短线机会',
+          howItWorks: '3位分析师报告 → 汇总筛选 → 投资决策 → 22:00汇报',
+          currentStatus: '✅ 正常运行\n- 每晚22:00自动汇报\n- 包含长期投资（100%+涨幅）\n- 包含短线机会（10%+涨幅）',
+          usage: '每天22:00自动生成',
+          dependencies: ['AGENTS.md', 'team-roles']
+        }
+      },
+      {
+        name: '每日报告（17:00盘中）',
+        description: '下午5点盘中综合报告（10个部分）',
+        status: 'active',
+        type: '报告系统',
+        details: {
+          whatItDoes: '每天17:00生成盘中综合报告，包含10个部分',
+          howItWorks: 'Twitter大V言论 → 行业分析 → 日内交易 → 今日学习 → 虾虾精选 → 策略回测 → ...',
+          currentStatus: '✅ 正常运行\n- 每天17:00自动生成\n- 10个核心部分\n- 实时性优先',
+          usage: '每天17:00自动生成',
+          dependencies: ['Twitter API', 'Reddit API', 'NewsAPI']
+        }
+      },
+      {
+        name: '个股报告（17步框架）',
+        description: '深度分析单只股票（17步完整框架）',
+        status: 'active',
+        type: '报告系统',
+        details: {
+          whatItDoes: '对单只股票进行17步完整分析',
+          howItWorks: '17步框架：最新信息 → Five-Point Framework → 竞争格局 → 估值 → 44-KOL → 情绪 → 期权 → 做空 → 资金流 → 内部人 → 财报 → 共振 → 盘前盘后 → 技术 → 壁垒 → 大师 → 推荐',
+          currentStatus: '✅ 正常运行\n- 17步完整分析\n- 深度彻底\n- 5位大师框架',
+          usage: '子涵询问某只股票时触发',
+          dependencies: ['yfinance', 'SEC EDGAR', 'NewsAPI', 'LLM']
+        }
+      },
+      {
+        name: '紧急实时报告',
+        description: '有风吹草动立刻报告',
+        status: 'active',
+        type: '报告系统',
+        details: {
+          whatItDoes: '遇到重要信息立即汇报，不等到5点或10点',
+          currentStatus: '✅ 正常运行\n- 实时性优先\n- 紧急程度高\n- 绝不耽搁',
+          usage: '检测到重要信息时自动触发',
+          dependencies: ['监控系统', 'Telegram']
+        }
+      }
+    ]
+  },
+
+  // 知识库系统（核心能力）
+  {
+    category: 'knowledge-base',
+    name: '知识库系统',
+    icon: '📚',
+    items: [
+      {
+        name: '知识库更新流程',
+        description: '自动学习和保存有价值的信息',
+        status: 'active',
+        type: '知识库',
+        details: {
+          whatItDoes: '当子涵说"这个信息有价值"时，自动分析、分类、归档、应用',
+          howItWorks: '信息收集 → 分析价值 → 分类归档 → 整合应用 → 确认反馈',
+          currentStatus: '✅ 正常运行\n- 自动触发\n- 分类归档\n- 整合应用',
+          usage: '子涵说"这个信息有价值"或"保存到知识库"',
+          dependencies: ['MEMORY.md', '量化学习/', 'TOOLS.md']
+        }
+      },
+      {
+        name: '已保存的重要洞察',
+        description: '5个核心洞察（量化、量子计算、CTA模型、黄金投资）',
+        status: 'active',
+        type: '知识库',
+        details: {
+          whatItDoes: '存储历史上子涵分享的所有重要洞察',
+          currentStatus: '✅ 正常运行\n- 子涵量化洞察（回测价值）\n- Jensen Huang量子计算洞察\n- CTA模型卖出信号\n- 黄金投资宏观框架',
+          usage: 'MEMORY.md',
+          dependencies: ['MEMORY.md']
+        }
+      },
+      {
+        name: '行业分析知识库',
+        description: '按行业分类的深度分析框架',
+        status: 'active',
+        type: '知识库',
+        details: {
+          whatItDoes: '存储不同行业的深度分析框架和洞察',
+          currentStatus: '✅ 正常运行\n- 量子计算（Jensen Huang洞察）\n- IONQ vs RGTI对比\n- 半导体行业\n- AI行业',
+          usage: '知识储备库/',
+          dependencies: ['Markdown']
+        }
+      },
+      {
+        name: '量化策略库',
+        description: '量化策略和学习材料',
+        status: 'active',
+        type: '知识库',
+        details: {
+          whatItDoes: '存储量化策略、回测技术、学习材料',
+          currentStatus: '✅ 正常运行\n- 知识储备库/量化策略/',
+          usage: '知识储备库/量化策略/',
+          dependencies: ['Python', 'Markdown']
+        }
+      }
+    ]
+  },
+
+  // 工具库系统（v3.0）
+  {
+    category: 'tool-library',
+    name: '工具库系统（v3.0）',
+    icon: '🛠️',
+    items: [
+      {
+        name: 'Python库（15个）',
+        description: '15个专业Python库（量化、机器学习、爬虫）',
+        status: 'active',
+        type: '工具库',
+        details: {
+          whatItDoes: '15个专业Python库，包括量化、机器学习、爬虫',
+          currentStatus: '✅ 100%完成\n- zipline-reloaded\n- backtrader\n- vectorbt\n- quantstats\n- pyportfolioopt\n- empyrical\n- pyfolio-reloaded\n- scikit-learn\n- xgboost\n- lightgbm\n- scrapy\n- selenium\n- TA-Lib\n- pandas-datareader\n- aiohttp',
+          usage: 'conda activate openclaw',
+          dependencies: ['Conda环境openclaw']
+        }
+      },
+      {
+        name: '金融脚本（15个）',
+        description: '15个Python金融分析脚本',
+        status: 'active',
+        type: '工具库',
+        details: {
+          whatItDoes: '15个Python金融分析脚本，包括筛选、优化、风险、技术等',
+          currentStatus: '✅ 100%完成\n- stock_screener.py\n- portfolio_optimizer.py\n- risk_calculator.py\n- technical_scanner.py\n- earnings_calendar.py\n- options_analyzer.py\n- correlation_matrix.py\n- volatility_calculator.py\n- fund_flow_tracker.py\n- ...',
+          usage: 'cd ~/.openclaw/workspace/tools && python3 stock_screener.py',
+          dependencies: ['Python', 'Conda']
+        }
+      },
+      {
+        name: 'Conda环境',
+        description: '专业量化Python环境（openclaw）',
+        status: 'active',
+        type: '工具库',
+        details: {
+          whatItDoes: '专门为量化分析配置的Python环境',
+          currentStatus: '✅ 正常运行\n- 环境名：openclaw\n- Python版本：3.11\n- 核心库：pyportfolioopt, empyrical, pyfolio-reloaded',
+          usage: 'source /opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh && conda activate openclaw',
+          dependencies: ['Miniconda']
+        }
+      }
+    ]
+  },
+
+  // 团队系统（核心能力）
+  {
+    category: 'team',
+    name: '团队系统',
+    icon: '👥',
+    items: [
+      {
+        name: '团队角色系统',
+        description: '5个专业角色分工协作',
+        status: 'active',
+        type: '团队系统',
+        details: {
+          whatItDoes: '5个专业角色分工协作：科技分析师、半导体分析师、AI分析师、投资经理、副总',
+          howItWorks: '每位分析师负责不同行业 → 投资经理汇总 → 副总决策 → 虾虾总管监督',
+          currentStatus: '✅ 正常运行\n- AGENTS.md\n- team-roles/\n- Sub-agent sessions',
+          usage: 'AGENTS.md',
+          dependencies: ['sessions_spawn']
+        }
+      },
+      {
+        name: '跨Session通信',
+        description: 'Sub-agents互相发送报告',
+        status: 'active',
+        type: '团队系统',
+        details: {
+          whatItDoes: '不同的Sub-agent sessions互相发送报告和协作',
+          currentStatus: '✅ 正常运行\n- sessions_send\n- sessions_spawn\n- 实时协作',
+          usage: 'sessions_send(sessionKey, message)',
+          dependencies: ['sessions_spawn', 'sessions_send']
+        }
+      },
+      {
+        name: '投资决策流程',
+        description: '从分析到决策的完整流程',
+        status: 'active',
+        type: '团队系统',
+        details: {
+          whatItDoes: '从分析师到投资经理到副总到虾虾的完整决策链',
+          howItWorks: '分析师报告 → 投资经理汇总 → 副总筛选 → 虾虾决策 → 22:00汇报',
+          currentStatus: '✅ 正常运行',
+          usage: '自动运行',
+          dependencies: ['AGENTS.md', 'team-roles']
+        }
+      }
+    ]
+  },
+
+  // 伊朗追踪系统
+  {
+    category: 'iran-tracker',
+    name: '伊朗追踪系统',
+    icon: '🌍',
+    items: [
+      {
+        name: '伊朗局势实时追踪',
+        description: '实时追踪伊朗局势和市场影响',
+        status: 'active',
+        type: '追踪系统',
+        details: {
+          whatItDoes: '实时追踪伊朗局势，分析对市场的影响',
+          howItWorks: '多源抓取 → 事件提取 → 市场影响分析 → 实时更新',
+          currentStatus: '✅ 正常运行\n- 9个时间线事件\n- 5个市场影响\n- 每分钟更新\n- 实时价格',
+          lastUpdate: '2026-03-03',
+          usage: '/event-tracker-ultimate',
+          dependencies: ['complete_iran_tracker.py', 'yfinance']
+        }
+      },
+      {
+        name: '地缘政治影响分析',
+        description: '分析地缘政治对美股的影响',
+        status: 'active',
+        type: '追踪系统',
+        details: {
+          whatItDoes: '分析地缘政治事件对石油、军工、航空等行业的影响',
+          currentStatus: '✅ 正常运行\n- 石油价格影响\n- 军工股影响\n- 航空股影响',
+          usage: '自动分析',
+          dependencies: ['NewsAPI', 'yfinance']
+        }
+      }
+    ]
+  },
+
+  // 部署系统
+  {
+    category: 'deployment',
+    name: '部署系统',
+    icon: '🚀',
+    items: [
+      {
+        name: 'Cloudflare Pages部署',
+        description: '自动部署到Cloudflare Pages',
+        status: 'active',
+        type: '部署系统',
+        details: {
+          whatItDoes: '自动部署网站到Cloudflare Pages',
+          howItWorks: 'Git push → Cloudflare自动构建 → 自动部署',
+          currentStatus: '✅ 正常运行\n- GitHub自动部署\n- Wrangler CLI支持\n- 多个部署指南',
+          usage: './deploy_to_cloudflare.sh 或 git push',
+          dependencies: ['Wrangler', 'Git', 'Cloudflare API']
+        }
+      },
+      {
+        name: 'GitHub Pages部署',
+        description: '部署到GitHub Pages',
+        status: 'active',
+        type: '部署系统',
+        details: {
+          whatItDoes: '部署网站到GitHub Pages',
+          currentStatus: '✅ 正常运行\n- GITHUB_PAGES_SIMPLE.md',
+          usage: 'git push origin gh-pages',
+          dependencies: ['Git', 'GitHub']
+        }
+      },
+      {
+        name: 'Netlify部署',
+        description: '部署到Netlify',
+        status: 'active',
+        type: '部署系统',
+        details: {
+          whatItDoes: '部署网站到Netlify',
+          currentStatus: '✅ 正常运行\n- NETLIFY_UPLOAD_GUIDE.md',
+          usage: 'NETLIFY_UPLOAD_GUIDE.md',
+          dependencies: ['Netlify CLI']
+        }
+      }
+    ]
+  },
+
+  // OpenClaw 技能系统
+  {
+    category: 'openclaw-skills',
+    name: 'OpenClaw 技能系统',
+    icon: '⚡',
+    items: [
+      {
+        name: 'US Stock Analysis',
+        description: '美股综合分析（基本面+技术面）',
+        status: 'active',
+        type: '金融分析技能',
+        details: {
+          whatItDoes: '全面分析美股：基本面（财务指标、业务质量、估值）、技术分析（指标、图表模式、支撑/阻力）、股票比较、投资报告生成',
+          howItWorks: '通过网络搜索工具获取实时市场数据 → 应用结构化分析框架 → 生成详细投资报告',
+          currentStatus: '✅ 已安装\n- 基本面分析\n- 技术分析\n- 股票比较\n- 投资报告生成\n- 实时市场数据',
+          lastUpdate: '2026-03-05',
+          usage: 'analyze AAPL / compare TSLA vs NVDA / give me a report on Microsoft',
+          dependencies: ['Web Search', 'Yahoo Finance', 'SEC Filings']
+        }
+      },
+      {
+        name: 'PRISM Finance OS',
+        description: 'PRISM OS SDK金融平台',
+        status: 'active',
+        type: '金融平台技能',
+        details: {
+          whatItDoes: 'PRISM OS SDK金融平台，提供全面的金融数据和分析能力',
+          howItWorks: 'PRISM API → 金融数据 → 分析报告',
+          currentStatus: '✅ 已安装',
+          lastUpdate: '2026-03-05',
+          usage: 'PRISM Finance OS',
+          dependencies: ['PRISM API']
+        }
+      },
+      {
+        name: 'Yahoo Finance',
+        description: 'Yahoo Finance数据源',
+        status: 'active',
+        type: '金融数据技能',
+        details: {
+          whatItDoes: 'Yahoo Finance金融数据源，获取股票价格、财报、新闻',
+          howItWorks: 'Yahoo Finance API → 数据获取 → 分析',
+          currentStatus: '✅ 已安装',
+          lastUpdate: '2026-03-05',
+          usage: 'Get AAPL price',
+          dependencies: ['Yahoo Finance API']
+        }
+      },
+      {
+        name: 'Tecent Finance',
+        description: '腾讯财经数据源',
+        status: 'active',
+        type: '金融数据技能',
+        details: {
+          whatItDoes: '腾讯财经数据源，获取A股、港股数据',
+          howItWorks: '腾讯财经API → 数据获取 → 分析',
+          currentStatus: '✅ 已安装',
+          lastUpdate: '2026-03-05',
+          usage: 'Get Tencent finance data',
+          dependencies: ['腾讯财经API']
+        }
+      },
+      {
+        name: 'ETF Finance',
+        description: 'ETF金融分析',
+        status: 'active',
+        type: 'ETF分析技能',
+        details: {
+          whatItDoes: 'ETF金融分析，ETF持仓、费用、表现分析',
+          howItWorks: 'ETF数据 → 持仓分析 → 表现评估',
+          currentStatus: '✅ 已安装',
+          lastUpdate: '2026-03-05',
+          usage: 'Analyze ETF',
+          dependencies: ['ETF数据源']
+        }
+      },
+      {
+        name: 'Finance News',
+        description: '金融新闻聚合',
+        status: 'active',
+        type: '新闻聚合技能',
+        details: {
+          whatItDoes: '金融新闻聚合，多源新闻抓取和分析',
+          howItWorks: '多源抓取 → 去重 → 情绪分析 → 推送',
+          currentStatus: '✅ 已安装',
+          lastUpdate: '2026-03-05',
+          usage: 'Get finance news',
+          dependencies: ['新闻API']
+        }
+      },
+      {
+        name: 'Sina Stock',
+        description: '新浪股票数据',
+        status: 'active',
+        type: '股票数据技能',
+        details: {
+          whatItDoes: '新浪股票数据，A股、港股、美股数据',
+          howItWorks: '新浪财经API → 数据获取 → 分析',
+          currentStatus: '✅ 已安装',
+          lastUpdate: '2026-03-05',
+          usage: 'Get Sina stock data',
+          dependencies: ['新浪财经API']
+        }
+      },
+      {
+        name: 'Stock Market Pro',
+        description: '股票市场专业版',
+        status: 'active',
+        type: '专业分析技能',
+        details: {
+          whatItDoes: '股票市场专业版，高级分析功能',
+          howItWorks: '专业数据 → 高级分析 → 专业报告',
+          currentStatus: '✅ 已安装',
+          lastUpdate: '2026-03-05',
+          usage: 'Professional stock analysis',
+          dependencies: ['专业数据源']
+        }
+      },
+      {
+        name: 'Intellectia Stock Screener',
+        description: '智能选股器',
+        status: 'active',
+        type: '选股工具技能',
+        details: {
+          whatItDoes: '智能选股器，AI驱动的股票筛选',
+          howItWorks: 'AI筛选 → 条件过滤 → 推荐结果',
+          currentStatus: '✅ 已安装',
+          lastUpdate: '2026-03-05',
+          usage: 'Screen stocks with AI',
+          dependencies: ['AI模型']
+        }
+      },
+      {
+        name: 'Intellectia Stock Forecast',
+        description: '智能股票预测',
+        status: 'active',
+        type: '预测工具技能',
+        details: {
+          whatItDoes: '智能股票预测，AI驱动的股价预测',
+          howItWorks: 'AI模型 → 历史数据 → 预测结果',
+          currentStatus: '✅ 已安装',
+          lastUpdate: '2026-03-05',
+          usage: 'Forecast stock price',
+          dependencies: ['AI模型']
+        }
+      },
+      {
+        name: 'HK Stock Trending',
+        description: '港股趋势分析',
+        status: 'active',
+        type: '港股分析技能',
+        details: {
+          whatItDoes: '港股趋势分析，港股市场趋势追踪',
+          howItWorks: '港股数据 → 趋势分析 → 报告',
+          currentStatus: '✅ 已安装',
+          lastUpdate: '2026-03-05',
+          usage: 'Analyze HK stock trends',
+          dependencies: ['港股数据源']
+        }
+      },
+      {
+        name: 'React Expert',
+        description: 'React专家',
+        status: 'active',
+        type: '网站开发技能',
+        details: {
+          whatItDoes: 'React专家，React/Next.js开发指导',
+          howItWorks: 'React最佳实践 → 代码生成 → 优化',
+          currentStatus: '✅ 已安装',
+          lastUpdate: '2026-03-05',
+          usage: 'React development',
+          dependencies: ['React', 'Next.js']
+        }
+      },
+      {
+        name: 'Clerk Auth',
+        description: 'Clerk认证系统',
+        status: 'active',
+        type: '认证技能',
+        details: {
+          whatItDoes: 'Clerk认证系统，用户认证和授权',
+          howItWorks: 'Clerk API → 认证 → 授权',
+          currentStatus: '✅ 已安装',
+          lastUpdate: '2026-03-05',
+          usage: 'Implement authentication',
+          dependencies: ['Clerk API']
+        }
+      },
+      {
+        name: 'Cloudflare Agent Tunnel',
+        description: 'Cloudflare代理隧道',
+        status: 'active',
+        type: '网络技能',
+        details: {
+          whatItDoes: 'Cloudflare代理隧道，安全网络连接',
+          howItWorks: 'Cloudflare Tunnel → 安全连接 → 代理',
+          currentStatus: '✅ 已安装',
+          lastUpdate: '2026-03-05',
+          usage: 'Setup Cloudflare tunnel',
+          dependencies: ['Cloudflare']
+        }
+      },
+      {
+        name: 'Data Enricher',
+        description: '数据增强器',
+        status: 'active',
+        type: '数据技能',
+        details: {
+          whatItDoes: '数据增强器，数据质量和增强',
+          howItWorks: '数据清洗 → 增强 → 验证',
+          currentStatus: '✅ 已安装',
+          lastUpdate: '2026-03-05',
+          usage: 'Enrich data',
+          dependencies: ['数据处理库']
+        }
+      },
+      {
+        name: 'DataForSEO',
+        description: 'SEO数据分析',
+        status: 'active',
+        type: 'SEO技能',
+        details: {
+          whatItDoes: 'SEO数据分析，SEO数据和洞察',
+          howItWorks: 'DataForSEO API → 数据获取 → SEO分析',
+          currentStatus: '✅ 已安装',
+          lastUpdate: '2026-03-05',
+          usage: 'SEO analysis',
+          dependencies: ['DataForSEO API']
+        }
+      }
+    ]
+  },
+
+  // 个人书籍提炼系统
+  {
+    category: 'book-distillation',
+    name: '个人书籍提炼系统',
+    icon: '📚',
+    items: [
+      {
+        name: '书籍上传与提炼',
+        description: '支持PDF/EPUB/TXT/Markdown格式',
+        status: 'active',
+        type: '书籍提炼',
+        details: {
+          whatItDoes: '用户上传epub/pdf文件，花卷自动阅读并提炼关键投资内容',
+          howItWorks: '格式识别 → 内容提取 → LLM分析 → 提取投资洞察 → 知识库存储',
+          currentStatus: '✅ 正常运行\n- 支持PDF、EPUB、TXT、Markdown\n- 自动提取投资理念、选股方法、风险管理\n- 生成结构化提炼报告',
+          lastUpdate: '2026-03-05',
+          usage: '上传epub/pdf文件给花卷',
+          dependencies: ['PyPDF2', 'ebooklib', 'LLM分析']
+        }
+      },
+      {
+        name: '每日自动寻书',
+        description: '每天9点自动寻找金融投资书籍',
+        status: 'active',
+        type: '自动学习',
+        details: {
+          whatItDoes: '每天自动搜索金融、股票投资相关书籍，自主学习投资知识',
+          howItWorks: '定时任务 → 搜索数据源 → 下载书籍 → 提炼内容 → 更新知识库',
+          currentStatus: '✅ 正常运行\n- 每天9:00自动执行\n- 数据源：Project Gutenberg、Open Library、SEC EDGAR\n- 自动提炼巴菲特致股东信等经典内容',
+          lastUpdate: '2026-03-05',
+          usage: '自动运行（每天9:00）',
+          dependencies: ['Cron', '数据源API']
+        }
+      },
+      {
+        name: '内容粘贴学习',
+        description: '用户随时粘贴内容，花卷学习投资心得',
+        status: 'active',
+        type: '智能学习',
+        details: {
+          whatItDoes: '用户可以随时粘贴文章、段落、内容，花卷自动学习投资心得',
+          howItWorks: '接收内容 → LLM分析投资相关性 → 提取洞察 → 存储知识库 → 关联知识点',
+          currentStatus: '✅ 正常运行\n- 实时处理用户粘贴内容\n- 自动识别投资相关内容\n- 提取投资洞察并存储',
+          lastUpdate: '2026-03-05',
+          usage: '直接粘贴内容给花卷',
+          dependencies: ['LLM分析', '知识库']
+        }
+      },
+      {
+        name: '投资知识库',
+        description: '完整的投资知识体系',
+        status: 'active',
+        type: '知识库',
+        details: {
+          whatItDoes: '构建完整的投资知识体系，包括投资理念、选股方法、风险管理、案例分析',
+          howItWorks: '书籍提炼 + 文章学习 + 自动寻书 → 知识分类 → 结构化存储 → 智能检索',
+          currentStatus: '✅ 正常运行\n- 5大知识分类：投资理念、选股方法、风险管理、案例分析、市场洞察\n- 持续更新\n- 支持智能检索',
+          lastUpdate: '2026-03-05',
+          usage: 'book_distillation/books/',
+          dependencies: ['SQLite', 'JSON', '知识图谱']
+        }
+      },
+      {
+        name: '投资经典书单',
+        description: '必读投资经典书籍',
+        status: 'active',
+        type: '推荐书单',
+        details: {
+          whatItDoes: '收录投资经典书籍，自动提炼核心内容',
+          howItWorks: '经典书单 → 优先处理 → 深度提炼 → 生成读书笔记',
+          currentStatus: '✅ 已收录\n- 《聪明的投资者》Benjamin Graham\n- 《巴菲特致股东的信》Warren Buffett\n- 《穷查理宝典》Charlie Munger\n- 《投资最重要的事》Howard Marks\n- 段永平投资问答录',
+          lastUpdate: '2026-03-05',
+          usage: 'book_distillation/books/investment_classics/',
+          dependencies: ['自动寻书系统']
+        }
+      }
+    ]
+  },
+
+  // 文档系统
+  {
+    category: 'documentation',
+    name: '文档系统',
+    icon: '📄',
+    items: [
+      {
+        name: '系统文档（40+个）',
+        description: '40+个系统文档和指南',
+        status: 'active',
+        type: '文档系统',
+        details: {
+          whatItDoes: '记录所有系统功能、配置、部署方法',
+          currentStatus: '✅ 正常运行\n- AGENTS.md\n- API_USAGE_PLAN.md\n- CLOUDFLARE_COMPLETE_GUIDE.md\n- COMPLETE_STOCK_SELECTION_SYSTEM.md\n- CONTEXT_WINDOW_SOLUTION.md\n- HUAJUAN_SMART_PICKER_IMPLEMENTATION.md\n- ...',
+          usage: '各种.md文件',
+          dependencies: ['Markdown']
+        }
+      },
+      {
+        name: '紧急修复文档',
+        description: '记录所有紧急问题和修复方案',
+        status: 'active',
+        type: '文档系统',
+        details: {
+          whatItDoes: '记录历史上遇到的所有紧急问题和修复方案',
+          currentStatus: '✅ 正常运行\n- EMERGENCY_FIX.md\n- IRAN_TRACKER_CRITICAL_ISSUES.md\n- URGENT_GITHUB_ISSUE.md\n- FIX_DISTILLATION.md',
+          usage: '查阅历史修复记录',
+          dependencies: ['Markdown']
+        }
+      },
+      {
+        name: 'API配置指南',
+        description: '所有API的配置和使用指南',
+        status: 'active',
+        type: '文档系统',
+        details: {
+          whatItDoes: '记录所有API的申请、配置、使用方法',
+          currentStatus: '✅ 正常运行\n- API_USAGE_PLAN.md\n- API申请指南.md\n- API申请指南_FRED_财报日历.md\n- Alpaca_API配置.md',
+          usage: '查阅API配置',
+          dependencies: ['Markdown']
         }
       }
     ]
