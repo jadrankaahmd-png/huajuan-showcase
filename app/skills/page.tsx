@@ -153,14 +153,21 @@ const skills: Skill[] = [
   { name: 'Risk Alert System', description: '风险预警系统（Phase 4）- 自动风险检测+多维度评分+实时预警', category: '交互式学习', status: 'active', icon: '⚠️' },
   { name: 'Auto Report Generator', description: '自动化报告推送（Phase 4）- 每日/每周报告+Telegram格式', category: '交互式学习', status: 'active', icon: '📄' },
   
-  // Agent编排系统（4个）🆕 借鉴OpenAI Symphony
-  { name: 'Stock Analysis Orchestrator', description: '股票分析编排器 - 单一权威状态管理+8大Agent协调', category: 'Agent编排', status: 'active', icon: '🎼' },
-  { name: 'Analysis Workspace Manager', description: '分析工作空间管理器 - 任务隔离+生命周期钩子', category: 'Agent编排', status: 'active', icon: '📁' },
-  { name: 'Analysis Workflow Definition', description: '分析工作流定义 - 配置灵活+模板化管理', category: 'Agent编排', status: 'active', icon: '📋' },
-  { name: 'Analysis Observability', description: '分析可观察性 - 实时监控+性能追踪+HTTP API', category: 'Agent编排', status: 'active', icon: '👁️' },
+  // Agent编排系统（5个）🆕 借鉴OpenAI Symphony
+  { name: 'Stock Analysis Orchestrator', description: '✅已实施 股票分析编排器 - 单一权威状态管理+8大Agent协调+错误恢复', category: 'Agent编排', status: 'active', icon: '🎼' },
+  { name: 'Analysis Workspace Manager', description: '✅已实施 分析工作空间管理器 - 任务隔离+生命周期钩子+安全不变量', category: 'Agent编排', status: 'active', icon: '📁' },
+  { name: 'Analysis Workflow Definition', description: '✅已实施 分析工作流定义 - YAML配置+提示词模板+动态重载', category: 'Agent编排', status: 'active', icon: '📋' },
+  { name: 'Analysis Observability', description: '✅已实施 分析可观察性 - 实时监控+性能追踪+HTTP API+仪表板', category: 'Agent编排', status: 'active', icon: '👁️' },
+  { name: 'Integration Test Suite', description: '✅已实施 集成测试套件 - 6个测试全部通过（100%成功率）', category: 'Agent编排', status: 'active', icon: '✅' },
+
+  // MCP工具系统（4个已测试通过）🆕 GLM-5 MCP 深度测试成功
+  { name: 'GLM Web Search', description: '✅已测试 联网搜索MCP - 41.4秒响应（100%成功率）', category: 'MCP工具', status: 'active', icon: '🔍' },
+  { name: 'GLM Web Reader', description: '✅已测试 网页读取MCP - 54.7秒响应（100%成功率）', category: 'MCP工具', status: 'active', icon: '🌐' },
+  { name: 'GLM Vision', description: '✅已测试 视觉理解MCP - 34.2秒响应（100%成功率）', category: 'MCP工具', status: 'active', icon: '👁️' },
+  { name: 'GLM GitHub Repo', description: '✅已测试 开源仓库MCP - 53.5秒响应（100%成功率）', category: 'MCP工具', status: 'active', icon: '📦' },
 ];
 
-const categories = ['全部', '金融分析', '投资组合', '交易系统', '数据抓取', '新闻情绪', 'AI分析', '网站开发', '数据分析', '自动化', 'Google Workspace', 'Agent Reach', '交互式学习', 'Agent编排'];
+const categories = ['全部', '金融分析', '投资组合', '交易系统', '数据抓取', '新闻情绪', 'AI分析', '网站开发', '数据分析', '自动化', 'Google Workspace', 'Agent Reach', '交互式学习', 'Agent编排', 'MCP工具'];
 
 const categoryIcons: Record<string, string> = {
   '全部': '🌸',
@@ -177,6 +184,7 @@ const categoryIcons: Record<string, string> = {
   'Agent Reach': '🔗',
   '交互式学习': '🧠',
   'Agent编排': '🎼',
+  'MCP工具': '🔌',
 };
 
 export default function SkillsPage() {
@@ -203,7 +211,7 @@ export default function SkillsPage() {
                 <span className="text-4xl">🌸</span>
                 <div>
                   <h1 className="text-2xl font-bold text-gray-900">花卷技能中心</h1>
-                  <p className="text-sm text-gray-500">148个专业技能 · 覆盖选股、分析、开发、自动化、交互式学习、Agent编排全流程</p>
+                  <p className="text-sm text-gray-500">152个专业技能 · 覆盖选股、分析、开发、自动化、交互式学习、Agent编排、MCP工具全流程</p>
                 </div>
               </a>
             </div>

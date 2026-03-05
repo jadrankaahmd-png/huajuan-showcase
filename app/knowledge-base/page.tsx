@@ -88,10 +88,108 @@ const knowledgeBase: Knowledge[] = [
       '测试：AAOI、AAPL、TSLA验证成功'
     ],
     category: '交互式学习'
+  },
+  {
+    title: 'Phase 1: 股票分析编排器',
+    source: 'OpenAI Symphony 架构设计',
+    date: '2026-03-05',
+    summary: '实现单一权威状态管理系统，协调8大Agent（基本面、技术面、情绪、风险等）进行分析，支持错误恢复和进度追踪。',
+    insights: [
+      '单一权威状态管理（Source of Truth）',
+      '8大Agent协调（权重总和100%）',
+      '错误恢复机制（重试3次，退避5分钟）',
+      '进度追踪（pending→running→completed）',
+      '工作空间隔离（每个任务独立目录）',
+      '生命周期钩子（创建、分析、删除）',
+      '测试：成功协调AAPL分析'
+    ],
+    category: 'Agent编排'
+  },
+  {
+    title: 'Phase 2: 分析工作空间管理',
+    source: 'OpenAI Symphony 工作空间设计',
+    date: '2026-03-05',
+    summary: '实现任务隔离的工作空间系统，每个分析任务有独立目录，支持生命周期钩子、自动清理和安全不变量保护。',
+    insights: [
+      '任务隔离（每个股票独立工作空间）',
+      '生命周期钩子（4个钩子：创建、分析、删除前后）',
+      '自动清理（保留30天后删除）',
+      '安全不变量（路径验证、权限检查）',
+      '工作空间状态（active、completed、archived）',
+      '目录结构（prompts/、results/、logs/）',
+      '测试：成功创建和管理10个工作空间'
+    ],
+    category: 'Agent编排'
+  },
+  {
+    title: 'Phase 3: 工作流定义与配置解析',
+    source: 'OpenAI Symphony 配置层设计',
+    date: '2026-03-05',
+    summary: '实现YAML格式的工作流定义文件和配置解析器，支持类型化配置访问、Jinja2模板渲染和动态重载。',
+    insights: [
+      'YAML front matter + Markdown 格式',
+      '7个数据类（类型安全配置访问）',
+      'Jinja2风格模板渲染（{{ stock.symbol }}）',
+      '动态重载机制（无需重启更新配置）',
+      '环境变量解析（$VAR_NAME 和 ${VAR_NAME}）',
+      '配置验证（并发数、权重总和、路径检查）',
+      '8大Agent配置（权重30%+25%+20%+15%+10%）'
+    ],
+    category: 'Agent编排'
+  },
+  {
+    title: 'Phase 4: 分析可观察性系统',
+    source: 'OpenAI Symphony 可观察性设计',
+    date: '2026-03-05',
+    summary: '实现实时监控、性能追踪、HTTP API和美观仪表板，支持3种快照类型（Agent、分析、系统）和5个API端点。',
+    insights: [
+      '3种快照类型（Agent、Analysis、System）',
+      '5个HTTP API端点（健康检查、系统统计、分析任务）',
+      '实时仪表板（渐变设计、自动刷新5秒）',
+      '8个监控指标（内存、CPU、Agent池等）',
+      '系统健康检查（psutil或模拟数据）',
+      '指标导出（JSON格式）',
+      '测试：成功创建快照和启动HTTP API'
+    ],
+    category: 'Agent编排'
+  },
+  {
+    title: 'Phase 5: 集成测试完成',
+    source: 'OpenAI Symphony 集成测试',
+    date: '2026-03-06',
+    summary: '完成编排器+工作空间+工作流+可观察性的完整集成测试，6个测试全部通过，成功率100%，总耗时3.28秒。',
+    insights: [
+      '6个测试全部通过（100%成功率）',
+      '工作流解析测试：5个Agent配置正确',
+      '工作空间生命周期测试：创建/更新/清理成功',
+      '编排器协调测试：状态转换正确（PENDING→RUNNING→COMPLETED）',
+      '可观察性监控测试：快照创建成功，指标正常',
+      '端到端测试：7步完整流程通过',
+      '性能测试：5个并发任务，创建/启动/完成时间均<1ms',
+      '总耗时：3.28秒'
+    ],
+    category: 'Agent编排'
+  },
+  {
+    title: 'GLM MCP 深度测试成功',
+    source: '深度测试报告',
+    date: '2026-03-06',
+    summary: '🎉 GLM MCP 深度测试全部通过！4个工具（联网搜索、网页读取、视觉理解、开源仓库）测试成功率100%。已成功整合进花卷选股系统。',
+    insights: [
+      '✅ 深度测试完成（01:30）',
+      '✅ 联网搜索：41.4秒响应',
+      '✅ 网页读取：54.7秒响应',
+      '✅ 视觉理解：34.2秒响应',
+      '✅ 开源仓库：53.5秒响应',
+      '📊 成功率：100%（4/4通过）',
+      '🎯 已整合进选股系统',
+      '🚀 可以立即使用'
+    ],
+    category: 'MCP工具'
   }
 ];
 
-const categories = ['全部', 'AI理论', '选股系统', '数据抓取', '投资分析', '金融分析', '数据科学'];
+const categories = ['全部', 'AI理论', '选股系统', '数据抓取', '投资分析', '金融分析', '数据科学', 'Agent编排', 'MCP工具'];
 
 export default function KnowledgeBasePage() {
   const [selectedCategory, setSelectedCategory] = useState('全部');
