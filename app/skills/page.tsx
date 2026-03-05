@@ -143,11 +143,15 @@ const skills: Skill[] = [
   { name: 'Agent Reach Bilibili', description: 'B站视频和字幕提取', category: 'Agent Reach', status: 'active', icon: '🎬' },
   { name: 'Agent Reach Web Scraper', description: '任意网页读取（Jina Reader）', category: 'Agent Reach', status: 'active', icon: '🌐' },
 
-  // 交互式学习系统（4个）🆕
+  // 交互式学习系统（8个）🆕
   { name: 'Interactive Learning System', description: '基于Interactive Benchmarks论文的交互式学习系统', category: '交互式学习', status: 'active', icon: '🧠' },
   { name: 'Information Gap Identifier', description: '信息缺口识别器（Phase 1）', category: '交互式学习', status: 'active', icon: '🔍' },
   { name: 'Active Search Engine', description: '主动搜索引擎（Phase 2）- 整合Agent Reach 7个数据抓取渠道', category: '交互式学习', status: 'active', icon: '🚀' },
   { name: 'Hypothesis Validator', description: '假设验证器（Phase 3）- 4种假设类型、量化验证、信心度评估', category: '交互式学习', status: 'active', icon: '🔬' },
+  { name: 'Multi-Hypothesis Validator', description: '多假设组合验证（Phase 4）- 组合风险评估+相关性分析', category: '交互式学习', status: 'active', icon: '🎯' },
+  { name: 'Sentiment Integration', description: '市场情绪分析整合（Phase 4）- 7个数据渠道+实时监控+趋势预测', category: '交互式学习', status: 'active', icon: '📊' },
+  { name: 'Risk Alert System', description: '风险预警系统（Phase 4）- 自动风险检测+多维度评分+实时预警', category: '交互式学习', status: 'active', icon: '⚠️' },
+  { name: 'Auto Report Generator', description: '自动化报告推送（Phase 4）- 每日/每周报告+Telegram格式', category: '交互式学习', status: 'active', icon: '📄' },
 ];
 
 const categories = ['全部', '金融分析', '投资组合', '交易系统', '数据抓取', '新闻情绪', 'AI分析', '网站开发', '数据分析', '自动化', 'Google Workspace', 'Agent Reach', '交互式学习'];
@@ -192,7 +196,7 @@ export default function SkillsPage() {
                 <span className="text-4xl">🌸</span>
                 <div>
                   <h1 className="text-2xl font-bold text-gray-900">花卷技能中心</h1>
-                  <p className="text-sm text-gray-500">140个专业技能 · 覆盖选股、分析、开发、自动化、交互式学习全流程</p>
+                  <p className="text-sm text-gray-500">144个专业技能 · 覆盖选股、分析、开发、自动化、交互式学习全流程</p>
                 </div>
               </a>
             </div>
