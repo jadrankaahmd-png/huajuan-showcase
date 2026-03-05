@@ -152,9 +152,15 @@ const skills: Skill[] = [
   { name: 'Sentiment Integration', description: '市场情绪分析整合（Phase 4）- 7个数据渠道+实时监控+趋势预测', category: '交互式学习', status: 'active', icon: '📊' },
   { name: 'Risk Alert System', description: '风险预警系统（Phase 4）- 自动风险检测+多维度评分+实时预警', category: '交互式学习', status: 'active', icon: '⚠️' },
   { name: 'Auto Report Generator', description: '自动化报告推送（Phase 4）- 每日/每周报告+Telegram格式', category: '交互式学习', status: 'active', icon: '📄' },
+  
+  // Agent编排系统（4个）🆕 借鉴OpenAI Symphony
+  { name: 'Stock Analysis Orchestrator', description: '股票分析编排器 - 单一权威状态管理+8大Agent协调', category: 'Agent编排', status: 'active', icon: '🎼' },
+  { name: 'Analysis Workspace Manager', description: '分析工作空间管理器 - 任务隔离+生命周期钩子', category: 'Agent编排', status: 'active', icon: '📁' },
+  { name: 'Analysis Workflow Definition', description: '分析工作流定义 - 配置灵活+模板化管理', category: 'Agent编排', status: 'active', icon: '📋' },
+  { name: 'Analysis Observability', description: '分析可观察性 - 实时监控+性能追踪+HTTP API', category: 'Agent编排', status: 'active', icon: '👁️' },
 ];
 
-const categories = ['全部', '金融分析', '投资组合', '交易系统', '数据抓取', '新闻情绪', 'AI分析', '网站开发', '数据分析', '自动化', 'Google Workspace', 'Agent Reach', '交互式学习'];
+const categories = ['全部', '金融分析', '投资组合', '交易系统', '数据抓取', '新闻情绪', 'AI分析', '网站开发', '数据分析', '自动化', 'Google Workspace', 'Agent Reach', '交互式学习', 'Agent编排'];
 
 const categoryIcons: Record<string, string> = {
   '全部': '🌸',
@@ -170,6 +176,7 @@ const categoryIcons: Record<string, string> = {
   'Google Workspace': '🏢',
   'Agent Reach': '🔗',
   '交互式学习': '🧠',
+  'Agent编排': '🎼',
 };
 
 export default function SkillsPage() {
@@ -196,7 +203,7 @@ export default function SkillsPage() {
                 <span className="text-4xl">🌸</span>
                 <div>
                   <h1 className="text-2xl font-bold text-gray-900">花卷技能中心</h1>
-                  <p className="text-sm text-gray-500">144个专业技能 · 覆盖选股、分析、开发、自动化、交互式学习全流程</p>
+                  <p className="text-sm text-gray-500">148个专业技能 · 覆盖选股、分析、开发、自动化、交互式学习、Agent编排全流程</p>
                 </div>
               </a>
             </div>
