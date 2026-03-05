@@ -133,9 +133,18 @@ const skills: Skill[] = [
   { name: 'GWS Licensing', description: 'Google许可管理', category: 'Google Workspace', status: 'active', icon: '📜' },
   { name: 'GWS Model Armor', description: 'Google模型保护', category: 'Google Workspace', status: 'active', icon: '🛡️' },
   { name: 'GWS Groups Settings', description: 'Google群组设置', category: 'Google Workspace', status: 'active', icon: '👥' },
+
+  // Agent Reach 数据抓取（7个）🆕
+  { name: 'Agent Reach Twitter', description: 'Twitter/X推文抓取和情绪分析', category: 'Agent Reach', status: 'active', icon: '🐦' },
+  { name: 'Agent Reach Reddit', description: 'Reddit帖子和评论抓取', category: 'Agent Reach', status: 'active', icon: '📱' },
+  { name: 'Agent Reach WeChat', description: '微信公众号文章抓取', category: 'Agent Reach', status: 'active', icon: '💬' },
+  { name: 'Agent Reach Exa Search', description: '全网语义搜索（免费）', category: 'Agent Reach', status: 'active', icon: '🔍' },
+  { name: 'Agent Reach YouTube', description: 'YouTube视频和字幕提取', category: 'Agent Reach', status: 'active', icon: '📹' },
+  { name: 'Agent Reach Bilibili', description: 'B站视频和字幕提取', category: 'Agent Reach', status: 'active', icon: '🎬' },
+  { name: 'Agent Reach Web Scraper', description: '任意网页读取（Jina Reader）', category: 'Agent Reach', status: 'active', icon: '🌐' },
 ];
 
-const categories = ['全部', '金融分析', '投资组合', '交易系统', '数据抓取', '新闻情绪', 'AI分析', '网站开发', '数据分析', '自动化', 'Google Workspace'];
+const categories = ['全部', '金融分析', '投资组合', '交易系统', '数据抓取', '新闻情绪', 'AI分析', '网站开发', '数据分析', '自动化', 'Google Workspace', 'Agent Reach'];
 
 const categoryIcons: Record<string, string> = {
   '全部': '🌸',
@@ -149,6 +158,7 @@ const categoryIcons: Record<string, string> = {
   '数据分析': '📈',
   '自动化': '🔄',
   'Google Workspace': '🏢',
+  'Agent Reach': '🔗',
 };
 
 export default function SkillsPage() {
@@ -175,7 +185,7 @@ export default function SkillsPage() {
                 <span className="text-4xl">🌸</span>
                 <div>
                   <h1 className="text-2xl font-bold text-gray-900">花卷技能中心</h1>
-                  <p className="text-sm text-gray-500">129个专业技能 · 覆盖选股、分析、开发、自动化、Google Workspace全流程</p>
+                  <p className="text-sm text-gray-500">136个专业技能 · 覆盖选股、分析、开发、自动化、数据抓取全流程</p>
                 </div>
               </a>
             </div>
@@ -284,6 +294,10 @@ export default function SkillsPage() {
             <div className="text-center bg-white rounded-lg p-4 shadow-sm">
               <div className="text-3xl font-bold text-red-500 mb-1">26</div>
               <div className="text-sm text-gray-600">Google Workspace</div>
+            </div>
+            <div className="text-center bg-white rounded-lg p-4 shadow-sm">
+              <div className="text-3xl font-bold text-yellow-500 mb-1">7</div>
+              <div className="text-sm text-gray-600">Agent Reach</div>
             </div>
           </div>
         </div>
