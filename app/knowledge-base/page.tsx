@@ -55,10 +55,27 @@ const knowledgeBase: Knowledge[] = [
       '整合进选股系统的数据抓取层'
     ],
     category: '数据抓取'
+  },
+  {
+    title: '$AAOI 深度投资分析：6.3倍上涨空间',
+    source: '个人书籍提炼系统',
+    date: '2026-03-05',
+    summary: 'Applied Optoelectronics ($AAOI) 当前市值$7.5B，目标估值$47.6B。垂直整合能力、美国制造、AI数据中心需求驱动，上涨空间6.3倍（535%）。',
+    insights: [
+      '当前市值$7.5B → 目标市值$47.6B',
+      '垂直整合：激光器制造+设计+组装',
+      '德克萨斯州产能增加三倍',
+      '2027 H2收入预测：每月$3.78亿',
+      '毛利率：35-38% → 40%（Q3 2027）',
+      '超大规模企业买断所有产能',
+      'SOTP估值：10.58x Forward Sales',
+      '投资建议：是的，毫无疑问（Yes, Unequivocally）'
+    ],
+    category: '投资分析'
   }
 ];
 
-const categories = ['全部', 'AI理论', '选股系统', '数据抓取', '金融分析', '数据科学'];
+const categories = ['全部', 'AI理论', '选股系统', '数据抓取', '投资分析', '金融分析', '数据科学'];
 
 export default function KnowledgeBasePage() {
   const [selectedCategory, setSelectedCategory] = useState('全部');
@@ -84,11 +101,11 @@ export default function KnowledgeBasePage() {
             </div>
             <div className="flex gap-4 text-sm flex-wrap">
               <div className="bg-pink-50 px-4 py-2 rounded-lg">
-                <div className="text-pink-600 font-semibold">3</div>
+                <div className="text-pink-600 font-semibold">4</div>
                 <div className="text-gray-600">知识条目</div>
               </div>
               <div className="bg-green-50 px-4 py-2 rounded-lg">
-                <div className="text-green-600 font-semibold">3</div>
+                <div className="text-green-600 font-semibold">4</div>
                 <div className="text-gray-600">分类</div>
               </div>
             </div>
