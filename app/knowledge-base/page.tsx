@@ -39,10 +39,26 @@ const knowledgeBase: Knowledge[] = [
       '透明的决策过程展示'
     ],
     category: '选股系统'
+  },
+  {
+    title: 'Agent Reach 数据抓取系统',
+    source: 'Agent Reach v1.3.0',
+    date: '2026-03-05',
+    summary: 'Agent Reach是一个强大的数据抓取系统，支持Twitter、Reddit、YouTube、B站等7个平台的数据抓取和情绪分析。',
+    insights: [
+      'Twitter/X推文抓取和情绪分析',
+      'Reddit帖子和评论抓取',
+      '微信公众号文章抓取',
+      'YouTube和B站视频信息提取',
+      '全网语义搜索（Exa，免费）',
+      '任意网页读取（Jina Reader）',
+      '整合进选股系统的数据抓取层'
+    ],
+    category: '数据抓取'
   }
 ];
 
-const categories = ['全部', 'AI理论', '选股系统', '金融分析', '数据科学'];
+const categories = ['全部', 'AI理论', '选股系统', '数据抓取', '金融分析', '数据科学'];
 
 export default function KnowledgeBasePage() {
   const [selectedCategory, setSelectedCategory] = useState('全部');
@@ -68,11 +84,11 @@ export default function KnowledgeBasePage() {
             </div>
             <div className="flex gap-4 text-sm flex-wrap">
               <div className="bg-pink-50 px-4 py-2 rounded-lg">
-                <div className="text-pink-600 font-semibold">2</div>
+                <div className="text-pink-600 font-semibold">3</div>
                 <div className="text-gray-600">知识条目</div>
               </div>
               <div className="bg-green-50 px-4 py-2 rounded-lg">
-                <div className="text-green-600 font-semibold">2</div>
+                <div className="text-green-600 font-semibold">3</div>
                 <div className="text-gray-600">分类</div>
               </div>
             </div>
