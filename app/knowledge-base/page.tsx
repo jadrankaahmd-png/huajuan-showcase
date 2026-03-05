@@ -1,47 +1,55 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-interface KnowledgeItem {
-  id: string;
+interface Knowledge {
   title: string;
   source: string;
   date: string;
-  tags: string[];
   summary: string;
-  key_points: string[];
-  file_path: string;
+  insights: string[];
+  category: string;
 }
 
-export default function KnowledgeBase() {
-  const [knowledgeItems, setKnowledgeItems] = useState<KnowledgeItem[]>([]);
-  const [selectedItem, setSelectedItem] = useState<KnowledgeItem | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // 加载知识库数据
-    fetch('/data/knowledge-base.json')
-      .then(res => res.json())
-      .then(data => {
-        setKnowledgeItems(data);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error('加载知识库失败:', err);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white flex items-center justify-center">
-        <div className="text-center">
-          <div className="text-4xl mb-4">📚</div>
-          <div className="text-gray-600">加载知识库中...</div>
-        </div>
-      </div>
-    );
+const knowledgeBase: Knowledge[] = [
+  {
+    title: 'Interactive Benchmarks: 评估模型的交互学习能力',
+    source: 'arXiv:2411.14451',
+    date: '2026-03-05',
+    summary: '这篇论文提出了评估AI模型"主动获取信息"能力的革命性基准测试方法。核心思想：通过交互学习是所有智能理论的基础。',
+    insights: [
+      '智能不仅是回答问题，更是提问的能力',
+      '从"答案导向"到"过程导向"的范式转变',
+      '主动获取信息比被动接收更重要',
+      '过程比结果更能体现智能',
+      '交互式学习是持续改进的基础'
+    ],
+    category: 'AI理论'
+  },
+  {
+    title: '选股系统的交互式学习应用',
+    source: '基于Interactive Benchmarks论文',
+    date: '2026-03-05',
+    summary: '将交互式学习理论应用到选股系统，实现从"静态推荐"到"动态学习"的革命性改进。',
+    insights: [
+      '主动识别信息缺口并补充',
+      '持续监控市场动态并更新评估',
+      '验证投资假设并持续优化',
+      '建立知识库的持续学习机制',
+      '透明的决策过程展示'
+    ],
+    category: '选股系统'
   }
+];
+
+const categories = ['全部', 'AI理论', '选股系统', '金融分析', '数据科学'];
+
+export default function KnowledgeBasePage() {
+  const [selectedCategory, setSelectedCategory] = useState('全部');
+
+  const filteredKnowledge = selectedCategory === '全部'
+    ? knowledgeBase
+    : knowledgeBase.filter(k => k.category === selectedCategory);
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
@@ -50,123 +58,98 @@ export default function KnowledgeBase() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div className="flex items-center gap-3">
-              <span className="text-4xl">📚</span>
-              <div>
-                <h1 className="text-2xl font-bold text-gray-900">花卷知识库</h1>
-                <p className="text-sm text-gray-500">个人书籍提炼系统 · 六维提炼</p>
-              </div>
+              <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                <span className="text-4xl">🌸</span>
+                <div>
+                  <h1 className="text-2xl font-bold text-gray-900">花卷知识库</h1>
+                  <p className="text-sm text-gray-500">持续学习 · 持续进化</p>
+                </div>
+              </a>
             </div>
-            <div className="flex gap-4 text-sm">
-              <div className="bg-purple-50 px-4 py-2 rounded-lg">
-                <div className="text-purple-600 font-semibold">{knowledgeItems.length}</div>
+            <div className="flex gap-4 text-sm flex-wrap">
+              <div className="bg-pink-50 px-4 py-2 rounded-lg">
+                <div className="text-pink-600 font-semibold">2</div>
                 <div className="text-gray-600">知识条目</div>
               </div>
-              <a
-                href="/"
-                className="bg-gray-100 px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-200 transition-colors"
-              >
-                ← 返回能力中心
-              </a>
+              <div className="bg-green-50 px-4 py-2 rounded-lg">
+                <div className="text-green-600 font-semibold">2</div>
+                <div className="text-gray-600">分类</div>
+              </div>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Knowledge Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {knowledgeItems.length === 0 ? (
-          <div className="text-center py-16">
-            <div className="text-6xl mb-4">📚</div>
-            <div className="text-xl text-gray-600 mb-2">知识库为空</div>
-            <div className="text-gray-500">使用「个人书籍提炼系统：」开始提炼知识吧！</div>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {knowledgeItems.map((item) => (
-              <div
-                key={item.id}
-                className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow cursor-pointer"
-                onClick={() => setSelectedItem(item)}
-              >
-                <div className="flex items-start justify-between mb-3">
-                  <div className="text-sm text-gray-500">{item.date}</div>
-                  <div className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">
-                    {item.source}
-                  </div>
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-600 mb-3 line-clamp-3">{item.summary}</p>
-                <div className="flex flex-wrap gap-1">
-                  {item.tags.slice(0, 3).map((tag, idx) => (
-                    <span
-                      key={idx}
-                      className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                  {item.tags.length > 3 && (
-                    <span className="text-xs text-gray-400">+{item.tags.length - 3}</span>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
+      {/* Category Filter */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="flex gap-2 overflow-x-auto pb-2">
+          {categories.map(category => (
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
+                selectedCategory === category
+                  ? 'bg-pink-500 text-white shadow-lg'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
       </div>
 
-      {/* Detail Modal */}
-      {selectedItem && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="sticky top-0 bg-white border-b px-6 py-4 flex items-center justify-between">
-              <h2 className="text-xl font-bold text-gray-900">{selectedItem.title}</h2>
-              <button
-                onClick={() => setSelectedItem(null)}
-                className="text-gray-400 hover:text-gray-600"
-              >
-                ✕
-              </button>
-            </div>
-            <div className="p-6">
-              <div className="flex items-center gap-4 mb-6 text-sm text-gray-500">
-                <div>📅 {selectedItem.date}</div>
-                <div>📖 {selectedItem.source}</div>
+      {/* Knowledge Cards */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {filteredKnowledge.map((knowledge, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-100 p-6"
+            >
+              <div className="flex items-start justify-between mb-3">
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-xs bg-blue-50 text-blue-600 px-2 py-1 rounded">
+                      {knowledge.category}
+                    </span>
+                    <span className="text-xs text-gray-500">{knowledge.date}</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{knowledge.title}</h3>
+                  <p className="text-sm text-gray-600 mb-4">{knowledge.summary}</p>
+                </div>
               </div>
-              <div className="mb-6">
-                <h3 className="font-semibold text-gray-900 mb-2">📚 总览摘要</h3>
-                <p className="text-gray-700">{selectedItem.summary}</p>
+              
+              <div className="mb-3">
+                <div className="text-xs text-gray-500 mb-2">来源: {knowledge.source}</div>
               </div>
-              <div className="mb-6">
-                <h3 className="font-semibold text-gray-900 mb-2">🎯 核心论点</h3>
-                <ul className="list-disc list-inside space-y-1">
-                  {selectedItem.key_points.map((point, idx) => (
-                    <li key={idx} className="text-gray-700">{point}</li>
+
+              <div className="border-t border-gray-100 pt-4">
+                <h4 className="text-sm font-semibold text-gray-900 mb-2">💡 核心洞察</h4>
+                <ul className="space-y-1">
+                  {knowledge.insights.map((insight, idx) => (
+                    <li key={idx} className="text-sm text-gray-600 flex items-start gap-2">
+                      <span className="text-pink-500 mt-0.5">•</span>
+                      <span>{insight}</span>
+                    </li>
                   ))}
                 </ul>
               </div>
-              <div className="flex flex-wrap gap-2 mt-6">
-                {selectedItem.tags.map((tag, idx) => (
-                  <span
-                    key={idx}
-                    className="text-sm bg-purple-100 text-purple-700 px-3 py-1 rounded-full"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
             </div>
-          </div>
+          ))}
         </div>
-      )}
+      </div>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 mt-12">
+      <footer className="bg-white border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="text-center text-sm text-gray-600">
-            <div className="flex items-center justify-center gap-2">
-              <span>📚</span>
-              <span>花卷知识库 · 六维提炼法</span>
+          <div className="flex flex-col sm:flex-row items-center justify-between text-sm text-gray-600 gap-2">
+            <div className="flex items-center gap-2">
+              <span>🌸</span>
+              <span>花卷知识库 v1.0</span>
+            </div>
+            <div className="text-center sm:text-right text-gray-500">
+              最后更新：2026-03-05 21:52 · 持续学习机制已启用
             </div>
           </div>
         </div>
