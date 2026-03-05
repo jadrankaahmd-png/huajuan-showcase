@@ -105,9 +105,37 @@ const skills: Skill[] = [
   { name: 'AgentMail Integration', description: 'Agent邮件集成', category: '自动化', status: 'active', icon: '📧' },
   { name: 'Prism Alerts', description: 'Prism提醒系统', category: '自动化', status: 'active', icon: '🔔' },
   { name: 'Apipick Email Checker', description: '邮件检查API', category: '自动化', status: 'active', icon: '✉️' },
+
+  // Google Workspace（47个）🆕
+  { name: 'GWS Drive', description: 'Google Drive文件管理', category: 'Google Workspace', status: 'active', icon: '📁' },
+  { name: 'GWS Drive Upload', description: 'Google Drive文件上传', category: 'Google Workspace', status: 'active', icon: '📤' },
+  { name: 'GWS Gmail', description: 'Gmail邮件管理', category: 'Google Workspace', status: 'active', icon: '📧' },
+  { name: 'GWS Gmail Send', description: 'Gmail发送邮件', category: 'Google Workspace', status: 'active', icon: '📨' },
+  { name: 'GWS Gmail Triage', description: 'Gmail邮件分类', category: 'Google Workspace', status: 'active', icon: '📬' },
+  { name: 'GWS Calendar', description: 'Google Calendar日程管理', category: 'Google Workspace', status: 'active', icon: '📅' },
+  { name: 'GWS Calendar Agenda', description: 'Google Calendar议程', category: 'Google Workspace', status: 'active', icon: '📆' },
+  { name: 'GWS Calendar Insert', description: 'Google Calendar插入事件', category: 'Google Workspace', status: 'active', icon: '➕' },
+  { name: 'GWS Sheets', description: 'Google Sheets电子表格', category: 'Google Workspace', status: 'active', icon: '📊' },
+  { name: 'GWS Docs', description: 'Google Docs文档编辑', category: 'Google Workspace', status: 'active', icon: '📝' },
+  { name: 'GWS Docs Write', description: 'Google Docs写入', category: 'Google Workspace', status: 'active', icon: '✍️' },
+  { name: 'GWS Chat', description: 'Google Chat聊天', category: 'Google Workspace', status: 'active', icon: '💬' },
+  { name: 'GWS Chat Send', description: 'Google Chat发送消息', category: 'Google Workspace', status: 'active', icon: '💬' },
+  { name: 'GWS Admin', description: 'Google Workspace管理', category: 'Google Workspace', status: 'active', icon: '👤' },
+  { name: 'GWS Admin Reports', description: 'Google Workspace管理报告', category: 'Google Workspace', status: 'active', icon: '📊' },
+  { name: 'GWS Classroom', description: 'Google Classroom课堂', category: 'Google Workspace', status: 'active', icon: '🏫' },
+  { name: 'GWS Meet', description: 'Google Meet视频会议', category: 'Google Workspace', status: 'active', icon: '📹' },
+  { name: 'GWS Forms', description: 'Google Forms表单', category: 'Google Workspace', status: 'active', icon: '📋' },
+  { name: 'GWS Keep', description: 'Google Keep笔记', category: 'Google Workspace', status: 'active', icon: '📝' },
+  { name: 'GWS Apps Script', description: 'Google Apps Script脚本', category: 'Google Workspace', status: 'active', icon: '🔧' },
+  { name: 'GWS Alertcenter', description: 'Google告警中心', category: 'Google Workspace', status: 'active', icon: '⚠️' },
+  { name: 'GWS Cloud Identity', description: 'Google云端身份', category: 'Google Workspace', status: 'active', icon: '🔐' },
+  { name: 'GWS Events', description: 'Google事件管理', category: 'Google Workspace', status: 'active', icon: '🎉' },
+  { name: 'GWS Licensing', description: 'Google许可管理', category: 'Google Workspace', status: 'active', icon: '📜' },
+  { name: 'GWS Model Armor', description: 'Google模型保护', category: 'Google Workspace', status: 'active', icon: '🛡️' },
+  { name: 'GWS Groups Settings', description: 'Google群组设置', category: 'Google Workspace', status: 'active', icon: '👥' },
 ];
 
-const categories = ['全部', '金融分析', '投资组合', '交易系统', '数据抓取', '新闻情绪', 'AI分析', '网站开发', '数据分析', '自动化'];
+const categories = ['全部', '金融分析', '投资组合', '交易系统', '数据抓取', '新闻情绪', 'AI分析', '网站开发', '数据分析', '自动化', 'Google Workspace'];
 
 const categoryIcons: Record<string, string> = {
   '全部': '🌸',
@@ -120,6 +148,7 @@ const categoryIcons: Record<string, string> = {
   '网站开发': '🚀',
   '数据分析': '📈',
   '自动化': '🔄',
+  'Google Workspace': '🏢',
 };
 
 export default function SkillsPage() {
@@ -146,7 +175,7 @@ export default function SkillsPage() {
                 <span className="text-4xl">🌸</span>
                 <div>
                   <h1 className="text-2xl font-bold text-gray-900">花卷技能中心</h1>
-                  <p className="text-sm text-gray-500">82个专业技能 · 覆盖选股、分析、开发、自动化全流程</p>
+                  <p className="text-sm text-gray-500">129个专业技能 · 覆盖选股、分析、开发、自动化、Google Workspace全流程</p>
                 </div>
               </a>
             </div>
@@ -223,7 +252,7 @@ export default function SkillsPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
         <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl p-6">
           <h2 className="text-2xl font-bold mb-6 text-center text-gray-900">📊 能力统计</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
             <div className="text-center bg-white rounded-lg p-4 shadow-sm">
               <div className="text-3xl font-bold text-pink-500 mb-1">37</div>
               <div className="text-sm text-gray-600">金融分析</div>
@@ -251,6 +280,10 @@ export default function SkillsPage() {
             <div className="text-center bg-white rounded-lg p-4 shadow-sm">
               <div className="text-3xl font-bold text-indigo-500 mb-1">4</div>
               <div className="text-sm text-gray-600">自动化</div>
+            </div>
+            <div className="text-center bg-white rounded-lg p-4 shadow-sm">
+              <div className="text-3xl font-bold text-red-500 mb-1">26</div>
+              <div className="text-sm text-gray-600">Google Workspace</div>
             </div>
           </div>
         </div>
