@@ -1,26 +1,22 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import CapabilityCard from './components/CapabilityCard';
 import CapabilityDetail from './components/CapabilityDetail';
 import { capabilities } from './data/capabilities';
 
+// 在组件外预计算统计数据（静态导出时可用）
+const stats = {
+  total: capabilities.reduce((sum, cat) => sum + cat.items.length, 0),
+  active: capabilities.reduce((sum, cat) =>
+    sum + cat.items.filter((item: any) => item.status === 'active').length, 0
+  ),
+  categories: capabilities.length
+};
+
 export default function Home() {
   const [selectedCapability, setSelectedCapability] = useState<any>(null);
   const [activeCategory, setActiveCategory] = useState<string>('all');
-  const [stats, setStats] = useState({
-    total: 0,
-    active: 0,
-    categories: 0
-  });
-
-  useEffect(() => {
-    const total = capabilities.reduce((sum, cat) => sum + cat.items.length, 0);
-    const active = capabilities.reduce((sum, cat) =>
-      sum + cat.items.filter((item: any) => item.status === 'active').length, 0
-    );
-    setStats({ total, active, categories: capabilities.length });
-  }, []);
 
   const filteredCapabilities = activeCategory === 'all'
     ? capabilities
@@ -77,7 +73,7 @@ export default function Home() {
               className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
                 activeCategory === cat.category
                   ? 'bg-pink-500 text-white shadow-lg'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
               {cat.icon} {cat.name}
