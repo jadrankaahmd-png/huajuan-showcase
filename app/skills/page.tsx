@@ -44,6 +44,9 @@ const skills: Skill[] = [
   { name: 'HK Stock Trending', description: '港股趋势分析', category: '金融分析', status: 'active', icon: '🇭🇰' },
   { name: 'A Share Real Time Data', description: 'A股实时数据（mootdx/TDX协议）', category: '金融分析', status: 'active', icon: '📊' },
   { name: 'Finance Tracker', description: '完整个人财务管理（支出+订阅+储蓄+多货币）', category: '金融分析', status: 'active', icon: '💰' },
+  { name: 'AI News Oracle', description: 'AI新闻神谕（Hacker News+TechCrunch+Verge）', category: '金融分析', status: 'active', icon: '📰' },
+  { name: 'Market Intelligence', description: '市场情报分析系统', category: '金融分析', status: 'active', icon: '🔍' },
+  { name: 'Breadth Chart Analyst', description: '市场宽度图表分析', category: '金融分析', status: 'active', icon: '📊' },
 
   // 投资组合与交易（7个）
   { name: 'Portfolio Tracking Skill', description: '投资组合追踪', category: '投资组合', status: 'active', icon: '📊' },
@@ -84,6 +87,9 @@ const skills: Skill[] = [
   { name: 'Data Analyst', description: '数据可视化+SQL查询+电子表格', category: '数据分析', status: 'active', icon: '📊' },
   { name: 'Finance Automation', description: '金融自动化', category: '数据分析', status: 'active', icon: '🤖' },
   { name: 'Google Analytics API', description: 'Google Analytics数据访问和分析', category: '数据分析', status: 'active', icon: '📈' },
+  { name: 'Advanced Calendar', description: '高级日历管理（支持多种日历服务）', category: '数据分析', status: 'active', icon: '📅' },
+  { name: 'Google Calendar', description: 'Google日历集成', category: '数据分析', status: 'active', icon: '📆' },
+  { name: 'Daily Report', description: '每日业务报告生成', category: '数据分析', status: 'active', icon: '📊' },
 ];
 
 const categories = ['全部', '金融分析', '投资组合', '交易系统', '数据抓取', '新闻情绪', 'AI分析', '网站开发', '数据分析'];
@@ -124,7 +130,7 @@ export default function SkillsPage() {
                 <span className="text-4xl">🌸</span>
                 <div>
                   <h1 className="text-2xl font-bold text-gray-900">花卷技能中心</h1>
-                  <p className="text-sm text-gray-500">63个专业技能 · 覆盖选股、分析、开发全流程</p>
+                  <p className="text-sm text-gray-500">69个专业技能 · 覆盖选股、分析、开发全流程</p>
                 </div>
               </a>
             </div>
