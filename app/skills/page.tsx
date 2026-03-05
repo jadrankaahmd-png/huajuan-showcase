@@ -85,6 +85,18 @@ const skills: Skill[] = [
 
 const categories = ['全部', '金融分析', '投资组合', '交易系统', '数据抓取', '新闻情绪', 'AI分析', '网站开发', '数据分析'];
 
+const categoryIcons: Record<string, string> = {
+  '全部': '🌸',
+  '金融分析': '📊',
+  '投资组合': '💼',
+  '交易系统': '⚡',
+  '数据抓取': '🕷️',
+  '新闻情绪': '📰',
+  'AI分析': '🤖',
+  '网站开发': '🚀',
+  '数据分析': '📈',
+};
+
 export default function SkillsPage() {
   const [selectedCategory, setSelectedCategory] = useState('全部');
 
@@ -92,113 +104,139 @@ export default function SkillsPage() {
     ? skills
     : skills.filter(skill => skill.category === selectedCategory);
 
+  const stats = {
+    total: skills.length,
+    active: skills.filter(s => s.status === 'active').length,
+    categories: categories.length - 1,
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
-      <div className="container mx-auto px-4 py-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-            🌸 花卷能力中心 v2.0
-          </h1>
-          <p className="text-xl text-gray-400">
-            60个专业技能 · 350+个能力点 · 覆盖选股、分析、开发全流程
-          </p>
-          <div className="mt-4 flex justify-center gap-4">
-            <div className="bg-blue-500/20 px-4 py-2 rounded-lg">
-              <span className="text-blue-400 font-bold">350+</span>
-              <span className="text-gray-400 ml-2">个能力点</span>
+    <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      {/* Header */}
+      <header className="bg-white shadow-sm sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex items-center justify-between flex-wrap gap-4">
+            <div className="flex items-center gap-3">
+              <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                <span className="text-4xl">🌸</span>
+                <div>
+                  <h1 className="text-2xl font-bold text-gray-900">花卷技能中心</h1>
+                  <p className="text-sm text-gray-500">60个专业技能 · 覆盖选股、分析、开发全流程</p>
+                </div>
+              </a>
             </div>
-            <div className="bg-green-500/20 px-4 py-2 rounded-lg">
-              <span className="text-green-400 font-bold">60</span>
-              <span className="text-gray-400 ml-2">个技能</span>
-            </div>
-            <div className="bg-purple-500/20 px-4 py-2 rounded-lg">
-              <span className="text-purple-400 font-bold">9</span>
-              <span className="text-gray-400 ml-2">个分类</span>
+            <div className="flex gap-4 text-sm flex-wrap">
+              <div className="bg-pink-50 px-4 py-2 rounded-lg">
+                <div className="text-pink-600 font-semibold">{stats.total}</div>
+                <div className="text-gray-600">总技能</div>
+              </div>
+              <div className="bg-green-50 px-4 py-2 rounded-lg">
+                <div className="text-green-600 font-semibold">{stats.active}</div>
+                <div className="text-gray-600">正常运行</div>
+              </div>
+              <div className="bg-blue-50 px-4 py-2 rounded-lg">
+                <div className="text-blue-600 font-semibold">{stats.categories}</div>
+                <div className="text-gray-600">分类</div>
+              </div>
             </div>
           </div>
         </div>
+      </header>
 
-        {/* Category Filter */}
-        <div className="flex justify-center gap-4 mb-8 flex-wrap">
+      {/* Category Filter */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="flex gap-2 overflow-x-auto pb-2">
           {categories.map(category => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-2 rounded-lg font-medium transition-all ${
+              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
                 selectedCategory === category
-                  ? 'bg-blue-500 text-white'
-                  : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                  ? 'bg-pink-500 text-white shadow-lg'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
-              {category}
+              {categoryIcons[category]} {category}
             </button>
           ))}
         </div>
+      </div>
 
-        {/* Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Skills Grid */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {filteredSkills.map((skill, index) => (
             <div
               key={index}
-              className="bg-gray-800 rounded-xl p-6 hover:bg-gray-750 transition-all hover:scale-105 border border-gray-700"
+              className="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-100 p-5 hover:border-pink-200"
             >
               <div className="flex items-start justify-between mb-3">
-                <div className="text-4xl">{skill.icon}</div>
+                <div className="text-3xl">{skill.icon}</div>
                 <span className={`px-2 py-1 rounded text-xs font-medium ${
                   skill.status === 'active'
-                    ? 'bg-green-500/20 text-green-400'
+                    ? 'bg-green-50 text-green-600'
                     : skill.status === 'beta'
-                    ? 'bg-yellow-500/20 text-yellow-400'
-                    : 'bg-gray-500/20 text-gray-400'
+                    ? 'bg-yellow-50 text-yellow-600'
+                    : 'bg-gray-50 text-gray-500'
                 }`}>
                   {skill.status === 'active' ? '✅ 正常' : skill.status === 'beta' ? '🟡 测试' : '⏳ 即将上线'}
                 </span>
               </div>
-              <h3 className="text-xl font-bold mb-2 text-white">{skill.name}</h3>
-              <p className="text-gray-400 text-sm mb-3">{skill.description}</p>
+              <h3 className="text-lg font-bold mb-2 text-gray-900">{skill.name}</h3>
+              <p className="text-gray-600 text-sm mb-3 line-clamp-2">{skill.description}</p>
               <div className="flex items-center justify-between">
-                <span className="text-xs text-gray-500 bg-gray-700 px-2 py-1 rounded">
+                <span className="text-xs text-gray-500 bg-gray-50 px-2 py-1 rounded">
                   {skill.category}
                 </span>
               </div>
             </div>
           ))}
         </div>
+      </div>
 
-        {/* Stats */}
-        <div className="mt-16 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl p-8">
-          <h2 className="text-3xl font-bold mb-6 text-center">📊 能力统计</h2>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-400 mb-2">27</div>
-              <div className="text-gray-400">金融分析</div>
+      {/* Stats Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+        <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl p-6">
+          <h2 className="text-2xl font-bold mb-6 text-center text-gray-900">📊 能力统计</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+            <div className="text-center bg-white rounded-lg p-4 shadow-sm">
+              <div className="text-3xl font-bold text-pink-500 mb-1">27</div>
+              <div className="text-sm text-gray-600">金融分析</div>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-green-400 mb-2">7</div>
-              <div className="text-gray-400">投资组合</div>
+            <div className="text-center bg-white rounded-lg p-4 shadow-sm">
+              <div className="text-3xl font-bold text-green-500 mb-1">7</div>
+              <div className="text-sm text-gray-600">投资组合</div>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-purple-400 mb-2">9</div>
-              <div className="text-gray-400">数据抓取</div>
+            <div className="text-center bg-white rounded-lg p-4 shadow-sm">
+              <div className="text-3xl font-bold text-blue-500 mb-1">9</div>
+              <div className="text-sm text-gray-600">数据抓取</div>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-yellow-400 mb-2">5</div>
-              <div className="text-gray-400">新闻情绪</div>
+            <div className="text-center bg-white rounded-lg p-4 shadow-sm">
+              <div className="text-3xl font-bold text-purple-500 mb-1">5</div>
+              <div className="text-sm text-gray-600">新闻情绪</div>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-pink-400 mb-2">6</div>
-              <div className="text-gray-400">网站开发</div>
+            <div className="text-center bg-white rounded-lg p-4 shadow-sm">
+              <div className="text-3xl font-bold text-orange-500 mb-1">6</div>
+              <div className="text-sm text-gray-600">网站开发</div>
             </div>
           </div>
         </div>
-
-        {/* Footer */}
-        <div className="mt-12 text-center text-gray-500 text-sm">
-          <p>最后更新：2026-03-05 20:10</p>
-          <p className="mt-2">🌸 花卷 - 你的智能金融分析助手</p>
-        </div>
       </div>
-    </div>
+
+      {/* Footer */}
+      <footer className="bg-white border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex flex-col sm:flex-row items-center justify-between text-sm text-gray-600 gap-2">
+            <div className="flex items-center gap-2">
+              <span>🌸</span>
+              <span>花卷技能中心 v2.0</span>
+            </div>
+            <div className="text-center sm:text-right text-gray-500">
+              最后更新：2026-03-05 20:20 · 自动同步机制已启用
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
   );
 }
