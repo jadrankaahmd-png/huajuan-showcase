@@ -145,149 +145,63 @@ export default function IranGeopoliticalRiskPage() {
           console.log('✅ 股价数据已加载:', prices.length, '个');
         }
 
-        // ==================== P0: 宏观数据（真实API调用）====================
+        // ==================== P0: 宏观数据（服务器端代理）====================
         const macroResults: MacroData[] = [];
 
-        // 1. VIX恐慌指数（yfinance - ^VIX）
+        // 使用服务器端代理解决CORS问题
         try {
-          const vixResponse = await fetch('https://query1.finance.yahoo.com/v8/finance/chart/%5EVIX?interval=1d&range=1d');
-          if (vixResponse.ok) {
-            const vixData = await vixResponse.json();
-            const vixQuote = vixData.chart?.result?.[0]?.meta;
-            if (vixQuote?.regularMarketPrice) {
-              macroResults.push({
-                name: 'VIX恐慌指数',
-                value: vixQuote.regularMarketPrice.toFixed(2),
-                change: '+0.0', // yfinance不提供change，需要历史数据
-                trend: 'stable',
-                lastUpdate: now,
-                source: 'yfinance API',
-                real: true
-              });
+          const macroResponse = await fetch('/api/macro');
+          if (macroResponse.ok) {
+            const macroData = await macroResponse.json();
+            if (macroData.success && macroData.data) {
+              setMacroData(macroData.data);
+              console.log('✅ 宏观数据已加载:', macroData.data.length, '个');
+            } else {
+              // 如果服务器端也失败，显示错误
+              console.warn('⚠️ 宏观数据暂时无法获取:', macroData.error);
+              // 设置默认占位数据
+              setMacroData([
+                { name: 'VIX恐慌指数', value: '暂时无法获取', change: '-', trend: 'stable', lastUpdate: now, source: 'yfinance API (CORS限制)', real: false },
+                { name: '美元指数', value: '暂时无法获取', change: '-', trend: 'stable', lastUpdate: now, source: 'yfinance API (CORS限制)', real: false },
+                { name: '美联储利率', value: '暂时无法获取', change: '-', trend: 'stable', lastUpdate: now, source: 'FRED API (CORS限制)', real: false },
+                { name: '美国CPI', value: '暂时无法获取', change: '-', trend: 'stable', lastUpdate: now, source: 'FRED API (CORS限制)', real: false },
+                { name: '美国原油库存', value: '暂时无法获取', change: '-', trend: 'stable', lastUpdate: now, source: 'EIA API', real: false }
+              ]);
             }
           }
         } catch (err) {
-          console.error('❌ VIX获取失败:', err);
+          console.error('❌ 宏观数据获取失败:', err);
+          // 设置默认占位数据
+          setMacroData([
+            { name: 'VIX恐慌指数', value: '暂时无法获取', change: '-', trend: 'stable', lastUpdate: now, source: 'yfinance API (CORS限制)', real: false },
+            { name: '美元指数', value: '暂时无法获取', change: '-', trend: 'stable', lastUpdate: now, source: 'yfinance API (CORS限制)', real: false },
+            { name: '美联储利率', value: '暂时无法获取', change: '-', trend: 'stable', lastUpdate: now, source: 'FRED API (CORS限制)', real: false },
+            { name: '美国CPI', value: '暂时无法获取', change: '-', trend: 'stable', lastUpdate: now, source: 'FRED API (CORS限制)', real: false },
+            { name: '美国原油库存', value: '暂时无法获取', change: '-', trend: 'stable', lastUpdate: now, source: 'EIA API', real: false }
+          ]);
         }
 
-        // 2. 美元指数（yfinance - DX-Y.NYB）
+        // ==================== P0: 新闻数据（服务器端代理）====================
         try {
-          const dxyResponse = await fetch('https://query1.finance.yahoo.com/v8/finance/chart/DX-Y.NYB?interval=1d&range=1d');
-          if (dxyResponse.ok) {
-            const dxyData = await dxyResponse.json();
-            const dxyQuote = dxyData.chart?.result?.[0]?.meta;
-            if (dxyQuote?.regularMarketPrice) {
-              macroResults.push({
-                name: '美元指数',
-                value: dxyQuote.regularMarketPrice.toFixed(2),
-                change: '+0.0',
-                trend: 'stable',
-                lastUpdate: now,
-                source: 'yfinance API',
-                real: true
-              });
-            }
-          }
-        } catch (err) {
-          console.error('❌ 美元指数获取失败:', err);
-        }
-
-        // 3. 美联储利率（FRED API - DFF）
-        try {
-          const fredResponse = await fetch('https://api.stlouisfed.org/fred/series/observations?series_id=DFF&api_key=af7508267bd3d2d7820438698f28b3ec&file_type=json&limit=1&sort_order=desc');
-          if (fredResponse.ok) {
-            const fredData = await fredResponse.json();
-            const rate = fredData.observations?.[0]?.value;
-            if (rate) {
-              macroResults.push({
-                name: '美联储利率',
-                value: `${rate}%`,
-                change: '0%',
-                trend: 'stable',
-                lastUpdate: now,
-                source: 'FRED API',
-                real: true
-              });
-            }
-          }
-        } catch (err) {
-          console.error('❌ 美联储利率获取失败:', err);
-        }
-
-        // 4. 美国CPI（FRED API - CPIAUCSL）
-        try {
-          const cpiResponse = await fetch('https://api.stlouisfed.org/fred/series/observations?series_id=CPIAUCSL&api_key=af7508267bd3d2d7820438698f28b3ec&file_type=json&limit=2&sort_order=desc');
-          if (cpiResponse.ok) {
-            const cpiData = await cpiResponse.json();
-            const currentCPI = cpiData.observations?.[0]?.value;
-            const previousCPI = cpiData.observations?.[1]?.value;
-            if (currentCPI && previousCPI) {
-              const cpiChange = ((currentCPI - previousCPI) / previousCPI * 100).toFixed(1);
-              macroResults.push({
-                name: '美国CPI',
-                value: `${(currentCPI / 10).toFixed(1)}%`,
-                change: `+${cpiChange}%`,
-                trend: parseFloat(cpiChange) > 0 ? 'up' : 'down',
-                lastUpdate: now,
-                source: 'FRED API',
-                real: true
-              });
-            }
-          }
-        } catch (err) {
-          console.error('❌ CPI获取失败:', err);
-        }
-
-        // 5. 美国原油库存（EIA API）
-        try {
-          const eiaResponse = await fetch('https://api.eia.gov/v2/petroleum/stoc/wstk/data/?api_key=vFGhPvNPdmfdJ7YKMx1BgJ1Oz9FS82dIscKBB6G8&frequency=weekly&data[0]=value&facets[series][]=W_EPC0_SAX_YCUOK_MBBL&sort[0][column]=period&sort[0][direction]=desc&length=1');
-          if (eiaResponse.ok) {
-            const eiaData = await eiaResponse.json();
-            const crudeStock = eiaData.response?.data?.[0]?.value;
-            if (crudeStock) {
-              macroResults.push({
-                name: '美国原油库存',
-                value: `${(crudeStock / 1000000).toFixed(1)}M桶`,
-                change: '-0.0M',
-                trend: 'stable',
-                lastUpdate: now,
-                source: 'EIA API',
-                real: true
-              });
-            }
-          }
-        } catch (err) {
-          console.error('❌ 原油库存获取失败:', err);
-        }
-
-        if (macroResults.length > 0) {
-          setMacroData(macroResults);
-          console.log('✅ 宏观数据已加载:', macroResults.length, '个');
-        }
-
-        // ==================== P0: 新闻数据（真实API - NewsAPI）====================
-        try {
-          const NEWS_API_KEY = '332b7388f0fb42a9bf05d06a89fc10c9';
-          const newsResponse = await fetch(`https://newsapi.org/v2/everything?q=Iran%20OR%20Israel%20OR%20Middle%20East%20oil&language=en&sortBy=publishedAt&pageSize=10&apiKey=${NEWS_API_KEY}`);
-          
+          const newsResponse = await fetch('/api/news');
           if (newsResponse.ok) {
             const newsData = await newsResponse.json();
-            const articles = newsData.articles?.slice(0, 5).map((article: any) => ({
-              title: article.title || '无标题',
-              summary: article.description?.substring(0, 150) || '暂无摘要',
-              sentiment: 'neutral' as const,
-              time: new Date(article.publishedAt).toLocaleTimeString('zh-CN'),
-              source: article.source?.name || '未知来源',
-              url: article.url
-            }));
-
-            if (articles && articles.length > 0) {
-              setNewsData(articles);
-              console.log('✅ 新闻数据已加载:', articles.length, '条');
+            if (newsData.success && newsData.data) {
+              setNewsData(newsData.data);
+              console.log('✅ 新闻数据已加载:', newsData.data.length, '条');
+            } else {
+              // 如果服务器端也失败，显示占位数据
+              console.warn('⚠️ 新闻数据暂时无法获取:', newsData.error);
+              setNewsData([
+                { title: '暂时无法获取新闻', summary: '需要新闻API服务器端代理', sentiment: 'neutral', time: now, source: '系统消息', url: '#' }
+              ]);
             }
           }
         } catch (err) {
           console.error('❌ 新闻数据获取失败:', err);
+          setNewsData([
+            { title: '暂时无法获取新闻', summary: '需要新闻API服务器端代理', sentiment: 'neutral', time: now, source: '系统消息', url: '#' }
+          ]);
         }
 
         // ==================== P1: AI推演（八大Agent）====================
@@ -350,28 +264,27 @@ export default function IranGeopoliticalRiskPage() {
           console.log('✅ AI推演已加载:', agentResults.length, '个');
         }
 
-        // ==================== P1: 情绪分析（Reddit RSS）====================
+        // ==================== P1: 情绪分析（服务器端代理）====================
         try {
-          const redditResponse = await fetch('https://www.reddit.com/r/wallstreetbets/.rss');
-          if (redditResponse.ok) {
-            const rssText = await redditResponse.text();
-            // 简单解析RSS，提取帖子数量
-            const postCount = (rssText.match(/<entry>/g) || []).length;
-            
-            setSentimentData([
-              {
-                platform: 'Reddit r/wallstreetbets',
-                sentiment: 'neutral',
-                score: 0.5,
-                volume: `${postCount}个最新帖子`,
-                lastUpdate: now,
-                available: true
-              }
-            ]);
-            console.log('✅ Reddit情绪数据已加载');
+          const sentimentResponse = await fetch('/api/sentiment');
+          if (sentimentResponse.ok) {
+            const sentimentData = await sentimentResponse.json();
+            if (sentimentData.success && sentimentData.data) {
+              setSentimentData(sentimentData.data);
+              console.log('✅ 情绪数据已加载:', sentimentData.data.length, '个');
+            } else {
+              // 如果服务器端也失败，显示占位数据
+              console.warn('⚠️ 情绪数据暂时无法获取:', sentimentData.error);
+              setSentimentData([
+                { platform: 'Reddit r/wallstreetbets', sentiment: 'neutral', score: 0, volume: '暂时无法获取', lastUpdate: now, available: false }
+              ]);
+            }
           }
         } catch (err) {
-          console.error('❌ Reddit数据获取失败:', err);
+          console.error('❌ 情绪数据获取失败:', err);
+          setSentimentData([
+            { platform: 'Reddit r/wallstreetbets', sentiment: 'neutral', score: 0, volume: '暂时无法获取', lastUpdate: now, available: false }
+          ]);
         }
 
         // ==================== P2: 暂时无法获取的数据 ====================
