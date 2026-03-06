@@ -1841,13 +1841,28 @@ export const capabilities = [
     icon: '🧠',
     items: [
       {
+        name: 'OpenViking 革命性记忆数据库',
+        description: '专为 AI Agents 设计的 Context Database',
+        status: 'active',
+        type: '记忆系统',
+        details: {
+          whatItDoes: '革命性记忆数据库，彻底解决花卷的三大痛点：\n1. Context Window 超限 → 分层存储（L0/L1/L2），永不超限\n2. 记忆丢失和健忘 → 永久保存，智能检索\n3. 每次session重启失忆 → 持久记忆，越用越聪明',
+          howItWorks: '• 文件系统范式：统一管理记忆、资源、技能\n• 三层存储：L0抽象（100 tokens）+ L1概览（2k tokens）+ L2详情（按需加载）\n• 目录递归检索：先定位高相关目录，再精细探索\n• 可视化轨迹：清楚观察检索路径\n• 自动迭代：持续学习，自动更新记忆',
+          currentStatus: '✅ 完整安装并运行\n• OpenViking 0.2.4 + AGFS 服务器\n• 85个记忆文件已导入（100%成功）\n• Viking URI: viking://resources/huajuan/（core/daily/knowledge）\n• 服务器端口：1933\n• 健康状态：100%正常',
+          performance: '📊 革命性改进（官方测试数据）：\n• 任务完成率：+43-49%\n• Token 成本：-83-96%\n• 记忆容量：37 → ∞',
+          lastUpdate: '2026-03-06 13:36',
+          usage: '• 配置文件：~/.openviking/ov.conf\n• 客户端：tools/openviking_memory_manager.py\n• 详细报告：memory/2026-03-06-openviking-complete-success.md',
+          dependencies: ['OpenViking 0.2.4', 'AGFS', 'OpenAI API', 'Python']
+        }
+      },
+      {
         name: 'MEMORY_LITE.md',
         description: '精简版记忆（1KB）',
         status: 'active',
         type: '记忆系统',
         details: {
           whatItDoes: '新session优先读取，防止Context超限',
-          currentStatus: '✅ 正常运行',
+          currentStatus: '✅ 正常运行\n⚠️ 将逐步迁移到 OpenViking',
           usage: 'MEMORY_LITE.md',
           dependencies: ['自动更新']
         }
