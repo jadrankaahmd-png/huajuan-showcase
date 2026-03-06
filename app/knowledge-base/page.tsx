@@ -11,6 +11,33 @@ interface Knowledge {
   category: string;
 }
 
+const bookSources = [
+  {
+    name: 'Project Gutenberg',
+    url: 'https://www.gutenberg.org/',
+    description: '70,000+ 经典投资书籍（公共领域）',
+    example: '《聪明的投资者》、《证券分析》'
+  },
+  {
+    name: 'Open Library',
+    url: 'https://openlibrary.org/',
+    description: '数百万本现代投资书籍（合法借阅）',
+    example: '当代投资理论、最新市场分析'
+  },
+  {
+    name: 'SEC EDGAR',
+    url: 'https://www.sec.gov/cgi-bin/browse-edgar',
+    description: '公司财报、年报、招股书（公共领域）',
+    example: '巴菲特致股东信、公司10-K年报'
+  },
+  {
+    name: 'Internet Archive',
+    url: 'https://archive.org/',
+    description: '数百万本历史投资文献（合法借阅）',
+    example: '历史市场分析、经典投资案例'
+  }
+];
+
 const knowledgeBase: Knowledge[] = [
   {
     title: 'Interactive Benchmarks: 评估模型的交互学习能力',
@@ -226,6 +253,42 @@ export default function KnowledgeBasePage() {
           </div>
         </div>
       </header>
+
+      {/* Book Search Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-xl p-6 mb-6">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="text-3xl">📚</span>
+            <div>
+              <h2 className="text-xl font-bold text-gray-900">合法书籍知识库</h2>
+              <p className="text-sm text-gray-600">整合4大合法数据源，支持书籍搜索和投资知识提炼</p>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {bookSources.map((source, index) => (
+              <a
+                key={index}
+                href={source.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white rounded-lg p-4 hover:shadow-md transition-all border border-gray-200"
+              >
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-2xl">📖</span>
+                  <h3 className="font-bold text-gray-900">{source.name}</h3>
+                </div>
+                <p className="text-sm text-gray-600 mb-2">{source.description}</p>
+                <p className="text-xs text-gray-500 italic">{source.example}</p>
+              </a>
+            ))}
+          </div>
+          <div className="mt-4 p-4 bg-blue-50 rounded-lg">
+            <p className="text-sm text-blue-800">
+              💡 <strong>使用方法：</strong>点击上方数据源搜索书籍 → 下载或借阅 → 发送给花卷进行六维蒸馏法提炼 → 存入知识库
+            </p>
+          </div>
+        </div>
+      </div>
 
       {/* Category Filter */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
