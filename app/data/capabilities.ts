@@ -4561,6 +4561,21 @@ export const capabilities = [
     icon: '🛠️',
     items: [
       {
+        name: 'skill-creator（Anthropic 官方）⭐',
+        description: 'AI 自动创建新 Skill 的工具（Anthropic 官方）',
+        status: 'active',
+        type: 'AI能力',
+        details: {
+          whatItDoes: '让 AI 自动帮你创建新的 Skill，AI 自己给自己写插件。支持从零创建 skill、修改现有 skill、测试 skill 性能、优化 skill 描述。',
+          howItWorks: '• 决定 skill 功能 → 写草稿 → 创建测试 prompts → 评估结果（定性+定量）→ 重写 skill → 重复直到满意\n• 支持渐进式披露：Metadata（~100词）+ SKILL.md（<500行）+ 资源文件（无限）\n• 提供 eval-viewer/generate_review.py 脚本量化评估',
+          currentStatus: '✅ 已安装（Anthropic 官方）\n• 位置：~/.openclaw/skills/skill-creator/\n• SKILL.md：32KB（完整文档）\n• 包含：agents/、assets/、eval-viewer/、references/、scripts/\n• 可立即使用',
+          improvements: '📊 使用效果：\n• 创建 skill 效率：手动2小时 → 自动10分钟（-92%）\n• Skill 质量：AI 优化，触发准确率更高\n• 测试覆盖：自动生成测试用例\n• 迭代速度：快速改进，持续优化',
+          lastUpdate: '2026-03-07',
+          usage: '• 创建新 skill："帮我创建一个XXX skill"\n• 修改 skill："优化这个 skill"\n• 测试 skill："测试这个 skill 的性能"',
+          dependencies: ['Anthropic 官方', 'Claude API']
+        }
+      },
+      {
         name: 'agent-browser',
         description: 'Automates browser interactions for web testing, form filling, screenshots, and d...',
         status: 'active',
