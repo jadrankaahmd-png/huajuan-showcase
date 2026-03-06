@@ -113,6 +113,11 @@ export default function IranGeopoliticalRiskPage() {
   const [lastUpdate, setLastUpdate] = useState<string>('');
   const [nextUpdate, setNextUpdate] = useState<string>('');
   const [error, setError] = useState<string>('');
+  
+  // 版本信息
+  const VERSION = 'v5.0.1';
+  const BUILD_TIME = new Date().toISOString();
+  console.log(`🌸 花卷全球宏观地缘风险监控系统 ${VERSION} - 构建时间: ${BUILD_TIME}`);
 
   // 数据加载函数
   const loadData = useCallback(async (showRefreshing = false) => {
@@ -121,6 +126,8 @@ export default function IranGeopoliticalRiskPage() {
     
     setError('');
     const now = formatFullDateTime();
+    
+    console.log('🚀 开始加载数据...', new Date().toISOString());
 
     try {
       // ==================== P0: 股价数据（真实API - Finnhub）====================
@@ -426,8 +433,13 @@ export default function IranGeopoliticalRiskPage() {
       console.log('✅ 所有数据加载完成');
 
     } catch (err) {
-      setError('数据加载失败: ' + (err instanceof Error ? err.message : '未知错误'));
+      const errorMessage = '数据加载失败: ' + (err instanceof Error ? err.message : '未知错误');
+      setError(errorMessage);
       console.error('❌ 数据加载失败:', err);
+      console.error('❌ 错误堆栈:', err instanceof Error ? err.stack : '无堆栈信息');
+      
+      // 显示详细错误信息给用户
+      alert(`数据加载失败！\n\n错误：${errorMessage}\n\n请尝试：\n1. 刷新页面（Cmd/Ctrl + Shift + R）\n2. 清除浏览器缓存\n3. 访问备用域名：https://huajuan-showcase.vercel.app`);
     }
 
     setIsLoading(false);
@@ -761,9 +773,10 @@ export default function IranGeopoliticalRiskPage() {
           <div className="flex flex-col sm:flex-row items-center justify-between text-sm text-gray-600 gap-2">
             <div className="flex items-center gap-2">
               <span>🌸</span>
-              <span>花卷全球宏观地缘风险监控系统 v5.0（实时更新版）</span>
+              <span>花卷全球宏观地缘风险监控系统 {VERSION}（实时更新版）</span>
               <span className="text-xs text-green-600">✅ 所有数据真实</span>
               <span className="text-xs text-blue-600">✅ 5分钟自动刷新</span>
+              <span className="text-xs text-gray-400">构建: {BUILD_TIME.split('T')[0]}</span>
             </div>
             <div className="text-center sm:text-right text-gray-500">
               数据源：Finnhub · yfinance · FRED · EIA · NewsAPI · Reddit RSS · 每5分钟实时更新
