@@ -27,6 +27,47 @@ export async function GET() {
   
   const MARINESIA_API_KEY = process.env.MARINESIA_API_KEY;
   
+  // 临时方案：先返回占位数据，避免超时
+  // TODO: 后续接入 aisstream.io WebSocket API
+  return NextResponse.json({
+    success: false,
+    error: '海运监控API暂时不可用',
+    data: [
+      {
+        route: '霍尔木兹海峡',
+        vessels: 0,
+        status: '暂时无法获取',
+        lastUpdate: now,
+        available: false
+      },
+      {
+        route: '波斯湾 → 阿曼湾',
+        vessels: 0,
+        status: '暂时无法获取',
+        lastUpdate: now,
+        available: false
+      }
+    ],
+    registration: {
+      aisstream: {
+        name: 'aisstream.io',
+        url: 'https://aisstream.io/',
+        cost: '免费',
+        features: '全球AIS数据，WebSocket API',
+        note: '免费且稳定，推荐使用'
+      },
+      aishub: {
+        name: 'AISHub',
+        url: 'https://www.aishub.net/',
+        cost: '免费（需分享AIS数据流）',
+        features: 'AIS数据交换平台'
+      }
+    },
+    lastUpdate: now,
+    source: '海运监控API暂时不可用'
+  });
+  
+  /* 暂时注释掉 Marinesia API 调用（容易超时）
   if (!MARINESIA_API_KEY) {
     // 没有API Key，返回占位数据并提供注册指南
     return NextResponse.json({
