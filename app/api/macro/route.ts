@@ -110,10 +110,10 @@ export async function GET() {
       const currentCPI = cpiData.observations?.[0]?.value;
       const previousCPI = cpiData.observations?.[1]?.value;
       if (currentCPI && previousCPI) {
-        const cpiChange = ((currentCPI - previousCPI) / previousCPI * 100).toFixed(1);
+        const cpiChange = ((currentCPI - previousCPI) / previousCPI * 100).toFixed(2);
         macroResults.push({
           name: '美国CPI',
-          value: `${(currentCPI / 10).toFixed(1)}%`,
+          value: `${currentCPI}`,
           change: `+${cpiChange}%`,
           trend: parseFloat(cpiChange) > 0 ? 'up' : 'down',
           lastUpdate: now,
@@ -136,7 +136,7 @@ export async function GET() {
     if (eiaResponse.ok) {
       const eiaData = await eiaResponse.json();
       const crudeStock = eiaData.response?.data?.[0]?.value;
-      if (crudeStock) {
+      if (crudeStock && crudeStock > 0) {
         macroResults.push({
           name: '美国原油库存',
           value: `${(crudeStock / 1000000).toFixed(1)}M桶`,
@@ -146,10 +146,42 @@ export async function GET() {
           source: 'EIA API',
           real: true
         });
+      } else {
+        // EIA API返回空数据，显示"暂时无法获取"
+        macroResults.push({
+          name: '美国原油库存',
+          value: '暂时无法获取',
+          change: '-',
+          trend: 'stable',
+          lastUpdate: now,
+          source: 'EIA API',
+          real: false
+        });
       }
+    } else {
+      // EIA API调用失败，显示"暂时无法获取"
+      macroResults.push({
+        name: '美国原油库存',
+        value: '暂时无法获取',
+        change: '-',
+        trend: 'stable',
+        lastUpdate: now,
+        source: 'EIA API',
+        real: false
+      });
     }
   } catch (err) {
     errors.push(`原油库存获取失败: ${err}`);
+    // 添加占位数据，确保模块显示
+    macroResults.push({
+      name: '美国原油库存',
+      value: '暂时无法获取',
+      change: '-',
+      trend: 'stable',
+      lastUpdate: now,
+      source: 'EIA API',
+      real: false
+    });
   }
 
   // 如果所有数据都获取失败，返回错误
