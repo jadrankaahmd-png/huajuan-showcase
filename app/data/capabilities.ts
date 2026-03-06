@@ -3232,5 +3232,2050 @@ export const capabilities = [
         }
       }
     ]
-  }
+  },
+
+  // 股票分析系统（自动添加）
+  {
+    category: 'stock-analysis',
+    name: '股票分析系统',
+    icon: '📊',
+    items: [
+      {
+        name: 'AI CFO',
+        description: 'Full AI Chief Financial Officer — connects Mercury Banking + Stripe into real-ti...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Full AI Chief Financial Officer — connects Mercury Banking + Stripe into real-time business intelligence. Daily cash position, automated P&L, revenue ',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'ChartClass',
+        description: 'Technical analysis and chart pattern recognition for equities, options, and cryp...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Technical analysis and chart pattern recognition for equities, options, and crypto markets',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'a-stock-analysis',
+        description: 'A股实时行情与分时量能分析。获取沪深股票实时价格、涨跌、成交量，分析分时量能分布（早盘/尾盘放量）、主力动向（抢筹/出货信号）、涨停封单。支持持仓管理和盈亏分析...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'A股实时行情与分时量能分析。获取沪深股票实时价格、涨跌、成交量，分析分时量能分布（早盘/尾盘放量）、主力动向（抢筹/出货信号）、涨停封单。支持持仓管理和盈亏分析。Use when: (1) 查询A股实时行情, (2) 分析主力资金动向, (3) 查看分时成交量分布, (4) 管理股票持仓, (5) ',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'agenthc-market-intelligence',
+        description: 'Real-time stock market data and trading intelligence API. 85 intelligence module...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Real-time stock market data and trading intelligence API. 85 intelligence modules, 40 encoded intelligence skills, and 7 named alert packages — equiti',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'apify-competitor-intelligence',
+        description: 'Analyze competitor strategies, content, pricing, ads, and market positioning acr...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Analyze competitor strategies, content, pricing, ads, and market positioning across Google Maps, Booking.com, Facebook, Instagram, YouTube, and TikTok',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'astock-daily',
+        description: '```markdown',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: '```markdown',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'backtest-expert',
+        description: 'Expert guidance for systematic backtesting of trading strategies. Use when devel...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Expert guidance for systematic backtesting of trading strategies. Use when developing, testing, stress-testing, or validating quantitative trading str',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'breadth-chart-analyst',
+        description: 'This skill should be used when analyzing market breadth charts, specifically the...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'This skill should be used when analyzing market breadth charts, specifically the S&P 500 Breadth Index (200-Day MA based) and the US Stock Market Uptr',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'earnings-calendar',
+        description: 'This skill retrieves upcoming earnings announcements for US stocks using the Fin...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'This skill retrieves upcoming earnings announcements for US stocks using the Financial Modeling Prep (FMP) API. Use this when the user requests earnin',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'economic-calendar-fetcher',
+        description: 'Fetch upcoming economic events and data releases using FMP API. Retrieve schedul...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Fetch upcoming economic events and data releases using FMP API. Retrieve scheduled central bank decisions, employment reports, inflation data, GDP rel',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'etf-finance',
+        description: 'ETF and fund portfolio manager with price alerts, profit/loss tracking, and posi...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'ETF and fund portfolio manager with price alerts, profit/loss tracking, and position management. Track your ETF/fund holdings, calculate gains/losses,',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'finance',
+        description: 'Track stocks, ETFs, indices, crypto (where available), and FX pairs with caching...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Track stocks, ETFs, indices, crypto (where available), and FX pairs with caching + provider fallbacks.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'finance-automation',
+        description: '```bash',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: '```bash',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'finance-news',
+        description: 'Market news briefings with AI summaries. Use when asked about stock news, market...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Market news briefings with AI summaries. Use when asked about stock news, market updates, portfolio performance, morning/evening briefings, financial ',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'finance-tracker',
+        description: 'Or add to PATH:',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Or add to PATH:',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'finance_lite',
+        description: 'Daily macro + market brief (FRED + benchmarks + watchlist ticker) with critical-...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Daily macro + market brief (FRED + benchmarks + watchlist ticker) with critical-headline triage, explicit source/freshness notes, and graceful fallbac',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'financial-analysis',
+        description: '- ✅ 图表可视化（收益曲线、资产分布、风险指标等）',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: '- ✅ 图表可视化（收益曲线、资产分布、风险指标等）',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'financial-lkcair',
+        description: 'Auto-routing (AI-friendly):',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Auto-routing (AI-friendly):',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'financial-market-analysis',
+        description: 'Precision Financial Insights - Analyze stocks, companies, and market sentiment u...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Precision Financial Insights - Analyze stocks, companies, and market sentiment using authoritative data. Powered by Yahoo Finance and enhanced with in',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'hk-stock-trending',
+        description: 'Get daily trending Hong Kong stocks with market analysis',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Get daily trending Hong Kong stocks with market analysis',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'intellectia-stock-forecast',
+        description: 'US Stock AI Trading Assistant | Intellectia AI Stock Forecast — Smart analysis o...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'US Stock AI Trading Assistant | Intellectia AI Stock Forecast — Smart analysis of stock entry/exit points, target price predictions, probability calcu',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'intellectia-stock-screener',
+        description: 'Get stock screener list data from Intellectia API (no auth) and summarize result...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Get stock screener list data from Intellectia API (no auth) and summarize results.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'market-environment-analysis',
+        description: 'Comprehensive market environment analysis and reporting tool. Analyzes global ma...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Comprehensive market environment analysis and reporting tool. Analyzes global markets including US, European, Asian markets, forex, commodities, and e',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'mootdx-china-stock-data',
+        description: 'Fetch China A-share stock market data (bars, realtime quotes, tick-by-tick trans...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Fetch China A-share stock market data (bars, realtime quotes, tick-by-tick transactions) via mootdx/TDX protocol. Use when working with Chinese stock ',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'options-strategy-advisor',
+        description: 'Options trading strategy analysis and simulation tool. Provides theoretical pric...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Options trading strategy analysis and simulation tool. Provides theoretical pricing using Black-Scholes model, Greeks calculation, strategy P/L simula',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'passive-income-tracker',
+        description: '- **Uptime correlation** — cross-checks earnings with service uptime',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: '- **Uptime correlation** — cross-checks earnings with service uptime',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'portfolio-manager',
+        description: 'Comprehensive portfolio analysis using Alpaca MCP Server integration to fetch ho...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Comprehensive portfolio analysis using Alpaca MCP Server integration to fetch holdings and positions, then analyze asset allocation, risk metrics, ind',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'portfolio-tracker',
+        description: 'An investment portfolio tracker that runs entirely locally. All data stays in ~/...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'An investment portfolio tracker that runs entirely locally. All data stays in ~/.portfolio-tracker/.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'prism-alerts',
+        description: 'Real-time Pump.fun token alerts for Solana traders. New launches, graduations, v...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Real-time Pump.fun token alerts for Solana traders. New launches, graduations, volume spikes. For trading bots, Discord, Telegram, AI agents.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'prism-finance-os',
+        description: 'Financial data SDK for AI Agents. 218+ read-only endpoints for market data, pric...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Financial data SDK for AI Agents. 218+ read-only endpoints for market data, prices, fundamentals. Built for Cursor, Claude, OpenClaw. Data retrieval o',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'prismapi-sdk',
+        description: 'Elite Agentic Finance SDK for OpenClaw, Claude & Autonomous Trading Bots. Real-t...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Elite Agentic Finance SDK for OpenClaw, Claude & Autonomous Trading Bots. Real-time market data, canonical asset resolution, 100+ endpoints for crypto',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'realtime-crypto-price-api',
+        description: 'Real-time cryptocurrency price data API for Bitcoin, Ethereum, Solana and 10,000...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Real-time cryptocurrency price data API for Bitcoin, Ethereum, Solana and 10,000+ tokens. Get live prices, historical data, trending coins, and batch ',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'sector-analyst',
+        description: 'This skill should be used when analyzing sector and industry performance charts ...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'This skill should be used when analyzing sector and industry performance charts to assess market positioning and rotation patterns. Use this skill whe',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'self-improvement',
+        description: 'Captures learnings, errors, and corrections to enable continuous improvement. Us...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Captures learnings, errors, and corrections to enable continuous improvement. Use when: (1) A command or operation fails unexpectedly, (2) User correc',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'sina-stock',
+        description: '获取 A 股实时股票行情数据（上证指数、深证成指、创业板指等），使用新浪财经 API。无需 API Key。',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: '获取 A 股实时股票行情数据（上证指数、深证成指、创业板指等），使用新浪财经 API。无需 API Key。',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'stock-analysis',
+        description: 'Analyze stocks and cryptocurrencies using Yahoo Finance data. Supports portfolio...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Analyze stocks and cryptocurrencies using Yahoo Finance data. Supports portfolio management, watchlists with alerts, dividend analysis, 8-dimension st',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'stock-info-explorer',
+        description: '>-',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: '>-',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'stock-market-pro',
+        description: '>-',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: '>-',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'stock-research-engine',
+        description: '个股基本面深度研究引擎。当用户输入股票代码、公司名称或要求分析某只股票时触发。覆盖A股、港股、美股。输出买方基金经理视角的投资分析简报，包含市场情绪、基本面、管...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: '个股基本面深度研究引擎。当用户输入股票代码、公司名称或要求分析某只股票时触发。覆盖A股、港股、美股。输出买方基金经理视角的投资分析简报，包含市场情绪、基本面、管理层评估、业务拆解、催化剂日历、风险提示和估值数据展示。任何涉及"帮我看看这个票"、"分析一下XXX"、"这个公司怎么样"、"XXX值不值得',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'tencent-finance',
+        description: 'Get stock prices, quotes, and compare stocks using Tencent Finance API. No API k...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Get stock prices, quotes, and compare stocks using Tencent Finance API. No API key required. Supports US stocks, China A-Shares, Hong Kong stocks. Opt',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'trading-devbox',
+        description: 'Trading strategy development sandbox. User describes trading intent in natural l...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Trading strategy development sandbox. User describes trading intent in natural language, agent writes a Python backtest strategy and returns results.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'trading-quant',
+        description: '量化交易数据分析工具。A股/美股/港股/贵金属实时行情，多维度评分(技术面+资金面+基本面)，涨跌停池，北向资金，分钟级资金流。Use when: (1) 查询...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: '量化交易数据分析工具。A股/美股/港股/贵金属实时行情，多维度评分(技术面+资金面+基本面)，涨跌停池，北向资金，分钟级资金流。Use when: (1) 查询任何股票实时行情和评分, (2) 分析A股涨跌停异动, (3) 查看北向资金流向, (4) 美股港股贵金属行情, (5) 全球市场概览, (',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'trading212-api',
+        description: 'This skill should be used when the user asks to "connect to Trading 212", "authe...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'This skill should be used when the user asks to "connect to Trading 212", "authenticate Trading 212 API", "place a trade", "buy stock", "sell shares",',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'us-market-bubble-detector',
+        description: 'Evaluates market bubble risk through quantitative data-driven analysis using the...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Evaluates market bubble risk through quantitative data-driven analysis using the revised Minsky/Kindleberger framework v2.1. Prioritizes objective met',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'us-stock-analysis',
+        description: 'Comprehensive US stock analysis including fundamental analysis (financial metric...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Comprehensive US stock analysis including fundamental analysis (financial metrics, business quality, valuation), technical analysis (indicators, chart',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'yahoo-finance',
+        description: 'Get stock prices, quotes, fundamentals, earnings, options, dividends, and analys...',
+        status: 'active',
+        type: '股票分析',
+        details: {
+          whatItDoes: 'Get stock prices, quotes, fundamentals, earnings, options, dividends, and analyst ratings using Yahoo Finance. Uses yfinance library - no API key requ',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+    ]
+  },
+
+  // 数据监控系统（自动添加）
+  {
+    category: 'data-monitoring',
+    name: '数据监控系统',
+    icon: '📡',
+    items: [
+      {
+        name: 'agentmail-integration',
+        description: 'Integrate AgentMail API for AI agent email automation. Create and manage dedicat...',
+        status: 'active',
+        type: '数据监控',
+        details: {
+          whatItDoes: 'Integrate AgentMail API for AI agent email automation. Create and manage dedicated email inboxes, send and receive emails programmatically, handle ema',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'ai-news-oracle',
+        description: 'Fetch real-time AI news briefings from the AI News Oracle API (Hacker News, Tech...',
+        status: 'active',
+        type: '数据监控',
+        details: {
+          whatItDoes: 'Fetch real-time AI news briefings from the AI News Oracle API (Hacker News, TechCrunch, The Verge). Uses a10m.work registry for discovery and Paymaste',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'crypto-portfolio-tracker-api',
+        description: 'Track cryptocurrency portfolios with real-time prices, P&L calculations, and all...',
+        status: 'active',
+        type: '数据监控',
+        details: {
+          whatItDoes: 'Track cryptocurrency portfolios with real-time prices, P&L calculations, and allocation analysis. Query Bitcoin, Ethereum, Solana and 10,000+ token ho',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'daily-business-report',
+        description: 'Generate daily business briefings from multiple data sources. Aggregates weather...',
+        status: 'active',
+        type: '数据监控',
+        details: {
+          whatItDoes: 'Generate daily business briefings from multiple data sources. Aggregates weather, crypto prices, news headlines, system health, and calendar events in',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'google-calendar',
+        description: 'Interact with Google Calendar via the Google Calendar API – list upcoming events...',
+        status: 'active',
+        type: '数据监控',
+        details: {
+          whatItDoes: 'Interact with Google Calendar via the Google Calendar API – list upcoming events, create new events, update or delete them. Use this skill when you ne',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-calendar',
+        description: 'Google Calendar: Manage calendars and events.',
+        status: 'active',
+        type: '数据监控',
+        details: {
+          whatItDoes: 'Google Calendar: Manage calendars and events.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-calendar-agenda',
+        description: 'Google Calendar: Show upcoming events across all calendars.',
+        status: 'active',
+        type: '数据监控',
+        details: {
+          whatItDoes: 'Google Calendar: Show upcoming events across all calendars.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-calendar-insert',
+        description: 'Google Calendar: Create a new event.',
+        status: 'active',
+        type: '数据监控',
+        details: {
+          whatItDoes: 'Google Calendar: Create a new event.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-events',
+        description: 'Subscribe to Google Workspace events.',
+        status: 'active',
+        type: '数据监控',
+        details: {
+          whatItDoes: 'Subscribe to Google Workspace events.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-events-renew',
+        description: 'Google Workspace Events: Renew/reactivate Workspace Events subscriptions.',
+        status: 'active',
+        type: '数据监控',
+        details: {
+          whatItDoes: 'Google Workspace Events: Renew/reactivate Workspace Events subscriptions.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-events-subscribe',
+        description: 'Google Workspace Events: Subscribe to Workspace events and stream them as NDJSON...',
+        status: 'active',
+        type: '数据监控',
+        details: {
+          whatItDoes: 'Google Workspace Events: Subscribe to Workspace events and stream them as NDJSON.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'openclaw-dashboard',
+        description: 'Real-time operations dashboard for OpenClaw. Monitors sessions, costs, cron jobs...',
+        status: 'active',
+        type: '数据监控',
+        details: {
+          whatItDoes: 'Real-time operations dashboard for OpenClaw. Monitors sessions, costs, cron jobs, and gateway health. Use when installing the dashboard, starting the ',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'reddit-api',
+        description: 'Reddit Search — Search posts, comments, users, and subreddits across 100M+ index...',
+        status: 'active',
+        type: '数据监控',
+        details: {
+          whatItDoes: 'Reddit Search — Search posts, comments, users, and subreddits across 100M+ indexed Reddit entries. Find discussions, track topics, discover communitie',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'social-sentiment',
+        description: 'Sentiment analysis for brands and products across Twitter, Reddit, and Instagram...',
+        status: 'active',
+        type: '数据监控',
+        details: {
+          whatItDoes: 'Sentiment analysis for brands and products across Twitter, Reddit, and Instagram. Monitor public opinion, track brand reputation, detect PR crises, su',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'sophie-optimizer',
+        description: 'Automated context health management for OpenClaw. Monitors token usage, snapshot...',
+        status: 'active',
+        type: '数据监控',
+        details: {
+          whatItDoes: 'Automated context health management for OpenClaw. Monitors token usage, snapshots memory, and resets sessions to maintain performance. Authored by Sop',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'x-alpha-scout',
+        description: 'X/Twitter alpha scanner for crypto and NFTs. Use when: (1) user wants daily alph...',
+        status: 'active',
+        type: '数据监控',
+        details: {
+          whatItDoes: 'X/Twitter alpha scanner for crypto and NFTs. Use when: (1) user wants daily alpha reports, (2) analyzing a specific token/NFT/project from X sentiment',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+    ]
+  },
+
+  // AI分析系统（自动添加）
+  {
+    category: 'ai-analysis',
+    name: 'AI分析系统',
+    icon: '🤖',
+    items: [
+      {
+        name: 'OptionsHawk',
+        description: 'Options flow analysis, unusual activity detection, and options strategy evaluati...',
+        status: 'active',
+        type: 'AI分析',
+        details: {
+          whatItDoes: 'Options flow analysis, unusual activity detection, and options strategy evaluation for equities and ETFs',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'apipick-email-validation',
+        description: 'Validate email addresses using the apipick Email Validator API. Performs syntax ...',
+        status: 'active',
+        type: 'AI分析',
+        details: {
+          whatItDoes: 'Validate email addresses using the apipick Email Validator API. Performs syntax checking, MX record verification, and disposable/throwaway email detec',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'bbc-news',
+        description: 'Fetch and display BBC News stories from various sections and regions via RSS fee...',
+        status: 'active',
+        type: 'AI分析',
+        details: {
+          whatItDoes: 'Fetch and display BBC News stories from various sections and regions via RSS feeds. Use when the user asks for BBC news, UK news headlines, world news',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'context-manager',
+        description: 'AI-powered context management for OpenClaw sessions',
+        status: 'active',
+        type: 'AI分析',
+        details: {
+          whatItDoes: 'AI-powered context management for OpenClaw sessions',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'daily-report',
+        description: '```',
+        status: 'active',
+        type: 'AI分析',
+        details: {
+          whatItDoes: '```',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'data-analyst',
+        description: 'Data visualization, report generation, SQL queries, and spreadsheet automation. ...',
+        status: 'active',
+        type: 'AI分析',
+        details: {
+          whatItDoes: 'Data visualization, report generation, SQL queries, and spreadsheet automation. Transform your AI agent into a data-savvy analyst that turns raw data ',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'data-analyst',
+        description: 'Data visualization, report generation, SQL queries, and spreadsheet automation. ...',
+        status: 'active',
+        type: 'AI分析',
+        details: {
+          whatItDoes: 'Data visualization, report generation, SQL queries, and spreadsheet automation. Transform your AI agent into a data-savvy analyst that turns raw data ',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-gmail',
+        description: 'Gmail: Send, read, and manage email.',
+        status: 'active',
+        type: 'AI分析',
+        details: {
+          whatItDoes: 'Gmail: Send, read, and manage email.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-gmail-send',
+        description: 'Gmail: Send an email.',
+        status: 'active',
+        type: 'AI分析',
+        details: {
+          whatItDoes: 'Gmail: Send an email.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-gmail-triage',
+        description: 'Gmail: Show unread inbox summary (sender, subject, date).',
+        status: 'active',
+        type: 'AI分析',
+        details: {
+          whatItDoes: 'Gmail: Show unread inbox summary (sender, subject, date).',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-gmail-watch',
+        description: 'Gmail: Watch for new emails and stream them as NDJSON.',
+        status: 'active',
+        type: 'AI分析',
+        details: {
+          whatItDoes: 'Gmail: Watch for new emails and stream them as NDJSON.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-workflow-email-to-task',
+        description: 'Google Workflow: Convert a Gmail message into a Google Tasks entry.',
+        status: 'active',
+        type: 'AI分析',
+        details: {
+          whatItDoes: 'Google Workflow: Convert a Gmail message into a Google Tasks entry.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-workflow-weekly-digest',
+        description: 'Google Workflow: Weekly summary: this week\'s meetings + unread email count.',
+        status: 'active',
+        type: 'AI分析',
+        details: {
+          whatItDoes: 'Google Workflow: Weekly summary: this week\'s meetings + unread email count.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'n8n-workflow-automation',
+        description: 'Designs and outputs n8n workflow JSON with robust triggers, idempotency, error h...',
+        status: 'active',
+        type: 'AI分析',
+        details: {
+          whatItDoes: 'Designs and outputs n8n workflow JSON with robust triggers, idempotency, error handling, logging, retries, and human-in-the-loop review queues. Use wh',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'newsapi-search',
+        description: 'Search news articles via NewsAPI with filtering by time windows, sources, domain...',
+        status: 'active',
+        type: 'AI分析',
+        details: {
+          whatItDoes: 'Search news articles via NewsAPI with filtering by time windows, sources, domains, and languages.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'react-local-biz',
+        description: 'Build complete, modern multi-page React websites for local businesses (landscape...',
+        status: 'active',
+        type: 'AI分析',
+        details: {
+          whatItDoes: 'Build complete, modern multi-page React websites for local businesses (landscapers, restaurants, salons, plumbers, gyms, etc.). Use when a user asks t',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'smart-web-scraper',
+        description: 'Extract structured data from any web page. Supports CSS selectors, auto-detectio...',
+        status: 'active',
+        type: 'AI分析',
+        details: {
+          whatItDoes: 'Extract structured data from any web page. Supports CSS selectors, auto-detection of tables and lists, JSON/CSV output formats. Use when asked to scra',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+    ]
+  },
+
+  // 日历与邮件系统（自动添加）
+  {
+    category: 'calendar-email',
+    name: '日历与邮件系统',
+    icon: '📅',
+    items: [
+      {
+        name: 'advanced-calendar',
+        description: 'Advanced calendar skill with natural language processing, automatic reminders, a...',
+        status: 'active',
+        type: '日历邮件',
+        details: {
+          whatItDoes: 'Advanced calendar skill with natural language processing, automatic reminders, and multi-channel notifications',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+    ]
+  },
+
+  // 文档管理系统（自动添加）
+  {
+    category: 'document-management',
+    name: '文档管理系统',
+    icon: '📄',
+    items: [
+      {
+        name: 'context-compressor',
+        description: 'Compress long conversation histories, large code files, research results, and do...',
+        status: 'active',
+        type: '文档管理',
+        details: {
+          whatItDoes: 'Compress long conversation histories, large code files, research results, and documents by 70% without losing critical information. Triggers when cont',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-docs',
+        description: 'Read and write Google Docs.',
+        status: 'active',
+        type: '文档管理',
+        details: {
+          whatItDoes: 'Read and write Google Docs.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-docs-write',
+        description: 'Google Docs: Append text to a document.',
+        status: 'active',
+        type: '文档管理',
+        details: {
+          whatItDoes: 'Google Docs: Append text to a document.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-keep',
+        description: 'Manage Google Keep notes.',
+        status: 'active',
+        type: '文档管理',
+        details: {
+          whatItDoes: 'Manage Google Keep notes.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-workflow-meeting-prep',
+        description: 'Google Workflow: Prepare for your next meeting: agenda, attendees, and linked do...',
+        status: 'active',
+        type: '文档管理',
+        details: {
+          whatItDoes: 'Google Workflow: Prepare for your next meeting: agenda, attendees, and linked docs.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+    ]
+  },
+
+  // 开发工具（自动添加）
+  {
+    category: 'development-tools',
+    name: '开发工具',
+    icon: '🛠️',
+    items: [
+      {
+        name: 'agent-browser',
+        description: 'Automates browser interactions for web testing, form filling, screenshots, and d...',
+        status: 'active',
+        type: '开发工具',
+        details: {
+          whatItDoes: 'Automates browser interactions for web testing, form filling, screenshots, and data extraction. Use when the user needs to navigate websites, interact',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'browser-use',
+        description: 'Automates browser interactions for web testing, form filling, screenshots, and d...',
+        status: 'active',
+        type: '开发工具',
+        details: {
+          whatItDoes: 'Automates browser interactions for web testing, form filling, screenshots, and data extraction. Use when the user needs to navigate websites, interact',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'cls-news-scraper',
+        description: '1. Collect latest CLS items from configured endpoint/source.',
+        status: 'active',
+        type: '开发工具',
+        details: {
+          whatItDoes: '1. Collect latest CLS items from configured endpoint/source.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'playwright-browser',
+        description: 'Set up headless browser automation in Clawdbot using Playwright Chromium. Use wh...',
+        status: 'active',
+        type: '开发工具',
+        details: {
+          whatItDoes: 'Set up headless browser automation in Clawdbot using Playwright Chromium. Use when configuring browser tools for WSL/Linux environments, installing br',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'react-component-generator',
+        description: '生成 React 组件模板，支持 Function Component, Class Component, Hooks, TypeScript，一键生成完整组件...',
+        status: 'active',
+        type: '开发工具',
+        details: {
+          whatItDoes: '生成 React 组件模板，支持 Function Component, Class Component, Hooks, TypeScript，一键生成完整组件代码。',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'react-expert',
+        description: 'Use when building React 18+ applications requiring component architecture, hooks...',
+        status: 'active',
+        type: '开发工具',
+        details: {
+          whatItDoes: 'Use when building React 18+ applications requiring component architecture, hooks patterns, or state management. Invoke for Server Components, performa',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'react-expert',
+        description: 'Use when building React 18+ applications requiring component architecture, hooks...',
+        status: 'active',
+        type: '开发工具',
+        details: {
+          whatItDoes: 'Use when building React 18+ applications requiring component architecture, hooks patterns, or state management. Invoke for Server Components, performa',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'react-nextjs-generator',
+        description: '3. 生成项目结构',
+        status: 'active',
+        type: '开发工具',
+        details: {
+          whatItDoes: '3. 生成项目结构',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+    ]
+  },
+
+  // 通信系统（自动添加）
+  {
+    category: 'communication',
+    name: '通信系统',
+    icon: '💬',
+    items: [
+      {
+        name: 'gws-chat',
+        description: 'Google Chat: Manage Chat spaces and messages.',
+        status: 'active',
+        type: '通信',
+        details: {
+          whatItDoes: 'Google Chat: Manage Chat spaces and messages.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-chat-send',
+        description: 'Google Chat: Send a message to a space.',
+        status: 'active',
+        type: '通信',
+        details: {
+          whatItDoes: 'Google Chat: Send a message to a space.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-workflow-file-announce',
+        description: 'Google Workflow: Announce a Drive file in a Chat space.',
+        status: 'active',
+        type: '通信',
+        details: {
+          whatItDoes: 'Google Workflow: Announce a Drive file in a Chat space.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+    ]
+  },
+
+  // 记忆与优化系统（自动添加）
+  {
+    category: 'memory-optimization',
+    name: '记忆与优化系统',
+    icon: '⚡',
+    items: [
+      {
+        name: 'context-protection',
+        description: '```bash',
+        status: 'active',
+        type: '记忆优化',
+        details: {
+          whatItDoes: '```bash',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+    ]
+  },
+
+  // 数据抓取系统（自动添加）
+  {
+    category: 'data-fetching',
+    name: '数据抓取系统',
+    icon: '🔍',
+    items: [
+      {
+        name: 'agent-reach',
+        description: '>',
+        status: 'active',
+        type: '数据抓取',
+        details: {
+          whatItDoes: '>',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'web-scraping',
+        description: 'Web scraping tools for fetching and extracting data from web pages',
+        status: 'active',
+        type: '数据抓取',
+        details: {
+          whatItDoes: 'Web scraping tools for fetching and extracting data from web pages',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+    ]
+  },
+
+  // API集成（自动添加）
+  {
+    category: 'api-integration',
+    name: 'API集成',
+    icon: '🔌',
+    items: [
+      {
+        name: 'accounting-workflows',
+        description: 'File-based workflow coordinator for Greek accounting. Defines processing pipelin...',
+        status: 'active',
+        type: 'API集成',
+        details: {
+          whatItDoes: 'File-based workflow coordinator for Greek accounting. Defines processing pipelines, validation rules, and routine templates. No external APIs needed.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'clerk-auth',
+        description: '|',
+        status: 'active',
+        type: 'API集成',
+        details: {
+          whatItDoes: '|',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'data-enricher',
+        description: '- Max 10 Hunter.io lookups per session (API limit)',
+        status: 'active',
+        type: 'API集成',
+        details: {
+          whatItDoes: '- Max 10 Hunter.io lookups per session (API limit)',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-shared',
+        description: 'gws CLI: Shared patterns for authentication, global flags, and output formatting...',
+        status: 'active',
+        type: 'API集成',
+        details: {
+          whatItDoes: 'gws CLI: Shared patterns for authentication, global flags, and output formatting.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-workflow',
+        description: 'Google Workflow: Cross-service productivity workflows.',
+        status: 'active',
+        type: 'API集成',
+        details: {
+          whatItDoes: 'Google Workflow: Cross-service productivity workflows.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-workflow-standup-report',
+        description: 'Google Workflow: Today\'s meetings + open tasks as a standup summary.',
+        status: 'active',
+        type: 'API集成',
+        details: {
+          whatItDoes: 'Google Workflow: Today\'s meetings + open tasks as a standup summary.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+    ]
+  },
+
+  // 自动化系统（自动添加）
+  {
+    category: 'automation',
+    name: '自动化系统',
+    icon: '⚡',
+    items: [
+      {
+        name: 'gws-drive-upload',
+        description: 'Google Drive: Upload a file with automatic metadata.',
+        status: 'active',
+        type: '自动化',
+        details: {
+          whatItDoes: 'Google Drive: Upload a file with automatic metadata.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-tasks',
+        description: 'Google Tasks: Manage task lists and tasks.',
+        status: 'active',
+        type: '自动化',
+        details: {
+          whatItDoes: 'Google Tasks: Manage task lists and tasks.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+    ]
+  },
+
+  // 安全系统（自动添加）
+  {
+    category: 'security',
+    name: '安全系统',
+    icon: '🔒',
+    items: [
+      {
+        name: 'gws-alertcenter',
+        description: 'Google Workspace Alert Center: Manage Workspace security alerts.',
+        status: 'active',
+        type: '安全',
+        details: {
+          whatItDoes: 'Google Workspace Alert Center: Manage Workspace security alerts.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'ipo-alert',
+        description: '한국 공모주 청약/신규상장 일정 알림. 38.co.kr에서 데이터 수집, D-1/당일 알림, 주간 요약 제공.',
+        status: 'active',
+        type: '安全',
+        details: {
+          whatItDoes: '한국 공모주 청약/신규상장 일정 알림. 38.co.kr에서 데이터 수집, D-1/당일 알림, 주간 요약 제공.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+    ]
+  },
+
+  // 商业智能系统（自动添加）
+  {
+    category: 'business-intelligence',
+    name: '商业智能系统',
+    icon: '📈',
+    items: [
+      {
+        name: 'agent-dashboard',
+        description: '>',
+        status: 'active',
+        type: '商业智能',
+        details: {
+          whatItDoes: '>',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'biz-reporter',
+        description: '>',
+        status: 'active',
+        type: '商业智能',
+        details: {
+          whatItDoes: '>',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'csv-pipeline',
+        description: 'Process, transform, analyze, and report on CSV and JSON data files. Use when the...',
+        status: 'active',
+        type: '商业智能',
+        details: {
+          whatItDoes: 'Process, transform, analyze, and report on CSV and JSON data files. Use when the user needs to filter rows, join datasets, compute aggregates, convert',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'google-analytics',
+        description: '|',
+        status: 'active',
+        type: '商业智能',
+        details: {
+          whatItDoes: '|',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-admin-reports',
+        description: 'Google Workspace Admin SDK: Audit logs and usage reports.',
+        status: 'active',
+        type: '商业智能',
+        details: {
+          whatItDoes: 'Google Workspace Admin SDK: Audit logs and usage reports.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+    ]
+  },
+
+  // 其他工具（自动添加）
+  {
+    category: 'other',
+    name: '其他工具',
+    icon: '🔧',
+    items: [
+      {
+        name: 'cloudflare-agent-tunnel',
+        description: '>',
+        status: 'active',
+        type: '其他',
+        details: {
+          whatItDoes: '>',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-admin',
+        description: 'Google Workspace Admin SDK: Manage users, groups, and devices.',
+        status: 'active',
+        type: '其他',
+        details: {
+          whatItDoes: 'Google Workspace Admin SDK: Manage users, groups, and devices.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-apps-script',
+        description: 'Google Apps Script: Manage and execute Apps Script projects.',
+        status: 'active',
+        type: '其他',
+        details: {
+          whatItDoes: 'Google Apps Script: Manage and execute Apps Script projects.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-apps-script-push',
+        description: 'Google Apps Script: Upload local files to an Apps Script project.',
+        status: 'active',
+        type: '其他',
+        details: {
+          whatItDoes: 'Google Apps Script: Upload local files to an Apps Script project.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-classroom',
+        description: 'Google Classroom: Manage classes, rosters, and coursework.',
+        status: 'active',
+        type: '其他',
+        details: {
+          whatItDoes: 'Google Classroom: Manage classes, rosters, and coursework.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-cloudidentity',
+        description: 'Google Cloud Identity: Manage identity groups and memberships.',
+        status: 'active',
+        type: '其他',
+        details: {
+          whatItDoes: 'Google Cloud Identity: Manage identity groups and memberships.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-drive',
+        description: 'Google Drive: Manage files, folders, and shared drives.',
+        status: 'active',
+        type: '其他',
+        details: {
+          whatItDoes: 'Google Drive: Manage files, folders, and shared drives.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-forms',
+        description: 'Read and write Google Forms.',
+        status: 'active',
+        type: '其他',
+        details: {
+          whatItDoes: 'Read and write Google Forms.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-groupssettings',
+        description: 'Manage Google Groups settings.',
+        status: 'active',
+        type: '其他',
+        details: {
+          whatItDoes: 'Manage Google Groups settings.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-licensing',
+        description: 'Google Workspace Enterprise License Manager: Manage product licenses.',
+        status: 'active',
+        type: '其他',
+        details: {
+          whatItDoes: 'Google Workspace Enterprise License Manager: Manage product licenses.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-meet',
+        description: 'Manage Google Meet conferences.',
+        status: 'active',
+        type: '其他',
+        details: {
+          whatItDoes: 'Manage Google Meet conferences.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-modelarmor',
+        description: 'Google Model Armor: Filter user-generated content for safety.',
+        status: 'active',
+        type: '其他',
+        details: {
+          whatItDoes: 'Google Model Armor: Filter user-generated content for safety.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-modelarmor-create-template',
+        description: 'Google Model Armor: Create a new Model Armor template.',
+        status: 'active',
+        type: '其他',
+        details: {
+          whatItDoes: 'Google Model Armor: Create a new Model Armor template.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-modelarmor-sanitize-prompt',
+        description: 'Google Model Armor: Sanitize a user prompt through a Model Armor template.',
+        status: 'active',
+        type: '其他',
+        details: {
+          whatItDoes: 'Google Model Armor: Sanitize a user prompt through a Model Armor template.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-modelarmor-sanitize-response',
+        description: 'Google Model Armor: Sanitize a model response through a Model Armor template.',
+        status: 'active',
+        type: '其他',
+        details: {
+          whatItDoes: 'Google Model Armor: Sanitize a model response through a Model Armor template.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-people',
+        description: 'Google People: Manage contacts and profiles.',
+        status: 'active',
+        type: '其他',
+        details: {
+          whatItDoes: 'Google People: Manage contacts and profiles.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-reseller',
+        description: 'Google Workspace Reseller: Manage Workspace subscriptions.',
+        status: 'active',
+        type: '其他',
+        details: {
+          whatItDoes: 'Google Workspace Reseller: Manage Workspace subscriptions.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-sheets',
+        description: 'Google Sheets: Read and write spreadsheets.',
+        status: 'active',
+        type: '其他',
+        details: {
+          whatItDoes: 'Google Sheets: Read and write spreadsheets.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-sheets-append',
+        description: 'Google Sheets: Append a row to a spreadsheet.',
+        status: 'active',
+        type: '其他',
+        details: {
+          whatItDoes: 'Google Sheets: Append a row to a spreadsheet.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-sheets-read',
+        description: 'Google Sheets: Read values from a spreadsheet.',
+        status: 'active',
+        type: '其他',
+        details: {
+          whatItDoes: 'Google Sheets: Read values from a spreadsheet.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-slides',
+        description: 'Google Slides: Read and write presentations.',
+        status: 'active',
+        type: '其他',
+        details: {
+          whatItDoes: 'Google Slides: Read and write presentations.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'gws-vault',
+        description: 'Google Vault: Manage eDiscovery holds and exports.',
+        status: 'active',
+        type: '其他',
+        details: {
+          whatItDoes: 'Google Vault: Manage eDiscovery holds and exports.',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+      {
+        name: 'structured-data',
+        description: 'CSV parsing, JSON-to-CSV conversion, and SVG chart generation',
+        status: 'active',
+        type: '其他',
+        details: {
+          whatItDoes: 'CSV parsing, JSON-to-CSV conversion, and SVG chart generation',
+          howItWorks: '详见 SKILL.md',
+          currentStatus: '✅ 已安装（自动扫描）',
+          lastUpdate: '2026-03-07',
+          usage: '自动扫描添加',
+          dependencies: []
+        }
+      },
+    ]
+  },
+
 ];
