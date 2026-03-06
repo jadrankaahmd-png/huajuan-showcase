@@ -1838,7 +1838,7 @@ export const capabilities = [
   {
     category: 'memory',
     name: '记忆系统',
-    icon: '🧠',
+    icon: '💾',
     items: [
       {
         name: 'OpenViking 革命性记忆数据库',
