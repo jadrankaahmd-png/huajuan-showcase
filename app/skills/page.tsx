@@ -143,8 +143,9 @@ const skills: Skill[] = [
   { name: 'Agent Reach Bilibili', description: 'B站视频和字幕提取', category: 'Agent Reach', status: 'active', icon: '🎬' },
   { name: 'Agent Reach Web Scraper', description: '任意网页读取（Jina Reader）', category: 'Agent Reach', status: 'active', icon: '🌐' },
 
-  // 交互式学习系统（8个）🆕
+  // 交互式学习系统（9个）🆕
   { name: 'Interactive Learning System', description: '基于Interactive Benchmarks论文的交互式学习系统', category: '交互式学习', status: 'active', icon: '🧠' },
+  { name: 'Self-Improving Agent', description: '✅已安装 持续自我改进系统 - 自动记录学习内容、错误和修正到markdown文件', category: '交互式学习', status: 'active', icon: '📚' },
   { name: 'Information Gap Identifier', description: '信息缺口识别器（Phase 1）', category: '交互式学习', status: 'active', icon: '🔍' },
   { name: 'Active Search Engine', description: '主动搜索引擎（Phase 2）- 整合Agent Reach 7个数据抓取渠道', category: '交互式学习', status: 'active', icon: '🚀' },
   { name: 'Hypothesis Validator', description: '假设验证器（Phase 3）- 4种假设类型、量化验证、信心度评估', category: '交互式学习', status: 'active', icon: '🔬' },
@@ -211,7 +212,7 @@ export default function SkillsPage() {
                 <span className="text-4xl">🌸</span>
                 <div>
                   <h1 className="text-2xl font-bold text-gray-900">花卷技能中心</h1>
-                  <p className="text-sm text-gray-500">152个专业技能 · 覆盖选股、分析、开发、自动化、交互式学习、Agent编排、MCP工具全流程</p>
+                  <p className="text-sm text-gray-500">153个专业技能 · 覆盖选股、分析、开发、自动化、交互式学习、Agent编排、MCP工具全流程</p>
                 </div>
               </a>
             </div>
