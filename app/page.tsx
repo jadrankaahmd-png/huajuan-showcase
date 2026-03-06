@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Navigation from '@/components/Navigation';
 import CapabilityCard from './components/CapabilityCard';
 import CapabilityDetail from './components/CapabilityDetail';
 import { capabilities } from './data/capabilities';
@@ -24,8 +25,11 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-      {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
+      {/* 统一导航栏 */}
+      <Navigation currentLayer={1} />
+      
+      {/* 旧的Header内容 */}
+      <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div className="flex items-center gap-3">

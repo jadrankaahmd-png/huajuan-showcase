@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import Navigation from '@/components/Navigation';
 
 // ==================== 数据类型定义 ====================
 
@@ -575,8 +576,11 @@ export default function IranGeopoliticalRiskPage() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-      {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50 border-b border-pink-100">
+      {/* 统一导航栏 */}
+      <Navigation currentLayer={1} />
+      
+      {/* 旧的Header内容（不sticky，避免和导航栏冲突） */}
+      <header className="bg-white shadow-sm border-b border-pink-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div className="flex items-center gap-3">
