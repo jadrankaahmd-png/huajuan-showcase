@@ -3,6 +3,10 @@ import { NextResponse } from 'next/server';
 // 强制动态渲染（Next.js 16要求）
 export const dynamic = 'force-dynamic';
 
+// 设置缓存控制：5分钟
+export const fetchCache = 'force-no-store';
+export const revalidate = 300; // 5分钟
+
 interface MacroData {
   name: string;
   value: string;
@@ -224,10 +228,15 @@ export async function GET() {
   }
 
   // 返回成功数据
-  return NextResponse.json({
+  const response = NextResponse.json({
     success: true,
     data: macroResults,
     errors: errors.length > 0 ? errors : undefined,
     lastUpdate: now
   });
+  
+  // 设置缓存控制：5分钟
+  response.headers.set('Cache-Control', 'public, max-age=300, s-maxage=300, stale-while-revalidate=60');
+  
+  return response;
 }

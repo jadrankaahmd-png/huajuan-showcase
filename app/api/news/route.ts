@@ -3,6 +3,10 @@ import { NextResponse } from 'next/server';
 // 强制动态渲染（Next.js 16要求）
 export const dynamic = 'force-dynamic';
 
+// 设置缓存控制：15分钟（新闻数据）
+export const fetchCache = 'force-no-store';
+export const revalidate = 900; // 15分钟
+
 interface NewsItem {
   title: string;
   summary: string;
