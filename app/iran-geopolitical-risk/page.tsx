@@ -96,6 +96,24 @@ const formatFullDateTime = () => {
   return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 };
 
+// 带5秒超时的fetch
+const fetchWithTimeout = async (url: string, options: RequestInit = {}, timeout = 5000) => {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), timeout);
+  
+  try {
+    const response = await fetch(url, {
+      ...options,
+      signal: controller.signal
+    });
+    clearTimeout(timeoutId);
+    return response;
+  } catch (err) {
+    clearTimeout(timeoutId);
+    throw err;
+  }
+};
+
 // ==================== 主组件 ====================
 
 export default function IranGeopoliticalRiskPage() {
@@ -174,9 +192,9 @@ export default function IranGeopoliticalRiskPage() {
 
       // ==================== P0: 宏观数据（服务器端代理）====================
       try {
-        const macroResponse = await fetch('/api/macro', {
+        const macroResponse = await fetchWithTimeout('/api/macro', {
           cache: 'no-store'
-        });
+        }, 10000); // 10秒超时（yfinance可能较慢）
         if (macroResponse.ok) {
           const macroDataResult = await macroResponse.json();
           if (macroDataResult.success && macroDataResult.data) {
@@ -211,9 +229,9 @@ export default function IranGeopoliticalRiskPage() {
 
       // ==================== P0: 新闻数据（服务器端代理）====================
       try {
-        const newsResponse = await fetch('/api/news', {
+        const newsResponse = await fetchWithTimeout('/api/news', {
           cache: 'no-store'
-        });
+        }, 8000); // 8秒超时
         if (newsResponse.ok) {
           const newsDataResult = await newsResponse.json();
           if (newsDataResult.success && newsDataResult.data) {
@@ -285,9 +303,9 @@ export default function IranGeopoliticalRiskPage() {
 
       // ==================== P1: 情绪分析（服务器端代理）====================
       try {
-        const sentimentResponse = await fetch('/api/sentiment', {
+        const sentimentResponse = await fetchWithTimeout('/api/sentiment', {
           cache: 'no-store'
-        });
+        }, 8000); // 8秒超时
         if (sentimentResponse.ok) {
           const sentimentDataResult = await sentimentResponse.json();
           if (sentimentDataResult.success && sentimentDataResult.data) {
@@ -314,9 +332,9 @@ export default function IranGeopoliticalRiskPage() {
 
       // ==================== P2: 国家稳定性指数（World Bank API）====================
       try {
-        const stabilityResponse = await fetch('/api/stability', {
+        const stabilityResponse = await fetchWithTimeout('/api/stability', {
           cache: 'no-store'
-        });
+        }, 8000); // 8秒超时
         if (stabilityResponse.ok) {
           const stabilityData = await stabilityResponse.json();
           if (stabilityData.success && stabilityData.data) {
@@ -342,9 +360,9 @@ export default function IranGeopoliticalRiskPage() {
 
       // ==================== P2: 航班监控（Aviationstack API）====================
       try {
-        const flightsResponse = await fetch('/api/flights', {
+        const flightsResponse = await fetchWithTimeout('/api/flights', {
           cache: 'no-store'
-        });
+        }, 8000); // 8秒超时
         if (flightsResponse.ok) {
           const flightsData = await flightsResponse.json();
           if (flightsData.success && flightsData.data) {
@@ -368,9 +386,9 @@ export default function IranGeopoliticalRiskPage() {
 
       // ==================== P2: 海运监控（Marinesia API）====================
       try {
-        const maritimeResponse = await fetch('/api/maritime', {
+        const maritimeResponse = await fetchWithTimeout('/api/maritime', {
           cache: 'no-store'
-        });
+        }, 5000); // 5秒超时（Marinesia API可能卡住）
         if (maritimeResponse.ok) {
           const maritimeData = await maritimeResponse.json();
           if (maritimeData.success && maritimeData.data) {
@@ -385,18 +403,21 @@ export default function IranGeopoliticalRiskPage() {
           }
         }
       } catch (err) {
+        const errorMsg = err instanceof Error && err.name === 'AbortError' 
+          ? 'API请求超时' 
+          : '暂时无法获取';
         console.error('❌ 海运监控获取失败:', err);
         setMaritimeData([
-          { route: '霍尔木兹海峡', vessels: 0, status: '暂时无法获取', lastUpdate: now, available: false },
-          { route: '波斯湾 → 阿曼湾', vessels: 0, status: '暂时无法获取', lastUpdate: now, available: false }
+          { route: '霍尔木兹海峡', vessels: 0, status: errorMsg, lastUpdate: now, available: false },
+          { route: '波斯湾 → 阿曼湾', vessels: 0, status: errorMsg, lastUpdate: now, available: false }
         ]);
       }
 
       // ==================== P2: 卫星火点（NASA FIRMS API）====================
       try {
-        const satelliteResponse = await fetch('/api/satellite', {
+        const satelliteResponse = await fetchWithTimeout('/api/satellite', {
           cache: 'no-store'
-        });
+        }, 8000); // 8秒超时
         if (satelliteResponse.ok) {
           const satelliteData = await satelliteResponse.json();
           if (satelliteData.success && satelliteData.data) {
