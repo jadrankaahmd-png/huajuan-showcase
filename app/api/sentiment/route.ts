@@ -3,13 +3,18 @@ import { NextResponse } from 'next/server';
 // 强制动态渲染（Next.js 16要求）
 export const dynamic = 'force-dynamic';
 
+// 设置缓存控制：15分钟
+export const fetchCache = 'force-no-store';
+export const revalidate = 900;
+
 interface SentimentData {
   platform: string;
-  sentiment: 'bullish' | 'bearish' | 'neutral';
+  sentiment: 'bullish' | 'bearish' | 'neutral' | 'extreme_fear' | 'extreme_greed' | 'fear' | 'greed';
   score: number;
   volume: string;
   lastUpdate: string;
   available: boolean;
+  description?: string;
 }
 
 export async function GET() {
@@ -17,7 +22,52 @@ export async function GET() {
   const sentimentResults: SentimentData[] = [];
   const errors: string[] = [];
 
-  // 1. Reddit r/wallstreetbets RSS
+  // 1. Alternative.me Crypto Fear & Greed Index（主要数据源）
+  try {
+    const fearGreedResponse = await fetch('https://api.alternative.me/fng/?limit=1', {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
+      }
+    });
+    
+    if (fearGreedResponse.ok) {
+      const data = await fearGreedResponse.json();
+      
+      if (data.data && data.data.length > 0) {
+        const fngData = data.data[0];
+        const value = parseInt(fngData.value);
+        const classification = fngData.value_classification;
+        
+        // 映射到通用情绪
+        let sentiment: SentimentData['sentiment'] = 'neutral';
+        if (value <= 25) {
+          sentiment = 'extreme_fear';
+        } else if (value <= 45) {
+          sentiment = 'fear';
+        } else if (value <= 55) {
+          sentiment = 'neutral';
+        } else if (value <= 75) {
+          sentiment = 'greed';
+        } else {
+          sentiment = 'extreme_greed';
+        }
+        
+        sentimentResults.push({
+          platform: 'Crypto Fear & Greed Index',
+          sentiment,
+          score: value,
+          volume: classification,
+          lastUpdate: now,
+          available: true,
+          description: `市场情绪：${classification}（${value}/100）`
+        });
+      }
+    }
+  } catch (err) {
+    errors.push(`Fear & Greed Index API失败: ${err}`);
+  }
+
+  // 2. Reddit r/wallstreetbets RSS（备用数据源）
   try {
     const redditResponse = await fetch('https://www.reddit.com/r/wallstreetbets/.rss', {
       headers: {
@@ -78,39 +128,29 @@ export async function GET() {
     errors.push(`Reddit RSS获取失败: ${err}`);
   }
 
-  // 2. 尝试其他情绪数据源（如果Reddit失败）
-  if (sentimentResults.length === 0) {
-    try {
-      // 可以添加其他情绪数据源，如Twitter API等
-      // 目前只使用Reddit
-      sentimentResults.push({
-        platform: 'Reddit r/wallstreetbets',
-        sentiment: 'neutral',
-        score: 0,
-        volume: '暂时无法获取',
-        lastUpdate: now,
-        available: false
-      });
-    } catch (err) {
-      errors.push(`其他情绪数据源获取失败: ${err}`);
-    }
-  }
-
   // 如果所有数据都获取失败，返回错误
-  if (sentimentResults.length === 0 || !sentimentResults[0].available) {
-    return NextResponse.json({
+  if (sentimentResults.length === 0) {
+    const response = NextResponse.json({
       success: false,
       error: '情绪数据暂时无法获取',
       details: errors,
-      hint: '建议：检查Reddit RSS是否可访问'
+      hint: '所有情绪数据源都失败了，请稍后重试'
     }, { status: 500 });
+    
+    response.headers.set('Cache-Control', 'public, max-age=60, s-maxage=60');
+    return response;
   }
 
   // 返回成功数据
-  return NextResponse.json({
+  const response = NextResponse.json({
     success: true,
     data: sentimentResults,
     errors: errors.length > 0 ? errors : undefined,
-    lastUpdate: now
+    lastUpdate: now,
+    source: 'Alternative.me Fear & Greed Index + Reddit RSS'
   });
+  
+  // 设置缓存控制：15分钟
+  response.headers.set('Cache-Control', 'public, max-age=900, s-maxage=900');
+  return response;
 }

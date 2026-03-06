@@ -132,10 +132,79 @@ export default function IranGeopoliticalRiskPage() {
   const [nextUpdate, setNextUpdate] = useState<string>('');
   const [error, setError] = useState<string>('');
   
+  // WebSocket 相关 state
+  const [websocket, setWebsocket] = useState<WebSocket | null>(null);
+  const [maritimeConfig, setMaritimeConfig] = useState<any>(null);
+  const [vesselCount, setVesselCount] = useState<{[key: string]: number}>({
+    '霍尔木兹海峡': 0,
+    '波斯湾 → 阿曼湾': 0
+  });
+  
   // 版本信息
-  const VERSION = 'v5.0.1';
+  const VERSION = 'v5.1.0';
   const BUILD_TIME = new Date().toISOString();
   console.log(`🌸 花卷全球宏观地缘风险监控系统 ${VERSION} - 构建时间: ${BUILD_TIME}`);
+  
+  // WebSocket 连接管理
+  useEffect(() => {
+    if (!maritimeConfig) return;
+    
+    const connectWebSocket = () => {
+      try {
+        const ws = new WebSocket(maritimeConfig.websocketUrl);
+        
+        ws.onopen = () => {
+          console.log('✅ WebSocket 已连接到 aisstream.io');
+          
+          // 订阅霍尔木兹海峡区域
+          const subscriptionMessage = {
+            Apikey: maritimeConfig.apiKey,
+            BoundingBoxes: maritimeConfig.regions[0].boundingBox,
+            FilterMessageTypes: ['PositionReport']
+          };
+          ws.send(JSON.stringify(subscriptionMessage));
+          console.log('📡 已订阅霍尔木兹海峡区域');
+        };
+        
+        ws.onmessage = (event) => {
+          try {
+            const aisMessage = JSON.parse(event.data);
+            // 更新船只计数
+            if (aisMessage && aisMessage.Latitude) {
+              setVesselCount(prev => ({
+                ...prev,
+                '霍尔木兹海峡': (prev['霍尔木兹海峡'] || 0) + 1
+              }));
+            }
+          } catch (err) {
+            // 忽略解析错误
+          }
+        };
+        
+        ws.onerror = (error) => {
+          console.error('❌ WebSocket 错误:', error);
+        };
+        
+        ws.onclose = () => {
+          console.log('🔌 WebSocket 连接已关闭，5秒后重连...');
+          setTimeout(connectWebSocket, 5000);
+        };
+        
+        setWebsocket(ws);
+      } catch (err) {
+        console.error('❌ WebSocket 连接失败:', err);
+      }
+    };
+    
+    connectWebSocket();
+    
+    // 清理函数
+    return () => {
+      if (websocket) {
+        websocket.close();
+      }
+    };
+  }, [maritimeConfig]);
 
   // 数据加载函数
   const loadData = useCallback(async (showRefreshing = false) => {
@@ -384,18 +453,31 @@ export default function IranGeopoliticalRiskPage() {
         ]);
       }
 
-      // ==================== P2: 海运监控（Marinesia API）====================
+      // ==================== P2: 海运监控（aisstream.io WebSocket）====================
       try {
         const maritimeResponse = await fetchWithTimeout('/api/maritime', {
           cache: 'no-store'
-        }, 5000); // 5秒超时（Marinesia API可能卡住）
+        }, 5000);
         if (maritimeResponse.ok) {
-          const maritimeData = await maritimeResponse.json();
-          if (maritimeData.success && maritimeData.data) {
-            setMaritimeData(maritimeData.data);
-            console.log('✅ 海运监控已加载:', maritimeData.data.length, '条航线');
+          const maritimeResult = await maritimeResponse.json();
+          if (maritimeResult.success) {
+            // 保存 WebSocket 配置
+            if (maritimeResult.config) {
+              setMaritimeConfig(maritimeResult.config);
+            }
+            
+            // 使用实时船只计数
+            if (maritimeResult.data) {
+              const updatedData = maritimeResult.data.map((item: MaritimeData) => ({
+                ...item,
+                vessels: vesselCount[item.route] || item.vessels,
+                status: vesselCount[item.route] > 0 ? `检测到 ${vesselCount[item.route]} 艘船只` : 'WebSocket连接中...'
+              }));
+              setMaritimeData(updatedData);
+              console.log('✅ 海运监控已加载，WebSocket配置已保存');
+            }
           } else {
-            console.warn('⚠️ 海运监控暂时无法获取:', maritimeData.error);
+            console.warn('⚠️ 海运监控暂时无法获取:', maritimeResult.error);
             setMaritimeData([
               { route: '霍尔木兹海峡', vessels: 0, status: '暂时无法获取', lastUpdate: now, available: false },
               { route: '波斯湾 → 阿曼湾', vessels: 0, status: '暂时无法获取', lastUpdate: now, available: false }
