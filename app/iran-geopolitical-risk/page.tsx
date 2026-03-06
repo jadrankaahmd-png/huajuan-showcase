@@ -100,6 +100,9 @@ export default function IranGeopoliticalRiskPage() {
   const [maritimeData, setMaritimeData] = useState<MaritimeData[]>([]);
   const [satelliteData, setSatelliteData] = useState<SatelliteData[]>([]);
   const [agentAnalysis, setAgentAnalysis] = useState<AgentAnalysis[]>([]);
+  const [sentimentData, setSentimentData] = useState<SentimentData[]>([]);
+  const [ragMemory, setRagMemory] = useState<RAGMemory[]>([]);
+  const [scenarioAnalysis, setScenarioAnalysis] = useState<ScenarioAnalysis[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [lastUpdate, setLastUpdate] = useState<string>('');
   const [error, setError] = useState<string>('');
@@ -634,6 +637,22 @@ export default function IranGeopoliticalRiskPage() {
                 <div className="text-xs text-gray-500 mt-2">
                   ✅ 任务完成率：52.08%（+17% vs LanceDB）<br/>
                   ✅ Token 成本降低：92%
+                </div>
+              </div>
+            </div>
+
+            {/* 情景分析 */}
+            <div className="mb-8">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <span>🎯</span>
+                <span>情景分析</span>
+              </h2>
+              <div className="bg-purple-50 border border-purple-200 rounded-lg p-6 text-center">
+                <div className="text-4xl mb-3">⏳</div>
+                <div className="text-sm font-semibold text-gray-900 mb-2">数据获取中...</div>
+                <div className="text-xs text-gray-600">正在从八大Agent获取情景推演数据</div>
+                <div className="text-xs text-gray-500 mt-2">
+                  预计场景：局势缓和、维持现状、冲突升级
                 </div>
               </div>
             </div>
