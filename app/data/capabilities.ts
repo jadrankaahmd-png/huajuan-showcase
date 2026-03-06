@@ -1919,6 +1919,103 @@ export const capabilities = [
     ]
   },
 
+  // 设计系统（新增 2026-03-07）
+  {
+    category: 'design',
+    name: '设计系统',
+    icon: '🎨',
+    items: [
+      {
+        name: 'Frontend Design Skill',
+        description: '专业的UI设计指南和最佳实践',
+        status: 'active',
+        type: '设计系统',
+        details: {
+          whatItDoes: 'Frontend development with React, Next.js, Tailwind CSS. Build landing pages, dashboards, forms, components. Responsive, accessible, performant UI.',
+          howItWorks: '• Mobile-First Always\n• Typography Matters（避免 Inter/Roboto/Arial）\n• Color with Purpose（70-20-10 规则）\n• Feedback on Every Interaction\n• Accessibility Non-Negotiable\n• Performance from Start\n• One Memorable Element',
+          currentStatus: '✅ 已安装\n- 评分：3.517（最高）\n- 位置：skills/frontend/SKILL.md\n- 7大核心规则',
+          lastUpdate: '2026-03-07 02:57',
+          usage: '每次UI设计前必须先读取这个 skill',
+          dependencies: ['React', 'Next.js', 'Tailwind CSS']
+        }
+      }
+    ]
+  },
+
+  // 记忆与优化系统（新增 2026-03-07）
+  {
+    category: 'memory-optimization',
+    name: '记忆与优化系统',
+    icon: '⚡',
+    items: [
+      {
+        name: 'Context Compressor',
+        description: '压缩长对话历史和大型文件（70%压缩率）',
+        status: 'active',
+        type: '优化工具',
+        details: {
+          whatItDoes: 'Compress long conversation histories, large code files, research results, and documents by 70% without losing critical information.',
+          howItWorks: '• Detect content type\n• Mark critical elements\n• Apply type-specific compression\n• Verify 70% target\n• Present compressed output',
+          currentStatus: '✅ 已安装\n- 压缩率：70%\n- 保留关键信息\n- 位置：skills/fatih-developer-fth-skills-context-compressor/',
+          lastUpdate: '2026-03-07',
+          usage: '当 context window 填满时自动触发',
+          dependencies: ['Markdown', '压缩算法']
+        }
+      },
+      {
+        name: 'Sophie Optimizer',
+        description: '自动化上下文健康管理',
+        status: 'active',
+        type: '优化工具',
+        details: {
+          whatItDoes: 'Automated context health management for OpenClaw. Monitors token usage, snapshots memory, and resets sessions to maintain performance.',
+          howItWorks: '• Monitors token usage\n• Creates archives of current state\n• Updates long-term memory\n• Performs hard reset of session storage',
+          currentStatus: '✅ 已安装\n- Authored by Sophie 👑\n- 位置：skills/openclaw-skills-sophie-optimizer/\n- 组件：optimizer.py, reset.sh',
+          lastUpdate: '2026-03-07',
+          usage: '自动化运行，无需手动干预',
+          dependencies: ['Python', 'OpenClaw Gateway']
+        }
+      },
+      {
+        name: 'Self-Improving Agent',
+        description: '持续自我改进系统',
+        status: 'active',
+        type: '学习系统',
+        details: {
+          whatItDoes: 'Captures learnings, errors, and corrections to enable continuous improvement.',
+          howItWorks: '• Log learnings and errors to markdown files\n• Command/operation fails → .learnings/ERRORS.md\n• User corrects you → .learnings/LEARNINGS.md\n• User wants missing feature → .learnings/FEATURE_REQUESTS.md\n• Found better approach → .learnings/LEARNINGS.md',
+          currentStatus: '✅ 已安装\n- 位置：skills/self-improving-agent/\n- 3个日志文件：ERRORS.md, LEARNINGS.md, FEATURE_REQUESTS.md',
+          lastUpdate: '2026-03-07',
+          usage: '自动记录学习、错误、功能请求',
+          dependencies: ['Markdown', '自动触发']
+        }
+      }
+    ]
+  },
+
+  // 数据抓取系统（新增 2026-03-07）
+  {
+    category: 'data-fetching',
+    name: '数据抓取系统',
+    icon: '🔍',
+    items: [
+      {
+        name: 'Agent Reach',
+        description: '多平台数据抓取（13+平台）',
+        status: 'active',
+        type: '数据抓取',
+        details: {
+          whatItDoes: 'Use the internet: search, read, and interact with 13+ platforms including Twitter/X, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu (小红书), Douyin (抖音), WeChat Articles (微信公众号), LinkedIn, Boss直聘, RSS, Exa web search, and any web page.',
+          howItWorks: '• 搜索推特、小红书、B站、抖音等\n• 读取任何网页内容\n• YouTube视频转录\n• GitHub issue\n• RSS订阅',
+          currentStatus: '✅ 已安装\n- 支持13+平台\n- 位置：skills/agent-reach/\n- 触发词："搜推特"、"搜小红书"、"看视频"、"搜一下"',
+          lastUpdate: '2026-03-07',
+          usage: '搜索和读取多平台数据',
+          dependencies: ['各平台API', 'Web Scraper']
+        }
+      }
+    ]
+  },
+
   // 报告模版系统（新增）
   {
     category: 'templates',
