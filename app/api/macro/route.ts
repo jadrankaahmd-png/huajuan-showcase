@@ -127,27 +127,58 @@ export async function GET() {
   }
 
   // 5. 美国原油库存（EIA API）
+  // 使用正确的series：W_EPC0_SAX_YCUOK_MBBL（俄克拉荷马州库欣原油库存）
   try {
     const EIA_API_KEY = process.env.EIA_API_KEY || 'vFGhPvNPdmfdJ7YKMx1BgJ1Oz9FS82dIscKBB6G8';
+    
+    // EIA API v2正确格式
+    // endpoint: /v2/petroleum/stoc/wstk/data/
+    // series: W_EPC0_SAX_YCUOK_MBBL（Cushing, OK Crude Oil Ending Stocks）
     const eiaResponse = await fetch(
-      `https://api.eia.gov/v2/petroleum/stoc/wstk/data/?api_key=${EIA_API_KEY}&frequency=weekly&data[0]=value&facets[series][]=W_EPC0_SAX_YCUOK_MBBL&sort[0][column]=period&sort[0][direction]=desc&length=1`
+      `https://api.eia.gov/v2/petroleum/stoc/wstk/data/?api_key=${EIA_API_KEY}&frequency=weekly&data[0]=value&facets[series][]=W_EPC0_SAX_YCUOK_MBBL&sort[0][column]=period&sort[0][direction]=desc&length=1`,
+      {
+        headers: {
+          'Accept': 'application/json'
+        }
+      }
     );
     
     if (eiaResponse.ok) {
       const eiaData = await eiaResponse.json();
-      const crudeStock = eiaData.response?.data?.[0]?.value;
-      if (crudeStock && crudeStock > 0) {
-        macroResults.push({
-          name: '美国原油库存',
-          value: `${(crudeStock / 1000000).toFixed(1)}M桶`,
-          change: '-0.0M',
-          trend: 'stable',
-          lastUpdate: now,
-          source: 'EIA API',
-          real: true
-        });
+      
+      // EIA API v2返回格式：{ response: { data: [...] } }
+      // data数组中每个对象包含：period, value, series, etc.
+      const data = eiaData.response?.data;
+      
+      if (Array.isArray(data) && data.length > 0) {
+        const crudeStock = data[0].value;
+        
+        if (crudeStock && parseFloat(crudeStock) > 0) {
+          // 原油库存单位：千桶（Thousand Barrels）
+          // 转换为百万桶（Million Barrels）
+          const stockInMillion = (parseFloat(crudeStock) / 1000).toFixed(1);
+          
+          macroResults.push({
+            name: '美国原油库存',
+            value: `${stockInMillion}M桶`,
+            change: '-0.0M',
+            trend: 'stable',
+            lastUpdate: now,
+            source: 'EIA API (库欣原油库存)',
+            real: true
+          });
+        } else {
+          macroResults.push({
+            name: '美国原油库存',
+            value: '暂时无法获取',
+            change: '-',
+            trend: 'stable',
+            lastUpdate: now,
+            source: 'EIA API',
+            real: false
+          });
+        }
       } else {
-        // EIA API返回空数据，显示"暂时无法获取"
         macroResults.push({
           name: '美国原油库存',
           value: '暂时无法获取',
@@ -159,7 +190,7 @@ export async function GET() {
         });
       }
     } else {
-      // EIA API调用失败，显示"暂时无法获取"
+      errors.push(`EIA API调用失败: ${eiaResponse.status}`);
       macroResults.push({
         name: '美国原油库存',
         value: '暂时无法获取',
@@ -172,7 +203,6 @@ export async function GET() {
     }
   } catch (err) {
     errors.push(`原油库存获取失败: ${err}`);
-    // 添加占位数据，确保模块显示
     macroResults.push({
       name: '美国原油库存',
       value: '暂时无法获取',

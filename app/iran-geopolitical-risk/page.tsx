@@ -287,31 +287,103 @@ export default function IranGeopoliticalRiskPage() {
           ]);
         }
 
-        // ==================== P2: 暂时无法获取的数据 ====================
-        
-        // 国家稳定性指数（没有免费API）
-        setStabilityIndices([
-          { country: '伊朗', index: 0, trend: 'stable', lastUpdate: '暂时无法获取', available: false },
-          { country: '以色列', index: 0, trend: 'stable', lastUpdate: '暂时无法获取', available: false },
-          { country: '沙特', index: 0, trend: 'stable', lastUpdate: '暂时无法获取', available: false }
-        ]);
+        // ==================== P2: 国家稳定性指数（World Bank API）====================
+        try {
+          const stabilityResponse = await fetch('/api/stability');
+          if (stabilityResponse.ok) {
+            const stabilityData = await stabilityResponse.json();
+            if (stabilityData.success && stabilityData.data) {
+              setStabilityIndices(stabilityData.data);
+              console.log('✅ 国家稳定性指数已加载:', stabilityData.data.length, '个国家');
+            } else {
+              console.warn('⚠️ 国家稳定性指数暂时无法获取:', stabilityData.error);
+              setStabilityIndices([
+                { country: '伊朗', index: 0, trend: 'stable', lastUpdate: '暂时无法获取', available: false },
+                { country: '以色列', index: 0, trend: 'stable', lastUpdate: '暂时无法获取', available: false },
+                { country: '沙特', index: 0, trend: 'stable', lastUpdate: '暂时无法获取', available: false }
+              ]);
+            }
+          }
+        } catch (err) {
+          console.error('❌ 国家稳定性指数获取失败:', err);
+          setStabilityIndices([
+            { country: '伊朗', index: 0, trend: 'stable', lastUpdate: '暂时无法获取', available: false },
+            { country: '以色列', index: 0, trend: 'stable', lastUpdate: '暂时无法获取', available: false },
+            { country: '沙特', index: 0, trend: 'stable', lastUpdate: '暂时无法获取', available: false }
+          ]);
+        }
 
-        // 航班监控（没有免费API）
-        setFlightData([
-          { route: '德黑兰 → 迪拜', status: '暂时无法获取', impact: '需要航班API', lastUpdate: '暂时无法获取', available: false },
-          { route: '特拉维夫 → 欧洲航线', status: '暂时无法获取', impact: '需要航班API', lastUpdate: '暂时无法获取', available: false }
-        ]);
+        // ==================== P2: 航班监控（Aviationstack API）====================
+        try {
+          const flightsResponse = await fetch('/api/flights');
+          if (flightsResponse.ok) {
+            const flightsData = await flightsResponse.json();
+            if (flightsData.success && flightsData.data) {
+              setFlightData(flightsData.data);
+              console.log('✅ 航班监控已加载:', flightsData.data.length, '条航线');
+            } else {
+              console.warn('⚠️ 航班监控暂时无法获取:', flightsData.error);
+              setFlightData([
+                { route: '德黑兰 → 迪拜', status: '暂时无法获取', impact: '需要配置API Key', lastUpdate: now, available: false },
+                { route: '特拉维夫 → 欧洲航线', status: '暂时无法获取', impact: '需要配置API Key', lastUpdate: now, available: false }
+              ]);
+            }
+          }
+        } catch (err) {
+          console.error('❌ 航班监控获取失败:', err);
+          setFlightData([
+            { route: '德黑兰 → 迪拜', status: '暂时无法获取', impact: 'API错误', lastUpdate: now, available: false },
+            { route: '特拉维夫 → 欧洲航线', status: '暂时无法获取', impact: 'API错误', lastUpdate: now, available: false }
+          ]);
+        }
 
-        // 海运监控（没有免费API）
-        setMaritimeData([
-          { route: '霍尔木兹海峡', vessels: 0, status: '暂时无法获取', lastUpdate: '暂时无法获取', available: false },
-          { route: '红海航线', vessels: 0, status: '暂时无法获取', lastUpdate: '暂时无法获取', available: false }
-        ]);
+        // ==================== P2: 海运监控（Marinesia API）====================
+        try {
+          const maritimeResponse = await fetch('/api/maritime');
+          if (maritimeResponse.ok) {
+            const maritimeData = await maritimeResponse.json();
+            if (maritimeData.success && maritimeData.data) {
+              setMaritimeData(maritimeData.data);
+              console.log('✅ 海运监控已加载:', maritimeData.data.length, '条航线');
+            } else {
+              console.warn('⚠️ 海运监控暂时无法获取:', maritimeData.error);
+              setMaritimeData([
+                { route: '霍尔木兹海峡', vessels: 0, status: '暂时无法获取', lastUpdate: now, available: false },
+                { route: '波斯湾 → 阿曼湾', vessels: 0, status: '暂时无法获取', lastUpdate: now, available: false }
+              ]);
+            }
+          }
+        } catch (err) {
+          console.error('❌ 海运监控获取失败:', err);
+          setMaritimeData([
+            { route: '霍尔木兹海峡', vessels: 0, status: '暂时无法获取', lastUpdate: now, available: false },
+            { route: '波斯湾 → 阿曼湾', vessels: 0, status: '暂时无法获取', lastUpdate: now, available: false }
+          ]);
+        }
 
-        // 卫星火点（没有免费API）
-        setSatelliteData([
-          { location: '伊朗核设施周边', firePoints: 0, intensity: '暂时无法获取', lastUpdate: '暂时无法获取', available: false }
-        ]);
+        // ==================== P2: 卫星火点（NASA FIRMS API）====================
+        try {
+          const satelliteResponse = await fetch('/api/satellite');
+          if (satelliteResponse.ok) {
+            const satelliteData = await satelliteResponse.json();
+            if (satelliteData.success && satelliteData.data) {
+              setSatelliteData(satelliteData.data);
+              console.log('✅ 卫星火点已加载:', satelliteData.data.length, '个区域');
+            } else {
+              console.warn('⚠️ 卫星火点暂时无法获取:', satelliteData.error);
+              setSatelliteData([
+                { location: '伊朗西部', firePoints: 0, intensity: '暂时无法获取', lastUpdate: now, available: false },
+                { location: '伊拉克边境', firePoints: 0, intensity: '暂时无法获取', lastUpdate: now, available: false }
+              ]);
+            }
+          }
+        } catch (err) {
+          console.error('❌ 卫星火点获取失败:', err);
+          setSatelliteData([
+            { location: '伊朗西部', firePoints: 0, intensity: '暂时无法获取', lastUpdate: now, available: false },
+            { location: '伊拉克边境', firePoints: 0, intensity: '暂时无法获取', lastUpdate: now, available: false }
+          ]);
+        }
 
         setLastUpdate(now);
         console.log('✅ 所有数据加载完成');
