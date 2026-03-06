@@ -103,6 +103,7 @@ export default function IranGeopoliticalRiskPage() {
   const [sentimentData, setSentimentData] = useState<SentimentData[]>([]);
   const [ragMemory, setRagMemory] = useState<RAGMemory[]>([]);
   const [scenarioAnalysis, setScenarioAnalysis] = useState<ScenarioAnalysis[]>([]);
+  const [fearGreedIndex, setFearGreedIndex] = useState<{score: number, rating: string, lastUpdate: string}>({score: 0, rating: '', lastUpdate: ''});
   const [isLoading, setIsLoading] = useState(true);
   const [lastUpdate, setLastUpdate] = useState<string>('');
   const [error, setError] = useState<string>('');
