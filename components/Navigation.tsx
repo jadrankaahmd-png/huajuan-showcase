@@ -24,8 +24,8 @@ export default function Navigation({ currentLayer }: NavigationProps) {
   
   const navItems = [
     { href: '/', label: '🌸 花卷能力中心', layer: 1 },
-    { href: '/dynamic-model', label: '🧠 花卷动态模型', layer: 2 },
-    { href: '/stock-picker', label: '📈 花卷选股', layer: 3 }
+    { href: '/dynamic-model', label: '✨ 花卷动态模型', layer: 2 },
+    { href: '/stock-picker', label: '🌸 花卷选股', layer: 3 }
   ];
   
   return (

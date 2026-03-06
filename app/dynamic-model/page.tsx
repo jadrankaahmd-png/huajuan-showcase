@@ -53,7 +53,7 @@ export default function DynamicModelPage() {
             </div>
             
             <div className="bg-green-50 rounded-lg p-4 border border-green-100">
-              <div className="text-2xl mb-2">📈</div>
+              <div className="text-2xl mb-2">📊</div>
               <h3 className="text-gray-900 font-semibold mb-2">自动优化</h3>
               <p className="text-gray-600 text-sm">
                 随第一层能力扩充自动优化模型

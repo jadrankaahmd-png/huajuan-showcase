@@ -10,7 +10,7 @@ export default function AIAnalysisModule({ agentAnalysis }: AIAnalysisModuleProp
   return (
     <div className="mb-8">
       <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-        <span>🧠</span>
+        <span>✨</span>
         <span>AI推演 + 八大Agent分析（真实数据驱动）</span>
         <span className="text-xs bg-green-50 text-green-600 px-2 py-1 rounded">✅ 真实</span>
       </h2>

@@ -15,7 +15,7 @@ const skills: Skill[] = [
   { name: 'Stock Research Engine', description: '个股基本面深度研究引擎，覆盖A股/港股/美股', category: '金融分析', status: 'active', icon: '🔬' },
   { name: 'US Stock Analysis', description: '美股综合分析（基本面+技术面+投资建议）', category: '金融分析', status: 'active', icon: '🇺🇸' },
   { name: 'Stock Market Pro', description: '专业股票市场分析（RSI/MACD/BB/VWAP/ATR）', category: '金融分析', status: 'active', icon: '📊' },
-  { name: 'Stock Info Explorer', description: '股票信息探索器（高分辨率图表+技术指标）', category: '金融分析', status: 'active', icon: '📈' },
+  { name: 'Stock Info Explorer', description: '股票信息探索器（高分辨率图表+技术指标）', category: '金融分析', status: 'active', icon: '🌸' },
   { name: 'Stock Analysis 6.2.0', description: '股票分析6.2.0版本', category: '金融分析', status: 'active', icon: '📉' },
   { name: 'Backtest Expert', description: '策略回测专家', category: '金融分析', status: 'active', icon: '🧪' },
   { name: 'Portfolio Manager', description: '投资组合管理', category: '金融分析', status: 'active', icon: '💼' },
@@ -47,7 +47,7 @@ const skills: Skill[] = [
   { name: 'AI News Oracle', description: 'AI新闻神谕（Hacker News+TechCrunch+Verge）', category: '金融分析', status: 'active', icon: '📰' },
   { name: 'WorldMonitor 宏观数据层', description: '✅已整合 170+新闻源+地缘数据+AI总结（FRED+EIA+Groq）', category: '金融分析', status: 'active', icon: '🌍' },
   { name: 'WorldMonitor 新闻聚合', description: '✅已整合 全球新闻流+AI智能总结+情绪分析', category: '新闻情绪', status: 'active', icon: '📰' },
-  { name: 'WorldMonitor AI推演', description: '✅已整合 基于RAG的历史事件记忆+情景分析', category: 'AI分析', status: 'active', icon: '🧠' },
+  { name: 'WorldMonitor AI推演', description: '✅已整合 基于RAG的历史事件记忆+情景分析', category: 'AI分析', status: 'active', icon: '✨' },
   { name: 'Market Intelligence', description: '市场情报分析系统', category: '金融分析', status: 'active', icon: '🔍' },
   { name: 'Breadth Chart Analyst', description: '市场宽度图表分析', category: '金融分析', status: 'active', icon: '📊' },
   { name: 'Biz Reporter', description: '商业智能报告（GA4+Search Console+Stripe）', category: '金融分析', status: 'active', icon: '📊' },
@@ -66,7 +66,7 @@ const skills: Skill[] = [
 
   // 数据抓取类（9个）
   { name: 'XPR Web Scraping', description: 'XPR网页抓取', category: '数据抓取', status: 'active', icon: '🕷️' },
-  { name: 'Smart Web Scraper', description: '智能网页抓取器', category: '数据抓取', status: 'active', icon: '🧠' },
+  { name: 'Smart Web Scraper', description: '智能网页抓取器', category: '数据抓取', status: 'active', icon: '🤖' },
   { name: 'XPR Structured Data', description: 'XPR结构化数据', category: '数据抓取', status: 'active', icon: '📋' },
   { name: 'Agent Browser', description: 'Agent浏览器自动化', category: '数据抓取', status: 'active', icon: '🌐' },
   { name: 'Playwright Headless Browser', description: 'Playwright无头浏览器', category: '数据抓取', status: 'active', icon: '🎭' },
@@ -93,7 +93,7 @@ const skills: Skill[] = [
   // 数据分析类（11个）
   { name: 'Data Analyst', description: '数据可视化+SQL查询+电子表格', category: '数据分析', status: 'active', icon: '📊' },
   { name: 'Finance Automation', description: '金融自动化', category: '数据分析', status: 'active', icon: '🤖' },
-  { name: 'Google Analytics API', description: 'Google Analytics数据访问和分析', category: '数据分析', status: 'active', icon: '📈' },
+  { name: 'Google Analytics API', description: 'Google Analytics数据访问和分析', category: '数据分析', status: 'active', icon: '📊' },
   { name: 'Advanced Calendar', description: '高级日历管理（支持多种日历服务）', category: '数据分析', status: 'active', icon: '📅' },
   { name: 'Google Calendar', description: 'Google日历集成', category: '数据分析', status: 'active', icon: '📆' },
   { name: 'Daily Report', description: '每日业务报告生成', category: '数据分析', status: 'active', icon: '📊' },
@@ -147,7 +147,7 @@ const skills: Skill[] = [
   { name: 'Agent Reach Web Scraper', description: '任意网页读取（Jina Reader）', category: 'Agent Reach', status: 'active', icon: '🌐' },
 
   // 交互式学习系统（9个）🆕
-  { name: 'Interactive Learning System', description: '基于Interactive Benchmarks论文的交互式学习系统', category: '交互式学习', status: 'active', icon: '🧠' },
+  { name: 'Interactive Learning System', description: '基于Interactive Benchmarks论文的交互式学习系统', category: '交互式学习', status: 'active', icon: '📚' },
   { name: 'Self-Improving Agent', description: '✅已安装 持续自我改进系统 - 自动记录学习内容、错误和修正到markdown文件', category: '交互式学习', status: 'active', icon: '📚' },
   { name: 'Information Gap Identifier', description: '信息缺口识别器（Phase 1）', category: '交互式学习', status: 'active', icon: '🔍' },
   { name: 'Active Search Engine', description: '主动搜索引擎（Phase 2）- 整合Agent Reach 7个数据抓取渠道', category: '交互式学习', status: 'active', icon: '🚀' },
@@ -186,11 +186,11 @@ const categoryIcons: Record<string, string> = {
   '新闻情绪': '📰',
   'AI分析': '🤖',
   '网站开发': '🚀',
-  '数据分析': '📈',
+  '数据分析': '📊',
   '自动化': '🔄',
   'Google Workspace': '🏢',
   'Agent Reach': '🔗',
-  '交互式学习': '🧠',
+  '交互式学习': '📚',
   'Agent编排': '🎼',
   'MCP工具': '🔌',
   '知识库': '📚',
