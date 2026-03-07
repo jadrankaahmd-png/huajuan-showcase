@@ -1740,6 +1740,41 @@ export const capabilities = [
           ],
           investmentRelevance: '高 - 直接关联AI基础设施、半导体、能源三大投资主题'
         }
+      },
+      {
+        name: 'AI投资评估框架',
+        description: 'Copilot vs Autopilot价值迁移分析',
+        status: 'active',
+        type: 'AI系统',
+        details: {
+          whatItDoes: '评估AI创业公司的价值链位置、商业模式、护城河强度',
+          howItWorks: 'Sequoia框架 + 历史模式 + 实战案例 → AI投资决策支持',
+          currentStatus: '✅ 已整合\n- Copilot vs Autopilot模式\n- $1工具市场 vs $6服务市场\n- Intelligence vs Judgment框架\n- 3个垂直领域机会（$240-360B）\n- 创新者困境分析',
+          lastUpdate: '2026-03-07',
+          usage: 'knowledge_base/ai_startup_value_migration_2026-03-07.md',
+          dependencies: ['知识库', 'Sequoia框架', '历史数据分析'],
+          keyTopics: [
+            'Copilot vs Autopilot模式',
+            '利润守恒定律（Christensen）',
+            '价值迁移：工具层 → 服务层',
+            'Intelligence vs Judgment',
+            '外包替代市场（$140-200B保险、$50-80B会计、$50-80B医疗计费）',
+            '创新者困境：从Copilot转型Autopilot',
+            '历史模式：印刷术、电力、云计算、AI'
+          ],
+          investmentRelevance: '极高 - AI投资核心评估框架',
+          coreFramework: {
+            sequoia: '$1工具市场 vs $6服务市场',
+            valueMigration: 'AI商品化"如何构建" → 价值流向"构建什么+为谁构建"',
+            intelligenceVsJudgment: 'Intelligence（规则性，AI可做）vs Judgment（判断性，人类核心）',
+            entryStrategy: '从外包工作切入（Vendor Swap摩擦小）→ 向内部扩张（长期TAM）'
+          },
+          verticalMarkets: [
+            { name: '保险经纪', size: '$140-200B', autopilotViability: '高' },
+            { name: '会计审计', size: '$50-80B', autopilotViability: '高' },
+            { name: '医疗计费', size: '$50-80B', autopilotViability: '高' }
+          ]
+        }
       }
     ]
   },
