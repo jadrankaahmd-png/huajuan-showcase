@@ -1717,6 +1717,29 @@ export const capabilities = [
           usage: '/event-tracker-ultimate',
           dependencies: ['Web Scraping', 'LLM']
         }
+      },
+      {
+        name: 'AI硬件洞察',
+        description: '模拟AI计算与芯片技术分析',
+        status: 'active',
+        type: 'AI系统',
+        details: {
+          whatItDoes: '分析AI基础设施、芯片技术、能源效率趋势，提供投资洞察',
+          howItWorks: '技术论文/行业报告 → 花卷知识库 → 投资分析应用',
+          currentStatus: '✅ 已整合\n- 模拟AI计算完整分析\n- 数据中心能源危机洞察\n- Mythic/Syntiant/EnCharge AI案例\n- 物理定律计算原理',
+          lastUpdate: '2026-03-07',
+          usage: 'knowledge_base/analog_ai_computing_2026-03-07.md',
+          dependencies: ['知识库', '投资分析'],
+          keyTopics: [
+            '模拟AI计算（Analog CIM）',
+            '欧姆定律/基尔霍夫定律应用',
+            'DAC/ADC转换瓶颈',
+            'ReRAM/PCM/STT-MRAM材料技术',
+            'AI数据中心能源危机（2030年945 TWh）',
+            '边缘AI芯片投资机会'
+          ],
+          investmentRelevance: '高 - 直接关联AI基础设施、半导体、能源三大投资主题'
+        }
       }
     ]
   },
