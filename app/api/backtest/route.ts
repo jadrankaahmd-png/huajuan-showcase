@@ -29,13 +29,18 @@ function checkRateLimit(ip: string): boolean {
 
 export async function POST(request: NextRequest) {
   try {
+    console.log('\n=== 回测调试开始 ===');
+    
     // 获取客户端 IP
     const ip = request.headers.get('x-forwarded-for') || 
                request.headers.get('x-real-ip') || 
                'unknown';
     
+    console.log('客户端 IP:', ip);
+    
     // 检查频率限制
     if (!checkRateLimit(ip)) {
+      console.log('❌ 频率限制触发');
       return NextResponse.json(
         { error: '请求过于频繁，请稍后再试（每分钟最多5次）' },
         { status: 429 }
@@ -45,7 +50,10 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { symbol, strategy, period } = body;
     
+    console.log('请求参数:', { symbol, strategy, period });
+    
     if (!symbol || !strategy || !period) {
+      console.log('❌ 缺少必需参数');
       return NextResponse.json(
         { error: '缺少必需参数' },
         { status: 400 }
@@ -58,9 +66,32 @@ export async function POST(request: NextRequest) {
     const periodDays = period === '3m' ? 90 : period === '6m' ? 180 : 365;
     startDate.setDate(startDate.getDate() - periodDays);
     
+    console.log('日期范围:', {
+      from: startDate.toISOString().split('T')[0],
+      to: endDate.toISOString().split('T')[0],
+      days: periodDays
+    });
+    
     // 直接使用 EODHD 工具（支持日期范围）
     const executeUrl = new URL(QVERIS_EXECUTE_URL);
     executeUrl.searchParams.set('tool_id', EODHD_TOOL_ID);
+    
+    const executeBody = {
+      search_id: `backtest-${Date.now()}`,
+      parameters: {
+        symbol: `${symbol.toUpperCase()}.US`,
+        from: startDate.toISOString().split('T')[0],
+        to: endDate.toISOString().split('T')[0],
+        period: 'd',
+        fmt: 'json',
+      },
+      max_response_size: 20480,
+    };
+    
+    console.log('QVeris Execute 请求:');
+    console.log('  URL:', executeUrl.toString());
+    console.log('  Body:', JSON.stringify(executeBody, null, 2));
+    console.log('  API Key (前10位):', QVERIS_API_KEY.substring(0, 10) + '...');
     
     const executeRes = await fetch(executeUrl.toString(), {
       method: 'POST',
@@ -68,38 +99,48 @@ export async function POST(request: NextRequest) {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${QVERIS_API_KEY}`,
       },
-      body: JSON.stringify({
-        search_id: `backtest-${Date.now()}`,
-        parameters: {
-          symbol: `${symbol.toUpperCase()}.US`, // EODHD 需要交易所后缀
-          from: startDate.toISOString().split('T')[0],
-          to: endDate.toISOString().split('T')[0],
-          period: 'd', // 日线数据
-          fmt: 'json', // JSON 格式
-        },
-        max_response_size: 20480,
-      }),
+      body: JSON.stringify(executeBody),
     });
     
+    console.log('QVeris Execute 响应状态:', executeRes.status);
+    
     if (!executeRes.ok) {
-      throw new Error(`QVeris执行API调用失败: ${executeRes.status}`);
+      const errorText = await executeRes.text();
+      console.log('❌ QVeris Execute 失败:', errorText);
+      throw new Error(`QVeris执行API调用失败: ${executeRes.status} - ${errorText}`);
     }
     
     const result = await executeRes.json();
+    console.log('QVeris Execute 响应体:', JSON.stringify(result, null, 2));
     
     if (!result.success || !result.result || !result.result.data) {
+      console.log('❌ QVeris 返回数据格式错误:', result);
       throw new Error(result.error_message || '获取历史数据失败');
     }
+    
+    console.log('✅ 成功获取历史数据，数据点数量:', result.result.data.length);
     
     // 解析历史数据并计算策略
     const historicalData = parseHistoricalData(result.result.data);
     
+    console.log('解析后的历史数据点数量:', historicalData.length);
+    
     if (!historicalData || historicalData.length === 0) {
+      console.log('❌ 解析后数据为空');
       throw new Error('历史数据格式错误或为空');
     }
     
     // 应用策略计算
     const backtestResult = calculateStrategy(historicalData, strategy, symbol.toUpperCase());
+    
+    console.log('✅ 回测计算完成:', {
+      symbol: backtestResult.symbol,
+      strategy: backtestResult.strategy,
+      annualReturn: backtestResult.annualReturn,
+      maxDrawdown: backtestResult.maxDrawdown
+    });
+    
+    console.log('=== 回测调试结束 ===\n');
     
     return NextResponse.json({
       success: true,
@@ -107,7 +148,12 @@ export async function POST(request: NextRequest) {
     });
     
   } catch (error: any) {
-    console.error('Backtest API error:', error);
+    console.error('\n=== 回测错误 ===');
+    console.error('错误类型:', error.constructor.name);
+    console.error('错误消息:', error.message);
+    console.error('错误堆栈:', error.stack);
+    console.error('=== 错误结束 ===\n');
+    
     return NextResponse.json(
       { error: error.message || '回测失败，请稍后重试' },
       { status: 500 }
