@@ -91,7 +91,7 @@ export async function POST(request: NextRequest) {
         period: 'd',
         fmt: 'json',
       },
-      max_response_size: 20480,
+      max_response_size: 50000, // 增加到 50KB，支持 1 年数据（250+ 交易日）
     };
     
     console.log('QVeris Execute 请求:');
@@ -119,15 +119,34 @@ export async function POST(request: NextRequest) {
     const result = await executeRes.json();
     console.log('QVeris Execute 响应体:', JSON.stringify(result, null, 2));
     
-    if (!result.success || !result.result || !result.result.data) {
+    if (!result.success || !result.result) {
       console.log('❌ QVeris 返回数据格式错误:', result);
       throw new Error(result.error_message || '获取历史数据失败');
     }
     
-    console.log('✅ 成功获取历史数据，数据点数量:', result.result.data.length);
+    // 提取历史数据（支持完整数据和截断数据）
+    let historicalDataRaw = result.result.data || result.result.truncated_content;
+    
+    if (!historicalDataRaw) {
+      console.log('❌ QVeris 返回数据为空');
+      throw new Error('获取历史数据失败：数据为空');
+    }
+    
+    // 如果数据被截断，解析截断的内容
+    if (typeof historicalDataRaw === 'string') {
+      console.log('⚠️ 数据被截断，尝试解析...');
+      try {
+        historicalDataRaw = JSON.parse(historicalDataRaw);
+      } catch (e) {
+        console.log('❌ 截断数据解析失败:', e);
+        throw new Error('获取历史数据失败：数据截断且解析失败');
+      }
+    }
+    
+    console.log('✅ 成功获取历史数据，数据点数量:', historicalDataRaw.length);
     
     // 解析历史数据并计算策略
-    const historicalData = parseHistoricalData(result.result.data);
+    const historicalData = parseHistoricalData(historicalDataRaw);
     
     console.log('解析后的历史数据点数量:', historicalData.length);
     
