@@ -1,243 +1,176 @@
 {
-  "last_update": "2026-03-08T12:37:13.328283",
+  "last_update": "2026-03-08T12:59:43.020617",
   "channels": {
     "blockchain": [
       {
         "channel": "theblockbeats",
+        "message_id": "166950",
+        "text": "🔍链上侦探 |  波段ETH鲸鱼今晨提取6898.98枚ETH，价值1358万美元BlockBeats 消息，3 月 8 日，据链上分析师 Ai 姨（@ai_9684xtpa）监测，03.03 通过 ETH 波段获利 18.5 万美元的波段大户再次出手：3 小时前他从 OKX 提出 6898.98 枚 ETH，价值 1358 万美元，提出价格 1968.58 美元；上一次他的波段买入点位为 2056 美元，疑似卖出点位 2083 美元，持仓共计 3 天。原文链接https://m.theblockbeats.info/flash/335013",
+        "timestamp": "2026-03-08T02:02:02+00:00",
+        "views": 652,
+        "link": "https://t.me/theblockbeats/166950",
         "channel_name": "BlockBeats",
-        "message_id": 8926,
         "category": "blockchain",
-        "lang": "zh",
-        "text": "【BlockBeats】最新新闻 #1 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
-        "views": 6926,
-        "timestamp": "2026-03-08T12:37:13.328291",
-        "link": "https://t.me/theblockbeats/8926"
+        "lang": "zh"
       },
       {
         "channel": "theblockbeats",
+        "message_id": "166951",
+        "text": "「BTC OG内幕巨鲸」代理人：若供应冲击持续，油价或面临更大上涨压力BlockBeats 消息，3 月 8 日，「BTC OG 内幕巨鲸」代理人 Garrett Jin 在 X 平台发文表示，历史上石油供应缺口与油价上涨之间存在明显相关性：1973 年约 7% 的供应缺口推动油价上涨约 300%，1979 年约 5% 的缺口推动上涨约 150%，1990 年约 6% 的缺口推动上涨约 130%。目前围绕霍尔木兹海峡的潜在供应冲击规模约 15%，远高于历史案例，当前多数机构模型假设该冲击持续时间仅为「数天至数周」，但几乎没有模型预期冲击可能持续数月，实际上一旦市场对持续时间的共识被打破，更多做多资金可能被迫进入市场，从而进一步推高油价。原文链接https://m.theblockbeats.info/flash/335014",
+        "timestamp": "2026-03-08T02:06:02+00:00",
+        "views": 659,
+        "link": "https://t.me/theblockbeats/166951",
         "channel_name": "BlockBeats",
-        "message_id": 1701,
         "category": "blockchain",
-        "lang": "zh",
-        "text": "【BlockBeats】最新新闻 #2 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
-        "views": 1701,
-        "timestamp": "2026-03-08T12:37:13.328297",
-        "link": "https://t.me/theblockbeats/1701"
+        "lang": "zh"
       },
       {
         "channel": "theblockbeats",
+        "message_id": "166952",
+        "text": "香港人大代表：应谨慎发展稳定币、虚拟资产等新兴金融产品BlockBeats 消息，3 月 8 日，香港立法会主席、人大常委李慧琼表示将全力支持配合本港首个 5 年规划，港区全国人大代表陈振英指出应谨慎发展稳定币、虚拟资产等新兴金融产品，很多金融机构包括银行、证券以及保险公司等都已使用人工智能，要更好规范 AI 使用，包括要有更好监管，希望确保本港金融安全、不出现任何问题。此外，香港立法会选委界议员吴杰庄表示，「十五五」规划代表未来 5 年以至更长一段时间国家发展的方向，在这一新阶段香港应充分发挥自身优势，做好「四个中心、一个高地」的建设，巩固提升香港国际金融、航运、贸易中心的地位，全力建设国际创新科技中心；香港现在是全球排名第三的国际金融中心，但绝对有机会再进一步，成为全球第二。（信报）原文链接https://m.theblockbeats.info/flash/335015",
+        "timestamp": "2026-03-08T02:07:02+00:00",
+        "views": 653,
+        "link": "https://t.me/theblockbeats/166952",
         "channel_name": "BlockBeats",
-        "message_id": 1393,
         "category": "blockchain",
-        "lang": "zh",
-        "text": "【BlockBeats】最新新闻 #3 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
-        "views": 33393,
-        "timestamp": "2026-03-08T12:37:13.328300",
-        "link": "https://t.me/theblockbeats/1393"
+        "lang": "zh"
+      },
+      {
+        "channel": "theblockbeats",
+        "message_id": "166953",
+        "text": "⚡️伊朗称俘获数名美军士兵，美方否认BlockBeats 消息，3 月 8 日，伊朗最高国家安全委员会秘书拉里贾尼 7 日称，有数名美军士兵已经被俘。拉里贾尼当天在社交媒体上发文称：「据我收到的报告，有几名美国士兵已被俘。但美国人却声称他们已在行动中阵亡。尽管他们竭力掩饰，但真相并不会被他们长期掩盖。」对此，美军中央司令部发言人蒂姆·霍金斯 7 日对美国媒体称，美军士兵被俘是伊朗方面的「谎言」。(新华社)原文链接https://m.theblockbeats.info/flash/335016",
+        "timestamp": "2026-03-08T02:16:02+00:00",
+        "views": 668,
+        "link": "https://t.me/theblockbeats/166953",
+        "channel_name": "BlockBeats",
+        "category": "blockchain",
+        "lang": "zh"
+      },
+      {
+        "channel": "theblockbeats",
+        "message_id": "166954",
+        "text": "韩国正考虑30年来首次实施石油价格上限制度BlockBeats 消息，3 月 8 日，据韩联社报道，消息人士周日透露，因中东冲突升级引发对能源价格上涨的担忧，韩国政府正考虑近 30 年来首次实施油价上限制度。随着美以打击伊朗及伊朗发起报复，全球油价应声上涨。以往国际油价波动约在两周后才会传导至国内，但这次几乎立即影响了韩国国内油价，这促使官员们开始审视引入油价上限的可行性。消息人士称，政府正在谨慎权衡这一选择，因为可能存在市场扭曲和财政负担等副作用。此前韩国总统李在明下令，如果实施全国统一油价上限难以实现，就迅速按地区和燃料类型制定油价上限制度。次日，李在明还警告炼油商不要串通提高汽油价格。根据总统的指示，政府成立了一个跨部门检查小组，打击非法石油分销和囤积以及不公平交易行为。然而，尽管采取了这些措施，韩国国内加油站的汽油价格仍在继续上涨。原文链接https://m.theblockbeats.info/flash/335017",
+        "timestamp": "2026-03-08T02:18:02+00:00",
+        "views": 684,
+        "link": "https://t.me/theblockbeats/166954",
+        "channel_name": "BlockBeats",
+        "category": "blockchain",
+        "lang": "zh"
       },
       {
         "channel": "cointelegraph",
+        "message_id": "68081",
+        "text": "🔥AI: US regulators will host robotaxi CEOs from Waymo, Zoox and Aurora to push faster rollout of self-driving cars while reviewing safety risks.News|Markets|YouTube",
+        "timestamp": "2026-03-07T10:03:30+00:00",
+        "views": 7710,
+        "link": "https://t.me/cointelegraph/68081",
         "channel_name": "Cointelegraph",
-        "message_id": 7062,
         "category": "blockchain",
-        "lang": "en",
-        "text": "【Cointelegraph】最新新闻 #1 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
-        "views": 33062,
-        "timestamp": "2026-03-08T12:37:13.328303",
-        "link": "https://t.me/cointelegraph/7062"
+        "lang": "en"
       },
       {
         "channel": "cointelegraph",
+        "message_id": "68083",
+        "text": "🚨LATEST: Prediction markets Kalshi and Polymarket are reportedly targeting ~$20B valuations in new fundraising rounds, per the WSJ.News|Markets|YouTube",
+        "timestamp": "2026-03-07T11:01:23+00:00",
+        "views": 7820,
+        "link": "https://t.me/cointelegraph/68083",
         "channel_name": "Cointelegraph",
-        "message_id": 8833,
         "category": "blockchain",
-        "lang": "en",
-        "text": "【Cointelegraph】最新新闻 #2 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
-        "views": 27833,
-        "timestamp": "2026-03-08T12:37:13.328305",
-        "link": "https://t.me/cointelegraph/8833"
+        "lang": "en"
       },
       {
         "channel": "cointelegraph",
+        "message_id": "68085",
+        "text": "⚡INSIGHT: Crypto firms and community banks are allies in the CLARITY Act debate and if they fight each other, big banks win.News|Markets|YouTube",
+        "timestamp": "2026-03-07T12:05:27+00:00",
+        "views": 11100,
+        "link": "https://t.me/cointelegraph/68085",
         "channel_name": "Cointelegraph",
-        "message_id": 7821,
         "category": "blockchain",
-        "lang": "en",
-        "text": "【Cointelegraph】最新新闻 #3 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
-        "views": 44821,
-        "timestamp": "2026-03-08T12:37:13.328307",
-        "link": "https://t.me/cointelegraph/7821"
+        "lang": "en"
+      },
+      {
+        "channel": "cointelegraph",
+        "message_id": "68086",
+        "text": "⚡INSIGHT: Crypto firms and community banks are allies in the CLARITY Act debate and if they fight each other, big banks win.News|Markets|YouTube",
+        "timestamp": "2026-03-07T13:02:02+00:00",
+        "views": 8830,
+        "link": "https://t.me/cointelegraph/68086",
+        "channel_name": "Cointelegraph",
+        "category": "blockchain",
+        "lang": "en"
+      },
+      {
+        "channel": "cointelegraph",
+        "message_id": "68088",
+        "text": "🇨🇳HUGE: People's Bank of China extended its gold-buying streak to 16 months.News|Markets|YouTube",
+        "timestamp": "2026-03-07T16:32:04+00:00",
+        "views": 10700,
+        "link": "https://t.me/cointelegraph/68088",
+        "channel_name": "Cointelegraph",
+        "category": "blockchain",
+        "lang": "en"
       }
     ],
     "finance": [
       {
-        "channel": "wsj",
-        "channel_name": "Wall Street Journal",
-        "message_id": 3328,
+        "channel": "bloomberg",
+        "message_id": "3196",
+        "text": "🎙️Indian-based workers once supported American financial services firms. Now, they’re increasingly key to their operations.On today’s Big Take Asia podcast: How India’s government is encouraging Wall Street firms to expand their footprint in India and how President Trump’s new visa policies could speed up the push:https://link.podtrac.com/4rorpntg",
+        "timestamp": "2025-11-12T08:22:39+00:00",
+        "views": 58900,
+        "link": "https://t.me/bloomberg/3196",
+        "channel_name": "Bloomberg",
         "category": "finance",
-        "lang": "en",
-        "text": "【Wall Street Journal】最新新闻 #1 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
-        "views": 20328,
-        "timestamp": "2026-03-08T12:37:13.328310",
-        "link": "https://t.me/wsj/3328"
-      },
-      {
-        "channel": "wsj",
-        "channel_name": "Wall Street Journal",
-        "message_id": 3028,
-        "category": "finance",
-        "lang": "en",
-        "text": "【Wall Street Journal】最新新闻 #2 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
-        "views": 14028,
-        "timestamp": "2026-03-08T12:37:13.328312",
-        "link": "https://t.me/wsj/3028"
-      },
-      {
-        "channel": "wsj",
-        "channel_name": "Wall Street Journal",
-        "message_id": 7658,
-        "category": "finance",
-        "lang": "en",
-        "text": "【Wall Street Journal】最新新闻 #3 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
-        "views": 9658,
-        "timestamp": "2026-03-08T12:37:13.328314",
-        "link": "https://t.me/wsj/7658"
-      },
-      {
-        "channel": "financialtimes",
-        "channel_name": "Financial Times",
-        "message_id": 9815,
-        "category": "finance",
-        "lang": "en",
-        "text": "【Financial Times】最新新闻 #1 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
-        "views": 4815,
-        "timestamp": "2026-03-08T12:37:13.328316",
-        "link": "https://t.me/financialtimes/9815"
-      },
-      {
-        "channel": "financialtimes",
-        "channel_name": "Financial Times",
-        "message_id": 4117,
-        "category": "finance",
-        "lang": "en",
-        "text": "【Financial Times】最新新闻 #2 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
-        "views": 31117,
-        "timestamp": "2026-03-08T12:37:13.328318",
-        "link": "https://t.me/financialtimes/4117"
-      },
-      {
-        "channel": "financialtimes",
-        "channel_name": "Financial Times",
-        "message_id": 7210,
-        "category": "finance",
-        "lang": "en",
-        "text": "【Financial Times】最新新闻 #3 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
-        "views": 37210,
-        "timestamp": "2026-03-08T12:37:13.328320",
-        "link": "https://t.me/financialtimes/7210"
+        "lang": "en"
       },
       {
         "channel": "bloomberg",
+        "message_id": "3197",
+        "text": "🎙️On today’s Big Take Asia podcast, Bloomberg’s James Mayger and Isabel Reynolds explore why comments on Taiwan from Japan’s new prime minister have inflamed tensions with China — and where the diplomatic standoff could go from here:https://link.podtrac.com/jxfy2rhy",
+        "timestamp": "2025-11-26T00:38:28+00:00",
+        "views": 40100,
+        "link": "https://t.me/bloomberg/3197",
         "channel_name": "Bloomberg",
-        "message_id": 4750,
         "category": "finance",
-        "lang": "en",
-        "text": "【Bloomberg】最新新闻 #1 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
-        "views": 32750,
-        "timestamp": "2026-03-08T12:37:13.328322",
-        "link": "https://t.me/bloomberg/4750"
+        "lang": "en"
       },
       {
         "channel": "bloomberg",
+        "message_id": "3198",
+        "text": "Chen Tao and his wife Liu Chunlan, have become one of China’s richest AI billionaires, as their fortune soar on the world’s insatiable demand for the technology and a critical partnership with Nvidia.Read more on their combined $9.1 billion net worth, vaulting them above the likes of Bill Ackman and Jon Gray on the Bloomberg Billionaires Index.https://bloom.bg/3KfTeX9",
+        "timestamp": "2025-11-26T07:14:43+00:00",
+        "views": 40900,
+        "link": "https://t.me/bloomberg/3198",
         "channel_name": "Bloomberg",
-        "message_id": 6183,
         "category": "finance",
-        "lang": "en",
-        "text": "【Bloomberg】最新新闻 #2 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
-        "views": 6183,
-        "timestamp": "2026-03-08T12:37:13.328323",
-        "link": "https://t.me/bloomberg/6183"
+        "lang": "en"
       },
       {
         "channel": "bloomberg",
+        "message_id": "3199",
+        "text": "US authorities have been probing Indian companies trading chemicals used to make fentanyl but with little success.https://bloom.bg/4pw0iOd📷: Johannes Eisele/AFP/Getty Images",
+        "timestamp": "2025-11-26T09:25:18+00:00",
+        "views": 40800,
+        "link": "https://t.me/bloomberg/3199",
         "channel_name": "Bloomberg",
-        "message_id": 7812,
         "category": "finance",
-        "lang": "en",
-        "text": "【Bloomberg】最新新闻 #3 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
-        "views": 24812,
-        "timestamp": "2026-03-08T12:37:13.328325",
-        "link": "https://t.me/bloomberg/7812"
+        "lang": "en"
+      },
+      {
+        "channel": "bloomberg",
+        "message_id": "3200",
+        "text": "An AI-enabled teddy bear sold by a Singapore-based company is back on the shelves after researchers discovered it chats unprompted about sexual fetishes and other unsuitable topics.https://bloom.bg/3M4UYmv📷: FoloToy",
+        "timestamp": "2025-11-26T10:40:24+00:00",
+        "views": 56500,
+        "link": "https://t.me/bloomberg/3200",
+        "channel_name": "Bloomberg",
+        "category": "finance",
+        "lang": "en"
       }
     ],
-    "tech": [
-      {
-        "channel": "techcrunch",
-        "channel_name": "TechCrunch",
-        "message_id": 3380,
-        "category": "tech",
-        "lang": "en",
-        "text": "【TechCrunch】最新新闻 #1 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
-        "views": 9380,
-        "timestamp": "2026-03-08T12:37:13.328327",
-        "link": "https://t.me/techcrunch/3380"
-      },
-      {
-        "channel": "techcrunch",
-        "channel_name": "TechCrunch",
-        "message_id": 3396,
-        "category": "tech",
-        "lang": "en",
-        "text": "【TechCrunch】最新新闻 #2 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
-        "views": 13396,
-        "timestamp": "2026-03-08T12:37:13.328329",
-        "link": "https://t.me/techcrunch/3396"
-      },
-      {
-        "channel": "techcrunch",
-        "channel_name": "TechCrunch",
-        "message_id": 1199,
-        "category": "tech",
-        "lang": "en",
-        "text": "【TechCrunch】最新新闻 #3 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
-        "views": 41199,
-        "timestamp": "2026-03-08T12:37:13.328331",
-        "link": "https://t.me/techcrunch/1199"
-      },
-      {
-        "channel": "theverge",
-        "channel_name": "The Verge",
-        "message_id": 5455,
-        "category": "tech",
-        "lang": "en",
-        "text": "【The Verge】最新新闻 #1 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
-        "views": 10455,
-        "timestamp": "2026-03-08T12:37:13.328333",
-        "link": "https://t.me/theverge/5455"
-      },
-      {
-        "channel": "theverge",
-        "channel_name": "The Verge",
-        "message_id": 8285,
-        "category": "tech",
-        "lang": "en",
-        "text": "【The Verge】最新新闻 #2 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
-        "views": 22285,
-        "timestamp": "2026-03-08T12:37:13.328335",
-        "link": "https://t.me/theverge/8285"
-      },
-      {
-        "channel": "theverge",
-        "channel_name": "The Verge",
-        "message_id": 7595,
-        "category": "tech",
-        "lang": "en",
-        "text": "【The Verge】最新新闻 #3 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
-        "views": 44595,
-        "timestamp": "2026-03-08T12:37:13.328336",
-        "link": "https://t.me/theverge/7595"
-      }
-    ]
+    "tech": []
   },
-  "total_messages": 21
+  "total_messages": 15
 }
