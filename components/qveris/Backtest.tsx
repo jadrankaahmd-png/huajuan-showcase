@@ -50,6 +50,13 @@ export default function Backtest() {
     }
   };
 
+  // 合并策略净值和基准净值数据
+  const chartData = result ? result.strategyValues.map((sv: any, idx: number) => ({
+    date: sv.date,
+    策略净值: sv.value,
+    基准净值: result.benchmarkValues[idx]?.value || sv.value,
+  })) : [];
+
   return (
     <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl shadow-lg p-8 border border-indigo-100">
       <div className="flex items-center justify-between mb-4">
@@ -129,7 +136,7 @@ export default function Backtest() {
 
       {/* 错误提示 */}
       {error && (
-        <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
+        <div className="bg-red-50 border border-blue-200 rounded-lg p-4 mb-4">
           <p className="text-red-700">{error}</p>
           <button
             onClick={handleBacktest}
@@ -206,12 +213,15 @@ export default function Backtest() {
             
             <div className="w-full h-80">
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={result.strategyValues}>
+                <LineChart data={chartData}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis 
                     dataKey="date" 
                     tick={{ fontSize: 12 }}
                     interval="preserveStartEnd"
+                    angle={-45}
+                    textAnchor="end"
+                    height={60}
                   />
                   <YAxis 
                     tick={{ fontSize: 12 }}
@@ -224,25 +234,19 @@ export default function Backtest() {
                   <Legend />
                   <Line 
                     type="monotone" 
-                    dataKey="value" 
+                    dataKey="策略净值" 
                     stroke="#4F46E5" 
                     strokeWidth={2}
-                    name="策略净值"
                     dot={false}
                   />
-                  {result.benchmarkValues && result.benchmarkValues.map((bv: any, idx: number) => (
-                    <Line 
-                      key={idx}
-                      type="monotone" 
-                      data={result.benchmarkValues}
-                      dataKey="value"
-                      stroke="#9CA3AF" 
-                      strokeWidth={2}
-                      strokeDasharray="5 5"
-                      name="基准净值"
-                      dot={false}
-                    />
-                  ))}
+                  <Line 
+                    type="monotone" 
+                    dataKey="基准净值"
+                    stroke="#9CA3AF" 
+                    strokeWidth={2}
+                    strokeDasharray="5 5"
+                    dot={false}
+                  />
                 </LineChart>
               </ResponsiveContainer>
             </div>
