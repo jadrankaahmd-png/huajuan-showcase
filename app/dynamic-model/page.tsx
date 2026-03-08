@@ -5,6 +5,7 @@ import Link from 'next/link';
 import StockQuery from '@/components/qveris/StockQuery';
 import StockRanking from '@/components/qveris/StockRanking';
 import StockAnalysis from '@/components/qveris/StockAnalysis';
+import AlertSettings from '@/components/qveris/AlertSettings';
 
 export default function DynamicModelPage() {
   return (
@@ -397,6 +398,7 @@ export default function DynamicModelPage() {
           <StockQuery />
           <StockRanking />
           <StockAnalysis />
+          <AlertSettings />
         </div>
         
         {/* Architecture Info */}
