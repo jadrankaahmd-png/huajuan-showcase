@@ -81,6 +81,78 @@ export default function DynamicModelPage() {
           </div>
         </div>
         
+        {/* QVeris Card */}
+        <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl shadow-lg p-8 border border-green-100 mb-8">
+          <div className="flex items-center justify-center mb-4">
+            <div className="text-5xl">🔌</div>
+          </div>
+          
+          <h2 className="text-2xl font-bold text-gray-900 text-center mb-3">
+            QVeris 万级数据接入
+          </h2>
+          
+          <div className="flex justify-center mb-4">
+            <span className="px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium">
+              ✅ 已就绪
+            </span>
+          </div>
+          
+          <p className="text-gray-700 text-center mb-6 max-w-2xl mx-auto">
+            10,000+实时数据接口，覆盖美股实时行情、财务数据（EPS、PE）、新闻情绪分析、宏观经济指标
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+            <div className="bg-white rounded-lg p-4 text-center">
+              <div className="text-2xl mb-2">📈</div>
+              <h3 className="text-gray-900 font-semibold mb-1">实时股价</h3>
+              <p className="text-gray-600 text-sm">AAPL、TSLA、NVDA等</p>
+            </div>
+            
+            <div className="bg-white rounded-lg p-4 text-center">
+              <div className="text-2xl mb-2">💰</div>
+              <h3 className="text-gray-900 font-semibold mb-1">财务数据</h3>
+              <p className="text-gray-600 text-sm">EPS、PE、财报</p>
+            </div>
+            
+            <div className="bg-white rounded-lg p-4 text-center">
+              <div className="text-2xl mb-2">📰</div>
+              <h3 className="text-gray-900 font-semibold mb-1">新闻情绪</h3>
+              <p className="text-gray-600 text-sm">市场情绪分析</p>
+            </div>
+            
+            <div className="bg-white rounded-lg p-4 text-center">
+              <div className="text-2xl mb-2">🌍</div>
+              <h3 className="text-gray-900 font-semibold mb-1">宏观经济</h3>
+              <p className="text-gray-600 text-sm">利率、GDP、失业率</p>
+            </div>
+          </div>
+          
+          <div className="bg-white rounded-lg p-4 mb-6">
+            <h3 className="text-gray-900 font-semibold mb-2 flex items-center gap-2">
+              <span>⚡</span> 数据提供商
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Finnhub</span>
+              <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">Alpha Vantage</span>
+              <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">EODHD</span>
+              <span className="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm">Yahoo Finance</span>
+              <span className="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm">FMP</span>
+              <span className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm">Tiingo</span>
+            </div>
+          </div>
+          
+          <div className="flex justify-center gap-4">
+            <a
+              href="https://www.qveris.ai/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg font-medium transition-colors"
+            >
+              访问官网
+            </a>
+          </div>
+        </div>
+        
         {/* Coming Soon Card */}
         <div className="bg-white rounded-2xl shadow-sm p-8 border border-gray-100">
           <div className="flex items-center justify-center mb-6">
