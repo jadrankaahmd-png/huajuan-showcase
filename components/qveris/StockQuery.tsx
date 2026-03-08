@@ -22,6 +22,11 @@ export default function StockQuery() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query: `${symbol} stock quote real-time` }),
       });
+      
+      if (!searchRes.ok) {
+        throw new Error('搜索API调用失败');
+      }
+      
       const searchData = await searchRes.json();
 
       if (searchData.results && searchData.results.length > 0) {
@@ -38,21 +43,45 @@ export default function StockQuery() {
             parameters: { symbol: symbol.toUpperCase() },
           }),
         });
+        
+        if (!executeRes.ok) {
+          throw new Error('执行API调用失败');
+        }
+        
         const result = await executeRes.json();
 
-        if (result.success) {
-          setData(result.result.data);
+        if (result.success && result.result && result.result.data) {
+          // 验证数据格式
+          const stockData = result.result.data;
+          if (typeof stockData.c === 'number') {
+            setData(stockData);
+          } else {
+            setError('返回数据格式不正确');
+          }
         } else {
           setError(result.error_message || '查询失败');
         }
       } else {
         setError('未找到相关数据');
       }
-    } catch (err) {
-      setError('查询失败，请稍后重试');
-      console.error(err);
+    } catch (err: any) {
+      const errorMsg = err.message || '查询失败，请稍后重试';
+      setError(errorMsg);
+      console.error('StockQuery error:', err);
     } finally {
       setLoading(false);
+    }
+  };
+
+  // 安全的数据访问函数
+  const safeToFixed = (value: any, digits: number = 2): string => {
+    if (value === null || value === undefined || isNaN(value)) {
+      return 'N/A';
+    }
+    try {
+      return Number(value).toFixed(digits);
+    } catch {
+      return 'N/A';
     }
   };
 
@@ -104,36 +133,46 @@ export default function StockQuery() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="bg-gray-50 rounded-lg p-4">
               <p className="text-gray-600 text-sm mb-1">当前价</p>
-              <p className="text-2xl font-bold text-gray-900">${data.c}</p>
+              <p className="text-2xl font-bold text-gray-900">
+                ${data.c !== undefined ? safeToFixed(data.c, 2) : 'N/A'}
+              </p>
             </div>
             <div className="bg-gray-50 rounded-lg p-4">
               <p className="text-gray-600 text-sm mb-1">涨跌幅</p>
               <p className={`text-2xl font-bold ${data.dp >= 0 ? 'text-green-600' : 'text-red-600'}`}>
-                {data.dp >= 0 ? '+' : ''}{data.dp.toFixed(2)}%
+                {data.dp !== undefined ? (data.dp >= 0 ? '+' : '') + safeToFixed(data.dp, 2) + '%' : 'N/A'}
               </p>
             </div>
             <div className="bg-gray-50 rounded-lg p-4">
               <p className="text-gray-600 text-sm mb-1">今日最高</p>
-              <p className="text-xl font-bold text-gray-900">${data.h}</p>
+              <p className="text-xl font-bold text-gray-900">
+                ${data.h !== undefined ? safeToFixed(data.h, 2) : 'N/A'}
+              </p>
             </div>
             <div className="bg-gray-50 rounded-lg p-4">
               <p className="text-gray-600 text-sm mb-1">今日最低</p>
-              <p className="text-xl font-bold text-gray-900">${data.l}</p>
+              <p className="text-xl font-bold text-gray-900">
+                ${data.l !== undefined ? safeToFixed(data.l, 2) : 'N/A'}
+              </p>
             </div>
           </div>
           <div className="mt-4 grid grid-cols-3 gap-4">
             <div className="bg-gray-50 rounded-lg p-3">
               <p className="text-gray-600 text-sm">开盘价</p>
-              <p className="text-lg font-bold">${data.o}</p>
+              <p className="text-lg font-bold">
+                ${data.o !== undefined ? safeToFixed(data.o, 2) : 'N/A'}
+              </p>
             </div>
             <div className="bg-gray-50 rounded-lg p-3">
               <p className="text-gray-600 text-sm">前一日收盘</p>
-              <p className="text-lg font-bold">${data.pc}</p>
+              <p className="text-lg font-bold">
+                ${data.pc !== undefined ? safeToFixed(data.pc, 2) : 'N/A'}
+              </p>
             </div>
             <div className="bg-gray-50 rounded-lg p-3">
               <p className="text-gray-600 text-sm">涨跌额</p>
               <p className={`text-lg font-bold ${data.d >= 0 ? 'text-green-600' : 'text-red-600'}`}>
-                {data.d >= 0 ? '+' : ''}${data.d.toFixed(2)}
+                {data.d !== undefined ? (data.d >= 0 ? '+' : '') + '$' + safeToFixed(data.d, 2) : 'N/A'}
               </p>
             </div>
           </div>

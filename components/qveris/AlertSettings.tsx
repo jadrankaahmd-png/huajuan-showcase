@@ -17,7 +17,7 @@ export default function AlertSettings() {
     setMessage('');
 
     try {
-      // 保存预警到本地存储（实际项目应该保存到后端数据库）
+      // 保存预警到本地存储
       const newAlert = {
         id: Date.now(),
         symbol: symbol.toUpperCase(),
@@ -33,7 +33,7 @@ export default function AlertSettings() {
       setAlerts(savedAlerts);
       setSymbol('');
       setThreshold('5');
-      setMessage('✅ 预警设置成功！');
+      setMessage('✅ 预警设置成功！系统将每60秒检查一次价格。');
     } catch (err) {
       setMessage('❌ 设置失败，请稍后重试');
       console.error(err);
@@ -54,25 +54,65 @@ export default function AlertSettings() {
     setAlerts(filtered);
   };
 
-  // 模拟预警触发（实际项目应该轮询检查）
+  // 真实的价格检查逻辑
   useEffect(() => {
     const checkAlerts = async () => {
       const savedAlerts = JSON.parse(localStorage.getItem('alerts') || '[]');
       const activeAlerts = savedAlerts.filter((a: any) => a.status === 'active');
 
-      // 这里应该调用真实API检查价格是否触发阈值
-      // 演示版本：随机触发一个预警
-      if (activeAlerts.length > 0 && Math.random() < 0.1) {
-        const randomAlert = activeAlerts[Math.floor(Math.random() * activeAlerts.length)];
-        setTriggeredAlert(randomAlert);
+      if (activeAlerts.length === 0) return;
 
-        // 3秒后自动关闭预警
-        setTimeout(() => setTriggeredAlert(null), 3000);
+      // 检查每个活跃的预警
+      for (const alert of activeAlerts) {
+        try {
+          // 1. 搜索股价工具
+          const searchRes = await fetch('/api/qveris/search', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ query: `${alert.symbol} stock quote` }),
+          });
+          const searchData = await searchRes.json();
+
+          if (searchData.results && searchData.results.length > 0) {
+            const toolId = searchData.results[0].tool_id;
+            const searchId = searchData.search_id;
+
+            // 2. 执行工具获取当前价格
+            const executeRes = await fetch('/api/qveris/execute', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                toolId,
+                searchId,
+                parameters: { symbol: alert.symbol },
+              }),
+            });
+            const result = await executeRes.json();
+
+            if (result.success && result.result && result.result.data) {
+              const changePercent = result.result.data.dp;
+
+              // 检查是否触发预警
+              if (Math.abs(changePercent) >= alert.threshold) {
+                setTriggeredAlert({
+                  ...alert,
+                  changePercent: changePercent.toFixed(2),
+                });
+
+                // 3秒后自动关闭预警
+                setTimeout(() => setTriggeredAlert(null), 3000);
+                break; // 一次只触发一个预警
+              }
+            }
+          }
+        } catch (err) {
+          console.error(`Failed to check alert for ${alert.symbol}:`, err);
+        }
       }
     };
 
-    // 每30秒检查一次预警
-    const interval = setInterval(checkAlerts, 30000);
+    // 每60秒检查一次预警
+    const interval = setInterval(checkAlerts, 60000);
     return () => clearInterval(interval);
   }, []);
 
@@ -87,7 +127,7 @@ export default function AlertSettings() {
               <div>
                 <p className="font-bold text-lg">价格预警触发！</p>
                 <p className="text-sm">
-                  {triggeredAlert.symbol} 价格涨跌超过 {triggeredAlert.threshold}%
+                  {triggeredAlert.symbol} 价格涨跌 {triggeredAlert.changePercent}%，超过阈值 {triggeredAlert.threshold}%
                 </p>
               </div>
             </div>
@@ -115,7 +155,7 @@ export default function AlertSettings() {
         </div>
 
         <p className="text-gray-700 mb-6">
-          设置股价预警，当涨跌幅超过阈值时自动在页面顶部显示预警通知
+          设置股价预警，当涨跌幅超过阈值时自动在页面顶部显示预警通知（每60秒自动检查）
         </p>
 
         <div className="flex gap-3 mb-4">
@@ -123,7 +163,7 @@ export default function AlertSettings() {
             type="text"
             value={symbol}
             onChange={(e) => setSymbol(e.target.value)}
-            placeholder="股票代码（如 NVDA）"
+            placeholder="股票代码（如 TSLA）"
             className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
           />
           <input
@@ -181,10 +221,10 @@ export default function AlertSettings() {
           </div>
         )}
 
-        <div className="mt-6 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-          <p className="text-yellow-800 text-sm">
+        <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <p className="text-blue-800 text-sm">
             <strong>💡 说明：</strong>
-            预警设置保存在浏览器本地存储中。生产环境应该保存到后端数据库并使用 WebSocket 实现实时推送。
+            预警设置保存在浏览器本地存储中。系统每60秒自动检查一次价格，当涨跌幅超过阈值时会触发预警通知。
           </p>
         </div>
       </div>

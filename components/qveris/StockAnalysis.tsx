@@ -16,17 +16,33 @@ export default function StockAnalysis() {
     setData(null);
 
     try {
-      // 1. 搜索财务数据工具
+      // 1. 搜索财务数据工具（使用更明确的查询）
       const searchRes = await fetch('/api/qveris/search', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: `${symbol} earnings financial PE EPS` }),
+        body: JSON.stringify({ query: `${symbol} company overview financial metrics` }),
       });
+      
+      if (!searchRes.ok) {
+        throw new Error('搜索API调用失败');
+      }
+      
       const searchData = await searchRes.json();
 
       if (searchData.results && searchData.results.length > 0) {
         const toolId = searchData.results[0].tool_id;
         const searchId = searchData.search_id;
+
+        // 检查工具是否需要 function 参数
+        const tool = searchData.results[0];
+        const params: any = { symbol: symbol.toUpperCase() };
+        
+        // 如果工具描述包含 earnings，添加 function 参数
+        if (tool.name && tool.name.toLowerCase().includes('earnings')) {
+          params.function = 'EARNINGS';
+        } else if (tool.name && tool.name.toLowerCase().includes('overview')) {
+          params.function = 'OVERVIEW';
+        }
 
         // 2. 执行工具
         const executeRes = await fetch('/api/qveris/execute', {
@@ -35,12 +51,17 @@ export default function StockAnalysis() {
           body: JSON.stringify({
             toolId,
             searchId,
-            parameters: { symbol: symbol.toUpperCase() },
+            parameters: params,
           }),
         });
+        
+        if (!executeRes.ok) {
+          throw new Error('执行API调用失败');
+        }
+        
         const result = await executeRes.json();
 
-        if (result.success) {
+        if (result.success && result.result && result.result.data) {
           setData({
             financials: result.result.data,
           });
@@ -50,11 +71,21 @@ export default function StockAnalysis() {
       } else {
         setError('未找到相关数据');
       }
-    } catch (err) {
-      setError('分析失败，请稍后重试');
-      console.error(err);
+    } catch (err: any) {
+      const errorMsg = err.message || '分析失败，请稍后重试';
+      setError(errorMsg);
+      console.error('StockAnalysis error:', err);
     } finally {
       setLoading(false);
+    }
+  };
+
+  // 安全的 JSON 格式化
+  const safeStringify = (data: any): string => {
+    try {
+      return JSON.stringify(data, null, 2);
+    } catch {
+      return '无法解析数据';
     }
   };
 
@@ -100,15 +131,15 @@ export default function StockAnalysis() {
         </div>
       )}
 
-      {data && (
+      {data && data.financials && (
         <div className="space-y-6">
           {/* 财务指标 */}
           <div className="bg-white rounded-lg p-6">
             <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
               <span>📊</span> 核心财务指标
             </h3>
-            <div className="bg-gray-50 p-4 rounded overflow-x-auto text-sm">
-              <pre>{JSON.stringify(data.financials, null, 2)}</pre>
+            <div className="bg-gray-50 p-4 rounded overflow-x-auto text-sm max-h-96">
+              <pre>{safeStringify(data.financials)}</pre>
             </div>
           </div>
 
