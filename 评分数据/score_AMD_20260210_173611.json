@@ -1,0 +1,74 @@
+{
+  "symbol": "AMD",
+  "timestamp": "2026-02-10T17:36:11.870755",
+  "comprehensive_score": 61.79,
+  "recommendation": "NEUTRAL_BULLISH",
+  "confidence": "high",
+  "factor_scores": {
+    "technical": {
+      "score": 57.5,
+      "details": {
+        "trend": 30,
+        "momentum": 75,
+        "support_resistance": 80,
+        "volatility": 50
+      },
+      "indicators": {
+        "current_price": 216.0,
+        "ma20": 232.88,
+        "ma50": 221.67,
+        "rsi": 44.33,
+        "volatility": 67.74
+      }
+    },
+    "fundamental": {
+      "score": 59.25,
+      "details": {
+        "valuation": 30,
+        "profitability": 50,
+        "growth": 90,
+        "financial_health": 85
+      },
+      "metrics": {
+        "pe_ratio": 82.76,
+        "forward_pe": 20.46,
+        "pb_ratio": 5.59,
+        "roe": 7.08,
+        "revenue_growth": 34.1
+      }
+    },
+    "sentiment": {
+      "score": 65.0,
+      "details": {
+        "market_sentiment": 65,
+        "social_sentiment": 70,
+        "news_sentiment": 60
+      },
+      "note": "简化评分，建议结合sentiment_analyzer使用"
+    },
+    "fund_flow": {
+      "score": 65.5,
+      "details": {
+        "institutional": 70,
+        "insider": 65,
+        "fund_flow": 60
+      },
+      "note": "简化评分，建议结合institutional_tracker使用"
+    },
+    "macro": {
+      "score": 65,
+      "details": {
+        "macro_environment": 65,
+        "sector_trend": 65
+      },
+      "sector": "Technology"
+    }
+  },
+  "weights": {
+    "technical": 0.25,
+    "fundamental": 0.25,
+    "sentiment": 0.2,
+    "fund_flow": 0.2,
+    "macro": 0.1
+  }
+}

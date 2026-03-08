@@ -1,0 +1,74 @@
+{
+  "symbol": "LYFT",
+  "timestamp": "2026-02-10T23:29:32.644598",
+  "comprehensive_score": 63.04,
+  "recommendation": "NEUTRAL_BULLISH",
+  "confidence": "high",
+  "factor_scores": {
+    "technical": {
+      "score": 57.5,
+      "details": {
+        "trend": 30,
+        "momentum": 75,
+        "support_resistance": 80,
+        "volatility": 50
+      },
+      "indicators": {
+        "current_price": 16.9,
+        "ma20": 17.58,
+        "ma50": 19.19,
+        "rsi": 36.17,
+        "volatility": 53.19
+      }
+    },
+    "fundamental": {
+      "score": 64.25,
+      "details": {
+        "valuation": 45,
+        "profitability": 90,
+        "growth": 65,
+        "financial_health": 50
+      },
+      "metrics": {
+        "pe_ratio": 45.68,
+        "forward_pe": 11.35,
+        "pb_ratio": 11.84,
+        "roe": 24.52,
+        "revenue_growth": 10.7
+      }
+    },
+    "sentiment": {
+      "score": 65.0,
+      "details": {
+        "market_sentiment": 65,
+        "social_sentiment": 70,
+        "news_sentiment": 60
+      },
+      "note": "简化评分，建议结合sentiment_analyzer使用"
+    },
+    "fund_flow": {
+      "score": 65.5,
+      "details": {
+        "institutional": 70,
+        "insider": 65,
+        "fund_flow": 60
+      },
+      "note": "简化评分，建议结合institutional_tracker使用"
+    },
+    "macro": {
+      "score": 65,
+      "details": {
+        "macro_environment": 65,
+        "sector_trend": 65
+      },
+      "sector": "Technology"
+    }
+  },
+  "weights": {
+    "technical": 0.25,
+    "fundamental": 0.25,
+    "sentiment": 0.2,
+    "fund_flow": 0.2,
+    "macro": 0.1
+  }
+}
