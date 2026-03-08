@@ -2,8 +2,10 @@ import { NextRequest, NextResponse } from 'next/server';
 
 // QVeris API 配置
 const QVERIS_API_KEY = process.env.QVERIS_API_KEY || 'sk-YFaMAuNb1r1qBE4_0Pr3wZYtvzqHbKL8Ths6SvWOiRU';
-const QVERIS_SEARCH_URL = 'https://qveris.ai/api/v1/search';
 const QVERIS_EXECUTE_URL = 'https://qveris.ai/api/v1/tools/execute';
+
+// EODHD 历史数据工具ID（支持日期范围）
+const EODHD_TOOL_ID = 'eodhd.eod.retrieve.v1.34f25103';
 
 // 频率限制（同一IP每分钟最多5次）
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
@@ -50,42 +52,15 @@ export async function POST(request: NextRequest) {
       );
     }
     
-    // 1. 搜索历史价格数据工具
-    const searchRes = await fetch(QVERIS_SEARCH_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${QVERIS_API_KEY}`,
-      },
-      body: JSON.stringify({
-        query: `${symbol} historical stock price daily data`,
-        limit: 5,
-      }),
-    });
-    
-    if (!searchRes.ok) {
-      throw new Error(`QVeris搜索API调用失败: ${searchRes.status}`);
-    }
-    
-    const searchData = await searchRes.json();
-    
-    if (!searchData.results || searchData.results.length === 0) {
-      throw new Error('未找到历史价格数据工具');
-    }
-    
-    // 2. 执行工具获取历史数据
-    const toolId = searchData.results[0].tool_id;
-    const searchId = searchData.search_id;
-    
     // 计算日期范围
     const endDate = new Date();
     const startDate = new Date();
     const periodDays = period === '3m' ? 90 : period === '6m' ? 180 : 365;
     startDate.setDate(startDate.getDate() - periodDays);
     
-    // 构建正确的 URL（tool_id 作为 URL 参数）
+    // 直接使用 EODHD 工具（支持日期范围）
     const executeUrl = new URL(QVERIS_EXECUTE_URL);
-    executeUrl.searchParams.set('tool_id', toolId);
+    executeUrl.searchParams.set('tool_id', EODHD_TOOL_ID);
     
     const executeRes = await fetch(executeUrl.toString(), {
       method: 'POST',
@@ -94,11 +69,13 @@ export async function POST(request: NextRequest) {
         'Authorization': `Bearer ${QVERIS_API_KEY}`,
       },
       body: JSON.stringify({
-        search_id: searchId,
+        search_id: `backtest-${Date.now()}`,
         parameters: {
-          symbol: symbol.toUpperCase(),
-          start_date: startDate.toISOString().split('T')[0],
-          end_date: endDate.toISOString().split('T')[0],
+          symbol: `${symbol.toUpperCase()}.US`, // EODHD 需要交易所后缀
+          from: startDate.toISOString().split('T')[0],
+          to: endDate.toISOString().split('T')[0],
+          period: 'd', // 日线数据
+          fmt: 'json', // JSON 格式
         },
         max_response_size: 20480,
       }),
@@ -114,14 +91,14 @@ export async function POST(request: NextRequest) {
       throw new Error(result.error_message || '获取历史数据失败');
     }
     
-    // 3. 解析历史数据并计算策略
+    // 解析历史数据并计算策略
     const historicalData = parseHistoricalData(result.result.data);
     
     if (!historicalData || historicalData.length === 0) {
       throw new Error('历史数据格式错误或为空');
     }
     
-    // 4. 应用策略计算
+    // 应用策略计算
     const backtestResult = calculateStrategy(historicalData, strategy, symbol.toUpperCase());
     
     return NextResponse.json({
@@ -142,19 +119,19 @@ export async function POST(request: NextRequest) {
 function parseHistoricalData(data: any): any[] {
   console.log('Parsing historical data, type:', typeof data, Array.isArray(data));
   
-  // 兼容不同的数据格式
+  // EODHD 格式：数组，每个元素包含 date, open, high, low, close, volume
   if (Array.isArray(data)) {
     return data.map((d: any) => ({
       date: d.date || d.time || d.timestamp,
-      close: parseFloat(d.close || d.Close || d.c),
+      close: parseFloat(d.close || d.Close || d.c || d.adjusted_close),
       high: parseFloat(d.high || d.High || d.h),
       low: parseFloat(d.low || d.Low || d.l),
       volume: parseInt(d.volume || d.Volume || d.v),
-    })).sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+    })).filter((d: any) => d.date && d.close).sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
   }
   
+  // Alpha Vantage 格式
   if (data['Time Series (Daily)']) {
-    // Alpha Vantage 格式
     const timeSeries = data['Time Series (Daily)'];
     return Object.entries(timeSeries).map(([date, values]: [string, any]) => ({
       date,
@@ -165,8 +142,8 @@ function parseHistoricalData(data: any): any[] {
     })).sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
   }
   
+  // Finnhub 格式
   if (data.prices) {
-    // Finnhub 格式
     return data.prices.map((p: any) => ({
       date: new Date(p.t * 1000).toISOString().split('T')[0],
       close: p.c,
