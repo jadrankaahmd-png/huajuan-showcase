@@ -48,17 +48,23 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json();
-    const { symbol, strategy, period } = body;
+    const { symbol: inputSymbol, strategy, period } = body;
     
-    console.log('请求参数:', { symbol, strategy, period });
+    console.log('请求参数:', { symbol: inputSymbol, strategy, period });
     
-    if (!symbol || !strategy || !period) {
+    if (!inputSymbol || !strategy || !period) {
       console.log('❌ 缺少必需参数');
       return NextResponse.json(
         { error: '缺少必需参数' },
         { status: 400 }
       );
     }
+    
+    // 自动处理股票代码格式：转大写 + 添加 .US 后缀（如果没有）
+    const symbol = inputSymbol.toUpperCase();
+    const symbolWithExchange = symbol.includes('.') ? symbol : `${symbol}.US`;
+    
+    console.log('股票代码转换:', { 输入: inputSymbol, 转换后: symbolWithExchange });
     
     // 计算日期范围
     const endDate = new Date();
@@ -79,7 +85,7 @@ export async function POST(request: NextRequest) {
     const executeBody = {
       search_id: `backtest-${Date.now()}`,
       parameters: {
-        symbol: `${symbol.toUpperCase()}.US`,
+        symbol: symbolWithExchange,
         from: startDate.toISOString().split('T')[0],
         to: endDate.toISOString().split('T')[0],
         period: 'd',
