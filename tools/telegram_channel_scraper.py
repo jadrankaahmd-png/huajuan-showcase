@@ -15,20 +15,19 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 import re
 
-# 频道配置
+# 频道配置（已验证可公开访问）
 CHANNELS = {
     "blockchain": [
         {"username": "theblockbeats", "name": "BlockBeats", "lang": "zh"},
         {"username": "cointelegraph", "name": "Cointelegraph", "lang": "en"},
     ],
     "finance": [
-        {"username": "wsj", "name": "Wall Street Journal", "lang": "en"},
-        {"username": "financialtimes", "name": "Financial Times", "lang": "en"},
-        {"username": "bloomberg", "name": "Bloomberg", "lang": "en"},
+        {"username": "reuters", "name": "Reuters", "lang": "en"},  # 路透社
+        {"username": "business", "name": "Bloomberg Business", "lang": "en"},
     ],
     "tech": [
-        {"username": "techcrunch", "name": "TechCrunch", "lang": "en"},
-        {"username": "theverge", "name": "The Verge", "lang": "en"},
+        {"username": "wired", "name": "Wired", "lang": "en"},
+        {"username": "technology_review", "name": "MIT Technology Review", "lang": "en"},
     ],
 }
 
