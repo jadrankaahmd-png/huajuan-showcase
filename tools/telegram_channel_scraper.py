@@ -15,19 +15,20 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 import re
 
-# 频道配置（已验证可公开访问）
+# 频道配置（已验证：24小时内有更新的活跃频道）
 CHANNELS = {
     "blockchain": [
         {"username": "theblockbeats", "name": "BlockBeats", "lang": "zh"},
         {"username": "cointelegraph", "name": "Cointelegraph", "lang": "en"},
     ],
     "finance": [
-        {"username": "reuters", "name": "Reuters", "lang": "en"},  # 路透社
-        {"username": "business", "name": "Bloomberg Business", "lang": "en"},
+        # 注：WSJ、FT、Bloomberg、Reuters、CNBC 等传统金融媒体的 Telegram 频道
+        # 要么是私有的，要么没有公开消息，或者24小时内无更新
+        # 暂时无法获取真实数据，保留为空列表
     ],
     "tech": [
+        {"username": "hackernewsfeed", "name": "Hacker News", "lang": "en"},
         {"username": "wired", "name": "Wired", "lang": "en"},
-        {"username": "technology_review", "name": "MIT Technology Review", "lang": "en"},
     ],
 }
 
