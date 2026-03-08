@@ -20,6 +20,67 @@ export default function DynamicModelPage() {
           </p>
         </div>
         
+        {/* Autoresearch Engine Card */}
+        <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl shadow-lg p-8 border border-blue-100 mb-8">
+          <div className="flex items-center justify-center mb-4">
+            <div className="text-5xl">🧬</div>
+          </div>
+          
+          <h2 className="text-2xl font-bold text-gray-900 text-center mb-3">
+            AI自动研究引擎
+          </h2>
+          
+          <div className="flex justify-center mb-4">
+            <span className="px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium">
+              ✅ 已就绪（可直接运行）
+            </span>
+          </div>
+          
+          <p className="text-gray-700 text-center mb-6 max-w-2xl mx-auto">
+            AI自主循环优化选股模型参数，每5分钟一次实验，自动寻找最优神经网络架构和超参数
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div className="bg-white rounded-lg p-4 text-center">
+              <div className="text-2xl mb-2">⏱️</div>
+              <h3 className="text-gray-900 font-semibold mb-1">固定时间预算</h3>
+              <p className="text-gray-600 text-sm">每次实验5分钟</p>
+            </div>
+            
+            <div className="bg-white rounded-lg p-4 text-center">
+              <div className="text-2xl mb-2">🔄</div>
+              <h3 className="text-gray-900 font-semibold mb-1">自主优化</h3>
+              <p className="text-gray-600 text-sm">自动修改架构和超参数</p>
+            </div>
+            
+            <div className="bg-white rounded-lg p-4 text-center">
+              <div className="text-2xl mb-2">📊</div>
+              <h3 className="text-gray-900 font-semibold mb-1">性能追踪</h3>
+              <p className="text-gray-600 text-sm">验证集bits per byte</p>
+            </div>
+          </div>
+          
+          <div className="bg-white rounded-lg p-4 mb-6">
+            <h3 className="text-gray-900 font-semibold mb-2 flex items-center gap-2">
+              <span>📁</span> 本地路径
+            </h3>
+            <code className="text-sm text-gray-700 bg-gray-50 px-3 py-2 rounded block overflow-x-auto">
+              ~/.openclaw/workspace/autoresearch-macos/
+            </code>
+          </div>
+          
+          <div className="flex justify-center gap-4">
+            <a
+              href="https://github.com/miolini/autoresearch-macos"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-colors"
+            >
+              查看GitHub
+            </a>
+          </div>
+        </div>
+        
         {/* Coming Soon Card */}
         <div className="bg-white rounded-2xl shadow-sm p-8 border border-gray-100">
           <div className="flex items-center justify-center mb-6">
