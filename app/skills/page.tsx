@@ -165,6 +165,9 @@ const skills: Skill[] = [
   { name: 'Analysis Observability', description: '✅已实施 分析可观察性 - 实时监控+性能追踪+HTTP API+仪表板', category: 'Agent编排', status: 'active', icon: '👁️' },
   { name: 'Integration Test Suite', description: '✅已实施 集成测试套件 - 6个测试全部通过（100%成功率）', category: 'Agent编排', status: 'active', icon: '✅' },
 
+  // 记忆与学习系统（1个核心能力）🆕
+  { name: '💾 长期记忆系统', description: '✅已配置 OpenViking记忆插件 - 自动捕获+智能检索+本地存储（~/.openviking/ov.conf）', category: '记忆与学习', status: 'active', icon: '💾' },
+
   // 知识库系统（3个核心知识）🆕
   { name: 'AI Agent Fundamentals', description: '✅已提炼 Agent架构+记忆系统+工具调用（来自 microsoft/ai-agents-for-beginners）', category: '知识库', status: 'active', icon: '🤖' },
   { name: 'GenAI Best Practices', description: '✅已提炼 Prompt工程+成本控制+RAG系统（来自 microsoft/generative-ai-for-beginners）', category: '知识库', status: 'active', icon: '✨' },
@@ -176,7 +179,7 @@ const skills: Skill[] = [
   { name: 'GLM GitHub Repo', description: '✅已测试 开源仓库MCP - 53.5秒响应（100%成功率）', category: 'MCP工具', status: 'active', icon: '📦' },
 ];
 
-const categories = ['全部', '金融分析', '投资组合', '交易系统', '数据抓取', '新闻情绪', 'AI分析', '网站开发', '数据分析', '自动化', 'Google Workspace', 'Agent Reach', '交互式学习', 'Agent编排', 'MCP工具', '知识库'];
+const categories = ['全部', '金融分析', '投资组合', '交易系统', '数据抓取', '新闻情绪', 'AI分析', '网站开发', '数据分析', '自动化', 'Google Workspace', 'Agent Reach', '交互式学习', 'Agent编排', 'MCP工具', '记忆与学习', '知识库'];
 
 const categoryIcons: Record<string, string> = {
   '全部': '🌸',
@@ -194,6 +197,7 @@ const categoryIcons: Record<string, string> = {
   '交互式学习': '📚',
   'Agent编排': '🎼',
   'MCP工具': '🔌',
+  '记忆与学习': '💾',
   '知识库': '📚',
 };
 
@@ -221,7 +225,7 @@ export default function SkillsPage() {
                 <span className="text-4xl">🌸</span>
                 <div>
                   <h1 className="text-2xl font-bold text-gray-900">花卷技能中心</h1>
-                  <p className="text-sm text-gray-500">156个专业技能 · 覆盖选股、分析、开发、自动化、交互式学习、Agent编排、MCP工具、AI知识库全流程</p>
+                  <p className="text-sm text-gray-500">140个专业技能 · 覆盖选股、分析、开发、自动化、交互式学习、Agent编排、MCP工具、记忆系统、AI知识库全流程</p>
                 </div>
               </a>
             </div>
