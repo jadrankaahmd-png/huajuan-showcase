@@ -153,6 +153,165 @@ export default function DynamicModelPage() {
           </div>
         </div>
         
+        {/* QVeris 四大能力模块 */}
+        <div className="space-y-8 mb-8">
+          {/* 模块一：基础行情与情绪分析 */}
+          <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl shadow-lg p-8 border border-blue-100">
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-3">
+                <div className="text-4xl">📈</div>
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900">基础行情与情绪分析</h2>
+                  <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">
+                    ✅ 已就绪
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+            <p className="text-gray-700 mb-6">
+              获取美股实时价格、当日涨跌、近期趋势和市场情绪分析
+            </p>
+            
+            <div className="bg-white rounded-lg p-4 mb-4">
+              <h3 className="text-gray-900 font-semibold mb-3 flex items-center gap-2">
+                <span>💡</span> 示例指令
+              </h3>
+              <div className="space-y-2">
+                <div className="flex items-center justify-between bg-gray-50 rounded-lg p-3">
+                  <code className="text-sm text-gray-800">查询英伟达（NVDA）最新股价，给出分析</code>
+                  <button className="text-gray-500 hover:text-gray-700" title="复制">📋</button>
+                </div>
+                <div className="flex items-center justify-between bg-gray-50 rounded-lg p-3">
+                  <code className="text-sm text-gray-800">苹果（AAPL）今日表现如何？</code>
+                  <button className="text-gray-500 hover:text-gray-700" title="复制">📋</button>
+                </div>
+                <div className="flex items-center justify-between bg-gray-50 rounded-lg p-3">
+                  <code className="text-sm text-gray-800">特斯拉（TSLA）近期趋势与市场情绪分析</code>
+                  <button className="text-gray-500 hover:text-gray-700" title="复制">📋</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 模块二：市场概览与榜单追踪 */}
+          <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl shadow-lg p-8 border border-purple-100">
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-3">
+                <div className="text-4xl">🏆</div>
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900">市场概览与榜单追踪</h2>
+                  <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">
+                    ✅ 已就绪
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+            <p className="text-gray-700 mb-6">
+              快速获取美股市场全局视野，追踪热门标的和板块动向
+            </p>
+            
+            <div className="bg-white rounded-lg p-4 mb-4">
+              <h3 className="text-gray-900 font-semibold mb-3 flex items-center gap-2">
+                <span>💡</span> 示例指令
+              </h3>
+              <div className="space-y-2">
+                <div className="flex items-center justify-between bg-gray-50 rounded-lg p-3">
+                  <code className="text-sm text-gray-800">今日美股涨幅 TOP 10</code>
+                  <button className="text-gray-500 hover:text-gray-700" title="复制">📋</button>
+                </div>
+                <div className="flex items-center justify-between bg-gray-50 rounded-lg p-3">
+                  <code className="text-sm text-gray-800">今日科技板块资金净流入前3的股票</code>
+                  <button className="text-gray-500 hover:text-gray-700" title="复制">📋</button>
+                </div>
+                <div className="flex items-center justify-between bg-gray-50 rounded-lg p-3">
+                  <code className="text-sm text-gray-800">对比英伟达和AMD今日表现，分析板块联动</code>
+                  <button className="text-gray-500 hover:text-gray-700" title="复制">📋</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 模块三：个股与板块深度研判 */}
+          <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl shadow-lg p-8 border border-orange-100">
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-3">
+                <div className="text-4xl">🔬</div>
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900">个股与板块深度研判</h2>
+                  <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">
+                    ✅ 已就绪
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+            <p className="text-gray-700 mb-6">
+              多因子分析、K线、成交量、财务指标综合研判
+            </p>
+            
+            <div className="bg-white rounded-lg p-4 mb-4">
+              <h3 className="text-gray-900 font-semibold mb-3 flex items-center gap-2">
+                <span>💡</span> 示例指令
+              </h3>
+              <div className="space-y-2">
+                <div className="flex items-center justify-between bg-gray-50 rounded-lg p-3">
+                  <code className="text-sm text-gray-800">分析NVDA近30天K线数据、成交量变化及核心财务指标</code>
+                  <button className="text-gray-500 hover:text-gray-700" title="复制">📋</button>
+                </div>
+                <div className="flex items-center justify-between bg-gray-50 rounded-lg p-3">
+                  <code className="text-sm text-gray-800">调取美股半导体板块涨幅前5，对比PE和PB，筛选估值合理标的</code>
+                  <button className="text-gray-500 hover:text-gray-700" title="复制">📋</button>
+                </div>
+                <div className="flex items-center justify-between bg-gray-50 rounded-lg p-3">
+                  <code className="text-sm text-gray-800">分析MSFT最新财报，评估短期走势</code>
+                  <button className="text-gray-500 hover:text-gray-700" title="复制">📋</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 模块四：定时监控与预警 */}
+          <div className="bg-gradient-to-r from-green-50 to-teal-50 rounded-2xl shadow-lg p-8 border border-green-100">
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-3">
+                <div className="text-4xl">⏰</div>
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900">定时监控与预警</h2>
+                  <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">
+                    ✅ 已就绪
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+            <p className="text-gray-700 mb-6">
+              设置自动化监控，股价异动时第一时间收到提示
+            </p>
+            
+            <div className="bg-white rounded-lg p-4 mb-4">
+              <h3 className="text-gray-900 font-semibold mb-3 flex items-center gap-2">
+                <span>💡</span> 示例指令
+              </h3>
+              <div className="space-y-2">
+                <div className="flex items-center justify-between bg-gray-50 rounded-lg p-3">
+                  <code className="text-sm text-gray-800">每15分钟扫描美股涨跌幅超过3%的股票并推送提示</code>
+                  <button className="text-gray-500 hover:text-gray-700" title="复制">📋</button>
+                </div>
+                <div className="flex items-center justify-between bg-gray-50 rounded-lg p-3">
+                  <code className="text-sm text-gray-800">实时监控NVDA、AAPL、TSLA、MSFT，涨跌超5%立即预警</code>
+                  <button className="text-gray-500 hover:text-gray-700" title="复制">📋</button>
+                </div>
+                <div className="flex items-center justify-between bg-gray-50 rounded-lg p-3">
+                  <code className="text-sm text-gray-800">每天收盘后自动生成美股市场日报</code>
+                  <button className="text-gray-500 hover:text-gray-700" title="复制">📋</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
         {/* Coming Soon Card */}
         <div className="bg-white rounded-2xl shadow-sm p-8 border border-gray-100">
           <div className="flex items-center justify-center mb-6">
