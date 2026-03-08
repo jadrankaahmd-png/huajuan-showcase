@@ -3,6 +3,7 @@
 import Navigation from '@/components/Navigation';
 import Link from 'next/link';
 import StockQuery from '@/components/qveris/StockQuery';
+import StockRanking from '@/components/qveris/StockRanking';
 
 export default function DynamicModelPage() {
   return (
@@ -393,6 +394,7 @@ export default function DynamicModelPage() {
         {/* QVeris 实时交互组件 */}
         <div className="space-y-8 mb-8">
           <StockQuery />
+          <StockRanking />
         </div>
         
         {/* Architecture Info */}
