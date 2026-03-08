@@ -74,6 +74,7 @@ const skills: Skill[] = [
   { name: 'Data Enricher', description: '数据增强（邮件+格式化）', category: '数据抓取', status: 'active', icon: '✨' },
   { name: 'DataForSEO', description: 'SEO和SERP数据（Google搜索）', category: '数据抓取', status: 'active', icon: '🔍' },
   { name: 'Reddit API', description: 'Reddit API', category: '数据抓取', status: 'active', icon: '📱' },
+  { name: 'Telegram频道抓取', description: '实时抓取Telegram频道新闻（7个频道）', category: '数据抓取', status: 'active', icon: '📱' },
 
   // 新闻与情绪分析（5个）
   { name: 'Social Sentiment', description: '社交情绪分析', category: '新闻情绪', status: 'active', icon: '💬' },

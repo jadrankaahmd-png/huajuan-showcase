@@ -67,6 +67,12 @@ export default function Home() {
             🌍 伊朗局势监控
           </a>
           <a
+            href="/telegram-news"
+            className="px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap bg-gradient-to-r from-blue-400 to-cyan-500 text-white shadow-lg hover:from-blue-500 hover:to-cyan-600 transition-all"
+          >
+            📱 Telegram新闻
+          </a>
+          <a
             href="/skills"
             className="px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg hover:from-blue-600 hover:to-purple-600 transition-all"
           >
