@@ -84,49 +84,49 @@ export default function DynamicModelPage() {
         {/* QVeris Card */}
         <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl shadow-lg p-8 border border-green-100 mb-8">
           <div className="flex items-center justify-center mb-4">
-            <div className="text-5xl">🔌</div>
+            <div className="text-5xl">📊</div>
           </div>
-          
+
           <h2 className="text-2xl font-bold text-gray-900 text-center mb-3">
-            QVeris 万级数据接入
+            QVeris 美股实时数据
           </h2>
-          
+
           <div className="flex justify-center mb-4">
             <span className="px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium">
               ✅ 已就绪
             </span>
           </div>
-          
+
           <p className="text-gray-700 text-center mb-6 max-w-2xl mx-auto">
-            10,000+实时数据接口，覆盖美股实时行情、财务数据（EPS、PE）、新闻情绪分析、宏观经济指标
+            10000+实时接口，覆盖美股实时行情、财务指标（EPS/PE）、市场情绪、涨幅榜单，延迟&lt;1秒
           </p>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
             <div className="bg-white rounded-lg p-4 text-center">
               <div className="text-2xl mb-2">📈</div>
               <h3 className="text-gray-900 font-semibold mb-1">实时股价</h3>
               <p className="text-gray-600 text-sm">AAPL、TSLA、NVDA等</p>
             </div>
-            
+
             <div className="bg-white rounded-lg p-4 text-center">
               <div className="text-2xl mb-2">💰</div>
               <h3 className="text-gray-900 font-semibold mb-1">财务数据</h3>
               <p className="text-gray-600 text-sm">EPS、PE、财报</p>
             </div>
-            
+
             <div className="bg-white rounded-lg p-4 text-center">
               <div className="text-2xl mb-2">📰</div>
-              <h3 className="text-gray-900 font-semibold mb-1">新闻情绪</h3>
-              <p className="text-gray-600 text-sm">市场情绪分析</p>
+              <h3 className="text-gray-900 font-semibold mb-1">市场情绪</h3>
+              <p className="text-gray-600 text-sm">新闻情绪分析</p>
             </div>
-            
+
             <div className="bg-white rounded-lg p-4 text-center">
-              <div className="text-2xl mb-2">🌍</div>
-              <h3 className="text-gray-900 font-semibold mb-1">宏观经济</h3>
-              <p className="text-gray-600 text-sm">利率、GDP、失业率</p>
+              <div className="text-2xl mb-2">🏆</div>
+              <h3 className="text-gray-900 font-semibold mb-1">涨幅榜单</h3>
+              <p className="text-gray-600 text-sm">美股涨幅TOP5</p>
             </div>
           </div>
-          
+
           <div className="bg-white rounded-lg p-4 mb-6">
             <h3 className="text-gray-900 font-semibold mb-2 flex items-center gap-2">
               <span>⚡</span> 数据提供商
@@ -140,7 +140,7 @@ export default function DynamicModelPage() {
               <span className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm">Tiingo</span>
             </div>
           </div>
-          
+
           <div className="flex justify-center gap-4">
             <a
               href="https://www.qveris.ai/"
