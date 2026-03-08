@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 // QVeris API 配置
 const QVERIS_API_KEY = process.env.QVERIS_API_KEY || 'sk-YFaMAuNb1r1qBE4_0Pr3wZYtvzqHbKL8Ths6SvWOiRU';
 const QVERIS_SEARCH_URL = 'https://qveris.ai/api/v1/search';
-const QVERIS_EXECUTE_URL = 'https://qveris.ai/api/v1/execute';
+const QVERIS_EXECUTE_URL = 'https://qveris.ai/api/v1/tools/execute';
 
 // 频率限制（同一IP每分钟最多5次）
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
@@ -64,7 +64,7 @@ export async function POST(request: NextRequest) {
     });
     
     if (!searchRes.ok) {
-      throw new Error('QVeris搜索API调用失败');
+      throw new Error(`QVeris搜索API调用失败: ${searchRes.status}`);
     }
     
     const searchData = await searchRes.json();
@@ -83,25 +83,29 @@ export async function POST(request: NextRequest) {
     const periodDays = period === '3m' ? 90 : period === '6m' ? 180 : 365;
     startDate.setDate(startDate.getDate() - periodDays);
     
-    const executeRes = await fetch(QVERIS_EXECUTE_URL, {
+    // 构建正确的 URL（tool_id 作为 URL 参数）
+    const executeUrl = new URL(QVERIS_EXECUTE_URL);
+    executeUrl.searchParams.set('tool_id', toolId);
+    
+    const executeRes = await fetch(executeUrl.toString(), {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${QVERIS_API_KEY}`,
       },
       body: JSON.stringify({
-        tool_id: toolId,
         search_id: searchId,
         parameters: {
           symbol: symbol.toUpperCase(),
           start_date: startDate.toISOString().split('T')[0],
           end_date: endDate.toISOString().split('T')[0],
         },
+        max_response_size: 20480,
       }),
     });
     
     if (!executeRes.ok) {
-      throw new Error('QVeris执行API调用失败');
+      throw new Error(`QVeris执行API调用失败: ${executeRes.status}`);
     }
     
     const result = await executeRes.json();
@@ -114,11 +118,11 @@ export async function POST(request: NextRequest) {
     const historicalData = parseHistoricalData(result.result.data);
     
     if (!historicalData || historicalData.length === 0) {
-      throw new Error('历史数据格式错误');
+      throw new Error('历史数据格式错误或为空');
     }
     
     // 4. 应用策略计算
-    const backtestResult = calculateStrategy(historicalData, strategy);
+    const backtestResult = calculateStrategy(historicalData, strategy, symbol.toUpperCase());
     
     return NextResponse.json({
       success: true,
@@ -136,9 +140,17 @@ export async function POST(request: NextRequest) {
 
 // 解析历史数据
 function parseHistoricalData(data: any): any[] {
+  console.log('Parsing historical data, type:', typeof data, Array.isArray(data));
+  
   // 兼容不同的数据格式
   if (Array.isArray(data)) {
-    return data;
+    return data.map((d: any) => ({
+      date: d.date || d.time || d.timestamp,
+      close: parseFloat(d.close || d.Close || d.c),
+      high: parseFloat(d.high || d.High || d.h),
+      low: parseFloat(d.low || d.Low || d.l),
+      volume: parseInt(d.volume || d.Volume || d.v),
+    })).sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
   }
   
   if (data['Time Series (Daily)']) {
@@ -164,14 +176,18 @@ function parseHistoricalData(data: any): any[] {
     }));
   }
   
+  console.error('Unknown data format:', Object.keys(data));
   return [];
 }
 
 // 计算策略
-function calculateStrategy(data: any[], strategy: string) {
+function calculateStrategy(data: any[], strategy: string, symbol: string) {
   if (data.length === 0) {
     throw new Error('数据不足');
   }
+  
+  // 添加 symbol 字段
+  data.forEach(d => d.symbol = symbol);
   
   // 基准：买入持有
   const benchmarkValues = data.map((d, i) => ({
@@ -275,17 +291,17 @@ function calculateStrategy(data: any[], strategy: string) {
   // 年化收益率
   const days = data.length;
   const years = days / 252; // 252个交易日
-  const annualReturn = ((finalValue / 100) ** (1 / years) - 1) * 100;
-  const benchmarkAnnualReturn = ((benchmarkFinalValue / 100) ** (1 / years) - 1) * 100;
+  const annualReturn = years > 0 ? ((finalValue / 100) ** (1 / years) - 1) * 100 : 0;
+  const benchmarkAnnualReturn = years > 0 ? ((benchmarkFinalValue / 100) ** (1 / years) - 1) * 100 : 0;
   
   // 最大回撤
   const maxDrawdown = calculateMaxDrawdown(strategyValues);
   
   // 胜率
-  const winRate = calculateWinRate(trades, data);
+  const winRate = calculateWinRate(trades);
   
   return {
-    symbol: data[0].symbol || 'UNKNOWN',
+    symbol,
     strategy,
     period: `${days}天`,
     annualReturn: annualReturn.toFixed(2),
@@ -314,6 +330,8 @@ function calculateMA(data: any[], period: number): number[] {
 
 // 计算最大回撤
 function calculateMaxDrawdown(values: { value: number }[]): number {
+  if (values.length === 0) return 0;
+  
   let maxDrawdown = 0;
   let peak = values[0].value;
   
@@ -331,18 +349,20 @@ function calculateMaxDrawdown(values: { value: number }[]): number {
 }
 
 // 计算胜率
-function calculateWinRate(trades: any[], data: any[]): number {
+function calculateWinRate(trades: any[]): number {
   if (trades.length < 2) return 0;
   
   let wins = 0;
+  let totalPairs = 0;
+  
   for (let i = 0; i < trades.length - 1; i += 2) {
     if (trades[i].type === 'buy' && trades[i + 1]?.type === 'sell') {
+      totalPairs++;
       if (trades[i + 1].price > trades[i].price) {
         wins++;
       }
     }
   }
   
-  const totalPairs = Math.floor(trades.length / 2);
   return totalPairs > 0 ? (wins / totalPairs) * 100 : 0;
 }
