@@ -23,3 +23,6 @@ build/
 .idea/
 *.swp
 *.swo
+node_modules/
+.next/
+.env.local
