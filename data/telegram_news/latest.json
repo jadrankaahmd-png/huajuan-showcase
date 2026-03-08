@@ -1,0 +1,243 @@
+{
+  "last_update": "2026-03-08T12:37:13.328283",
+  "channels": {
+    "blockchain": [
+      {
+        "channel": "theblockbeats",
+        "channel_name": "BlockBeats",
+        "message_id": 8926,
+        "category": "blockchain",
+        "lang": "zh",
+        "text": "【BlockBeats】最新新闻 #1 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
+        "views": 6926,
+        "timestamp": "2026-03-08T12:37:13.328291",
+        "link": "https://t.me/theblockbeats/8926"
+      },
+      {
+        "channel": "theblockbeats",
+        "channel_name": "BlockBeats",
+        "message_id": 1701,
+        "category": "blockchain",
+        "lang": "zh",
+        "text": "【BlockBeats】最新新闻 #2 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
+        "views": 1701,
+        "timestamp": "2026-03-08T12:37:13.328297",
+        "link": "https://t.me/theblockbeats/1701"
+      },
+      {
+        "channel": "theblockbeats",
+        "channel_name": "BlockBeats",
+        "message_id": 1393,
+        "category": "blockchain",
+        "lang": "zh",
+        "text": "【BlockBeats】最新新闻 #3 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
+        "views": 33393,
+        "timestamp": "2026-03-08T12:37:13.328300",
+        "link": "https://t.me/theblockbeats/1393"
+      },
+      {
+        "channel": "cointelegraph",
+        "channel_name": "Cointelegraph",
+        "message_id": 7062,
+        "category": "blockchain",
+        "lang": "en",
+        "text": "【Cointelegraph】最新新闻 #1 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
+        "views": 33062,
+        "timestamp": "2026-03-08T12:37:13.328303",
+        "link": "https://t.me/cointelegraph/7062"
+      },
+      {
+        "channel": "cointelegraph",
+        "channel_name": "Cointelegraph",
+        "message_id": 8833,
+        "category": "blockchain",
+        "lang": "en",
+        "text": "【Cointelegraph】最新新闻 #2 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
+        "views": 27833,
+        "timestamp": "2026-03-08T12:37:13.328305",
+        "link": "https://t.me/cointelegraph/8833"
+      },
+      {
+        "channel": "cointelegraph",
+        "channel_name": "Cointelegraph",
+        "message_id": 7821,
+        "category": "blockchain",
+        "lang": "en",
+        "text": "【Cointelegraph】最新新闻 #3 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
+        "views": 44821,
+        "timestamp": "2026-03-08T12:37:13.328307",
+        "link": "https://t.me/cointelegraph/7821"
+      }
+    ],
+    "finance": [
+      {
+        "channel": "wsj",
+        "channel_name": "Wall Street Journal",
+        "message_id": 3328,
+        "category": "finance",
+        "lang": "en",
+        "text": "【Wall Street Journal】最新新闻 #1 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
+        "views": 20328,
+        "timestamp": "2026-03-08T12:37:13.328310",
+        "link": "https://t.me/wsj/3328"
+      },
+      {
+        "channel": "wsj",
+        "channel_name": "Wall Street Journal",
+        "message_id": 3028,
+        "category": "finance",
+        "lang": "en",
+        "text": "【Wall Street Journal】最新新闻 #2 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
+        "views": 14028,
+        "timestamp": "2026-03-08T12:37:13.328312",
+        "link": "https://t.me/wsj/3028"
+      },
+      {
+        "channel": "wsj",
+        "channel_name": "Wall Street Journal",
+        "message_id": 7658,
+        "category": "finance",
+        "lang": "en",
+        "text": "【Wall Street Journal】最新新闻 #3 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
+        "views": 9658,
+        "timestamp": "2026-03-08T12:37:13.328314",
+        "link": "https://t.me/wsj/7658"
+      },
+      {
+        "channel": "financialtimes",
+        "channel_name": "Financial Times",
+        "message_id": 9815,
+        "category": "finance",
+        "lang": "en",
+        "text": "【Financial Times】最新新闻 #1 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
+        "views": 4815,
+        "timestamp": "2026-03-08T12:37:13.328316",
+        "link": "https://t.me/financialtimes/9815"
+      },
+      {
+        "channel": "financialtimes",
+        "channel_name": "Financial Times",
+        "message_id": 4117,
+        "category": "finance",
+        "lang": "en",
+        "text": "【Financial Times】最新新闻 #2 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
+        "views": 31117,
+        "timestamp": "2026-03-08T12:37:13.328318",
+        "link": "https://t.me/financialtimes/4117"
+      },
+      {
+        "channel": "financialtimes",
+        "channel_name": "Financial Times",
+        "message_id": 7210,
+        "category": "finance",
+        "lang": "en",
+        "text": "【Financial Times】最新新闻 #3 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
+        "views": 37210,
+        "timestamp": "2026-03-08T12:37:13.328320",
+        "link": "https://t.me/financialtimes/7210"
+      },
+      {
+        "channel": "bloomberg",
+        "channel_name": "Bloomberg",
+        "message_id": 4750,
+        "category": "finance",
+        "lang": "en",
+        "text": "【Bloomberg】最新新闻 #1 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
+        "views": 32750,
+        "timestamp": "2026-03-08T12:37:13.328322",
+        "link": "https://t.me/bloomberg/4750"
+      },
+      {
+        "channel": "bloomberg",
+        "channel_name": "Bloomberg",
+        "message_id": 6183,
+        "category": "finance",
+        "lang": "en",
+        "text": "【Bloomberg】最新新闻 #2 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
+        "views": 6183,
+        "timestamp": "2026-03-08T12:37:13.328323",
+        "link": "https://t.me/bloomberg/6183"
+      },
+      {
+        "channel": "bloomberg",
+        "channel_name": "Bloomberg",
+        "message_id": 7812,
+        "category": "finance",
+        "lang": "en",
+        "text": "【Bloomberg】最新新闻 #3 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
+        "views": 24812,
+        "timestamp": "2026-03-08T12:37:13.328325",
+        "link": "https://t.me/bloomberg/7812"
+      }
+    ],
+    "tech": [
+      {
+        "channel": "techcrunch",
+        "channel_name": "TechCrunch",
+        "message_id": 3380,
+        "category": "tech",
+        "lang": "en",
+        "text": "【TechCrunch】最新新闻 #1 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
+        "views": 9380,
+        "timestamp": "2026-03-08T12:37:13.328327",
+        "link": "https://t.me/techcrunch/3380"
+      },
+      {
+        "channel": "techcrunch",
+        "channel_name": "TechCrunch",
+        "message_id": 3396,
+        "category": "tech",
+        "lang": "en",
+        "text": "【TechCrunch】最新新闻 #2 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
+        "views": 13396,
+        "timestamp": "2026-03-08T12:37:13.328329",
+        "link": "https://t.me/techcrunch/3396"
+      },
+      {
+        "channel": "techcrunch",
+        "channel_name": "TechCrunch",
+        "message_id": 1199,
+        "category": "tech",
+        "lang": "en",
+        "text": "【TechCrunch】最新新闻 #3 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
+        "views": 41199,
+        "timestamp": "2026-03-08T12:37:13.328331",
+        "link": "https://t.me/techcrunch/1199"
+      },
+      {
+        "channel": "theverge",
+        "channel_name": "The Verge",
+        "message_id": 5455,
+        "category": "tech",
+        "lang": "en",
+        "text": "【The Verge】最新新闻 #1 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
+        "views": 10455,
+        "timestamp": "2026-03-08T12:37:13.328333",
+        "link": "https://t.me/theverge/5455"
+      },
+      {
+        "channel": "theverge",
+        "channel_name": "The Verge",
+        "message_id": 8285,
+        "category": "tech",
+        "lang": "en",
+        "text": "【The Verge】最新新闻 #2 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
+        "views": 22285,
+        "timestamp": "2026-03-08T12:37:13.328335",
+        "link": "https://t.me/theverge/8285"
+      },
+      {
+        "channel": "theverge",
+        "channel_name": "The Verge",
+        "message_id": 7595,
+        "category": "tech",
+        "lang": "en",
+        "text": "【The Verge】最新新闻 #3 - 这是模拟的新闻内容，实际部署时将从Telegram API获取真实数据。",
+        "views": 44595,
+        "timestamp": "2026-03-08T12:37:13.328336",
+        "link": "https://t.me/theverge/7595"
+      }
+    ]
+  },
+  "total_messages": 21
+}
