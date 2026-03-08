@@ -13,81 +13,71 @@ export default function StockRanking() {
     setError('');
 
     try {
-      // 预定义10只热门股票
-      const symbols = ['NVDA', 'AAPL', 'TSLA', 'MSFT', 'GOOGL', 'AMZN', 'META', 'AMD', 'INTC', 'NFLX'];
-      const stockData: any[] = [];
-
-      // 并行获取所有股票数据
-      const promises = symbols.map(async (symbol) => {
-        try {
-          // 搜索工具
-          const searchRes = await fetch('/api/qveris/search', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ query: `${symbol} stock quote` }),
-          });
-          const searchData = await searchRes.json();
-
-          if (searchData.results && searchData.results.length > 0) {
-            const toolId = searchData.results[0].tool_id;
-            const searchId = searchData.search_id;
-
-            // 执行工具
-            const executeRes = await fetch('/api/qveris/execute', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                toolId,
-                searchId,
-                parameters: { symbol },
-              }),
-            });
-            const result = await executeRes.json();
-
-            if (result.success && result.result.data) {
-              return {
-                symbol,
-                name: getStockName(symbol),
-                price: result.result.data.c,
-                change: result.result.data.d,
-                changePercent: result.result.data.dp,
-              };
-            }
-          }
-        } catch (err) {
-          console.error(`Failed to fetch ${symbol}:`, err);
-        }
-        return null;
+      // 1. 搜索涨幅榜工具
+      const searchRes = await fetch('/api/qveris/search', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: 'US stock market top gainers movers today' }),
       });
+      
+      if (!searchRes.ok) {
+        throw new Error('搜索API调用失败');
+      }
+      
+      const searchData = await searchRes.json();
 
-      const results = await Promise.all(promises);
-      const validResults = results.filter(Boolean).sort((a: any, b: any) => b.changePercent - a.changePercent);
+      if (searchData.results && searchData.results.length > 0) {
+        const toolId = searchData.results[0].tool_id;
+        const searchId = searchData.search_id;
 
-      setStocks(validResults);
-      setLastUpdate(new Date().toLocaleString('zh-CN'));
-    } catch (err) {
-      setError('获取榜单失败');
-      console.error(err);
+        // 2. 执行工具获取涨幅榜
+        const executeRes = await fetch('/api/qveris/execute', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            toolId,
+            searchId,
+            parameters: { function: 'TOP_GAINERS_LOSERS' },
+          }),
+        });
+        
+        if (!executeRes.ok) {
+          throw new Error('执行API调用失败');
+        }
+        
+        const result = await executeRes.json();
+
+        if (result.success && result.result && result.result.data) {
+          const data = result.result.data;
+          
+          // 解析涨幅榜数据
+          if (data.top_gainers && Array.isArray(data.top_gainers)) {
+            const stockData = data.top_gainers.slice(0, 10).map((stock: any) => ({
+              symbol: stock.ticker || stock.symbol,
+              name: stock.name || stock.ticker || stock.symbol,
+              price: parseFloat(stock.price) || 0,
+              change: parseFloat(stock.change) || 0,
+              changePercent: parseFloat(stock.change_percentage || stock.changePercent || stock['change_percentage']) || 0,
+            }));
+            
+            setStocks(stockData);
+            setLastUpdate(new Date().toLocaleString('zh-CN'));
+          } else {
+            throw new Error('返回数据格式不正确：缺少 top_gainers 字段');
+          }
+        } else {
+          throw new Error(result.error_message || '获取数据失败');
+        }
+      } else {
+        throw new Error('未找到相关工具');
+      }
+    } catch (err: any) {
+      const errorMsg = err.message || '获取榜单失败';
+      setError(errorMsg);
+      console.error('StockRanking error:', err);
     } finally {
       setLoading(false);
     }
-  };
-
-  // 股票名称映射
-  const getStockName = (symbol: string) => {
-    const names: Record<string, string> = {
-      NVDA: '英伟达',
-      AAPL: '苹果',
-      TSLA: '特斯拉',
-      MSFT: '微软',
-      GOOGL: '谷歌',
-      AMZN: '亚马逊',
-      META: 'Meta',
-      AMD: 'AMD',
-      INTC: '英特尔',
-      NFLX: '奈飞',
-    };
-    return names[symbol] || symbol;
   };
 
   useEffect(() => {
@@ -119,7 +109,7 @@ export default function StockRanking() {
       </div>
 
       <p className="text-gray-700 mb-2">
-        今日热门美股涨幅排行（每60秒自动刷新）
+        今日美股涨幅 TOP 10（每60秒自动刷新，数据来源：Alpha Vantage）
       </p>
       {lastUpdate && (
         <p className="text-gray-500 text-sm mb-4">
@@ -129,7 +119,13 @@ export default function StockRanking() {
 
       {error && (
         <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
-          <p className="text-red-700">{error}</p>
+          <p className="text-red-700">❌ {error}</p>
+          <button
+            onClick={fetchRanking}
+            className="mt-2 text-red-700 underline hover:text-red-800"
+          >
+            重试
+          </button>
         </div>
       )}
 
@@ -147,7 +143,7 @@ export default function StockRanking() {
             </thead>
             <tbody>
               {stocks.map((stock, index) => (
-                <tr key={stock.symbol} className="border-t border-gray-200 hover:bg-gray-50">
+                <tr key={stock.symbol || index} className="border-t border-gray-200 hover:bg-gray-50">
                   <td className="px-4 py-3 text-sm text-gray-900">
                     {index === 0 && '🥇'}
                     {index === 1 && '🥈'}
@@ -156,7 +152,9 @@ export default function StockRanking() {
                   </td>
                   <td className="px-4 py-3 text-sm font-medium text-gray-900">{stock.symbol}</td>
                   <td className="px-4 py-3 text-sm text-gray-700">{stock.name}</td>
-                  <td className="px-4 py-3 text-sm text-right text-gray-900">${stock.price.toFixed(2)}</td>
+                  <td className="px-4 py-3 text-sm text-right text-gray-900">
+                    ${stock.price.toFixed(2)}
+                  </td>
                   <td className={`px-4 py-3 text-sm text-right font-medium ${stock.changePercent >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                     {stock.changePercent >= 0 ? '+' : ''}{stock.changePercent.toFixed(2)}%
                   </td>
