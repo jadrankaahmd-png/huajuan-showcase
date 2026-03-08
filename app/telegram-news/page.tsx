@@ -95,18 +95,35 @@ export default function TelegramNewsPage() {
 
         {/* Main Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          
-          {/* 统计信息 */}
+
+          {/* 总体统计信息 */}
+          <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl p-6 mb-6">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <span className="text-5xl">📱</span>
+                <div>
+                  <p className="text-lg font-semibold text-gray-900" id="total-stats">加载中...</p>
+                  <p className="text-sm text-gray-600">实时更新 · 只显示24小时内新闻</p>
+                </div>
+              </div>
+              <div className="text-right">
+                <p className="text-xs text-gray-500">最后更新</p>
+                <p className="text-sm font-medium text-gray-900" id="last-update">加载中...</p>
+              </div>
+            </div>
+          </div>
+
+          {/* 分类统计信息 */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6">
               <div className="flex items-center gap-3 mb-2">
                 <span className="text-3xl">📊</span>
                 <div>
                   <p className="text-sm text-gray-600">区块链新闻</p>
-                  <p className="text-2xl font-bold text-gray-900">2 个频道</p>
+                  <p className="text-2xl font-bold text-gray-900" id="blockchain-stats">加载中...</p>
                 </div>
               </div>
-              <p className="text-xs text-gray-500 mt-2">theblockbeats, cointelegraph</p>
+              <p className="text-xs text-gray-500 mt-2">BlockBeats, Cointelegraph, BitPush</p>
             </div>
 
             <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6">
@@ -114,10 +131,10 @@ export default function TelegramNewsPage() {
                 <span className="text-3xl">💰</span>
                 <div>
                   <p className="text-sm text-gray-600">金融新闻</p>
-                  <p className="text-2xl font-bold text-gray-900">3 个频道</p>
+                  <p className="text-2xl font-bold text-gray-900" id="finance-stats">加载中...</p>
                 </div>
               </div>
-              <p className="text-xs text-gray-500 mt-2">wsj, financialtimes, bloomberg</p>
+              <p className="text-xs text-gray-500 mt-2">Investing.com, 凤凰网</p>
             </div>
 
             <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-6">
@@ -125,10 +142,10 @@ export default function TelegramNewsPage() {
                 <span className="text-3xl">💻</span>
                 <div>
                   <p className="text-sm text-gray-600">科技新闻</p>
-                  <p className="text-2xl font-bold text-gray-900">2 个频道</p>
+                  <p className="text-2xl font-bold text-gray-900" id="tech-stats">加载中...</p>
                 </div>
               </div>
-              <p className="text-xs text-gray-500 mt-2">techcrunch, theverge</p>
+              <p className="text-xs text-gray-500 mt-2">Wired, Hacker News, Product Hunt</p>
             </div>
           </div>
 
@@ -168,9 +185,34 @@ export default function TelegramNewsPage() {
             newsData = await response.json();
             renderNews(newsData);
             updateLastUpdateTime(newsData.last_update);
+            updateStats(newsData);
           } catch (error) {
             console.error('加载新闻失败:', error);
             document.getElementById('news-container').innerHTML = '<p class="text-center text-red-500 py-12">加载失败，请刷新页面重试</p>';
+          }
+        }
+        
+        function updateStats(data) {
+          // 更新总体统计
+          const totalStats = document.getElementById('total-stats');
+          if (totalStats && data.total_messages !== undefined) {
+            totalStats.textContent = \`共 \${data.total_messages} 条新闻，来自 \${data.active_channels} 个频道\`;
+          }
+          
+          // 更新分类统计
+          const blockchainStats = document.getElementById('blockchain-stats');
+          if (blockchainStats && data.channels && data.channels.blockchain) {
+            blockchainStats.textContent = \`\${data.channels.blockchain.length} 条新闻\`;
+          }
+          
+          const financeStats = document.getElementById('finance-stats');
+          if (financeStats && data.channels && data.channels.finance) {
+            financeStats.textContent = \`\${data.channels.finance.length} 条新闻\`;
+          }
+          
+          const techStats = document.getElementById('tech-stats');
+          if (techStats && data.channels && data.channels.tech) {
+            techStats.textContent = \`\${data.channels.tech.length} 条新闻\`;
           }
         }
         

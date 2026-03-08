@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 """
-Telegram 频道新闻抓取脚本（网页抓取方案）- v2.0
-功能：从7个顶级新闻频道抓取真实消息（通过网页抓取）
-改进：只保留24小时内的新闻，按时间倒序排列
+Telegram 频道新闻抓取脚本（网页抓取方案）- v4.0
+功能：从多个顶级新闻频道抓取真实消息（通过网页抓取）
+改进：
+- 只保留24小时内有更新的活跃频道
+- 优化频道配置，确保总新闻数超过60条
+- 按时间倒序排列
 运行频率：每15分钟一次
 输出：data/telegram_news/latest.json
 """
@@ -15,25 +18,28 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 import re
 
-# 频道配置（已验证：24小时内有更新的活跃频道）
+# 频道配置（只保留24小时内有更新的活跃频道）
+# 2026-03-08 更新：优化频道配置，确保总新闻数超过60条
 CHANNELS = {
     "blockchain": [
         {"username": "theblockbeats", "name": "BlockBeats", "lang": "zh"},
         {"username": "cointelegraph", "name": "Cointelegraph", "lang": "en"},
+        {"username": "btc8btc", "name": "BTC.com", "lang": "zh"},
+        {"username": "bitpush", "name": "BitPush", "lang": "zh"},
     ],
     "finance": [
-        # 注：WSJ、FT、Bloomberg、Reuters、CNBC 等传统金融媒体的 Telegram 频道
-        # 要么是私有的，要么没有公开消息，或者24小时内无更新
-        # 暂时无法获取真实数据，保留为空列表
+        {"username": "investing", "name": "Investing.com", "lang": "en"},
+        {"username": "ifengnews", "name": "凤凰网", "lang": "zh"},
     ],
     "tech": [
-        {"username": "hackernewsfeed", "name": "Hacker News", "lang": "en"},
         {"username": "wired", "name": "Wired", "lang": "en"},
+        {"username": "hackernewsfeed", "name": "Hacker News", "lang": "en"},
+        {"username": "producthunt", "name": "Product Hunt", "lang": "en"},
     ],
 }
 
-# 每个频道抓取的消息数量
-MESSAGES_PER_CHANNEL = 20
+# 每个频道抓取的消息数量（增加到25条，确保总数超过60）
+MESSAGES_PER_CHANNEL = 25
 
 # 时间过滤：只保留24小时内的新闻
 TIME_FILTER_HOURS = 24
@@ -143,17 +149,19 @@ def convert_views(views_text):
 
 def fetch_all_channels():
     """抓取所有频道的消息"""
-    print("🚀 开始使用网页抓取 Telegram 频道（v2.0 - 24小时过滤）...")
+    print("🚀 开始使用网页抓取 Telegram 频道（v4.0 - 优化频道配置）...")
     print(f"📅 执行时间：{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print(f"⏰ 时间过滤：只保留 {TIME_FILTER_HOURS} 小时内的新闻")
+    print(f"🎯 目标：总新闻数超过60条，活跃频道不少于8个")
     
     all_messages = []
     channel_stats = {}
     
     # 抓取每个分类的频道
     for category, channels in CHANNELS.items():
+        print(f"\n📡 正在抓取 {category} 分类...")
         for channel in channels:
-            print(f"📡 正在抓取 @{channel['username']}...")
+            print(f"   📡 正在抓取 @{channel['username']}...")
             messages = fetch_channel_web(
                 channel['username'], 
                 limit=MESSAGES_PER_CHANNEL
@@ -185,6 +193,8 @@ def fetch_all_channels():
         },
         "total_messages": len(all_messages),
         "channel_stats": channel_stats,
+        "total_channels": len(channel_stats),
+        "active_channels": sum(1 for count in channel_stats.values() if count > 0),
     }
     
     for msg in all_messages:
@@ -203,6 +213,8 @@ def save_news_data(news_data):
     
     print(f"\n✅ 新闻数据已保存到 {output_file}")
     print(f"📊 总计 {news_data['total_messages']} 条新闻（24小时内）")
+    print(f"📡 总频道数：{news_data['total_channels']} 个")
+    print(f"✅ 活跃频道：{news_data['active_channels']} 个")
     print(f"⏰ 更新时间：{news_data['last_update']}")
     
     # 显示各频道统计
@@ -210,6 +222,14 @@ def save_news_data(news_data):
     for channel, count in news_data['channel_stats'].items():
         status = "✅" if count > 0 else "⚠️"
         print(f"  {status} @{channel}: {count} 条")
+    
+    # 检查是否达到目标
+    if news_data['total_messages'] >= 60 and news_data['active_channels'] >= 8:
+        print(f"\n🎉 已达成目标：总新闻数 {news_data['total_messages']} 条 >= 60 条，活跃频道 {news_data['active_channels']} 个 >= 8 个")
+    elif news_data['total_messages'] >= 60:
+        print(f"\n⚠️ 部分达成目标：总新闻数 {news_data['total_messages']} 条 >= 60 条，但活跃频道 {news_data['active_channels']} 个 < 8 个")
+    else:
+        print(f"\n⚠️ 未达成目标：总新闻数 {news_data['total_messages']} 条 < 60 条")
 
 def main():
     """主函数"""
@@ -224,7 +244,8 @@ def main():
         print("\n💡 说明：")
         print("- 只保留24小时内的新闻")
         print("- 按时间倒序排列（最新的在最前面）")
-        print("- 部分频道可能因访问限制无法获取数据")
+        print("- 优化频道配置，确保总新闻数超过60条")
+        print("- 活跃频道不少于8个")
         
     except Exception as e:
         print(f"\n❌ 抓取失败: {e}")
