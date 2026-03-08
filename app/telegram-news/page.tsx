@@ -185,34 +185,43 @@ export default function TelegramNewsPage() {
           let html = '';
           
           // 区块链新闻
+          html += '<div><h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2"><span>📊</span> 区块链新闻</h2>';
           if (data.channels.blockchain && data.channels.blockchain.length > 0) {
-            html += '<div><h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2"><span>📊</span> 区块链新闻</h2>';
             html += '<div class="grid grid-cols-1 md:grid-cols-2 gap-4">';
             data.channels.blockchain.forEach(item => {
               html += createNewsCard(item);
             });
-            html += '</div></div>';
+            html += '</div>';
+          } else {
+            html += '<div class="bg-gray-50 rounded-xl p-6 text-center text-gray-500">暂无最新消息（24小时内）</div>';
           }
+          html += '</div>';
           
           // 金融新闻
+          html += '<div><h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2"><span>💰</span> 金融新闻</h2>';
           if (data.channels.finance && data.channels.finance.length > 0) {
-            html += '<div><h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2"><span>💰</span> 金融新闻</h2>';
             html += '<div class="grid grid-cols-1 md:grid-cols-3 gap-4">';
             data.channels.finance.forEach(item => {
               html += createNewsCard(item);
             });
-            html += '</div></div>';
+            html += '</div>';
+          } else {
+            html += '<div class="bg-gray-50 rounded-xl p-6 text-center text-gray-500">暂无最新消息（24小时内）</div>';
           }
+          html += '</div>';
           
           // 科技新闻
+          html += '<div><h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2"><span>💻</span> 科技新闻</h2>';
           if (data.channels.tech && data.channels.tech.length > 0) {
-            html += '<div><h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2"><span>💻</span> 科技新闻</h2>';
             html += '<div class="grid grid-cols-1 md:grid-cols-2 gap-4">';
             data.channels.tech.forEach(item => {
               html += createNewsCard(item);
             });
-            html += '</div></div>';
+            html += '</div>';
+          } else {
+            html += '<div class="bg-gray-50 rounded-xl p-6 text-center text-gray-500">暂无最新消息（24小时内）</div>';
           }
+          html += '</div>';
           
           container.innerHTML = html;
         }
