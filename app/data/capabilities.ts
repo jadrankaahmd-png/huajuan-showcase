@@ -5720,6 +5720,8 @@ export const capabilities = [
   { name: 'React NextJS Generator', description: 'React Next.js项目生成器', category: '网站开发', status: 'active', source: 'installed', icon: '🚀' },
   { name: 'Self-Improving Agent', description: '持续自我改进系统', category: '交互式学习', status: 'active', source: 'installed', icon: '📚' },
   { name: 'Stock Analysis 6.2.0', description: '股票分析6.2.0版本', category: '金融分析', status: 'active', source: 'installed', icon: '📉' },
+  { name: 'Telegram新闻流', description: '实时抓取Telegram频道最新新闻：区块链、金融、科技', category: '新闻情绪', status: 'active', icon: '📱', source: 'custom' },
+  { name: '伊朗局势监控', description: '实时监控伊朗局势，包含9个模块：股票、宏观数据、新闻、稳定性、AI分析、情绪、航班、海运、卫星', category: '地缘监控', status: 'active', icon: '🌍', source: 'custom' },
 
     ]
   }
