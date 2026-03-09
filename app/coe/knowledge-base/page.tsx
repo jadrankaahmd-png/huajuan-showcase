@@ -12,43 +12,26 @@ interface Knowledge {
   category: string;
   type?: string;
   icon?: string;
-  tag?: string;
 }
 
-// 合法书籍知识库（固定4条，保持硬编码）
-const bookSources = [
-  {
-    name: 'Project Gutenberg',
-    url: 'https://www.gutenberg.org/',
-    description: '70,000+ 经典投资书籍（公共领域）',
-    example: '《聪明的投资者》、《证券分析》'
-  },
-  {
-    name: 'Open Library',
-    url: 'https://openlibrary.org/',
-    description: '数百万本现代投资书籍（合法借阅）',
-    example: '当代投资理论、最新市场分析'
-  },
-  {
-    name: 'SEC EDGAR',
-    url: 'https://www.sec.gov/cgi-bin/browse-edgar',
-    description: '公司财报、年报、招股书（公共领域）',
-    example: '巴菲特致股东信、公司10-K年报'
-  },
-  {
-    name: 'Internet Archive',
-    url: 'https://archive.org/',
-    description: '数百万本历史投资文献（合法借阅）',
-    example: '历史市场分析、经典投资案例'
-  }
-];
+interface BookSource {
+  name: string;
+  url: string;
+  description: string;
+  example: string;
+}
 
 export default function KnowledgeBasePage() {
   const [knowledge, setKnowledge] = useState<Knowledge[]>([]);
-  const [expandedKnowledge, setExpandedKnowledge] = useState<string | null>(null);
+  const [bookSources, setBookSources] = useState<BookSource[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [isLoading, setIsLoading] = useState(true);
+  const [stats, setStats] = useState({
+    knowledge: 0,
+    bookSources: 0,
+    grandTotal: 0
+  });
   
   // 从 API 动态加载知识库数据
   useEffect(() => {
@@ -57,6 +40,8 @@ export default function KnowledgeBasePage() {
         const res = await fetch('/api/knowledge-base');
         const data = await res.json();
         setKnowledge(data.knowledge || []);
+        setBookSources(data.bookSources || []);
+        setStats(data.total || { knowledge: 0, bookSources: 0, grandTotal: 0 });
       } catch (error) {
         console.error('Error fetching knowledge:', error);
       } finally {
@@ -76,8 +61,6 @@ export default function KnowledgeBasePage() {
     const matchesCategory = selectedCategory === 'all' || k.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
-
-  const totalKnowledge = knowledge.length;
 
   if (isLoading) {
     return (
@@ -110,15 +93,15 @@ export default function KnowledgeBasePage() {
               </div>
               <div className="flex gap-4 text-sm">
                 <div className="bg-pink-50 px-4 py-2 rounded-lg">
-                  <div className="text-pink-600 font-semibold">{totalKnowledge}</div>
+                  <div className="text-pink-600 font-semibold">{stats.knowledge}</div>
                   <div className="text-gray-600">📖 知识条目</div>
                 </div>
                 <div className="bg-blue-50 px-4 py-2 rounded-lg">
-                  <div className="text-blue-600 font-semibold">{bookSources.length}</div>
+                  <div className="text-blue-600 font-semibold">{stats.bookSources}</div>
                   <div className="text-gray-600">📚 合法书籍知识库</div>
                 </div>
                 <div className="bg-purple-50 px-4 py-2 rounded-lg">
-                  <div className="text-purple-600 font-semibold">{totalKnowledge + bookSources.length}</div>
+                  <div className="text-purple-600 font-semibold">{stats.grandTotal}</div>
                   <div className="text-gray-600">知识库总数</div>
                 </div>
               </div>
@@ -130,41 +113,43 @@ export default function KnowledgeBasePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
           {/* 合法书籍知识库 */}
-          <div className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <span className="text-3xl">📚</span>
-              合法书籍知识库
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-              {bookSources.map((source, index) => (
-                <a
-                  key={index}
-                  href={source.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-100 p-6"
-                >
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
-                          📚 合法书籍知识库
-                        </span>
+          {bookSources.length > 0 && (
+            <div className="mb-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <span className="text-3xl">📚</span>
+                合法书籍知识库
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                {bookSources.map((source, index) => (
+                  <a
+                    key={index}
+                    href={source.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-100 p-6"
+                  >
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
+                            📚 合法书籍知识库
+                          </span>
+                        </div>
+                        <h3 className="font-bold text-gray-900">{source.name}</h3>
+                        <p className="text-sm text-gray-600 mb-2">{source.description}</p>
+                        <p className="text-xs text-gray-500 italic">{source.example}</p>
                       </div>
-                      <h3 className="font-bold text-gray-900">{source.name}</h3>
-                      <p className="text-sm text-gray-600 mb-2">{source.description}</p>
-                      <p className="text-xs text-gray-500 italic">{source.example}</p>
                     </div>
-                  </div>
-                </a>
-              ))}
+                  </a>
+                ))}
+              </div>
+              <div className="mt-4 p-4 bg-blue-50 rounded-lg">
+                <p className="text-sm text-blue-800">
+                  💡 <strong>使用方法：</strong>点击上方数据源搜索书籍 → 下载或借阅 → 发送给花卷进行六维蒸馏法提炼 → 存入知识库
+                </p>
+              </div>
             </div>
-            <div className="mt-4 p-4 bg-blue-50 rounded-lg">
-              <p className="text-sm text-blue-800">
-                💡 <strong>使用方法：</strong>点击上方数据源搜索书籍 → 下载或借阅 → 发送给花卷进行六维蒸馏法提炼 → 存入知识库
-              </p>
-            </div>
-          </div>
+          )}
 
           {/* Category Filter */}
           <div className="mb-6">
@@ -248,7 +233,7 @@ export default function KnowledgeBasePage() {
             <div className="flex flex-col sm:flex-row items-center justify-between text-sm text-gray-600 gap-2">
               <div className="flex items-center gap-2">
                 <span>🌸</span>
-                <span>花卷知识库 v2.0</span>
+                <span>花卷知识库 v3.0（完全动态化）</span>
               </div>
               <div className="text-center sm:text-right text-gray-500">
                 最后更新：{new Date().toLocaleDateString('zh-CN')} · 持续学习机制已启用

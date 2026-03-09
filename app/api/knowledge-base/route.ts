@@ -17,7 +17,6 @@ export async function GET() {
       WHERE category = 'knowledge' 
          OR type = 'knowledge' 
          OR name LIKE '%知识%'
-         OR name LIKE '%书籍%'
       ORDER BY created_at DESC
     `).all() as Array<{ title: string; summary: string; details_json: string }>;
     
@@ -102,11 +101,41 @@ export async function GET() {
       }
     }
     
+    // 4. 从数据库读取书籍来源
+    const dbBookSources = db.prepare(`
+      SELECT 
+        name,
+        description,
+        details_json
+      FROM capabilities 
+      WHERE category = 'book-sources'
+      ORDER BY created_at DESC
+    `).all() as Array<{ name: string; description: string; details_json: string }>;
+    
+    const bookSources = dbBookSources.map(item => {
+      let details: any = {};
+      try {
+        details = JSON.parse(item.details_json || '{}');
+      } catch {}
+      
+      return {
+        name: item.name,
+        description: item.description,
+        url: details.url || '#',
+        example: details.example || ''
+      };
+    });
+    
     db.close();
     
     return NextResponse.json({
       knowledge: allKnowledge,
-      total: allKnowledge.length,
+      bookSources: bookSources,
+      total: {
+        knowledge: allKnowledge.length,
+        bookSources: bookSources.length,
+        grandTotal: allKnowledge.length + bookSources.length
+      },
       source: {
         database: dbKnowledge.length,
         files: fileKnowledge.length
@@ -118,7 +147,12 @@ export async function GET() {
     return NextResponse.json({
       error: '读取知识库失败',
       knowledge: [],
-      total: 0
+      bookSources: [],
+      total: {
+        knowledge: 0,
+        bookSources: 0,
+        grandTotal: 0
+      }
     }, { status: 500 });
   }
 }
