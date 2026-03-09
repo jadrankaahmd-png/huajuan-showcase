@@ -62,6 +62,28 @@ export default function Home() {
             className="px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap bg-gradient-to-r from-red-500 to-orange-500 text-white shadow-lg hover:from-red-600 hover:to-orange-600 transition-all"
           >
             🌍 伊朗局势监控
+
+          <Link
+            href="/coe/qveris"
+            className="flex items-center gap-3 p-4 bg-white rounded-lg hover:shadow-md transition-all border border-gray-200"
+          >
+            <span className="text-2xl">📊</span>
+            <div>
+              <div className="font-semibold text-gray-900">QVeris 美股实时数据</div>
+              <div className="text-sm text-gray-600">万级数据接入 · 实时行情 · 深度分析</div>
+            </div>
+          </Link>
+
+          <Link
+            href="/coe/knowledge-base"
+            className="flex items-center gap-3 p-4 bg-white rounded-lg hover:shadow-md transition-all border border-gray-200"
+          >
+            <span className="text-2xl">📚</span>
+            <div>
+              <div className="font-semibold text-gray-900">知识库</div>
+              <div className="text-sm text-gray-600">持续学习 · 持续进化</div>
+            </div>
+          </Link>
           </a>
           <a
             href="/coe/telegram-news"

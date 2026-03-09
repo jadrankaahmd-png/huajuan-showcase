@@ -6021,6 +6021,85 @@ export const capabilities = [
   { name: '伊朗局势监控', description: '实时监控伊朗局势，包含9个模块：股票、宏观数据、新闻、稳定性、AI分析、情绪、航班、海运、卫星', category: '地缘监控', status: 'active', icon: '🌍', source: 'custom' },
 
     ]
+  },
+  {
+    category: 'qveris',
+    name: 'QVeris美股实时数据',
+    icon: '📊',
+    items: [
+      {
+        name: '美股实时查询',
+        description: '查询任意美股的实时价格、涨跌幅、成交量',
+        status: 'active',
+        type: 'QVeris功能',
+        icon: '🔍',
+        details: {
+          whatItDoes: '实时查询美股价格、涨跌幅、成交量等基本信息',
+          dataSource: 'QVeris API',
+          updateFrequency: '实时'
+        }
+      },
+      {
+        name: '美股涨幅实时榜单',
+        description: '获取美股涨幅TOP5榜单，实时更新',
+        status: 'active',
+        type: 'QVeris功能',
+        icon: '📈',
+        details: {
+          whatItDoes: '实时获取美股涨幅TOP5榜单',
+          dataSource: 'QVeris API',
+          updateFrequency: '实时'
+        }
+      },
+      {
+        name: '个股深度研判',
+        description: '深度分析个股财务指标、技术指标、市场情绪',
+        status: 'active',
+        type: 'QVeris功能',
+        icon: '🔬',
+        details: {
+          whatItDoes: '深度分析个股的财务指标、技术指标、市场情绪',
+          dataSource: 'QVeris API',
+          features: ['财务指标（EPS/PE等）', '技术指标（RSI/MACD等）', '市场情绪分析']
+        }
+      },
+      {
+        name: '价格预警设置',
+        description: '设置价格预警，当股价达到目标价时推送通知',
+        status: 'active',
+        type: 'QVeris功能',
+        icon: '🔔',
+        details: {
+          whatItDoes: '设置价格预警，当股价达到目标价时推送通知',
+          dataSource: 'QVeris API',
+          features: ['目标价设置', '预警推送', '多股票监控']
+        }
+      },
+      {
+        name: '美股量化策略回测',
+        description: '量化策略回测，支持均线策略、动量策略',
+        status: 'active',
+        type: 'QVeris功能',
+        icon: '📊',
+        details: {
+          whatItDoes: '量化策略回测，支持均线策略、动量策略',
+          dataSource: 'QVeris API',
+          features: ['均线策略', '动量策略', '回测周期选择', '年化收益率计算']
+        }
+      },
+      {
+        name: 'AI美股市场分析师',
+        description: 'AI智能分析美股市场，提供板块强弱梯队、主线传导逻辑',
+        status: 'active',
+        type: 'QVeris功能',
+        icon: '🤖',
+        details: {
+          whatItDoes: 'AI智能分析美股市场，提供板块强弱梯队、主线传导逻辑',
+          dataSource: 'QVeris API + AI分析',
+          features: ['板块强弱梯队', '主线传导逻辑', '异常信号识别', '宏观环境分析']
+        }
+      }
+    ]
   }
 
 ];
