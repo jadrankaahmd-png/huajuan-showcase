@@ -75,25 +75,12 @@ function validateCapabilities(): ValidationResult {
   // 3. 检查 getTotalCapabilities() 函数
   console.log('🧮 步骤3：检查 getTotalCapabilities() 函数...');
   try {
-    // 使用 eval 来执行 TypeScript 代码（简化方案）
-    const content = fs.readFileSync(CAPABILITIES_TS_PATH, 'utf8');
+    // 直接使用 require 加载 capabilities.ts
+    const capabilitiesModule = require('../app/data/capabilities.ts');
+    const capabilities = capabilitiesModule.capabilities;
     
-    // 提取 capabilities 数组
-    const capabilitiesMatch = content.match(/export const capabilities[^=]*=\s*\[([\s\S]*?)\];/);
-    if (capabilitiesMatch) {
-      // 简单统计 items 数量
-      const categoriesMatch = content.match(/category:\s*'[^']+',[\s\S]*?items:\s*\[([\s\S]*?)\]/g);
-      if (categoriesMatch) {
-        let totalItems = 0;
-        categoriesMatch.forEach(cat => {
-          const itemsMatch = cat.match(/{\s*name:\s*'[^']+',/g);
-          if (itemsMatch) {
-            totalItems += itemsMatch.length;
-          }
-        });
-        tsFunctionCount = totalItems;
-      }
-    }
+    // 计算总数
+    tsFunctionCount = capabilities.reduce((total: number, cat: any) => total + cat.items.length, 0);
     
     console.log(`✅ getTotalCapabilities() 返回值：${tsFunctionCount} 个\n`);
   } catch (error: any) {
