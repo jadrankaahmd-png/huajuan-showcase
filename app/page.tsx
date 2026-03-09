@@ -7,12 +7,9 @@ import CapabilityDetail from './components/CapabilityDetail';
 import { capabilities } from './data/capabilities';
 
 // 在组件外预计算统计数据（静态导出时可用）
-// 总能力数 = 429卡片 + 190技能 + 4页面 = 623
-const CARD_COUNT = capabilities.reduce((sum, cat) => sum + cat.items.length, 0);
-const SKILL_COUNT = 190; // 技能中心所有技能（不管安装与否）
-const PAGE_COUNT = 4; // 不在卡片中的主要页面（伊朗局势监控、Telegram新闻流、技能中心、第二层动态模型）
+// 总能力数 = capabilities.ts 所有条目（已包含429卡片 + 189技能）
 const stats = {
-  total: CARD_COUNT + SKILL_COUNT + PAGE_COUNT, // 623
+  total: capabilities.reduce((sum, cat) => sum + cat.items.length, 0),
   active: capabilities.reduce((sum, cat) =>
     sum + cat.items.filter((item: any) => item.status === 'active').length, 0
   ),
@@ -71,12 +68,6 @@ export default function Home() {
             className="px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap bg-gradient-to-r from-blue-400 to-cyan-500 text-white shadow-lg hover:from-blue-500 hover:to-cyan-600 transition-all"
           >
             📱 Telegram新闻
-          </a>
-          <a
-            href="/skills"
-            className="px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg hover:from-blue-600 hover:to-purple-600 transition-all"
-          >
-            ⚡ 新技能中心
           </a>
           <a
             href="/knowledge-base"
