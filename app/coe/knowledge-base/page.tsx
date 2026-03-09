@@ -36,7 +36,7 @@ const bookSources = [
     description: '数百万本历史投资文献（合法借阅）',
     example: '历史市场分析、经典投资案例'
   }
-  },
+  }
   {
     title: '$AAOI 1.6T数据中心收发器首单分析',
     source: '个人书籍提炼系统',
