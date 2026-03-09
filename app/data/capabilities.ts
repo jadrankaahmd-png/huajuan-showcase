@@ -1,6 +1,6 @@
 // 第一层能力定义（自动生成）
 // ⚠️ 此文件由 SQLite 数据库自动生成，禁止手动编辑
-// 最后更新：2026-03-09T16:36:44.947Z
+// 最后更新：2026-03-09T16:46:31.212Z
 // 
 // 如需修改能力，请通过以下方式：
 // 1. 直接操作 SQLite 数据库（data/capabilities.db）
@@ -2687,19 +2687,6 @@ export const capabilities: CapabilityCategory[] = [
         }
       },
       {
-        name: '$AAOI 1.6T数据中心收发器首单分析',
-        description: 'AAOI首个2亿美元1.6T收发器订单，预计成为美国最大800G/1.6T产能',
-        status: 'active',
-        type: '知识条目',
-        icon: '🔍',
-        details: {
-          whatItDoes: '分析AAOI首个2亿美元1.6T数据中心收发器订单',
-          source: '个人书籍提炼系统',
-          date: '2026-03-09',
-          keyInsights: ['✅ 首个2亿美元1.6T收发器订单', '✅ 预计成为美国最大800G/1.6T产能', '✅ 每月3.78亿美元收入预测验证', '✅ 超大规模客户（AMZN/META/GOOGL）', '📊 投资逻辑、风险因素、关键指标分析']
-        }
-      },
-      {
         name: 'Groq被NVIDIA收购：推理芯片商业量产',
         description: 'NVIDIA以约200亿美元收购Groq，三星代工厂晶圆产量从9000片提升至15000片，进入推理芯片商业量产阶段',
         status: 'active',
@@ -2749,19 +2736,6 @@ export const capabilities: CapabilityCategory[] = [
           source: '技术案例分析',
           date: '2026-03-07',
           keyInsights: ['✅ LLM无法处理大型复杂项目', '✅ 上下文窗口限制', '✅ 逻辑推理能力不足', '📊 LLM与人类工程师的差距']
-        }
-      },
-      {
-        name: '$AAOI 投资分析 - 1.6T 数据中心收发器首单',
-        description: '知识条目：$AAOI 投资分析 - 1.6T 数据中心收发器首单',
-        status: 'active',
-        type: '知识库',
-        icon: '📖',
-        details: {
-          source: 'knowledge_base',
-          file: 'aaoi_investment_thesis_2026-03-09.md',
-          date: '2026-03-09',
-          content: '# $AAOI 投资分析 - 1.6T 数据中心收发器首单\n\n**日期：** 2026-03-09 21:01\n\n---\n\n## 核心信息\n\n**新闻标题：** $AAOI Receives First $200M Volume Order of 1.6T Data Center Transceivers from Major Hyperscale Customer\n\n**关键引用：**\n> "We expect that we will soon have the largest production capacity for 800G and 1.6T transceivers in the U.S."\n\n**投资逻辑：**\n\n1. **订单确认：** 首个 1.6T 数据中心收发器 2 亿美元订单\n2. **产能领先：** 预计很快将成为美国最大的 800G 和 1.6T 收发器生产商\n3. **收入确认：** 这是对他们财报预测中每月 3.78 亿美元收入的逐步确认\n4. **市场担忧：** 人们担心内部人士抛售，但重要的是执行力和基本面\n5. **客户质量：** 从超大规模企'
         }
       },
     ]
