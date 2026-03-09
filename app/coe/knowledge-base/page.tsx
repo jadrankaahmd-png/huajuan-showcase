@@ -40,6 +40,20 @@ const bookSources = [
 
 const knowledgeBase: Knowledge[] = [
   {
+    title: '$AAOI 1.6T数据中心收发器首单分析',
+    source: '个人书籍提炼系统',
+    date: '2026-03-09',
+    summary: 'AAOI首个2亿美元1.6T数据中心收发器订单，预计成为美国最大800G和1.6T收发器生产商，每月3.78亿美元收入预测逐步验证。超大规模客户（AMZN/META/GOOGL）背书。',
+    insights: [
+      '首个2亿美元1.6T收发器订单验证',
+      '预计成为美国最大800G/1.6T产能',
+      '每月3.78亿美元收入预测验证',
+      '超大规模客户（AMZN/META/GOOGL）背书',
+      '投资逻辑：执行力 > 内部交易'
+    ],
+    category: '投资分析'
+  },
+  {
     title: 'Interactive Benchmarks: 评估模型的交互学习能力',
     source: 'arXiv:2411.14451',
     date: '2026-03-05',
