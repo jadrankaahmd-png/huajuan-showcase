@@ -1,9 +1,38 @@
 'use client';
 
 import Navigation from '@/components/Navigation';
-import Link from 'next/link';
+import { useState, useEffect } from 'react';
+
+interface Layer3Capability {
+  id: string;
+  name: string;
+  description: string;
+  status: string;
+  category: string;
+  icon: string;
+}
 
 export default function StockPickerPage() {
+  const [capabilities, setCapabilities] = useState<Layer3Capability[]>([]);
+  const [stats, setStats] = useState({ total: 0, active: 0, inactive: 0, progress: 0 });
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await fetch('/api/layer3-capabilities');
+        const data = await res.json();
+        setCapabilities(data.capabilities || []);
+        setStats(data.stats || { total: 0, active: 0, inactive: 0, progress: 0 });
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Navigation currentLayer={3} />
@@ -18,10 +47,20 @@ export default function StockPickerPage() {
           <p className="text-xl text-gray-600">
             第三层 · 智能股票推荐
           </p>
+          <div className="mt-4 flex justify-center gap-4">
+            <div className="bg-white px-4 py-2 rounded-lg shadow-sm">
+              <div className="text-2xl font-bold text-blue-600">{stats.total}</div>
+              <div className="text-sm text-gray-600">总能力</div>
+            </div>
+            <div className="bg-white px-4 py-2 rounded-lg shadow-sm">
+              <div className="text-2xl font-bold text-orange-600">{stats.progress}%</div>
+              <div className="text-sm text-gray-600">开发进度</div>
+            </div>
+          </div>
         </div>
         
         {/* Coming Soon Card */}
-        <div className="bg-white rounded-2xl shadow-sm p-8 border border-gray-100">
+        <div className="bg-white rounded-2xl shadow-sm p-8 border border-gray-100 mb-8">
           <div className="flex items-center justify-center mb-6">
             <div className="text-5xl">🔍</div>
           </div>
@@ -34,92 +73,39 @@ export default function StockPickerPage() {
             基于第二层动态模型的智能选股系统，让投资决策更简单！
           </p>
           
-          {/* Features Preview */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-            <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
-              <div className="text-2xl mb-2">🔎</div>
-              <h3 className="text-gray-900 font-semibold mb-2">智能搜索</h3>
-              <p className="text-gray-600 text-sm">
-                输入任何内容，获得深度分析报告
-              </p>
-            </div>
-            
-            <div className="bg-purple-50 rounded-lg p-4 border border-purple-100">
-              <div className="text-2xl mb-2">⭐</div>
-              <h3 className="text-gray-900 font-semibold mb-2">个性化推荐</h3>
-              <p className="text-gray-600 text-sm">
-                根据投资偏好推荐最佳股票
-              </p>
-            </div>
-            
-            <div className="bg-green-50 rounded-lg p-4 border border-green-100">
-              <div className="text-2xl mb-2">📊</div>
-              <h3 className="text-gray-900 font-semibold mb-2">详细分析</h3>
-              <p className="text-gray-600 text-sm">
-                整合第一层所有能力的全面分析
-              </p>
-            </div>
-            
-            <div className="bg-orange-50 rounded-lg p-4 border border-orange-100">
-              <div className="text-2xl mb-2">💼</div>
-              <h3 className="text-gray-900 font-semibold mb-2">投资组合</h3>
-              <p className="text-gray-600 text-sm">
-                管理和优化你的投资组合
-              </p>
-            </div>
-          </div>
-          
-          {/* Search Preview */}
-          <div className="mb-8">
-            <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-              <div className="text-gray-600 text-sm mb-3">搜索预览</div>
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="输入股票代码、公司名称或任何关键词..."
-                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500"
-                  disabled
-                />
-                <div className="absolute right-3 top-3 text-gray-400">
-                  🔒
+          {/* Capabilities Grid */}
+          {!isLoading && capabilities.length > 0 && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+              {capabilities.map((cap) => (
+                <div 
+                  key={cap.id}
+                  className="bg-blue-50 rounded-lg p-4 border border-blue-100"
+                >
+                  <div className="text-2xl mb-2">{cap.icon}</div>
+                  <h3 className="text-gray-900 font-semibold mb-2">{cap.name}</h3>
+                  <p className="text-gray-600 text-sm">{cap.description}</p>
                 </div>
-              </div>
+              ))}
             </div>
-          </div>
+          )}
           
           {/* Progress */}
           <div className="mb-8">
             <div className="flex justify-between text-sm text-gray-600 mb-2">
               <span>开发进度</span>
-              <span>0%</span>
+              <span>{stats.progress}%</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-3">
-              <div className="bg-gradient-to-r from-purple-500 to-pink-500 h-3 rounded-full" style={{ width: '0%' }}></div>
+              <div 
+                className="bg-gradient-to-r from-purple-500 to-pink-500 h-3 rounded-full" 
+                style={{ width: `${stats.progress}%` }}
+              ></div>
             </div>
           </div>
           
-          {/* CTA */}
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link
-              href="/"
-              className="px-6 py-3 bg-pink-50 hover:bg-pink-100 text-pink-600 rounded-lg font-medium transition-colors text-center"
-            >
-              返回能力中心
-            </Link>
-            <Link
-              href="/dynamic-model"
-              className="px-6 py-3 bg-purple-50 hover:bg-purple-100 text-purple-600 rounded-lg font-medium transition-colors text-center"
-            >
-              查看第二层
-            </Link>
+          <div className="text-center text-gray-500 text-sm">
+            <p>🚧 第三层正在开发中，敬请期待！</p>
           </div>
-        </div>
-        
-        {/* Architecture Info */}
-        <div className="mt-12 text-center">
-          <p className="text-gray-500 text-sm">
-            花卷三层架构 · 第一层（能力中心）→ 第二层（动态模型）→ 第三层（选股）
-          </p>
         </div>
       </div>
     </main>

@@ -276,3 +276,29 @@ async function main() {
 }
 
 main();
+
+// 同步第二层和第三层
+async function syncLayers() {
+  console.log('\n📦 同步第二层和第三层数据...\n');
+  
+  const { Redis } = require('@upstash/redis');
+  const redis = new Redis({
+    url: process.env.UPSTASH_REDIS_REST_URL || 'https://valued-hamster-37498.upstash.io',
+    token: process.env.UPSTASH_REDIS_REST_TOKEN || 'AZJ6AAIncDE1YzRlYzY3NzI5OTU0MWIzOTM5YzNjMWE2NDkzMTkyZHAxMzc0OTg',
+  });
+  
+  // 第二层
+  const layer2 = require('./sync-layers-to-redis.js');
+  await layer2.syncLayer2();
+  
+  // 第三层
+  await layer2.syncLayer3();
+  
+  // 全站统计
+  await layer2.updateGlobalStats();
+}
+
+// 添加到主流程
+if (require.main === module) {
+  // 已经在运行
+}
