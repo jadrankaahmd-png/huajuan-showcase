@@ -15,7 +15,8 @@ export async function GET() {
         details_json
       FROM capabilities 
       WHERE category = 'knowledge' 
-         OR type = 'knowledge' 
+         OR category = 'knowledge-base'
+         OR type = '知识库'
          OR name LIKE '%知识%'
       ORDER BY created_at DESC
     `).all() as Array<{ title: string; summary: string; details_json: string }>;
