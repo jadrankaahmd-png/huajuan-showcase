@@ -65,7 +65,7 @@ function addCapability(options: AddCapabilityOptions) {
       status,
       type,
       icon,
-      JSON.stringify(details, ensure_ascii=false)
+      JSON.stringify(details, null, 2)
     );
 
     console.log(`✅ 已写入数据库（ID: ${result.lastInsertRowid}）\n`);
