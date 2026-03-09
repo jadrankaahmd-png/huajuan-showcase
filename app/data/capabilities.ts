@@ -2741,8 +2741,86 @@ export const capabilities = [
 
   // 知识库系统（核心能力）
   {
+  {
     category: 'knowledge-base',
     name: '知识库系统',
+    description: '持续学习机制，整合个人书籍提炼系统',
+    status: 'active',
+    items: [
+      {
+        name: '$AAOI 1.6T数据中心收发器首单分析',
+        description: 'AAOI首个2亿美元1.6T收发器订单，预计成为美国最大800G/1.6T产能',
+        status: 'active',
+        type: '投资分析',
+        icon: '🔍',
+        details: {
+          whatItDoes: '分析AAOI首个2亿美元1.6T数据中心收发器订单',
+          source: '个人书籍提炼系统',
+          date: '2026-03-09',
+          keyInsights: [
+            '✅ 首个2亿美元1.6T收发器订单',
+            '✅ 预计成为美国最大800G/1.6T产能',
+            '✅ 每月3.78亿美元收入预测',
+            '✅ 超大规模客户（AMZN/META/GOOGL）背书'
+          ]
+        }
+      },
+      {
+        name: 'AI创业价值迁移：Copilot vs Autopilot',
+        description: '从Copilot到Autopilot的创业价值迁移分析',
+        status: 'active',
+        type: '创业分析',
+        icon: '🚀',
+        details: {
+          whatItDoes: '分析AI创业的价值迁移路径',
+          source: 'Twitter @wangray',
+          date: '2026-03-07',
+          keyInsights: [
+            '✅ Copilot模式：辅助人类决策',
+            '✅ Autopilot模式：AI自主决策',
+            '✅ 价值迁移趋势分析',
+            '✅ 创业方向建议'
+          ]
+        }
+      },
+      {
+        name: '模拟AI计算：物理定律取代数字计算',
+        description: '使用模拟电路进行AI计算，利用物理定律提升效率',
+        status: 'active',
+        type: '技术前沿',
+        icon: '⚛️',
+        details: {
+          whatItDoes: '探索模拟AI计算的技术路径',
+          source: 'Twitter @NuttyCLD',
+          date: '2026-03-07',
+          keyInsights: [
+            '✅ 模拟电路代替数字电路',
+            '✅ 物理定律提升计算效率',
+            '✅ 降低能耗',
+            '✅ 技术挑战和应用前景'
+          ]
+        }
+      },
+      {
+        name: 'LLM编程的局限性：SQLite重写案例',
+        description: 'LLM在复杂编程任务中的局限性分析',
+        status: 'active',
+        type: '技术分析',
+        icon: '💻',
+        details: {
+          whatItDoes: '分析LLM在编程中的局限性',
+          source: '技术案例研究',
+          date: '2026-03-07',
+          keyInsights: [
+            '✅ SQLite重写案例研究',
+            '✅ LLM在复杂系统中的局限',
+            '✅ 代码生成边界',
+            '✅ 人机协作建议'
+          ]
+        }
+      }
+    ]
+  },
     icon: '📚',
     items: [
       {
