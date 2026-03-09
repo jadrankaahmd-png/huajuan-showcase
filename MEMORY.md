@@ -879,6 +879,52 @@ find ~/.openclaw/workspace/ -type d -exec chmod 755 {} \;
 
 ---
 
+## 第一层能力完善管理机制（2026-03-09 20:54）
+
+### 唯一数据源
+
+**文件：** `app/data/capabilities.ts`
+
+**说明：** capabilities.ts 是第一层所有能力的唯一权威来源，所有能力必须在这里登记
+
+### 能力登记规则
+
+**每次新增第一层能力，必须同时做三件事：**
+
+1. ✅ 在 `capabilities.ts` 对应分类的 `items` 数组追加新能力
+2. ✅ 更新 `layer1-capabilities-index.md` 对应分类的能力清单
+3. ✅ 在 `layer1-change-log.md` 记录本次变更（日期、新增能力、变更后总数）
+
+**能力格式：**
+```typescript
+{
+  name: '能力名称',
+  icon: '🔍',
+  description: '能力描述'
+}
+```
+
+### 三个同步文件
+
+| 文件 | 作用 | 必须同步内容 |
+|------|------|-------------|
+| `app/data/capabilities.ts` | 唯一数据源 | 能力定义（name, icon, description） |
+| `layer1-capabilities-index.md` | 能力索引 | 能力清单 + 分类数量 + 总数 |
+| `layer1-change-log.md` | 变更日志 | 日期 + 变更详情 + 变更后总数 |
+
+### 禁止操作
+
+- ❌ 禁止删除任何已有能力
+- ❌ 禁止不通过 capabilities.ts 直接修改能力
+- ❌ 禁止不同步更新三个文件
+
+### 自动更新
+
+- ✅ `/coe` 页面总数通过 `getTotalCapabilities()` 自动计算，无需手动更新
+- ✅ 每次修改 capabilities.ts 后，/coe 页面自动显示最新总数
+
+---
+
 ## 文件编辑失败自动修复机制（2026-03-09 20:49）
 
 **根本原因：** macOS 的文件锁定（immutable flag），每次重启或花卷运行后会重新锁定
@@ -906,5 +952,6 @@ chmod -R u+w ~/.openclaw/workspace/
 
 ---
 
-_最后更新：2026-03-09 20:52_
+_最后更新：2026-03-09 20:54_
+_能力管理机制已建立：✅_
 _永久解决方案已配置：✅_
