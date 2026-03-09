@@ -79,14 +79,27 @@ function syncKnowledge() {
   let skippedCount = 0;
 
   for (const file of files) {
-    // 检查是否已存在
+    // 检查是否已存在（防重复逻辑）
     const existing = db.prepare(`
       SELECT * FROM capabilities 
       WHERE category = 'knowledge-base' AND name = ?
-    `).get(file.title);
+    `).get(file.title) as any;
 
     if (existing) {
       console.log(`  ⏭️  跳过（已存在）：${file.title}`);
+      skippedCount++;
+      continue;
+    }
+
+    // 双重检查：检查文件名是否已存在（防止同一文件多次同步）
+    const existingByFile = db.prepare(`
+      SELECT * FROM capabilities 
+      WHERE category = 'knowledge-base' 
+      AND json_extract(details_json, '$.file') = ?
+    `).get(file.filename) as any;
+
+    if (existingByFile) {
+      console.log(`  ⏭️  跳过（文件已存在）：${file.filename}`);
       skippedCount++;
       continue;
     }
