@@ -73,7 +73,7 @@ export async function GET() {
     
     // 添加数据库知识
     for (const item of dbKnowledge) {
-      let details = {};
+      let details: any = {};
       try {
         details = JSON.parse(item.details_json || '{}');
       } catch {}
