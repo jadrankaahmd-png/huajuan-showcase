@@ -2793,6 +2793,207 @@ export const capabilities = [
           usage: '知识储备库/量化策略/',
           dependencies: ['Python', 'Markdown']
         }
+      },
+      {
+        name: 'Interactive Benchmarks: 评估模型的交互学习能力',
+        description: '评估AI模型"主动获取信息"能力的革命性基准测试方法',
+        status: 'active',
+        type: '知识条目',
+        icon: '📖',
+        details: {
+          whatItDoes: '通过交互学习评估AI模型的主动信息获取能力',
+          source: 'arXiv:2411.14451',
+          date: '2026-03-05',
+          keyInsights: [
+            '智能不仅是回答问题，更是提问的能力',
+            '从"答案导向"到"过程导向"的范式转变',
+            '主动获取信息比被动接收更重要'
+          ]
+        }
+      },
+      {
+        name: '选股系统的交互式学习应用',
+        description: '将交互式学习理论应用到选股系统，实现从"静态推荐"到"动态学习"的革命性改进',
+        status: 'active',
+        type: '知识条目',
+        icon: '📖',
+        details: {
+          whatItDoes: '实现选股系统的交互式学习和持续优化',
+          source: '基于Interactive Benchmarks论文',
+          date: '2026-03-05',
+          keyInsights: [
+            '主动识别信息缺口并补充',
+            '持续监控市场动态并更新评估',
+            '验证投资假设并持续优化'
+          ]
+        }
+      },
+      {
+        name: 'Agent Reach 数据抓取系统',
+        description: 'Agent Reach是一个强大的数据抓取系统，支持Twitter、Reddit、YouTube、B站等7个平台的数据抓取和情绪分析',
+        status: 'active',
+        type: '知识条目',
+        icon: '📖',
+        details: {
+          whatItDoes: '支持7个平台的数据抓取和情绪分析',
+          source: 'Agent Reach v1.3.0',
+          date: '2026-03-05',
+          keyInsights: [
+            'Twitter/X推文抓取和情绪分析',
+            'Reddit帖子和评论抓取',
+            'YouTube和B站视频信息提取',
+            '全网语义搜索（Exa，免费）',
+            '任意网页读取（Jina Reader）'
+          ]
+        }
+      },
+      {
+        name: '$AAOI 深度投资分析：6.3倍上涨空间',
+        description: 'Applied Optoelectronics ($AAOI) 当前市值$7.5B，目标估值$47.6B。垂直整合能力、美国制造、AI数据中心需求驱动',
+        status: 'active',
+        type: '知识条目',
+        icon: '📖',
+        details: {
+          whatItDoes: '个股深度投资分析和估值',
+          source: '个人书籍提炼系统',
+          date: '2026-03-05',
+          keyInsights: [
+            '当前市值$7.5B → 目标市值$47.6B',
+            '垂直整合：激光器制造+设计+组装',
+            '德克萨斯州产能增加三倍',
+            '超大规模企业买断所有产能',
+            '投资建议：是的，毫无疑问（Yes, Unequivocally）'
+          ]
+        }
+      },
+      {
+        name: 'Phase 3: 假设验证机制',
+        description: '实现投资假设的量化验证系统，支持4种假设类型（股价目标、市值目标、涨幅、时间）',
+        status: 'active',
+        type: '知识条目',
+        icon: '📖',
+        details: {
+          whatItDoes: '实现投资假设的量化验证系统',
+          source: 'Interactive Benchmarks论文应用',
+          date: '2026-03-05',
+          keyInsights: [
+            '4种假设类型识别与解析',
+            '量化验证模型（0-100%合理性）',
+            '信心度评估（very_high到very_low）',
+            '验证报告自动生成',
+            '投资建议智能推荐'
+          ]
+        }
+      },
+      {
+        name: 'Phase 1: 股票分析编排器',
+        description: '实现单一权威状态管理系统，协调8大Agent（基本面、技术面、情绪、风险等）进行分析',
+        status: 'active',
+        type: '知识条目',
+        icon: '📖',
+        details: {
+          whatItDoes: '协调8大Agent进行股票分析',
+          source: 'OpenAI Symphony 架构设计',
+          date: '2026-03-05',
+          keyInsights: [
+            '单一权威状态管理（Source of Truth）',
+            '8大Agent协调（权重总和100%）',
+            '错误恢复机制（重试3次，退避5分钟）',
+            '进度追踪（pending→running→completed）'
+          ]
+        }
+      },
+      {
+        name: 'Phase 2: 分析工作空间管理',
+        description: '实现任务隔离的工作空间系统，每个分析任务有独立目录',
+        status: 'active',
+        type: '知识条目',
+        icon: '📖',
+        details: {
+          whatItDoes: '实现任务隔离的工作空间系统',
+          source: 'OpenAI Symphony 工作空间设计',
+          date: '2026-03-05',
+          keyInsights: [
+            '任务隔离（每个股票独立工作空间）',
+            '生命周期钩子（4个钩子）',
+            '自动清理（保留30天后删除）',
+            '安全不变量（路径验证、权限检查）'
+          ]
+        }
+      },
+      {
+        name: 'Phase 3: 工作流定义与配置解析',
+        description: '实现YAML格式的工作流定义文件和配置解析器',
+        status: 'active',
+        type: '知识条目',
+        icon: '📖',
+        details: {
+          whatItDoes: '实现YAML格式的工作流定义和配置解析',
+          source: 'OpenAI Symphony 配置层设计',
+          date: '2026-03-05',
+          keyInsights: [
+            'YAML front matter + Markdown 格式',
+            '7个数据类（类型安全配置访问）',
+            'Jinja2风格模板渲染',
+            '动态重载机制'
+          ]
+        }
+      },
+      {
+        name: 'Phase 4: 分析可观察性系统',
+        description: '实现实时监控、性能追踪、HTTP API和美观仪表板',
+        status: 'active',
+        type: '知识条目',
+        icon: '📖',
+        details: {
+          whatItDoes: '实现实时监控和性能追踪',
+          source: 'OpenAI Symphony 可观察性设计',
+          date: '2026-03-05',
+          keyInsights: [
+            '3种快照类型（Agent、Analysis、System）',
+            '5个HTTP API端点',
+            '实时仪表板（渐变设计、自动刷新5秒）',
+            '8个监控指标（内存、CPU、Agent池等）'
+          ]
+        }
+      },
+      {
+        name: 'Phase 5: 集成测试完成',
+        description: '完成编排器+工作空间+工作流+可观察性的完整集成测试，6个测试全部通过，成功率100%',
+        status: 'active',
+        type: '知识条目',
+        icon: '📖',
+        details: {
+          whatItDoes: '完成完整集成测试',
+          source: 'OpenAI Symphony 集成测试',
+          date: '2026-03-06',
+          keyInsights: [
+            '6个测试全部通过（100%成功率）',
+            '工作流解析测试：5个Agent配置正确',
+            '工作空间生命周期测试：创建/更新/清理成功',
+            '端到端测试：7步完整流程通过',
+            '性能测试：5个并发任务，创建/启动/完成时间均<1ms'
+          ]
+        }
+      },
+      {
+        name: 'GLM MCP 深度测试成功',
+        description: '🎉 GLM MCP 深度测试全部通过！4个工具（联网搜索、网页读取、视觉理解、开源仓库）测试成功率100%',
+        status: 'active',
+        type: '知识条目',
+        icon: '📖',
+        details: {
+          whatItDoes: '测试GLM MCP的4个工具',
+          source: '深度测试报告',
+          date: '2026-03-06',
+          keyInsights: [
+            '✅ 联网搜索：41.4秒响应',
+            '✅ 网页读取：54.7秒响应',
+            '✅ 视觉理解：34.2秒响应',
+            '✅ 开源仓库：53.5秒响应',
+            '📊 成功率：100%（4/4通过）'
+          ]
+        }
       }
     ]
   },
@@ -2919,6 +3120,102 @@ export const capabilities = [
           currentStatus: '✅ 正常运行\n- 石油价格影响\n- 军工股影响\n- 航空股影响',
           usage: '自动分析',
           dependencies: ['NewsAPI', 'yfinance']
+        }
+      },
+      {
+        name: '股票模块（StockModule）',
+        description: '监控伊朗局势相关股票（USO、XLE、LMT、RTX、BA、DAL）的实时价格',
+        status: 'active',
+        type: '监控模块',
+        icon: '📈',
+        details: {
+          whatItDoes: '实时监控原油ETF、能源板块、军工股、航空股价格',
+          dataSource: 'Finnhub API',
+          symbols: ['USO', 'XLE', 'LMT', 'RTX', 'BA', 'DAL'],
+          updateFrequency: '实时'
+        }
+      },
+      {
+        name: '宏观数据模块（MacroDataModule）',
+        description: '监控宏观经济指标（联邦基金利率、CPI、失业率、GDP等）',
+        status: 'active',
+        type: '监控模块',
+        icon: '📊',
+        details: {
+          whatItDoes: '监控美联储利率、CPI、失业率、GDP等宏观经济指标',
+          dataSource: 'FRED API',
+          updateFrequency: '每日'
+        }
+      },
+      {
+        name: '新闻模块（NewsModule）',
+        description: '抓取伊朗局势相关新闻，支持情绪分析',
+        status: 'active',
+        type: '监控模块',
+        icon: '📰',
+        details: {
+          whatItDoes: '抓取伊朗局势相关新闻，分析情绪倾向',
+          dataSource: 'NewsAPI',
+          updateFrequency: '每小时'
+        }
+      },
+      {
+        name: '稳定性模块（StabilityModule）',
+        description: '评估伊朗局势稳定性，提供稳定性指数',
+        status: 'active',
+        type: '监控模块',
+        icon: '⚖️',
+        details: {
+          whatItDoes: '评估伊朗局势的稳定性，提供0-100的稳定性指数',
+          updateFrequency: '每日'
+        }
+      },
+      {
+        name: 'AI分析模块（AIAnalysisModule）',
+        description: 'AI智能研判伊朗局势和投资建议',
+        status: 'active',
+        type: '监控模块',
+        icon: '🤖',
+        details: {
+          whatItDoes: 'AI智能研判伊朗局势，提供投资建议',
+          dataSource: 'LLM',
+          updateFrequency: '按需'
+        }
+      },
+      {
+        name: '情绪模块（SentimentModule）',
+        description: '分析市场情绪和舆论情绪',
+        status: 'active',
+        type: '监控模块',
+        icon: '💭',
+        details: {
+          whatItDoes: '分析市场情绪和舆论情绪，提供情绪指标',
+          dataSource: 'Reddit、Twitter',
+          updateFrequency: '每小时'
+        }
+      },
+      {
+        name: '航班模块（FlightsModule）',
+        description: '监控伊朗领空航班动态',
+        status: 'active',
+        type: '监控模块',
+        icon: '✈️',
+        details: {
+          whatItDoes: '监控伊朗领空的航班动态，提供航班数量和路线',
+          dataSource: 'Aviationstack API',
+          updateFrequency: '实时'
+        }
+      },
+      {
+        name: '海运模块（ShippingModule）',
+        description: '监控霍尔木兹海峡船只动态（WebSocket实时）',
+        status: 'active',
+        type: '监控模块',
+        icon: '🚢',
+        details: {
+          whatItDoes: '实时监控霍尔木兹海峡的船只动态',
+          dataSource: 'aisstream.io（WebSocket）',
+          updateFrequency: '实时'
         }
       }
     ]
