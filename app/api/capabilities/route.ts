@@ -24,7 +24,15 @@ export async function GET() {
     // 2. 从 Redis 读取统计数据
     const stats = await getStats();
     
-    // 3. 按分类分组
+    // 3. 计算唯一能力数（去重）
+    const uniqueCapabilities = new Set(capabilities.map((c: any) => c.name)).size;
+    
+    // 4. 计算正确的总数：能力 + 知识条目 + 书籍
+    const knowledge = stats?.knowledge || 0;
+    const books = stats?.books || 0;
+    const grandTotal = uniqueCapabilities + knowledge + books;
+    
+    // 5. 按分类分组
     const categoryMap = new Map<string, any[]>();
     for (const cap of capabilities) {
       const category = cap.category;
@@ -40,16 +48,16 @@ export async function GET() {
       items,
     }));
     
-    // 4. 返回数据
+    // 6. 返回数据
     return NextResponse.json({
       capabilities: categorizedCapabilities,
       stats: {
-        total: stats?.grandTotal || capabilities.length,
-        capabilities: stats?.capabilities || 0,
-        knowledge: stats?.knowledge || 0,
-        books: stats?.books || 0,
+        total: grandTotal,  // 总计 639 = 606 + 29 + 4
+        capabilities: uniqueCapabilities,  // 唯一能力数 606
+        knowledge: knowledge,  // 知识条目 29
+        books: books,  // 书籍 4
         categories: categoryMap.size,
-        grandTotal: stats?.grandTotal || 0,
+        grandTotal: grandTotal,
       },
       source: {
         redis: true
