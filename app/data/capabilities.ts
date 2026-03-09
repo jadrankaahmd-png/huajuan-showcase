@@ -1,6 +1,6 @@
 // 第一层能力定义（自动生成）
 // ⚠️ 此文件由 SQLite 数据库自动生成，禁止手动编辑
-// 最后更新：2026-03-09T17:16:05.734Z
+// 最后更新：2026-03-09T18:01:29.426Z
 // 
 // 如需修改能力，请通过以下方式：
 // 1. 直接操作 SQLite 数据库（data/capabilities.db）
@@ -2768,7 +2768,7 @@ export const capabilities: CapabilityCategory[] = [
   {
     category: 'memory',
     name: '记忆系统',
-    icon: '⚡',
+    icon: '🧠',
     items: [
       {
         name: 'OpenViking 革命性记忆数据库',
@@ -2873,7 +2873,7 @@ export const capabilities: CapabilityCategory[] = [
   {
     category: 'memory-optimization',
     name: '记忆与优化系统',
-    icon: '⚡',
+    icon: '🧠',
     items: [
       {
         name: 'Context Compressor',
@@ -8060,6 +8060,153 @@ export const capabilities: CapabilityCategory[] = [
           currentStatus: '✅ 正常运行',
           usage: 'python3 backtest_framework.py',
           dependencies: ['yfinance', 'Pandas']
+        }
+      },
+    ]
+  },
+  {
+    category: 'ui-design',
+    name: 'ui-design',
+    icon: '⭐',
+    items: [
+      {
+        name: 'Lucide Icons 图标库',
+        description: '轻量级、现代化的开源图标库，支持 React/Vue/Next.js',
+        status: 'active',
+        type: 'UI组件',
+        icon: '🎨',
+        details: {
+          whatItDoes: '提供 1000+ 精美图标，支持树摇优化，体积小',
+          howItWorks: 'npm install lucide-react，按需导入图标',
+          usage: 'import { Home, User, Settings } from "lucide-react"',
+          features: ['轻量级', '现代化', '树摇优化', 'TypeScript 支持'],
+          link: 'https://lucide.dev'
+        }
+      },
+      {
+        name: 'Heroicons 图标库',
+        description: 'Tailwind 官方出品的精美图标库，支持多种风格',
+        status: 'active',
+        type: 'UI组件',
+        icon: '🎨',
+        details: {
+          whatItDoes: '提供 outline/solid/mini 三种风格图标',
+          howItWorks: 'npm install @heroicons/react，按需导入',
+          usage: 'import { HomeIcon } from "@heroicons/react/24/outline"',
+          features: ['Tailwind 官方', '三种风格', '高质量设计'],
+          link: 'https://heroicons.com'
+        }
+      },
+      {
+        name: 'Phosphor Icons 图标系列',
+        description: '灵活的图标系列，支持 6 种粗细和多种风格',
+        status: 'active',
+        type: 'UI组件',
+        icon: '🎨',
+        details: {
+          whatItDoes: '提供 1000+ 图标，支持 thin/light/regular/bold/fill/duotone',
+          howItWorks: 'npm install @phosphor-icons/react',
+          usage: 'import { House } from "@phosphor-icons/react"',
+          features: ['6 种粗细', '灵活定制', '高质量矢量图标'],
+          link: 'https://phosphoricons.com'
+        }
+      },
+      {
+        name: 'Radix UI 组件库',
+        description: '无样式、高可访问性的 React 组件原语',
+        status: 'active',
+        type: 'UI组件',
+        icon: '🎨',
+        details: {
+          whatItDoes: '提供底层 UI 组件原语，完全控制样式',
+          howItWorks: 'npm install @radix-ui/react-dialog 等',
+          usage: 'import * as Dialog from "@radix-ui/react-dialog"',
+          features: ['无样式', '高可访问性', '完全控制'],
+          link: 'https://radix-ui.com'
+        }
+      },
+      {
+        name: 'Shadcn/ui 设计系统',
+        description: '现代设计系统，可复制粘贴的 React 组件',
+        status: 'active',
+        type: 'UI组件',
+        icon: '🎨',
+        details: {
+          whatItDoes: '提供高质量 UI 组件，基于 Radix UI + Tailwind',
+          howItWorks: 'npx shadcn-ui@latest add button',
+          usage: 'import { Button } from "@/components/ui/button"',
+          features: ['可定制', '高质量', '现代设计'],
+          link: 'https://ui.shadcn.com'
+        }
+      },
+      {
+        name: 'Framer Motion 动画库',
+        description: '强大的 React 动画库，用于创建流畅交互',
+        status: 'active',
+        type: '动画库',
+        icon: '🎨',
+        details: {
+          whatItDoes: '提供声明式动画 API，支持手势和复杂动画',
+          howItWorks: 'npm install framer-motion',
+          usage: 'import { motion } from "framer-motion"',
+          features: ['声明式', '手势支持', '复杂动画', '性能优化'],
+          link: 'https://framer.com/motion'
+        }
+      },
+      {
+        name: '渐变设计能力',
+        description: '现代渐变背景和按钮设计，提升视觉吸引力',
+        status: 'active',
+        type: '设计技巧',
+        icon: '🎨',
+        details: {
+          whatItDoes: '创建渐变背景、渐变按钮、渐变边框',
+          howItWorks: '使用 CSS gradient 或 Tailwind gradient 类',
+          usage: 'bg-gradient-to-r from-pink-500 to-purple-600',
+          features: ['现代美观', '吸引眼球', '提升品牌感'],
+          examples: ['渐变背景', '渐变按钮', '渐变边框', '渐变文字']
+        }
+      },
+      {
+        name: '微交互动画设计',
+        description: '精细的 UI 交互动画，提升用户体验',
+        status: 'active',
+        type: '设计技巧',
+        icon: '🎨',
+        details: {
+          whatItDoes: '为按钮、卡片、链接添加悬停/点击动画',
+          howItWorks: '使用 CSS transition 或 Framer Motion',
+          usage: 'transition-all duration-300 hover:scale-105',
+          features: ['提升体验', '增加趣味', '用户反馈'],
+          examples: ['悬停放大', '点击缩放', '加载动画', '表单验证动画']
+        }
+      },
+      {
+        name: '深色模式支持',
+        description: '自动/手动切换深色主题，保护用户眼睛',
+        status: 'active',
+        type: '设计技巧',
+        icon: '🎨',
+        details: {
+          whatItDoes: '支持系统深色模式，或手动切换主题',
+          howItWorks: '使用 Tailwind dark: 变体或 CSS 变量',
+          usage: 'dark:bg-gray-900 dark:text-white',
+          features: ['护眼', '个性化', '系统适配'],
+          implementation: ['Tailwind dark mode', 'next-themes', 'CSS 变量']
+        }
+      },
+      {
+        name: '玻璃态设计能力',
+        description: '透明磨砂玻璃效果，现代 UI 设计趋势',
+        status: 'active',
+        type: '设计技巧',
+        icon: '🎨',
+        details: {
+          whatItDoes: '创建半透明、模糊背景的玻璃态 UI',
+          howItWorks: '使用 backdrop-blur 和 background-opacity',
+          usage: 'backdrop-blur-lg bg-white/70',
+          features: ['现代感', '视觉层次', '美观优雅'],
+          examples: ['玻璃态导航栏', '玻璃态卡片', '玻璃态对话框']
         }
       },
     ]
