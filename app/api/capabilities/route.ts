@@ -27,10 +27,13 @@ export async function GET() {
     // 3. 计算唯一能力数（去重）
     const uniqueCapabilities = new Set(capabilities.map((c: any) => c.name)).size;
     
-    // 4. 计算正确的总数：能力 + 知识条目 + 书籍
+    // 4. 计算正确的总数：主能力 + 知识库 + 子页面
     const knowledge = stats?.knowledge || 0;
     const books = stats?.books || 0;
-    const grandTotal = uniqueCapabilities + knowledge + books;
+    const iran = stats?.iran || 0;
+    const telegram = stats?.telegram || 0;
+    const qveris = stats?.qveris || 0;
+    const grandTotal = uniqueCapabilities + knowledge + books + iran + telegram + qveris;
     
     // 5. 按分类分组
     const categoryMap = new Map<string, any[]>();
@@ -52,10 +55,13 @@ export async function GET() {
     return NextResponse.json({
       capabilities: categorizedCapabilities,
       stats: {
-        total: grandTotal,  // 总计 639 = 606 + 29 + 4
-        capabilities: uniqueCapabilities,  // 唯一能力数 606
-        knowledge: knowledge,  // 知识条目 29
-        books: books,  // 书籍 4
+        total: grandTotal,  // 总计
+        mainCapabilities: uniqueCapabilities,  // 主能力数
+        knowledge: knowledge,  // 知识条目
+        books: books,  // 书籍
+        iran: iran,  // 伊朗局势
+        telegram: telegram,  // Telegram
+        qveris: qveris,  // QVeris
         categories: categoryMap.size,
         grandTotal: grandTotal,
       },
