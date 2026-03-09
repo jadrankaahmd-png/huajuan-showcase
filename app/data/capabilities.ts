@@ -4762,19 +4762,6 @@ export const capabilities = [
           dependencies: []
         }
       },
-      {
-        name: 'data-analyst',
-        description: 'Data visualization, report generation, SQL queries, and spreadsheet automation. ...',
-        status: 'active',
-        type: 'AI分析',
-        details: {
-          whatItDoes: 'Data visualization, report generation, SQL queries, and spreadsheet automation. Transform your AI agent into a data-savvy analyst that turns raw data ',
-          howItWorks: '详见 SKILL.md',
-          currentStatus: '✅ 已安装（自动扫描）',
-          lastUpdate: '2026-03-07',
-          usage: '自动扫描添加',
-          dependencies: []
-        }
       },
       {
         name: 'gws-gmail',
@@ -5126,19 +5113,6 @@ export const capabilities = [
           dependencies: []
         }
       },
-      {
-        name: 'react-expert',
-        description: 'Use when building React 18+ applications requiring component architecture, hooks...',
-        status: 'active',
-        type: '开发工具',
-        details: {
-          whatItDoes: 'Use when building React 18+ applications requiring component architecture, hooks patterns, or state management. Invoke for Server Components, performa',
-          howItWorks: '详见 SKILL.md',
-          currentStatus: '✅ 已安装（自动扫描）',
-          lastUpdate: '2026-03-07',
-          usage: '自动扫描添加',
-          dependencies: []
-        }
       },
       {
         name: 'react-nextjs-generator',
