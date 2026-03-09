@@ -9,8 +9,15 @@ import AlertSettings from '@/components/qveris/AlertSettings';
 import Backtest from '@/components/qveris/Backtest';
 import MarketAnalyst from '@/components/qveris/MarketAnalyst';
 
+interface QVerisCapability {
+  name: string;
+  description: string;
+  type: string;
+  status: string;
+}
+
 export default function QVerisPage() {
-  const [capabilities, setCapabilities] = useState([]);
+  const [capabilities, setCapabilities] = useState<QVerisCapability[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
