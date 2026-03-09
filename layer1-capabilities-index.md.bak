@@ -103,7 +103,7 @@ QuantConnect集成、Context保护系统
 
 团队报告（22:00汇报）、每日报告（17:00盘中）、个股报告（17步框架）、紧急实时报告
 
-### 18. 知识库系统 (knowledge-base) - 16个
+### 18. 知识库系统 (knowledge-base) - 4个
 
 知识库更新流程、已保存的重要洞察、行业分析知识库、量化策略库、Interactive Benchmarks: 评估模型的交互学习能力、选股系统的交互式学习应用、Agent Reach 数据抓取系统、$AAOI 深度投资分析：6.3倍上涨空间、Phase 3: 假设验证机制、Phase 1: 股票分析编排器、Phase 2: 分析工作空间管理、Phase 3: 工作流定义与配置解析、Phase 4: 分析可观察性系统、Phase 5: 集成测试完成、GLM MCP 深度测试成功、$AAOI 1.6T数据中心收发器首单分析 ⭐ 新增
 
