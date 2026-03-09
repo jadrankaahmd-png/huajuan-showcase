@@ -1,6 +1,6 @@
 // 第一层能力定义（自动生成）
 // ⚠️ 此文件由 SQLite 数据库自动生成，禁止手动编辑
-// 最后更新：2026-03-09T17:16:05.734Z
+// 最后更新：2026-03-09T19:59:41.755Z
 // 
 // 如需修改能力，请通过以下方式：
 // 1. 直接操作 SQLite 数据库（data/capabilities.db）
@@ -1205,6 +1205,67 @@ export const capabilities: CapabilityCategory[] = [
           lastUpdate: '2026-03-07',
           usage: '搜索历史投资文献，获取内容',
           dependencies: ['Internet Archive API', 'Wayback Machine']
+        }
+      },
+    ]
+  },
+  {
+    category: 'book-sources',
+    name: 'book-sources',
+    icon: '⭐',
+    items: [
+      {
+        name: '合法书籍知识库',
+        description: '完整的合法书籍资源系统',
+        status: 'active',
+        type: '书籍搜索',
+        icon: '📚',
+        details: {
+          sources: 4
+        }
+      },
+      {
+        name: 'Project Gutenberg',
+        description: '70,000+ 经典投资书籍（公共领域）',
+        status: 'active',
+        type: '书籍搜索',
+        icon: '📚',
+        details: {
+          url: 'https://www.gutenberg.org/',
+          example: '《聪明的投资者》、《证券分析》'
+        }
+      },
+      {
+        name: 'Open Library',
+        description: '数百万本现代投资书籍（合法借阅）',
+        status: 'active',
+        type: '书籍搜索',
+        icon: '📚',
+        details: {
+          url: 'https://openlibrary.org/',
+          example: '当代投资理论、最新市场分析'
+        }
+      },
+      {
+        name: 'SEC EDGAR',
+        description: '公司财报、年报、招股书（公共领域）',
+        status: 'active',
+        type: '书籍搜索',
+        icon: '📚',
+        details: {
+          url: 'https://www.sec.gov/cgi-bin/browse-edgar',
+          example: '巴菲特致股东信、公司10-K年报'
+        }
+      },
+      {
+        name: 'Internet Archive',
+        description: '数百万本历史投资文献（合法借阅）',
+        status: 'active',
+        type: '书籍搜索',
+        icon: '📚',
+        details: {
+          url: 'https://archive.org/',
+          example: '历史市场分析、经典投资案例'
         }
       },
     ]
