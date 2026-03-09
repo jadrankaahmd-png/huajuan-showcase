@@ -52,13 +52,14 @@ export default function Navigation({ currentLayer }: NavigationProps) {
                   key={item.href}
                   href={item.href}
                   className={`
-                    px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200
+                    px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-2
                     ${isActive 
                       ? 'bg-pink-50 text-pink-600 shadow-sm' 
                       : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
                     }
                   `}
                 >
+                  <item.Icon className="w-4 h-4" />
                   {item.label}
                 </Link>
               );
@@ -112,13 +113,14 @@ export default function Navigation({ currentLayer }: NavigationProps) {
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
                   className={`
-                    block px-4 py-3 rounded-lg text-sm font-medium transition-all
+                    block px-4 py-3 rounded-lg text-sm font-medium transition-all flex items-center gap-2
                     ${isActive 
                       ? 'bg-pink-50 text-pink-600' 
                       : 'text-gray-700 hover:bg-gray-50'
                     }
                   `}
                 >
+                  <item.Icon className="w-4 h-4" />
                   {item.label}
                 </Link>
               );
