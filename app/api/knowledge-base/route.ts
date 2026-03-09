@@ -39,7 +39,7 @@ export async function GET() {
               insights: insights.length > 0 ? insights : ['详见文件内容'],
               source: 'knowledge_base/' + file,
               date: fs.statSync(filePath).mtime.toISOString().split('T')[0],
-              category: '文件知识库',
+              category: '知识条目',
               type: '知识条目',
               icon: '📖'
             });
