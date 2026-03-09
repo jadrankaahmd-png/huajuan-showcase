@@ -946,6 +946,25 @@ find ~/.openclaw/workspace/ -type d -exec chmod 755 {} \;
 - ✅ `/coe` 页面总数通过 `getTotalCapabilities()` 自动计算，无需手动更新
 - ✅ 每次修改 capabilities.ts 后，/coe 页面自动显示最新总数
 
+### 知识库新增内容规则（2026-03-09 21:06）
+
+**永久规则：** 每次知识库新增内容，必须同步计入一层能力总数
+
+**流程：**
+1. 保存知识条目到 `knowledge_base/` 目录
+2. 在 `capabilities.ts` 的 `knowledge-base` 分类追加新能力
+3. 更新 `layer1-capabilities-index.md` 的知识库分类
+4. 更新 `layer1-change-log.md` 记录变更
+5. 更新总能力数（小计）
+
+**示例：**
+```markdown
+知识库新增 $AAOI 投资洞察
+→ capabilities.ts 新增能力
+→ layer1-capabilities-index.md 更新知识库分类（15 → 16）
+→ layer1-change-log.md 记录变更（603 → 604）
+```
+
 ---
 
 ## 文件编辑失败自动修复机制（2026-03-09 20:49）

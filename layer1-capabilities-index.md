@@ -103,9 +103,9 @@ QuantConnect集成、Context保护系统
 
 团队报告（22:00汇报）、每日报告（17:00盘中）、个股报告（17步框架）、紧急实时报告
 
-### 18. 知识库系统 (knowledge-base) - 15个
+### 18. 知识库系统 (knowledge-base) - 16个
 
-知识库更新流程、已保存的重要洞察、行业分析知识库、量化策略库、Interactive Benchmarks: 评估模型的交互学习能力、选股系统的交互式学习应用、Agent Reach 数据抓取系统、$AAOI 深度投资分析：6.3倍上涨空间、Phase 3: 假设验证机制、Phase 1: 股票分析编排器、Phase 2: 分析工作空间管理、Phase 3: 工作流定义与配置解析、Phase 4: 分析可观察性系统、Phase 5: 集成测试完成、GLM MCP 深度测试成功
+知识库更新流程、已保存的重要洞察、行业分析知识库、量化策略库、Interactive Benchmarks: 评估模型的交互学习能力、选股系统的交互式学习应用、Agent Reach 数据抓取系统、$AAOI 深度投资分析：6.3倍上涨空间、Phase 3: 假设验证机制、Phase 1: 股票分析编排器、Phase 2: 分析工作空间管理、Phase 3: 工作流定义与配置解析、Phase 4: 分析可观察性系统、Phase 5: 集成测试完成、GLM MCP 深度测试成功、$AAOI 1.6T数据中心收发器首单分析 ⭐ 新增
 
 ### 19. 工具库系统（v3.0） (tool-library) - 3个
 
@@ -196,7 +196,7 @@ cloudflare-agent-tunnel、gws-admin、gws-apps-script、gws-apps-script-push、g
 
 Stock Research Engine、US Stock Analysis、Stock Market Pro、Stock Info Explorer、Stock Analysis 6.2.0、Backtest Expert、Portfolio Manager、US Market Bubble Detector、Options Strategy Advisor、OptionsHawk、Market Environment Analysis、Sector Analyst、Earnings Calendar、Economic Calendar Fetcher、Financial Analysis、Intellectia Stock Screener、Intellectia Stock Forecast、A Stock Analysis、Astock Daily、PRISM Finance OS、PRISM API SDK、Finance、ETF Finance、Finance Lite、Finance News、Sina Stock、Tecent Finance、Yahoo Finance、Trading Quant、HK Stock Trending、A Share Real Time Data、Finance Tracker、AI News Oracle、WorldMonitor 宏观数据层、WorldMonitor 新闻聚合、WorldMonitor AI推演、Market Intelligence、Breadth Chart Analyst、Biz Reporter、Accounting Workflows、BBC News、Apify Competitor Intelligence、Portfolio Tracking Skill、Crypto Portfolio Tracker API、Passive Income Tracker、Trading Devbox、Trading212 API、Realtime Crypto Price API、X Alpha Scout、XPR Web Scraping、Smart Web Scraper、XPR Structured Data、Agent Browser、Playwright Headless Browser、Browser Use、Data Enricher、DataForSEO、Reddit API、Telegram频道抓取、Social Sentiment、NewsAPI Search、CLS News Scraper、IPO Alert、AI CFO、React Expert、Clerk Auth、Cloudflare Agent Tunnel、React Local Biz、React NextJS Generator、React Component Generator、Data Analyst、Finance Automation、Google Analytics API、Advanced Calendar、Google Calendar、Daily Report、Agent Dashboard、CSV Pipeline、Chartclass、OpenClaw Dashboard、OC Daily Business Report、N8N Workflow Automation、AgentMail Integration、Prism Alerts、Apipick Email Checker、GWS Drive、GWS Drive Upload、GWS Gmail、GWS Gmail Send、GWS Gmail Triage、GWS Calendar、GWS Calendar Agenda、GWS Calendar Insert、GWS Sheets、GWS Docs、GWS Docs Write、GWS Chat、GWS Chat Send、GWS Admin、GWS Admin Reports、GWS Classroom、GWS Meet、GWS Forms、GWS Keep、GWS Apps Script、GWS Alertcenter、GWS Cloud Identity、GWS Events、GWS Licensing、GWS Model Armor、GWS Groups Settings、Agent Reach Twitter、Agent Reach Reddit、Agent Reach WeChat、Agent Reach Exa Search、Agent Reach YouTube、Agent Reach Bilibili、Agent Reach Web Scraper、Interactive Learning System、Self-Improving Agent、Information Gap Identifier、Active Search Engine、Hypothesis Validator、Multi-Hypothesis Validator、Sentiment Integration、Risk Alert System、Auto Report Generator、Stock Analysis Orchestrator、Analysis Workspace Manager、Analysis Workflow Definition、Analysis Observability、Integration Test Suite、💾 长期记忆系统、AI Agent Fundamentals、GenAI Best Practices、OpenAI API Guide、GLM Web Search、GLM Web Reader、GLM Vision、GLM GitHub Repo、Agenthc Market Intelligence、Financial Lkcair、HK Stock Trending、NewsAPI Search、Optionshawk、PRISM Finance OS、US Market Bubble Detector、US Stock Analysis、GWS Apps Script Push、GWS Cloudidentity、GWS Events Renew、GWS Events Subscribe、GWS Gmail Watch、GWS Groupssettings、GWS Modelarmor、GWS Modelarmor Create Template、GWS Modelarmor Sanitize Prompt、GWS Modelarmor Sanitize Response、GWS People、GWS Reseller、GWS Shared、GWS Sheets Append、GWS Sheets Read、GWS Slides、GWS Tasks、GWS Vault、GWS Workflow、GWS Workflow Email To Task、GWS Workflow File Announce、GWS Workflow Meeting Prep、GWS Workflow Standup Report、GWS Workflow Weekly Digest、Agent Reach、Agentmail Integration、BBC News、Context Protection、DataForSEO、OpenClaw Dashboard、Skill Creator、Context Compressor、OpenClaw Skills Context Manager、OpenClaw Skills Data Analyst、OpenClaw Skills Financial Market Analysis、OpenClaw Skills React Expert、OpenClaw Skills Sophie Optimizer、Prismapi SDK、React NextJS Generator、Self-Improving Agent、Stock Analysis 6.2.0、Telegram新闻流、伊朗局势监控
 
-**小计：** 603 个能力
+**小计：** 604 个能力
 
 ---
 
@@ -222,6 +222,7 @@ Stock Research Engine、US Stock Analysis、Stock Market Pro、Stock Info Explor
 13. Phase 4: 分析可观察性系统
 14. Phase 5: 集成测试完成
 15. GLM MCP 深度测试成功
+、$AAOI 1.6T数据中心收发器首单分析 ⭐ 新增
 
 ### /coe/iran-geopolitical-risk - 伊朗局势监控（10个能力）
 
