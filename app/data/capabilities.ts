@@ -2994,6 +2994,25 @@ export const capabilities = [
             '📊 成功率：100%（4/4通过）'
           ]
         }
+      },
+      {
+        name: '$AAOI 1.6T数据中心收发器首单分析',
+        description: 'AAOI首个2亿美元1.6T收发器订单，预计成为美国最大800G/1.6T产能',
+        status: 'active',
+        type: '知识条目',
+        icon: '🔍',
+        details: {
+          whatItDoes: '分析AAOI首个2亿美元1.6T数据中心收发器订单',
+          source: '个人书籍提炼系统',
+          date: '2026-03-09',
+          keyInsights: [
+            '✅ 首个2亿美元1.6T收发器订单',
+            '✅ 预计成为美国最大800G/1.6T产能',
+            '✅ 每月3.78亿美元收入预测验证',
+            '✅ 超大规模客户（AMZN/META/GOOGL）',
+            '📊 投资逻辑、风险因素、关键指标分析'
+          ]
+        }
       }
     ]
   },
