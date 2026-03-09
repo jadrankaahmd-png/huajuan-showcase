@@ -7,8 +7,15 @@ import CapabilityDetail from './components/CapabilityDetail';
 import { capabilities } from './data/capabilities';
 
 // 在组件外预计算统计数据（静态导出时可用）
+// 总能力数 = 429卡片 + 139技能 + 7页面 = 575
+const CARD_COUNT = capabilities.reduce((sum, cat) => sum + cat.items.length, 0);
+const SKILL_COUNT = 139; // ~/.openclaw/skills/
+const PAGE_COUNT = 7; // 第一层主要页面
 const stats = {
-  total: capabilities.reduce((sum, cat) => sum + cat.items.length, 0),
+  total: CARD_COUNT + SKILL_COUNT + PAGE_COUNT, // 575
+  cardTotal: CARD_COUNT, // 429
+  skillTotal: SKILL_COUNT, // 139
+  pageTotal: PAGE_COUNT, // 7
   active: capabilities.reduce((sum, cat) =>
     sum + cat.items.filter((item: any) => item.status === 'active').length, 0
   ),
@@ -36,7 +43,7 @@ export default function Home() {
               <span className="text-4xl">🌸</span>
               <div>
                 <h1 className="text-2xl font-bold text-gray-900">花卷能力中心</h1>
-                <p className="text-sm text-gray-500">完整展示花卷的所有能力</p>
+                <p className="text-sm text-gray-500">575个能力（卡片+技能+页面）| 统一叫"能力"</p>
               </div>
             </div>
             <div className="flex gap-4 text-sm flex-wrap">
@@ -44,12 +51,24 @@ export default function Home() {
                 <div className="text-pink-600 font-semibold">{stats.total}</div>
                 <div className="text-gray-600">总能力</div>
               </div>
+              <div className="bg-blue-50 px-4 py-2 rounded-lg">
+                <div className="text-blue-600 font-semibold">{stats.cardTotal}</div>
+                <div className="text-gray-600">卡片能力</div>
+              </div>
+              <div className="bg-purple-50 px-4 py-2 rounded-lg">
+                <div className="text-purple-600 font-semibold">{stats.skillTotal}</div>
+                <div className="text-gray-600">技能能力</div>
+              </div>
+              <div className="bg-cyan-50 px-4 py-2 rounded-lg">
+                <div className="text-cyan-600 font-semibold">{stats.pageTotal}</div>
+                <div className="text-gray-600">页面能力</div>
+              </div>
               <div className="bg-green-50 px-4 py-2 rounded-lg">
                 <div className="text-green-600 font-semibold">{stats.active}</div>
                 <div className="text-gray-600">正常运行</div>
               </div>
-              <div className="bg-blue-50 px-4 py-2 rounded-lg">
-                <div className="text-blue-600 font-semibold">{stats.categories}</div>
+              <div className="bg-orange-50 px-4 py-2 rounded-lg">
+                <div className="text-orange-600 font-semibold">{stats.categories}</div>
                 <div className="text-gray-600">分类</div>
               </div>
             </div>
