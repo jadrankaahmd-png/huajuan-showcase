@@ -40,23 +40,6 @@ const bookSources = [
 
 const knowledgeBase: Knowledge[] = [
   {
-    title: '$AAOI 1.6T数据中心收发器首单分析',
-    source: '个人书籍提炼系统',
-    date: '2026-03-09',
-    summary: 'AAOI首个2亿美元1.6T数据中心收发器订单，预计成为美国最大800G和1.6T收发器生产商，每月3.78亿美元收入预测逐步验证。超大规模客户（AMZN/META/GOOGL）背书。',
-    insights: [
-      '首个2亿美元1.6T收发器订单验证',
-      '预计成为美国最大800G/1.6T产能',
-      '每月3.78亿美元收入预测验证',
-      '超大规模客户（AMZN/META/GOOGL）背书',
-      '投资逻辑：执行力 > 内部交易',
-      '关键指标：后续订单、产能爬坡、收入确认'
-    ],
-    category: '投资分析'
-  }
-
-const knowledgeBase: Knowledge[] = [
-  {
     title: 'Interactive Benchmarks: 评估模型的交互学习能力',
     source: 'arXiv:2411.14451',
     date: '2026-03-05',
@@ -231,22 +214,7 @@ const knowledgeBase: Knowledge[] = [
     ],
     category: 'MCP工具'
   }
-  },
-  {
-    title: '$AAOI 1.6T数据中心收发器首单分析',
-    source: '个人书籍提炼系统',
-    date: '2026-03-09',
-    summary: 'AAOI首个2亿美元1.6T数据中心收发器订单，预计成为美国最大800G和1.6T收发器生产商，每月3.78亿美元收入预测逐步验证。超大规模客户（AMZN/META/GOOGL）背书。',
-    insights: [
-      '首个2亿美元1.6T收发器订单验证',
-      '预计成为美国最大800G/1.6T产能',
-      '每月3.78亿美元收入预测验证',
-      '超大规模客户（AMZN/META/GOOGL）背书',
-      '投资逻辑：执行力 > 内部交易',
-      '关键指标：后续订单、产能爬坡、收入确认'
-    ],
-    category: '投资分析'
-  }
+];
 
 const categories = ['全部', 'AI理论', '选股系统', '数据抓取', '投资分析', '金融分析', '数据科学', 'Agent编排', 'MCP工具'];
 
