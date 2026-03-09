@@ -5453,6 +5453,48 @@ export const capabilities = [
           dependencies: []
         }
       },
+      {
+        name: 'AI财报追踪器',
+        description: '每周自动追踪NVDA/MSFT/GOOGL等科技股财报,发布后自动生成beat/miss摘要推送Telegram',
+        status: 'active',
+        type: '监控工具',
+        details: {
+          whatItDoes: '每周日18:00自动运行,搜索下周科技/AI公司财报日历.筛选公司:NVDA,MSFT,GOOGL,META,AMZN,TSLA,AMD.结果发送到Telegram.财报发布后自动生成摘要(beat/miss,营收,EPS,关键指标).记住子涵关注的公司列表到MEMORY.md',
+          howItWorks: '使用 OpenClaw cron job 定时运行,通过 web_search 搜索财报日历和结果,自动发送到 Telegram',
+          currentStatus: '✅ 已就绪(每周日18:00运行)',
+          lastUpdate: '2026-03-09',
+          usage: 'openclaw cron create',
+          dependencies: ['web_search', 'Telegram']
+        }
+      },
+      {
+        name: '多源科技新闻摘要',
+        description: '每日9:00聚合109+来源科技新闻,质量评分筛选,发送到Telegram',
+        status: 'active',
+        type: '监控工具',
+        details: {
+          whatItDoes: '每天9:00自动运行,聚合109+来源科技新闻,质量评分筛选后发送到Telegram',
+          howItWorks: '使用 OpenClaw cron job 定时运行,聚合 RSS,Twitter,GitHub Releases,Web Search 四层数据源',
+          currentStatus: '✅ 已就绪(每天9:00运行)',
+          lastUpdate: '2026-03-09',
+          usage: 'openclaw cron create',
+          dependencies: ['web_search', 'Telegram']
+        }
+      },
+      {
+        name: 'Reddit财经情绪监控',
+        description: '每天12:00监控r/wallstreetbets等财经社区,追踪散户情绪和热门标的',
+        status: 'active',
+        type: '监控工具',
+        details: {
+          whatItDoes: '每天12:00自动运行,监控r/wallstreetbets,r/investing,r/stocks,r/options每日摘要.筛选与NVDA,MSFT,AAPL,TSLA相关帖子.结果发送到Telegram',
+          howItWorks: '使用 OpenClaw cron job 定时运行,监控 Reddit 社区情绪,追踪散户热点',
+          currentStatus: '✅ 已就绪(每天12:00运行)',
+          lastUpdate: '2026-03-09',
+          usage: 'openclaw cron create',
+          dependencies: ['web_search', 'Telegram']
+        }
+      },
     ]
   },
 
