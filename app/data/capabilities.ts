@@ -1,6 +1,6 @@
 // 第一层能力定义（自动生成）
 // ⚠️ 此文件由 SQLite 数据库自动生成，禁止手动编辑
-// 最后更新：2026-03-09T17:06:14.669Z
+// 最后更新：2026-03-09T17:16:05.734Z
 // 
 // 如需修改能力，请通过以下方式：
 // 1. 直接操作 SQLite 数据库（data/capabilities.db）
@@ -2748,6 +2748,19 @@ export const capabilities: CapabilityCategory[] = [
           file: 'aaoi_investment_thesis_2026-03-09.md',
           date: '2026-03-09',
           content: '详细分析：1.6T数据中心收发器首个2亿美元订单，产能领先，美国最大800G和1.6T生产商，超大规模客户确认'
+        }
+      },
+      {
+        name: '硅光子行业爆发：STM 300mm 量产，AI 网络需求加速',
+        description: '知识条目：硅光子行业爆发：STM 300mm 量产，AI 网络需求加速',
+        status: 'active',
+        type: '知识库',
+        icon: '📖',
+        details: {
+          source: 'knowledge_base',
+          file: 'silicon_photonics_stm_2026-03-10.md',
+          date: '2026-03-10',
+          content: '# 硅光子行业爆发：STM 300mm 量产，AI 网络需求加速\n\n**日期：** 2026-03-10 01:14\n\n---\n\n## 📰 原文\n\nBig news for the photonics sector.\n\n$STM just announced high-volume production of its PIC100 silicon photonics platform on 300mm wafers, with capacity expected to quadruple by 2027 and hyperscalers already reserving supply $AMZN (AWS).\n\nThat\'s one of the clearest confirmations yet that AI networking demand is accelerating.\n\nThis also puts $TSEM in the spotlight. Tower has been one of the leading SiPho foundries, but most '
         }
       },
     ]
