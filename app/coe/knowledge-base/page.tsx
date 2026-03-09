@@ -492,18 +492,10 @@ export default function KnowledgeBasePage() {
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-xs bg-blue-50 text-blue-600 px-2 py-1 rounded">
-                        {knowledge.category}
+                      <span className="text-xs bg-pink-100 text-pink-800 px-2 py-1 rounded-full">
+                        📖 知识条目
                       </span>
                       <span className="text-xs text-gray-500">{knowledge.date}</span>
-                      {knowledge.type && (
-                        <span className="text-xs bg-purple-50 text-purple-600 px-2 py-1 rounded">
-                          {knowledge.type}
-                        </span>
-                      )}
-                      {knowledge.icon && (
-                        <span className="text-lg">{knowledge.icon}</span>
-                      )}
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">{knowledge.title}</h3>
                     <p className="text-sm text-gray-600 mb-4">{knowledge.summary}</p>
