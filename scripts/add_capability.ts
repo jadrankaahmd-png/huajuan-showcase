@@ -1,6 +1,7 @@
 #!/usr/bin/env ts-node
 /**
- * 新增能力命令脚本
+ * 新增能力命令脚本（已修复文件权限问题）
+ * 
  * 
  * 用法：
  *   npx ts-node scripts/add_capability.ts <category> <name> <description> [type] [status]
