@@ -3032,6 +3032,60 @@ export const capabilities = [
             '📊 投资逻辑：关注NVDA及推理芯片相关标的'
           ]
         }
+      },
+      {
+        name: 'AI创业价值迁移：Copilot vs Autopilot',
+        description: 'AI创业公司价值迁移分析，从Copilot到Autopilot的商业模式转变',
+        status: 'active',
+        type: '知识条目',
+        icon: '📖',
+        details: {
+          whatItDoes: '分析AI创业公司的价值迁移路径',
+          source: 'Twitter @wangray',
+          date: '2026-03-07',
+          keyInsights: [
+            '✅ Copilot模式：辅助人类决策',
+            '✅ Autopilot模式：完全自动化',
+            '✅ 价值迁移：从工具到平台',
+            '📊 商业模式转变的关键因素'
+          ]
+        }
+      },
+      {
+        name: '模拟AI计算：物理定律取代数字计算',
+        description: '模拟AI计算技术分析，使用物理定律取代传统数字计算',
+        status: 'active',
+        type: '知识条目',
+        icon: '📖',
+        details: {
+          whatItDoes: '分析模拟AI计算的技术原理和应用',
+          source: 'Twitter @NuttyCLD',
+          date: '2026-03-07',
+          keyInsights: [
+            '✅ 物理定律计算：更快更高效',
+            '✅ 能耗降低：1000x提升',
+            '✅ 应用场景：边缘计算、IoT',
+            '📊 技术优势和挑战'
+          ]
+        }
+      },
+      {
+        name: 'LLM编程的局限性：SQLite重写案例',
+        description: 'LLM在软件工程中的局限性分析，以SQLite重写为例',
+        status: 'active',
+        type: '知识条目',
+        icon: '📖',
+        details: {
+          whatItDoes: '分析LLM在复杂编程任务中的局限性',
+          source: '技术案例分析',
+          date: '2026-03-07',
+          keyInsights: [
+            '✅ LLM无法处理大型复杂项目',
+            '✅ 上下文窗口限制',
+            '✅ 逻辑推理能力不足',
+            '📊 LLM与人类工程师的差距'
+          ]
+        }
       }
     ]
   },
