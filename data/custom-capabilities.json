@@ -1,0 +1,202 @@
+[
+  {
+    "id": "capability_1773096767686",
+    "name": "Shadcn UI 组件库",
+    "description": "2026年最受欢迎的 React UI 组件库，基于 Radix UI 和 Tailwind CSS，104,000+ GitHub stars",
+    "category": "design",
+    "categoryName": "design",
+    "type": "UI组件库",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "2026年最受欢迎的 React UI 组件库，基于 Radix UI 和 Tailwind CSS，104,000+ GitHub stars",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-09T22:52:47.686Z",
+    "updatedAt": "2026-03-09T22:52:47.686Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773096769913",
+    "name": "Lucide Icons 图标库",
+    "description": "Shadcn 默认图标库，1,668+ 个现代 SVG 图标，简洁美观，支持多种框架",
+    "category": "design",
+    "categoryName": "design",
+    "type": "图标库",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "Shadcn 默认图标库，1,668+ 个现代 SVG 图标，简洁美观，支持多种框架",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-09T22:52:49.913Z",
+    "updatedAt": "2026-03-09T22:52:49.914Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773096772090",
+    "name": "Font Awesome 图标库",
+    "description": "最流行的图标库，75,500+ GitHub stars，可缩放矢量图标，支持 CSS 自定义",
+    "category": "design",
+    "categoryName": "design",
+    "type": "图标库",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "最流行的图标库，75,500+ GitHub stars，可缩放矢量图标，支持 CSS 自定义",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-09T22:52:52.090Z",
+    "updatedAt": "2026-03-09T22:52:52.090Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773096774358",
+    "name": "Heroicons 图标库",
+    "description": "Tailwind CSS 官方图标库，450+ 免费 SVG 图标，MIT 许可，高质量设计",
+    "category": "design",
+    "categoryName": "design",
+    "type": "图标库",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "Tailwind CSS 官方图标库，450+ 免费 SVG 图标，MIT 许可，高质量设计",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-09T22:52:54.358Z",
+    "updatedAt": "2026-03-09T22:52:54.359Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773096776517",
+    "name": "Phosphor Icons 图标库",
+    "description": "灵活轻量的图标集，6种字重，支持动画图标，MIT 许可",
+    "category": "design",
+    "categoryName": "design",
+    "type": "图标库",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "灵活轻量的图标集，6种字重，支持动画图标，MIT 许可",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-09T22:52:56.517Z",
+    "updatedAt": "2026-03-09T22:52:56.517Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773096778765",
+    "name": "Mantine UI 组件库",
+    "description": "全功能的 React 组件库，120+ 组件，支持 TypeScript，活跃维护",
+    "category": "design",
+    "categoryName": "design",
+    "type": "UI组件库",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "全功能的 React 组件库，120+ 组件，支持 TypeScript，活跃维护",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-09T22:52:58.765Z",
+    "updatedAt": "2026-03-09T22:52:58.765Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773096781143",
+    "name": "Primer 设计系统",
+    "description": "GitHub 官方设计系统，Octicons 图标，设计令牌，完整的 UI 组件库",
+    "category": "design",
+    "categoryName": "design",
+    "type": "设计系统",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "GitHub 官方设计系统，Octicons 图标，设计令牌，完整的 UI 组件库",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-09T22:53:01.143Z",
+    "updatedAt": "2026-03-09T22:53:01.144Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773096783384",
+    "name": "2026 UI 设计趋势",
+    "description": "变量图标、吉祥物图标、复古未来主义、本地化设计、像素图标回归",
+    "category": "design",
+    "categoryName": "design",
+    "type": "设计趋势",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "变量图标、吉祥物图标、复古未来主义、本地化设计、像素图标回归",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-09T22:53:03.384Z",
+    "updatedAt": "2026-03-09T22:53:03.385Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773096785663",
+    "name": "Ming Cute Icons 图标库",
+    "description": "3,000+ SVG 图标，双风格（Outline/Solid），覆盖 UI 元素到专业分类",
+    "category": "design",
+    "categoryName": "design",
+    "type": "图标库",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "3,000+ SVG 图标，双风格（Outline/Solid），覆盖 UI 元素到专业分类",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-09T22:53:05.663Z",
+    "updatedAt": "2026-03-09T22:53:05.664Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773096787929",
+    "name": "Hugeicons Pro 图标库",
+    "description": "2026年热门图标库，多风格、多格式，高质量设计",
+    "category": "design",
+    "categoryName": "design",
+    "type": "图标库",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "2026年热门图标库，多风格、多格式，高质量设计",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-09T22:53:07.929Z",
+    "updatedAt": "2026-03-09T22:53:07.929Z",
+    "source": "custom"
+  }
+]

@@ -3,10 +3,11 @@
  * 统一同步脚本 - 一键同步所有能力到 Redis
  * 
  * 功能：
- * 1. 扫描 public/knowledge_base/ 目录，读取所有知识条目
- * 2. 读取 SQLite 数据库所有能力
- * 3. 全部写入 Redis
- * 4. 更新统计数字
+ * 1. 读取 data/custom-capabilities.json（自定义能力）
+ * 2. 读取 SQLite 数据库原有能力
+ * 3. 合并所有能力
+ * 4. 写入 Redis
+ * 5. 更新统计数字
  * 
  * 使用：npm run sync 或 node scripts/sync-to-redis.js
  */
@@ -23,11 +24,12 @@ const redis = new Redis({
 });
 
 async function syncCapabilities() {
-  console.log('📦 同步主能力（从 SQLite）...\n');
+  console.log('📦 同步主能力（从 SQLite + 自定义能力）...\n');
   
   const db = new Database('data/capabilities.db');
   
-  const allCaps = db.prepare(`
+  // 1. 读取 SQLite 原有能力
+  const sqliteCaps = db.prepare(`
     SELECT 
       name,
       description,
@@ -40,7 +42,7 @@ async function syncCapabilities() {
     ORDER BY category, name
   `).all();
   
-  const capabilities = allCaps.map((cap, index) => ({
+  const capabilitiesFromSqlite = sqliteCaps.map((cap, index) => ({
     id: `capability_${index + 1}`,
     name: cap.name,
     description: cap.description,
@@ -49,16 +51,47 @@ async function syncCapabilities() {
     type: cap.type,
     status: cap.status,
     icon: cap.icon,
-    details: JSON.parse(cap.details_json || '{}')
+    details: JSON.parse(cap.details_json || '{}'),
+    source: 'sqlite' // 标记来源
   }));
   
-  // 写入 Redis
-  await redis.set('capabilities:all', capabilities);
-  console.log(`✅ 写入 capabilities:all (${capabilities.length} 条)`);
+  console.log(`✅ 从 SQLite 读取 ${capabilitiesFromSqlite.length} 条能力`);
   
-  // 按分类索引
+  // 2. 读取自定义能力
+  const customCapsPath = path.join(__dirname, '../data/custom-capabilities.json');
+  let customCapabilities = [];
+  
+  if (fs.existsSync(customCapsPath)) {
+    customCapabilities = JSON.parse(fs.readFileSync(customCapsPath, 'utf-8'));
+    console.log(`✅ 从 custom-capabilities.json 读取 ${customCapabilities.length} 条自定义能力`);
+  } else {
+    console.log('⚠️  未找到 custom-capabilities.json，跳过自定义能力');
+  }
+  
+  // 3. 合并能力（自定义能力优先，因为可能更新）
+  const capabilitiesMap = new Map();
+  
+  // 先添加 SQLite 能力
+  for (const cap of capabilitiesFromSqlite) {
+    capabilitiesMap.set(cap.name, cap);
+  }
+  
+  // 再添加自定义能力（会覆盖同名能力）
+  for (const cap of customCapabilities) {
+    capabilitiesMap.set(cap.name, cap);
+  }
+  
+  const allCapabilities = Array.from(capabilitiesMap.values());
+  
+  console.log(`📊 合并后总能力数: ${allCapabilities.length} 条`);
+  
+  // 4. 写入 Redis
+  await redis.set('capabilities:all', allCapabilities);
+  console.log(`✅ 写入 capabilities:all (${allCapabilities.length} 条)`);
+  
+  // 5. 按分类索引
   const categoryMap = {};
-  for (const cap of capabilities) {
+  for (const cap of allCapabilities) {
     if (!categoryMap[cap.category]) {
       categoryMap[cap.category] = [];
     }
@@ -72,7 +105,7 @@ async function syncCapabilities() {
   
   db.close();
   
-  return capabilities;
+  return allCapabilities;
 }
 
 async function syncKnowledge() {
@@ -198,9 +231,12 @@ async function updateStats(capabilities, knowledge, books, subPages) {
   console.log('\n📦 更新统计数据...\n');
   
   const uniqueCapabilities = new Set(capabilities.map(c => c.name)).size;
+  const customCaps = capabilities.filter(c => c.source === 'custom');
   
   const stats = {
     mainCapabilities: uniqueCapabilities,
+    customCapabilities: customCaps.length,
+    sqliteCapabilities: capabilities.length - customCaps.length,
     knowledge: knowledge.length,
     books: books.length,
     iran: subPages.iran,
@@ -215,6 +251,8 @@ async function updateStats(capabilities, knowledge, books, subPages) {
   console.log('✅ 写入 stats:total');
   console.log('\n📊 总统计:');
   console.log('  - 主能力：', stats.mainCapabilities);
+  console.log('    - SQLite 能力：', stats.sqliteCapabilities);
+  console.log('    - 自定义能力：', stats.customCapabilities);
   console.log('  - 知识条目：', stats.knowledge);
   console.log('  - 书籍：', stats.books);
   console.log('  - 伊朗局势：', stats.iran);
@@ -276,29 +314,3 @@ async function main() {
 }
 
 main();
-
-// 同步第二层和第三层
-async function syncLayers() {
-  console.log('\n📦 同步第二层和第三层数据...\n');
-  
-  const { Redis } = require('@upstash/redis');
-  const redis = new Redis({
-    url: process.env.UPSTASH_REDIS_REST_URL || 'https://valued-hamster-37498.upstash.io',
-    token: process.env.UPSTASH_REDIS_REST_TOKEN || 'AZJ6AAIncDE1YzRlYzY3NzI5OTU0MWIzOTM5YzNjMWE2NDkzMTkyZHAxMzc0OTg',
-  });
-  
-  // 第二层
-  const layer2 = require('./sync-layers-to-redis.js');
-  await layer2.syncLayer2();
-  
-  // 第三层
-  await layer2.syncLayer3();
-  
-  // 全站统计
-  await layer2.updateGlobalStats();
-}
-
-// 添加到主流程
-if (require.main === module) {
-  // 已经在运行
-}
