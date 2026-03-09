@@ -1,6 +1,6 @@
 // 第一层能力定义（自动生成）
 // ⚠️ 此文件由 SQLite 数据库自动生成，禁止手动编辑
-// 最后更新：2026-03-09T18:01:29.426Z
+// 最后更新：2026-03-09T18:13:33.113Z
 // 
 // 如需修改能力，请通过以下方式：
 // 1. 直接操作 SQLite 数据库（data/capabilities.db）
@@ -2768,7 +2768,7 @@ export const capabilities: CapabilityCategory[] = [
   {
     category: 'memory',
     name: '记忆系统',
-    icon: '🧠',
+    icon: '📚',
     items: [
       {
         name: 'OpenViking 革命性记忆数据库',
@@ -2873,7 +2873,7 @@ export const capabilities: CapabilityCategory[] = [
   {
     category: 'memory-optimization',
     name: '记忆与优化系统',
-    icon: '🧠',
+    icon: '📚',
     items: [
       {
         name: 'Context Compressor',
