@@ -198,5 +198,85 @@
     "createdAt": "2026-03-09T22:53:07.929Z",
     "updatedAt": "2026-03-09T22:53:07.929Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773097339994",
+    "name": "半导体行业竞争分析能力",
+    "description": "深入分析Micron、三星、SK海力士三强竞争格局，打破刻板印象，识别被忽视的竞争优势，基于财务数据和技术路线图的中立评估",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "分析框架",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "深入分析Micron、三星、SK海力士三强竞争格局，打破刻板印象，识别被忽视的竞争优势，基于财务数据和技术路线图的中立评估",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-09T23:02:19.994Z",
+    "updatedAt": "2026-03-09T23:02:19.994Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773097342302",
+    "name": "DRAM技术路线图追踪",
+    "description": "监控EUV节点进展（1-gamma/1c），bit密度提升、功耗优化、速度提升指标，三强技术路线对比（Micron 1γ vs Samsung/SK 1c）",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "技术分析",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "监控EUV节点进展（1-gamma/1c），bit密度提升、功耗优化、速度提升指标，三强技术路线对比（Micron 1γ vs Samsung/SK 1c）",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-09T23:02:22.302Z",
+    "updatedAt": "2026-03-09T23:02:22.303Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773097344731",
+    "name": "LPDDR服务器内存市场分析",
+    "description": "追踪数据中心LPDDR市场，NVIDIA GB/Rubin、Qualcomm AI200/250、Intel Crescent Island等芯片LPDDR采用情况，SOCAMM新封装格式，TAM扩张机会",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "市场分析",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "追踪数据中心LPDDR市场，NVIDIA GB/Rubin、Qualcomm AI200/250、Intel Crescent Island等芯片LPDDR采用情况，SOCAMM新封装格式，TAM扩张机会",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-09T23:02:24.731Z",
+    "updatedAt": "2026-03-09T23:02:24.732Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773097347028",
+    "name": "数据中心SSD市场追踪",
+    "description": "监控数据中心SSD市场份额变化，PCIe Gen5/Gen6技术升级，NVIDIA GB200 NVL72供应商列表，AI/数据中心战略聚焦",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "市场分析",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "监控数据中心SSD市场份额变化，PCIe Gen5/Gen6技术升级，NVIDIA GB200 NVL72供应商列表，AI/数据中心战略聚焦",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-09T23:02:27.028Z",
+    "updatedAt": "2026-03-09T23:02:27.029Z",
+    "source": "custom"
   }
 ]
