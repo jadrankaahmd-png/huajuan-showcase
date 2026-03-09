@@ -1,36 +1,110 @@
 'use client';
 
-import { useState } from 'react';
-import Link from 'next/link';
+import { useState, useEffect } from 'react';
 import Navigation from '@/components/Navigation';
 import CapabilityCard from '../components/CapabilityCard';
 import CapabilityDetail from '../components/CapabilityDetail';
-import { capabilities, getTotalCapabilities } from '../data/capabilities';
 
-// 在组件外预计算统计数据（静态导出时可用）
-// 总能力数 = 统一从 getTotalCapabilities() 获取
-const stats = {
-  total: getTotalCapabilities(), // 统一数据源，自动计算
-  active: capabilities.reduce((sum, cat) =>
-    sum + cat.items.filter((item: any) => item.status === 'active').length, 0
-  ),
-  categories: capabilities.length
-};
+interface Capability {
+  id: string;
+  name: string;
+  description: string;
+  category: string;
+  categoryName: string;
+  type: string;
+  status: string;
+  icon: string;
+  details: any;
+}
+
+interface Category {
+  category: string;
+  name: string;
+  items: Capability[];
+}
 
 export default function Home() {
+  const [capabilities, setCapabilities] = useState<Category[]>([]);
   const [selectedCapability, setSelectedCapability] = useState<any>(null);
   const [activeCategory, setActiveCategory] = useState<string>('all');
+  const [isLoading, setIsLoading] = useState(true);
+  const [stats, setStats] = useState({
+    total: 0,
+    active: 0,
+    categories: 0
+  });
+
+  // 从 API 加载能力数据
+  useEffect(() => {
+    async function fetchCapabilities() {
+      try {
+        const res = await fetch('/api/capabilities');
+        const data = await res.json();
+        
+        // 将扁平化的能力按分类分组
+        const categoryMap = new Map<string, Category>();
+        const allCaps = data.capabilities || [];
+        
+        let activeCount = 0;
+        
+        for (const cap of allCaps) {
+          const category = cap.category;
+          
+          if (!categoryMap.has(category)) {
+            categoryMap.set(category, {
+              category: category,
+              name: cap.categoryName || category,
+              items: []
+            });
+          }
+          
+          categoryMap.get(category)!.items.push(cap);
+          
+          if (cap.status === 'active') {
+            activeCount++;
+          }
+        }
+        
+        setCapabilities(Array.from(categoryMap.values()));
+        setStats({
+          total: data.stats?.total || allCaps.length,
+          active: activeCount,
+          categories: categoryMap.size
+        });
+      } catch (error) {
+        console.error('Error fetching capabilities:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    
+    fetchCapabilities();
+  }, []);
 
   const filteredCapabilities = activeCategory === 'all'
     ? capabilities
     : capabilities.filter(cat => cat.category === activeCategory);
+
+  if (isLoading) {
+    return (
+      <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+        <Navigation currentLayer={1} />
+        <div className="flex items-center justify-center min-h-[60vh]">
+          <div className="text-center">
+            <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-pink-500"></div>
+            <p className="mt-4 text-gray-600">加载能力中心...</p>
+          </div>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       {/* 统一导航栏 */}
       <Navigation currentLayer={1} />
       
-      {/* 旧的Header内容 */}
+      {/* Header */}
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between flex-wrap gap-4">
@@ -99,10 +173,10 @@ export default function Home() {
               className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
                 activeCategory === cat.category
                   ? 'bg-pink-500 text-white shadow-lg'
-              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
-              {cat.icon} {cat.name}
+              {cat.name} ({cat.items.length})
             </button>
           ))}
         </div>
@@ -110,19 +184,21 @@ export default function Home() {
 
       {/* Capabilities Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-        {filteredCapabilities.map(category => (
-          <div key={category.category} className="mb-10">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-2xl">{category.icon}</span>
-              <h2 className="text-xl font-bold text-gray-800">{category.name}</h2>
-              <span className="text-sm text-gray-500">({category.items.length})</span>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-              {category.items.map((item: any, idx: number) => (
+        {filteredCapabilities.map(cat => (
+          <div key={cat.category} className="mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+              <span className="text-3xl">{cat.items[0]?.icon || '📋'}</span>
+              {cat.name}
+              <span className="text-sm font-normal text-gray-500">
+                ({cat.items.length} 个能力)
+              </span>
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {cat.items.map((capability, index) => (
                 <CapabilityCard
-                  key={`${category.category}-${idx}`}
-                  capability={item}
-                  onClick={() => setSelectedCapability({ ...item, category: category.name })}
+                  key={index}
+                  capability={capability}
+                  onClick={() => setSelectedCapability(capability)}
                 />
               ))}
             </div>
@@ -137,21 +213,6 @@ export default function Home() {
           onClose={() => setSelectedCapability(null)}
         />
       )}
-
-      {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 mt-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col sm:flex-row items-center justify-between text-sm text-gray-600 gap-2">
-            <div className="flex items-center gap-2">
-              <span>🌸</span>
-              <span>花卷能力展示页 v1.0</span>
-            </div>
-            <div className="text-center sm:text-right text-gray-500">
-              自动更新机制：每当花卷新增能力，本页面自动同步
-            </div>
-          </div>
-        </div>
-      </footer>
     </main>
   );
 }

@@ -21,13 +21,19 @@ interface BookSource {
   example: string;
 }
 
+interface Stats {
+  knowledge: number;
+  bookSources: number;
+  grandTotal: number;
+}
+
 export default function KnowledgeBasePage() {
   const [knowledge, setKnowledge] = useState<Knowledge[]>([]);
   const [bookSources, setBookSources] = useState<BookSource[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [isLoading, setIsLoading] = useState(true);
-  const [stats, setStats] = useState({
+  const [stats, setStats] = useState<Stats>({
     knowledge: 0,
     bookSources: 0,
     grandTotal: 0
@@ -233,10 +239,10 @@ export default function KnowledgeBasePage() {
             <div className="flex flex-col sm:flex-row items-center justify-between text-sm text-gray-600 gap-2">
               <div className="flex items-center gap-2">
                 <span>🌸</span>
-                <span>花卷知识库 v3.0（完全动态化）</span>
+                <span>花卷知识库 v4.0（Redis 驱动）</span>
               </div>
               <div className="text-center sm:text-right text-gray-500">
-                最后更新：{new Date().toLocaleDateString('zh-CN')} · 持续学习机制已启用
+                数据来源：Upstash Redis · 实时同步
               </div>
             </div>
           </div>
