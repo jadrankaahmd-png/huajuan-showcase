@@ -1,0 +1,20 @@
+{
+  "running": [],
+  "retrying": [],
+  "stats": {
+    "total_analyzed": 5,
+    "successful": 5,
+    "failed": 0,
+    "retries": 0,
+    "running_count": 0,
+    "retrying_count": 0,
+    "completed_count": 5,
+    "claimed_count": 0
+  },
+  "config": {
+    "max_concurrent_agents": 8,
+    "max_retry_attempts": 3,
+    "analysis_timeout_hours": 1
+  },
+  "timestamp": "2026-03-05T23:30:48.278781"
+}
