@@ -2978,7 +2978,6 @@ export const capabilities = [
       },
       {
         name: 'GLM MCP 深度测试成功',
-      ,{ name: '$AAOI 1.6T数据中心收发器首单分析', icon: '🔍', description: 'AAOI首个2亿美元1.6T收发器订单，预计成为美国最大800G/1.6T产能' }
         description: '🎉 GLM MCP 深度测试全部通过！4个工具（联网搜索、网页读取、视觉理解、开源仓库）测试成功率100%',
         status: 'active',
         type: '知识条目',
