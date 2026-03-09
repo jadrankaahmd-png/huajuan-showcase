@@ -314,6 +314,23 @@ const capabilitiesKnowledge: Knowledge[] = [
     category: '投资分析',
     type: '知识条目',
     icon: '📖'
+  },
+  {
+    title: 'Groq被NVIDIA收购：推理芯片商业量产',
+    source: '市场新闻',
+    date: '2026-03-09',
+    summary: 'NVIDIA以约200亿美元收购Groq，三星代工厂晶圆产量从9000片提升至15000片，进入推理芯片商业量产阶段',
+    insights: [
+      'NVIDIA约200亿美元收购Groq',
+      '三星代工产能提升（9000 → 15000片）',
+      'GTC 2026发布推理专用芯片',
+      '用SRAM替代HBM（更快、更高效、更低成本）',
+      '投资逻辑：关注NVDA及推理芯片相关标的',
+      '关键指标：收购金额、产能提升、发布时间'
+    ],
+    category: '投资分析',
+    type: '知识条目',
+    icon: '📖'
   }
 ];
 
