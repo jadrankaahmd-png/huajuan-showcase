@@ -1,6 +1,6 @@
 // 第一层能力定义（自动生成）
 // ⚠️ 此文件由 SQLite 数据库自动生成，禁止手动编辑
-// 最后更新：2026-03-09T16:47:26.375Z
+// 最后更新：2026-03-09T16:50:51.325Z
 // 
 // 如需修改能力，请通过以下方式：
 // 1. 直接操作 SQLite 数据库（data/capabilities.db）
@@ -2735,6 +2735,19 @@ export const capabilities: CapabilityCategory[] = [
           source: '技术案例分析',
           date: '2026-03-07',
           keyInsights: ['✅ LLM无法处理大型复杂项目', '✅ 上下文窗口限制', '✅ 逻辑推理能力不足', '📊 LLM与人类工程师的差距']
+        }
+      },
+      {
+        name: '$AAOI 1.6T数据中心收发器首单分析',
+        description: 'AAOI 1.6T数据中心收发器首个2亿美元订单分析',
+        status: 'active',
+        type: '知识库',
+        icon: '📖',
+        details: {
+          source: 'knowledge_base',
+          file: 'aaoi_investment_thesis_2026-03-09.md',
+          date: '2026-03-09',
+          content: '1.6T数据中心收发器首个2亿美元订单，产能领先，美国最大800G和1.6T生产商'
         }
       },
     ]
