@@ -14,7 +14,14 @@ interface KnowledgeEntry {
 
 export async function GET() {
   try {
-    const knowledgeDir = path.join(process.cwd(), '..', 'knowledge_base');
+    // Vercel 部署：knowledge_base 在 public/ 目录下
+    // 本地开发：knowledge_base 在项目根目录的上一级
+    let knowledgeDir = path.join(process.cwd(), 'public', 'knowledge_base');
+
+    if (!fs.existsSync(knowledgeDir)) {
+      // 本地开发环境
+      knowledgeDir = path.join(process.cwd(), '..', 'knowledge_base');
+    }
 
     if (!fs.existsSync(knowledgeDir)) {
       return NextResponse.json({ knowledge: [], total: 0 });
