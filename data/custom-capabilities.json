@@ -278,5 +278,65 @@
     "createdAt": "2026-03-09T23:02:27.028Z",
     "updatedAt": "2026-03-09T23:02:27.029Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773097454662",
+    "name": "HBM4技术竞争格局深度分析",
+    "description": "追踪HBM4三强技术差距（1c/1b/1-beta DRAM工艺，4nm/TSMC/CMOS base die），TSV 2048-bit I/O信号干扰问题，11Gbps+高速规格达成能力，NVIDIA Rubin/Vera供应链分配",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "深度分析",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "追踪HBM4三强技术差距（1c/1b/1-beta DRAM工艺，4nm/TSMC/CMOS base die），TSV 2048-bit I/O信号干扰问题，11Gbps+高速规格达成能力，NVIDIA Rubin/Vera供应链分配",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-09T23:04:14.662Z",
+    "updatedAt": "2026-03-09T23:04:14.662Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773097456887",
+    "name": "半导体工艺节点与产品错配分析",
+    "description": "识别同一公司不同产品线工艺节点差异（如Micron 1-gamma在DDR5领先但HBM4落后），时间差对竞争力的影响，工艺迁移优先级策略",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "战略分析",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "识别同一公司不同产品线工艺节点差异（如Micron 1-gamma在DDR5领先但HBM4落后），时间差对竞争力的影响，工艺迁移优先级策略",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-09T23:04:16.887Z",
+    "updatedAt": "2026-03-09T23:04:16.888Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773097459183",
+    "name": "内存供应链地缘政治分析",
+    "description": "分析NVIDIA HBM供应链的复杂性：技术竞争+地缘政治+供应链多元化+三强谈判博弈，预测供应份额分配逻辑，识别被低估的供应商价值",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "战略分析",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "分析NVIDIA HBM供应链的复杂性：技术竞争+地缘政治+供应链多元化+三强谈判博弈，预测供应份额分配逻辑，识别被低估的供应商价值",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-09T23:04:19.183Z",
+    "updatedAt": "2026-03-09T23:04:19.183Z",
+    "source": "custom"
   }
 ]
