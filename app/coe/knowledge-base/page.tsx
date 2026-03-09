@@ -370,12 +370,20 @@ export default function KnowledgeBasePage() {
             </div>
             <div className="flex gap-4 text-sm flex-wrap">
               <div className="bg-pink-50 px-4 py-2 rounded-lg">
-                <div className="text-pink-600 font-semibold">{allKnowledge.length}</div>
+                <div className="text-pink-600 font-semibold">{capabilitiesKnowledge.length}</div>
                 <div className="text-gray-600">知识条目</div>
               </div>
               <div className="bg-green-50 px-4 py-2 rounded-lg">
                 <div className="text-green-600 font-semibold">{categories.length - 1}</div>
                 <div className="text-gray-600">分类</div>
+              </div>
+              <div className="bg-blue-50 px-4 py-2 rounded-lg">
+                <div className="text-blue-600 font-semibold">{bookSources.length}</div>
+                <div className="text-gray-600">合法书籍知识库</div>
+              </div>
+              <div className="bg-purple-50 px-4 py-2 rounded-lg">
+                <div className="text-purple-600 font-semibold">{allKnowledge.length + bookSources.length}</div>
+                <div className="text-gray-600">知识库总数</div>
               </div>
             </div>
           </div>
