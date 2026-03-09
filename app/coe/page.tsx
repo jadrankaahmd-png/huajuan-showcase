@@ -69,10 +69,10 @@ export default function Home() {
           categoryMap.set(cat.category, {
             category: cat.category,
             name: cat.name || cat.category,
-            items: cat.items.filter(item => item && item.status === 'active')
+            items: cat.items.filter((item: Capability) => item && item.status === 'active')
           });
           
-          activeCount += cat.items.filter((item: any) => item && item.status === 'active').length;
+          activeCount += cat.items.filter((item: Capability) => item && item.status === 'active').length;
         }
         
         setCapabilities(Array.from(categoryMap.values()));
