@@ -28,6 +28,7 @@ export default function Home() {
   const [selectedCapability, setSelectedCapability] = useState<any>(null);
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [stats, setStats] = useState({
     total: 0,
     active: 0,
@@ -38,41 +39,54 @@ export default function Home() {
   useEffect(() => {
     async function fetchCapabilities() {
       try {
+        setIsLoading(true);
+        setError(null);
+        
         const res = await fetch('/api/capabilities');
+        
+        if (!res.ok) {
+          throw new Error(`API 返回错误: ${res.status} ${res.statusText}`);
+        }
+        
         const data = await res.json();
         
-        // 将扁平化的能力按分类分组
+        // 检查返回的数据格式
+        if (!data || !Array.isArray(data.capabilities)) {
+          throw new Error('API 返回数据格式错误');
+        }
+        
+        // 处理分类数据
         const categoryMap = new Map<string, Category>();
         const allCaps = data.capabilities || [];
         
         let activeCount = 0;
         
-        for (const cap of allCaps) {
-          const category = cap.category;
-          
-          if (!categoryMap.has(category)) {
-            categoryMap.set(category, {
-              category: category,
-              name: cap.categoryName || category,
-              items: []
-            });
+        for (const cat of allCaps) {
+          if (!cat || !cat.category || !Array.isArray(cat.items)) {
+            continue; // 跳过无效数据
           }
           
-          categoryMap.get(category)!.items.push(cap);
+          categoryMap.set(cat.category, {
+            category: cat.category,
+            name: cat.name || cat.category,
+            items: cat.items.filter(item => item && item.status === 'active')
+          });
           
-          if (cap.status === 'active') {
-            activeCount++;
-          }
+          activeCount += cat.items.filter((item: any) => item && item.status === 'active').length;
         }
         
         setCapabilities(Array.from(categoryMap.values()));
         setStats({
-          total: data.stats?.total || allCaps.length,
+          total: data.stats?.grandTotal || 0,
           active: activeCount,
           categories: categoryMap.size
         });
       } catch (error) {
         console.error('Error fetching capabilities:', error);
+        setError(error instanceof Error ? error.message : '加载能力数据失败');
+        // 设置空数据，防止页面崩溃
+        setCapabilities([]);
+        setStats({ total: 0, active: 0, categories: 0 });
       } finally {
         setIsLoading(false);
       }
@@ -85,6 +99,29 @@ export default function Home() {
     ? capabilities
     : capabilities.filter(cat => cat.category === activeCategory);
 
+  // 错误状态
+  if (error) {
+    return (
+      <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+        <Navigation currentLayer={1} />
+        <div className="flex items-center justify-center min-h-[60vh]">
+          <div className="text-center">
+            <div className="text-6xl mb-4">⚠️</div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">加载失败</h2>
+            <p className="text-gray-600 mb-4">{error}</p>
+            <button
+              onClick={() => window.location.reload()}
+              className="px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition-colors"
+            >
+              重新加载
+            </button>
+          </div>
+        </div>
+      </main>
+    );
+  }
+
+  // 加载状态
   if (isLoading) {
     return (
       <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
@@ -184,26 +221,32 @@ export default function Home() {
 
       {/* Capabilities Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-        {filteredCapabilities.map(cat => (
-          <div key={cat.category} className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-              <span className="text-3xl">{cat.items[0]?.icon || '📋'}</span>
-              {cat.name}
-              <span className="text-sm font-normal text-gray-500">
-                ({cat.items.length} 个能力)
-              </span>
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {cat.items.map((capability, index) => (
-                <CapabilityCard
-                  key={index}
-                  capability={capability}
-                  onClick={() => setSelectedCapability(capability)}
-                />
-              ))}
-            </div>
+        {filteredCapabilities.length === 0 ? (
+          <div className="text-center py-12 text-gray-500">
+            暂无能力数据
           </div>
-        ))}
+        ) : (
+          filteredCapabilities.map(cat => (
+            <div key={cat.category} className="mb-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <span className="text-3xl">{cat.items[0]?.icon || '📋'}</span>
+                {cat.name}
+                <span className="text-sm font-normal text-gray-500">
+                  ({cat.items.length} 个能力)
+                </span>
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {cat.items.map((capability, index) => (
+                  <CapabilityCard
+                    key={index}
+                    capability={capability}
+                    onClick={() => setSelectedCapability(capability)}
+                  />
+                ))}
+              </div>
+            </div>
+          ))
+        )}
       </div>
 
       {/* Detail Modal */}
