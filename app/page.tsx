@@ -4,6 +4,17 @@ import Navigation from '@/components/Navigation';
 import Link from 'next/link';
 import { getTotalCapabilities } from './data/capabilities';
 import { motion } from 'framer-motion';
+import { 
+  Sparkles, 
+  Bot, 
+  Zap, 
+  Target,
+  TrendingUp,
+  Activity,
+  Database,
+  Cpu,
+  Rocket
+} from 'lucide-react';
 
 export default function Home() {
   const totalCapabilities = getTotalCapabilities();
@@ -21,7 +32,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <motion.div 
-              className="text-8xl mb-6"
+              className="flex justify-center mb-6"
               animate={{ 
                 scale: [1, 1.1, 1],
                 rotate: [0, 5, -5, 0]
@@ -32,7 +43,7 @@ export default function Home() {
                 ease: "easeInOut"
               }}
             >
-              🌸
+              <Sparkles className="w-20 h-20" style={{ color: '#ff6b9d' }} />
             </motion.div>
             <motion.h1 
               className="text-5xl font-bold mb-4"
@@ -60,9 +71,9 @@ export default function Home() {
             
             <div className="flex justify-center gap-4 flex-wrap">
               {[
-                { value: `${totalCapabilities}+`, label: '总能力', color: '#ff6b9d', bgColor: '#fff0f5' },
-                { value: '3', label: '层级架构', color: '#9c88ff', bgColor: '#f0f4ff' },
-                { value: 'AI', label: '智能驱动', color: '#74b9ff', bgColor: '#e8f4ff' }
+                { value: `${totalCapabilities}+`, label: '总能力', color: '#ff6b9d', bgColor: '#fff0f5', Icon: Database },
+                { value: '3', label: '层级架构', color: '#9c88ff', bgColor: '#f0f4ff', Icon: Cpu },
+                { value: 'AI', label: '智能驱动', color: '#74b9ff', bgColor: '#e8f4ff', Icon: Rocket }
               ].map((stat, index) => (
                 <motion.div
                   key={index}
@@ -80,7 +91,10 @@ export default function Home() {
                     boxShadow: '0 8px 25px rgba(255,107,157,0.3)'
                   }}
                 >
-                  <div className="text-3xl font-bold" style={{ color: stat.color }}>{stat.value}</div>
+                  <div className="flex items-center justify-center gap-2">
+                    <stat.Icon className="w-5 h-5" style={{ color: stat.color }} />
+                    <div className="text-3xl font-bold" style={{ color: stat.color }}>{stat.value}</div>
+                  </div>
                   <div className="text-sm" style={{ color: '#8b7b9e' }}>{stat.label}</div>
                 </motion.div>
               ))}
@@ -153,7 +167,7 @@ export default function Home() {
             {[
               {
                 href: '/coe',
-                emoji: '⚡',
+                Icon: Sparkles,
                 title: '第一层：能力中心',
                 desc: `数据采集与基础能力层，包含${totalCapabilities}+个能力`,
                 features: ['全球宏观地缘风险监控', '实时数据采集', '新闻情绪分析', 'Telegram新闻流', '知识库系统'],
@@ -163,7 +177,7 @@ export default function Home() {
               },
               {
                 href: '/dynamic-model',
-                emoji: '⚡',
+                Icon: Bot,
                 title: '第二层：动态模型',
                 desc: 'AI分析与量化策略层，智能研判市场',
                 features: ['AI自动研究引擎', '量化策略回测', '市场情绪分析', 'AI美股市场分析师', 'QVeris 万级数据接入'],
@@ -173,7 +187,7 @@ export default function Home() {
               },
               {
                 href: '/stock-picker',
-                emoji: '⚡',
+                Icon: Target,
                 title: '第三层：选股推荐',
                 desc: '真实选股推荐层，输出投资决策',
                 features: ['智能选股系统', '风险评估模型', '投资组合优化', '实时推荐更新', '回测验证'],
@@ -202,11 +216,11 @@ export default function Home() {
                   }}
                 >
                   <motion.div 
-                    className="text-6xl mb-4"
+                    className="flex justify-center mb-4"
                     animate={{ rotate: [0, 10, -10, 0] }}
                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                   >
-                    {layer.emoji}
+                    <layer.Icon className="w-16 h-16" style={{ color: layer.textColor }} />
                   </motion.div>
                   <h3 className="text-2xl font-bold mb-2" style={{ color: layer.textColor }}>
                     {layer.title}
@@ -264,10 +278,10 @@ export default function Home() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8" style={{ gap: '2rem' }}>
             {[
-              { emoji: '📊', title: `${totalCapabilities}+能力`, desc: '数据采集、分析、监控全覆盖', color: '#ff6b9d', bgColor: '#fff0f5' },
-              { emoji: '🤖', title: 'AI驱动', desc: '智能分析、自动研判', color: '#9c88ff', bgColor: '#f0f4ff' },
-              { emoji: '⚡', title: '实时数据', desc: '全球数据实时更新', color: '#74b9ff', bgColor: '#e8f4ff' },
-              { emoji: '🎯', title: '真实推荐', desc: '可执行的投资建议', color: '#ffb347', bgColor: '#fff8e8' }
+              { Icon: TrendingUp, title: `${totalCapabilities}+能力`, desc: '数据采集、分析、监控全覆盖', color: '#ff6b9d', bgColor: '#fff0f5' },
+              { Icon: Bot, title: 'AI驱动', desc: '智能分析、自动研判', color: '#9c88ff', bgColor: '#f0f4ff' },
+              { Icon: Activity, title: '实时数据', desc: '全球数据实时更新', color: '#74b9ff', bgColor: '#e8f4ff' },
+              { Icon: Target, title: '真实推荐', desc: '可执行的投资建议', color: '#ffb347', bgColor: '#fff8e8' }
             ].map((advantage, index) => (
               <motion.div
                 key={index}
@@ -288,14 +302,14 @@ export default function Home() {
                 }}
               >
                 <motion.div 
-                  className="text-5xl mb-4"
+                  className="flex justify-center mb-4"
                   animate={{ 
                     scale: [1, 1.2, 1],
                     rotate: [0, 10, -10, 0]
                   }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: index * 0.5 }}
                 >
-                  {advantage.emoji}
+                  <advantage.Icon className="w-12 h-12" style={{ color: advantage.color }} />
                 </motion.div>
                 <h3 className="text-xl font-bold mb-2" style={{ color: advantage.color }}>
                   {advantage.title}
