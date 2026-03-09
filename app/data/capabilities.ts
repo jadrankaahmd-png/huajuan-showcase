@@ -2741,265 +2741,17 @@ export const capabilities = [
 
   // 知识库系统（核心能力）
   {
+  {
     category: 'knowledge-base',
     name: '知识库系统',
+    description: '持续学习机制，整合个人书籍提炼系统',
     icon: '📚',
     items: [
-      {
-        name: '知识库更新流程',
-        description: '自动学习和保存有价值的信息',
-        status: 'active',
-        type: '知识库',
-        details: {
-          whatItDoes: '当子涵说"这个信息有价值"时，自动分析、分类、归档、应用',
-          howItWorks: '信息收集 → 分析价值 → 分类归档 → 整合应用 → 确认反馈',
-          currentStatus: '✅ 正常运行\n- 自动触发\n- 分类归档\n- 整合应用',
-          usage: '子涵说"这个信息有价值"或"保存到知识库"',
-          dependencies: ['MEMORY.md', '量化学习/', 'TOOLS.md']
-        }
-      },
-      {
-        name: '已保存的重要洞察',
-        description: '5个核心洞察（量化、量子计算、CTA模型、黄金投资）',
-        status: 'active',
-        type: '知识库',
-        details: {
-          whatItDoes: '存储历史上子涵分享的所有重要洞察',
-          currentStatus: '✅ 正常运行\n- 子涵量化洞察（回测价值）\n- Jensen Huang量子计算洞察\n- CTA模型卖出信号\n- 黄金投资宏观框架',
-          usage: 'MEMORY.md',
-          dependencies: ['MEMORY.md']
-        }
-      },
-      {
-        name: '行业分析知识库',
-        description: '按行业分类的深度分析框架',
-        status: 'active',
-        type: '知识库',
-        details: {
-          whatItDoes: '存储不同行业的深度分析框架和洞察',
-          currentStatus: '✅ 正常运行\n- 量子计算（Jensen Huang洞察）\n- IONQ vs RGTI对比\n- 半导体行业\n- AI行业',
-          usage: '知识储备库/',
-          dependencies: ['Markdown']
-        }
-      },
-      {
-        name: '量化策略库',
-        description: '量化策略和学习材料',
-        status: 'active',
-        type: '知识库',
-        details: {
-          whatItDoes: '存储量化策略、回测技术、学习材料',
-          currentStatus: '✅ 正常运行\n- 知识储备库/量化策略/',
-          usage: '知识储备库/量化策略/',
-          dependencies: ['Python', 'Markdown']
-        }
-      },
-      {
-        name: 'Interactive Benchmarks: 评估模型的交互学习能力',
-        description: '评估AI模型"主动获取信息"能力的革命性基准测试方法',
-        status: 'active',
-        type: '知识条目',
-        icon: '📖',
-        details: {
-          whatItDoes: '通过交互学习评估AI模型的主动信息获取能力',
-          source: 'arXiv:2411.14451',
-          date: '2026-03-05',
-          keyInsights: [
-            '智能不仅是回答问题，更是提问的能力',
-            '从"答案导向"到"过程导向"的范式转变',
-            '主动获取信息比被动接收更重要'
-          ]
-        }
-      },
-      {
-        name: '选股系统的交互式学习应用',
-        description: '将交互式学习理论应用到选股系统，实现从"静态推荐"到"动态学习"的革命性改进',
-        status: 'active',
-        type: '知识条目',
-        icon: '📖',
-        details: {
-          whatItDoes: '实现选股系统的交互式学习和持续优化',
-          source: '基于Interactive Benchmarks论文',
-          date: '2026-03-05',
-          keyInsights: [
-            '主动识别信息缺口并补充',
-            '持续监控市场动态并更新评估',
-            '验证投资假设并持续优化'
-          ]
-        }
-      },
-      {
-        name: 'Agent Reach 数据抓取系统',
-        description: 'Agent Reach是一个强大的数据抓取系统，支持Twitter、Reddit、YouTube、B站等7个平台的数据抓取和情绪分析',
-        status: 'active',
-        type: '知识条目',
-        icon: '📖',
-        details: {
-          whatItDoes: '支持7个平台的数据抓取和情绪分析',
-          source: 'Agent Reach v1.3.0',
-          date: '2026-03-05',
-          keyInsights: [
-            'Twitter/X推文抓取和情绪分析',
-            'Reddit帖子和评论抓取',
-            'YouTube和B站视频信息提取',
-            '全网语义搜索（Exa，免费）',
-            '任意网页读取（Jina Reader）'
-          ]
-        }
-      },
-      {
-        name: '$AAOI 深度投资分析：6.3倍上涨空间',
-        description: 'Applied Optoelectronics ($AAOI) 当前市值$7.5B，目标估值$47.6B。垂直整合能力、美国制造、AI数据中心需求驱动',
-        status: 'active',
-        type: '知识条目',
-        icon: '📖',
-        details: {
-          whatItDoes: '个股深度投资分析和估值',
-          source: '个人书籍提炼系统',
-          date: '2026-03-05',
-          keyInsights: [
-            '当前市值$7.5B → 目标市值$47.6B',
-            '垂直整合：激光器制造+设计+组装',
-            '德克萨斯州产能增加三倍',
-            '超大规模企业买断所有产能',
-            '投资建议：是的，毫无疑问（Yes, Unequivocally）'
-          ]
-        }
-      },
-      {
-        name: 'Phase 3: 假设验证机制',
-        description: '实现投资假设的量化验证系统，支持4种假设类型（股价目标、市值目标、涨幅、时间）',
-        status: 'active',
-        type: '知识条目',
-        icon: '📖',
-        details: {
-          whatItDoes: '实现投资假设的量化验证系统',
-          source: 'Interactive Benchmarks论文应用',
-          date: '2026-03-05',
-          keyInsights: [
-            '4种假设类型识别与解析',
-            '量化验证模型（0-100%合理性）',
-            '信心度评估（very_high到very_low）',
-            '验证报告自动生成',
-            '投资建议智能推荐'
-          ]
-        }
-      },
-      {
-        name: 'Phase 1: 股票分析编排器',
-        description: '实现单一权威状态管理系统，协调8大Agent（基本面、技术面、情绪、风险等）进行分析',
-        status: 'active',
-        type: '知识条目',
-        icon: '📖',
-        details: {
-          whatItDoes: '协调8大Agent进行股票分析',
-          source: 'OpenAI Symphony 架构设计',
-          date: '2026-03-05',
-          keyInsights: [
-            '单一权威状态管理（Source of Truth）',
-            '8大Agent协调（权重总和100%）',
-            '错误恢复机制（重试3次，退避5分钟）',
-            '进度追踪（pending→running→completed）'
-          ]
-        }
-      },
-      {
-        name: 'Phase 2: 分析工作空间管理',
-        description: '实现任务隔离的工作空间系统，每个分析任务有独立目录',
-        status: 'active',
-        type: '知识条目',
-        icon: '📖',
-        details: {
-          whatItDoes: '实现任务隔离的工作空间系统',
-          source: 'OpenAI Symphony 工作空间设计',
-          date: '2026-03-05',
-          keyInsights: [
-            '任务隔离（每个股票独立工作空间）',
-            '生命周期钩子（4个钩子）',
-            '自动清理（保留30天后删除）',
-            '安全不变量（路径验证、权限检查）'
-          ]
-        }
-      },
-      {
-        name: 'Phase 3: 工作流定义与配置解析',
-        description: '实现YAML格式的工作流定义文件和配置解析器',
-        status: 'active',
-        type: '知识条目',
-        icon: '📖',
-        details: {
-          whatItDoes: '实现YAML格式的工作流定义和配置解析',
-          source: 'OpenAI Symphony 配置层设计',
-          date: '2026-03-05',
-          keyInsights: [
-            'YAML front matter + Markdown 格式',
-            '7个数据类（类型安全配置访问）',
-            'Jinja2风格模板渲染',
-            '动态重载机制'
-          ]
-        }
-      },
-      {
-        name: 'Phase 4: 分析可观察性系统',
-        description: '实现实时监控、性能追踪、HTTP API和美观仪表板',
-        status: 'active',
-        type: '知识条目',
-        icon: '📖',
-        details: {
-          whatItDoes: '实现实时监控和性能追踪',
-          source: 'OpenAI Symphony 可观察性设计',
-          date: '2026-03-05',
-          keyInsights: [
-            '3种快照类型（Agent、Analysis、System）',
-            '5个HTTP API端点',
-            '实时仪表板（渐变设计、自动刷新5秒）',
-            '8个监控指标（内存、CPU、Agent池等）'
-          ]
-        }
-      },
-      {
-        name: 'Phase 5: 集成测试完成',
-        description: '完成编排器+工作空间+工作流+可观察性的完整集成测试，6个测试全部通过，成功率100%',
-        status: 'active',
-        type: '知识条目',
-        icon: '📖',
-        details: {
-          whatItDoes: '完成完整集成测试',
-          source: 'OpenAI Symphony 集成测试',
-          date: '2026-03-06',
-          keyInsights: [
-            '6个测试全部通过（100%成功率）',
-            '工作流解析测试：5个Agent配置正确',
-            '工作空间生命周期测试：创建/更新/清理成功',
-            '端到端测试：7步完整流程通过',
-            '性能测试：5个并发任务，创建/启动/完成时间均<1ms'
-          ]
-        }
-      },
-      {
-        name: 'GLM MCP 深度测试成功',
-        description: '🎉 GLM MCP 深度测试全部通过！4个工具（联网搜索、网页读取、视觉理解、开源仓库）测试成功率100%',
-        status: 'active',
-        type: '知识条目',
-        icon: '📖',
-        details: {
-          whatItDoes: '测试GLM MCP的4个工具',
-          source: '深度测试报告',
-          date: '2026-03-06',
-          keyInsights: [
-            '✅ 联网搜索：41.4秒响应',
-            '✅ 网页读取：54.7秒响应',
-            '✅ 视觉理解：34.2秒响应',
-            '✅ 开源仓库：53.5秒响应',
-            '📊 成功率：100%（4/4通过）'
-          ]
-        }
-      },
       {
         name: '$AAOI 1.6T数据中心收发器首单分析',
         description: 'AAOI首个2亿美元1.6T收发器订单，预计成为美国最大800G/1.6T产能',
         status: 'active',
-        type: '知识条目',
+        type: '投资分析',
         icon: '🔍',
         details: {
           whatItDoes: '分析AAOI首个2亿美元1.6T数据中心收发器订单',
@@ -3008,61 +2760,67 @@ export const capabilities = [
           keyInsights: [
             '✅ 首个2亿美元1.6T收发器订单',
             '✅ 预计成为美国最大800G/1.6T产能',
-            '✅ 每月3.78亿美元收入预测验证',
-            '✅ 超大规模客户（AMZN/META/GOOGL）',
-            '📊 投资逻辑、风险因素、关键指标分析'
+            '✅ 每月3.78亿美元收入预测',
+            '✅ 超大规模客户（AMZN/META/GOOGL）背书'
+          ]
+        }
+      },
+      {
+        name: 'AI创业价值迁移：Copilot vs Autopilot',
+        description: '从Copilot到Autopilot的创业价值迁移分析',
+        status: 'active',
+        type: '创业分析',
+        icon: '🚀',
+        details: {
+          whatItDoes: '分析AI创业的价值迁移路径',
+          source: 'Twitter @wangray',
+          date: '2026-03-07',
+          keyInsights: [
+            '✅ Copilot模式：辅助人类决策',
+            '✅ Autopilot模式：AI自主决策',
+            '✅ 价值迁移趋势分析',
+            '✅ 创业方向建议'
+          ]
+        }
+      },
+      {
+        name: '模拟AI计算：物理定律取代数字计算',
+        description: '使用模拟电路进行AI计算，利用物理定律提升效率',
+        status: 'active',
+        type: '技术前沿',
+        icon: '⚛️',
+        details: {
+          whatItDoes: '探索模拟AI计算的技术路径',
+          source: 'Twitter @NuttyCLD',
+          date: '2026-03-07',
+          keyInsights: [
+            '✅ 模拟电路代替数字电路',
+            '✅ 物理定律提升计算效率',
+            '✅ 降低能耗',
+            '✅ 技术挑战和应用前景'
+          ]
+        }
+      },
+      {
+        name: 'LLM编程的局限性：SQLite重写案例',
+        description: 'LLM在复杂编程任务中的局限性分析',
+        status: 'active',
+        type: '技术分析',
+        icon: '💻',
+        details: {
+          whatItDoes: '分析LLM在编程中的局限性',
+          source: '技术案例研究',
+          date: '2026-03-07',
+          keyInsights: [
+            '✅ SQLite重写案例研究',
+            '✅ LLM在复杂系统中的局限',
+            '✅ 代码生成边界',
+            '✅ 人机协作建议'
           ]
         }
       }
     ]
   },
-
-  // 工具库系统（v3.0）
-  {
-    category: 'tool-library',
-    name: '工具库系统（v3.0）',
-    icon: '🛠️',
-    items: [
-      {
-        name: 'Python库（15个）',
-        description: '15个专业Python库（量化、机器学习、爬虫）',
-        status: 'active',
-        type: '工具库',
-        details: {
-          whatItDoes: '15个专业Python库，包括量化、机器学习、爬虫',
-          currentStatus: '✅ 100%完成\n- zipline-reloaded\n- backtrader\n- vectorbt\n- quantstats\n- pyportfolioopt\n- empyrical\n- pyfolio-reloaded\n- scikit-learn\n- xgboost\n- lightgbm\n- scrapy\n- selenium\n- TA-Lib\n- pandas-datareader\n- aiohttp',
-          usage: 'conda activate openclaw',
-          dependencies: ['Conda环境openclaw']
-        }
-      },
-      {
-        name: '金融脚本（15个）',
-        description: '15个Python金融分析脚本',
-        status: 'active',
-        type: '工具库',
-        details: {
-          whatItDoes: '15个Python金融分析脚本，包括筛选、优化、风险、技术等',
-          currentStatus: '✅ 100%完成\n- stock_screener.py\n- portfolio_optimizer.py\n- risk_calculator.py\n- technical_scanner.py\n- earnings_calendar.py\n- options_analyzer.py\n- correlation_matrix.py\n- volatility_calculator.py\n- fund_flow_tracker.py\n- ...',
-          usage: 'cd ~/.openclaw/workspace/tools && python3 stock_screener.py',
-          dependencies: ['Python', 'Conda']
-        }
-      },
-      {
-        name: 'Conda环境',
-        description: '专业量化Python环境（openclaw）',
-        status: 'active',
-        type: '工具库',
-        details: {
-          whatItDoes: '专门为量化分析配置的Python环境',
-          currentStatus: '✅ 正常运行\n- 环境名：openclaw\n- Python版本：3.11\n- 核心库：pyportfolioopt, empyrical, pyfolio-reloaded',
-          usage: 'source /opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh && conda activate openclaw',
-          dependencies: ['Miniconda']
-        }
-      }
-    ]
-  },
-
-  // 团队系统（核心能力）
   {
     category: 'team',
     name: '团队系统',
