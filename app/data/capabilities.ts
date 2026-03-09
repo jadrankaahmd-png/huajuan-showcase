@@ -5727,3 +5727,9 @@ export const capabilities = [
   }
 
 ];
+
+// 统一计数函数 - 全站唯一数据源
+// 自动计算所有items数组的能力总数
+export const getTotalCapabilities = () => {
+  return capabilities.reduce((sum, cat) => sum + cat.items.length, 0);
+};

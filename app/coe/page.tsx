@@ -4,12 +4,12 @@ import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import CapabilityCard from '../components/CapabilityCard';
 import CapabilityDetail from '../components/CapabilityDetail';
-import { capabilities } from '../data/capabilities';
+import { capabilities, getTotalCapabilities } from '../data/capabilities';
 
 // 在组件外预计算统计数据（静态导出时可用）
-// 总能力数 = capabilities.ts 所有items里的能力（621个name - 40个分类头 = 581个能力）
+// 总能力数 = 统一从 getTotalCapabilities() 获取
 const stats = {
-  total: 581, // 621个name总数 - 40个分类头 = 581个实际能力
+  total: getTotalCapabilities(), // 统一数据源，自动计算
   active: capabilities.reduce((sum, cat) =>
     sum + cat.items.filter((item: any) => item.status === 'active').length, 0
   ),

@@ -2,8 +2,11 @@
 
 import Navigation from '@/components/Navigation';
 import Link from 'next/link';
+import { getTotalCapabilities } from './data/capabilities';
 
 export default function Home() {
+  const totalCapabilities = getTotalCapabilities();
+  
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       {/* 统一导航栏 */}
@@ -22,7 +25,7 @@ export default function Home() {
             </p>
             <div className="flex justify-center gap-4 flex-wrap">
               <div className="bg-white px-6 py-3 rounded-lg shadow-md">
-                <div className="text-3xl font-bold text-pink-600">619+</div>
+                <div className="text-3xl font-bold text-pink-600">{totalCapabilities}+</div>
                 <div className="text-sm text-gray-600">总能力</div>
               </div>
               <div className="bg-white px-6 py-3 rounded-lg shadow-md">
@@ -58,7 +61,7 @@ export default function Home() {
                 <div className="text-6xl mb-4">🧠</div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">第一层：能力中心</h3>
                 <p className="text-gray-600 mb-4">
-                  数据采集与基础能力层，包含619+个能力
+                  数据采集与基础能力层，包含{totalCapabilities}+个能力
                 </p>
                 <ul className="text-sm text-gray-500 space-y-2 mb-6">
                   <li>✓ 全球宏观地缘风险监控</li>
@@ -129,7 +132,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="text-5xl mb-4">📊</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">619+能力</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">{totalCapabilities}+能力</h3>
               <p className="text-gray-600 text-sm">数据采集、分析、监控全覆盖</p>
             </div>
             <div className="text-center">
