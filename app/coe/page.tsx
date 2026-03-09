@@ -12,7 +12,7 @@ interface Capability {
   category: string;
   categoryName: string;
   type: string;
-  status: string;
+  status: 'active' | 'pending' | 'inactive';
   icon: string;
   details: any;
 }
