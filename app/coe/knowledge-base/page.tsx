@@ -11,6 +11,7 @@ interface Knowledge {
   category: string;
   type?: string;
   icon?: string;
+  tag?: string;
 }
 
 const bookSources = [
@@ -344,7 +345,12 @@ export default function KnowledgeBasePage() {
       try {
         const res = await fetch('/api/knowledge-base');
         const data = await res.json();
-        setFileKnowledge(data.knowledge || []);
+        // 为文件知识添加标签
+        const knowledgeWithTags = (data.knowledge || []).map((k: Knowledge) => ({
+          ...k,
+          tag: '知识条目'
+        }));
+        setFileKnowledge(knowledgeWithTags);
       } catch (error) {
         console.error('Error fetching knowledge:', error);
       } finally {
@@ -356,7 +362,7 @@ export default function KnowledgeBasePage() {
 
   // 合并两部分知识：capabilities.ts 的16个 + knowledge_base/ 目录的4个
   const allKnowledge = [...capabilitiesKnowledge, ...fileKnowledge];
-  
+
   // 按日期排序（最新在前）
   allKnowledge.sort((a, b) => {
     const dateA = new Date(a.date).getTime();
@@ -364,11 +370,14 @@ export default function KnowledgeBasePage() {
     return dateB - dateA;
   });
 
-  const categories = ['全部', ...Array.from(new Set(allKnowledge.map(k => k.category)))];
+  // 简化分类：只有"全部"、"知识条目"、"合法书籍知识库"
+  const categories = ['全部', '知识条目', '合法书籍知识库'];
 
   const filteredKnowledge = selectedCategory === '全部'
     ? allKnowledge
-    : allKnowledge.filter(k => k.category === selectedCategory);
+    : selectedCategory === '知识条目'
+      ? allKnowledge.filter(k => !k.tag || k.tag === '知识条目')
+      : allKnowledge.filter(k => k.tag === '合法书籍知识库');
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
@@ -387,16 +396,12 @@ export default function KnowledgeBasePage() {
             </div>
             <div className="flex gap-4 text-sm flex-wrap">
               <div className="bg-pink-50 px-4 py-2 rounded-lg">
-                <div className="text-pink-600 font-semibold">{capabilitiesKnowledge.length}</div>
-                <div className="text-gray-600">知识条目</div>
-              </div>
-              <div className="bg-green-50 px-4 py-2 rounded-lg">
-                <div className="text-green-600 font-semibold">{categories.length - 1}</div>
-                <div className="text-gray-600">分类</div>
+                <div className="text-pink-600 font-semibold">{allKnowledge.length}</div>
+                <div className="text-gray-600">📖 知识条目</div>
               </div>
               <div className="bg-blue-50 px-4 py-2 rounded-lg">
                 <div className="text-blue-600 font-semibold">{bookSources.length}</div>
-                <div className="text-gray-600">合法书籍知识库</div>
+                <div className="text-gray-600">📚 合法书籍知识库</div>
               </div>
               <div className="bg-purple-50 px-4 py-2 rounded-lg">
                 <div className="text-purple-600 font-semibold">{allKnowledge.length + bookSources.length}</div>
@@ -424,8 +429,13 @@ export default function KnowledgeBasePage() {
                 href={source.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white rounded-lg p-4 hover:shadow-md transition-all border border-gray-200"
+                className="bg-white rounded-lg p-4 hover:shadow-md transition-all border border-gray-200 relative"
               >
+                <div className="absolute top-2 right-2">
+                  <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full flex items-center gap-1">
+                    📚 合法书籍知识库
+                  </span>
+                </div>
                 <div className="flex items-center gap-2 mb-2">
                   <span className="text-2xl">📖</span>
                   <h3 className="font-bold text-gray-900">{source.name}</h3>
