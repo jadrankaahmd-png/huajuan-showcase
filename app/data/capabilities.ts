@@ -2768,7 +2768,7 @@ export const capabilities: CapabilityCategory[] = [
   {
     category: 'memory',
     name: '记忆系统',
-    icon: '',
+    icon: '🧠',
     items: [
       {
         name: 'OpenViking 革命性记忆数据库',
@@ -2873,7 +2873,7 @@ export const capabilities: CapabilityCategory[] = [
   {
     category: 'memory-optimization',
     name: '记忆与优化系统',
-    icon: '',
+    icon: '🧠',
     items: [
       {
         name: 'Context Compressor',
