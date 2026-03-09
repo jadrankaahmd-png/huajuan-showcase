@@ -9,7 +9,7 @@
  */
 
 import * as fs from 'fs';
-import * as sqlite3 from 'better-sqlite3';
+import Database from 'better-sqlite3';
 
 const DB_PATH = 'data/capabilities.db';
 const OUTPUT_PATH = 'app/data/capabilities.ts';
@@ -112,7 +112,7 @@ function generateCapabilitiesTs() {
 
   // 1. 读取数据库
   console.log('📦 读取数据库...');
-  const db = new sqlite3(DB_PATH);
+  const db = new Database(DB_PATH);
   
   const capabilities = db.prepare(`
     SELECT * FROM capabilities 
