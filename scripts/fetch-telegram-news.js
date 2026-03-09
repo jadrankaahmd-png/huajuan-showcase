@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 /**
- * Telegram 新闻自动抓取脚本
- * 每15分钟自动抓取 Telegram 频道最新新闻
+ * Telegram 新闻真实数据抓取脚本
+ * 使用 Telethon (Python) 通过子进程调用
  */
 
+const { exec } = require('child_process');
 const fs = require('fs');
 const path = require('path');
-const https = require('https');
 
-// Telegram API 配置
-const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const TELEGRAM_API = 'https://api.telegram.org';
+// Telegram API 凭证（从环境变量读取）
+const API_ID = process.env.TELEGRAM_API_ID || '34904583';
+const API_HASH = process.env.TELEGRAM_API_HASH || '733a2b8ea83e199d80123f0780893067';
 
 // 要抓取的频道列表
 const CHANNELS = {
@@ -32,94 +32,63 @@ const CHANNELS = {
   ]
 };
 
-// 获取频道消息
-async function getChannelMessages(channelUsername, limit = 50) {
-  return new Promise((resolve, reject) => {
-    // 注意：Telegram Bot API 无法直接获取频道消息
-    // 需要使用 Telegram Client API 或其他方法
-    // 这里使用模拟数据（实际应该从真实 API 获取）
+async function main() {
+  console.log('🚀 开始抓取 Telegram 新闻（真实 API）...');
+  console.log('⏰ 时间:', new Date().toISOString());
+  console.log('🔑 API ID:', API_ID ? '✅ 已配置' : '❌ 未配置');
+  
+  // 调用 Python Telethon 脚本
+  const pythonScript = path.join(__dirname, '..', 'tools', 'telegram_channel_scraper_telethon.py');
+  
+  if (!fs.existsSync(pythonScript)) {
+    console.error('❌ Python 脚本不存在:', pythonScript);
+    process.exit(1);
+  }
+  
+  // 构建频道列表参数
+  const allChannels = [];
+  for (const [category, channels] of Object.entries(CHANNELS)) {
+    channels.forEach(ch => allChannels.push(`${category}:${ch}`));
+  }
+  
+  const channelsArg = allChannels.join(',');
+  const outputPath = path.join(__dirname, '..', 'data', 'telegram_news', 'latest.json');
+  
+  // 调用 Python 脚本
+  const command = `python3 "${pythonScript}" --api-id "${API_ID}" --api-hash "${API_HASH}" --channels "${channelsArg}" --output "${outputPath}"`;
+  
+  console.log('\n📡 调用 Python Telethon 脚本...');
+  console.log('📝 命令:', command.replace(API_HASH, '***'));
+  
+  exec(command, { maxBuffer: 1024 * 1024 * 10 }, (error, stdout, stderr) => {
+    if (error) {
+      console.error('❌ 执行失败:', error.message);
+      console.error('STDERR:', stderr);
+      process.exit(1);
+    }
     
-    console.log(\`📡 正在获取频道 @\${channelUsername} 的消息...\`);
+    console.log('\n✅ Python 脚本输出:');
+    console.log(stdout);
     
-    // 模拟数据（实际应该从真实 API 获取）
-    const mockData = {
-      channel: channelUsername,
-      messages: [
-        {
-          id: Date.now(),
-          text: '这是一条示例新闻消息（实际应该从真实 Telegram API 获取）',
-          timestamp: new Date().toISOString(),
-          views: Math.floor(Math.random() * 1000)
-        }
-      ]
-    };
+    if (stderr) {
+      console.error('\n⚠️ 警告:');
+      console.error(stderr);
+    }
     
-    resolve(mockData);
+    // 验证输出文件
+    if (fs.existsSync(outputPath)) {
+      const data = JSON.parse(fs.readFileSync(outputPath, 'utf-8'));
+      console.log('\n📊 抓取结果:');
+      console.log('   - 最后更新:', data.last_update);
+      console.log('   - 总消息数:', data.total_messages);
+      console.log('   - 活跃频道:', data.active_channels);
+      console.log('   - 数据来源:', data.source || '真实 Telegram API');
+      console.log('\n✅ 抓取完成！');
+    } else {
+      console.error('\n❌ 输出文件不存在');
+      process.exit(1);
+    }
   });
 }
 
-// 主函数
-async function main() {
-  console.log('🚀 开始抓取 Telegram 新闻...');
-  console.log('⏰ 时间:', new Date().toISOString());
-  
-  const allNews = {
-    last_update: new Date().toISOString(),
-    channels: {
-      blockchain: [],
-      finance: [],
-      tech: []
-    },
-    total_messages: 0,
-    active_channels: 0
-  };
-  
-  // 抓取所有频道的消息
-  for (const [category, channels] of Object.entries(CHANNELS)) {
-    console.log(\`\\n📰 正在抓取 \${category} 类别的新闻...\`);
-    
-    for (const channel of channels) {
-      try {
-        const data = await getChannelMessages(channel);
-        
-        if (data.messages && data.messages.length > 0) {
-          allNews.channels[category].push(...data.messages.map(msg => ({
-            channel: channel,
-            message_id: msg.id,
-            text: msg.text,
-            timestamp: msg.timestamp,
-            views: msg.views,
-            link: \`https://t.me/\${channel}/\${msg.id}\`,
-            channel_name: channel.charAt(0).toUpperCase() + channel.slice(1),
-            category: category,
-            lang: 'zh'
-          })));
-          
-          allNews.active_channels++;
-        }
-      } catch (error) {
-        console.error(\`❌ 抓取频道 @\${channel} 失败:\`, error.message);
-      }
-    }
-  }
-  
-  // 计算总数
-  allNews.total_messages = Object.values(allNews.channels).flat().length;
-  
-  // 保存到文件
-  const outputPath = path.join(__dirname, '..', 'data', 'telegram_news', 'latest.json');
-  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-  fs.writeFileSync(outputPath, JSON.stringify(allNews, null, 2));
-  
-  console.log(\`\\n✅ 抓取完成！\`);
-  console.log(\`📊 统计：\`);
-  console.log(\`   - 总消息数：\${allNews.total_messages}\`);
-  console.log(\`   - 活跃频道：\${allNews.active_channels}\`);
-  console.log(\`   - 最后更新：\${allNews.last_update}\`);
-  console.log(\`   - 保存位置：\${outputPath}\`);
-  
-  return allNews;
-}
-
-// 执行
-main().catch(console.error);
+main();
