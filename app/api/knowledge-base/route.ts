@@ -19,7 +19,7 @@ export async function GET() {
          OR name LIKE '%知识%'
          OR name LIKE '%书籍%'
       ORDER BY created_at DESC
-    `).all();
+    `).all() as Array<{ title: string; summary: string; details_json: string }>;
     
     // 2. 从 knowledge_base/ 目录读取文件
     const knowledgeBaseDir = path.join(process.cwd(), 'knowledge_base');
