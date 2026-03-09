@@ -159,7 +159,6 @@ function generateCapabilitiesTs() {
 // - 删除能力：DELETE FROM capabilities WHERE id = ...
 
 export interface Capability {
-  category: string;
   name: string;
   description: string;
   status: string;
