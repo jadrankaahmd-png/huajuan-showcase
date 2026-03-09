@@ -395,6 +395,68 @@ export default function DynamicModelPage() {
           </div>
         </div>
         
+        {/* Zread 源码自检系统 */}
+        <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-2xl shadow-lg p-8 border border-red-100 mb-8">
+          <div className="flex items-center justify-center mb-4">
+            <div className="text-5xl">🦞</div>
+          </div>
+          
+          <h2 className="text-2xl font-bold text-gray-900 text-center mb-3">
+            Zread 源码自检系统
+          </h2>
+          
+          <div className="flex justify-center mb-4">
+            <span className="px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium">
+              ✅ 已就绪
+            </span>
+          </div>
+          
+          <p className="text-gray-700 text-center mb-6 max-w-2xl mx-auto">
+            花卷通过 Zread MCP 全量索引自身 OpenClaw 源代码，遇到报错或配置问题可直接检索源码找答案，相当于了解自己的五脏六腑
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div className="bg-white rounded-lg p-4 text-center">
+              <div className="text-2xl mb-2">🔍</div>
+              <h3 className="text-gray-900 font-semibold mb-1">源码搜索</h3>
+              <p className="text-gray-600 text-sm">快速检索 OpenClaw 源码</p>
+            </div>
+            
+            <div className="bg-white rounded-lg p-4 text-center">
+              <div className="text-2xl mb-2">📖</div>
+              <h3 className="text-gray-900 font-semibold mb-1">文档查询</h3>
+              <p className="text-gray-600 text-sm">查看官方文档和实现细节</p>
+            </div>
+            
+            <div className="bg-white rounded-lg p-4 text-center">
+              <div className="text-2xl mb-2">🐛</div>
+              <h3 className="text-gray-900 font-semibold mb-1">问题诊断</h3>
+              <p className="text-gray-600 text-sm">遇到报错直接查源码</p>
+            </div>
+          </div>
+          
+          <div className="bg-white rounded-lg p-4 mb-6">
+            <h3 className="text-gray-900 font-semibold mb-2 flex items-center gap-2">
+              <span>⚡</span> 测试查询结果
+            </h3>
+            <div className="text-sm text-gray-600">
+              <p className="mb-2"><strong>查询：</strong>sessions_spawn implementation</p>
+              <p><strong>结果：</strong>✅ 成功返回 5 个相关文档片段</p>
+            </div>
+          </div>
+          
+          <div className="flex justify-center gap-4">
+            <a
+              href="https://zread.ai/openclaw/openclaw"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-red-500 hover:bg-red-600 text-white rounded-lg font-medium transition-colors"
+            >
+              查看文档
+            </a>
+          </div>
+        </div>
+        
         {/* QVeris 实时交互组件 */}
         <div className="space-y-8 mb-8">
           <StockQuery />
