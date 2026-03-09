@@ -7,9 +7,14 @@ import CapabilityDetail from '../components/CapabilityDetail';
 import { capabilities } from '../data/capabilities';
 
 // 在组件外预计算统计数据（静态导出时可用）
-// 总能力数 = capabilities.ts 所有条目（已包含429卡片 + 189技能）
+// 总能力数 = capabilities.ts 所有条目（已包含429卡片 + 189技能 + 2子页面）
+// 计算方法：统计所有 items 数组的长度之和
 const stats = {
-  total: capabilities.reduce((sum, cat) => sum + cat.items.length, 0),
+  total: capabilities.reduce((sum, cat) => {
+    // 确保 items 是数组
+    const itemsLength = Array.isArray(cat.items) ? cat.items.length : 0;
+    return sum + itemsLength;
+  }, 0),
   active: capabilities.reduce((sum, cat) =>
     sum + cat.items.filter((item: any) => item.status === 'active').length, 0
   ),
