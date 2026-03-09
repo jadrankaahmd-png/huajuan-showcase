@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "sync": "node scripts/sync-to-redis.js"
+    "sync": "node scripts/sync-to-redis.js",
+    "add-capability": "node scripts/add-capability.js"
   },
   "dependencies": {
     "@upstash/redis": "^1.36.4",
