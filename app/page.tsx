@@ -58,7 +58,7 @@ export default function Home() {
             {/* 第一层 */}
             <Link href="/coe" className="group">
               <div className="bg-gradient-to-br from-pink-50 to-pink-100 rounded-2xl p-8 h-full transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                <div className="text-6xl mb-4">🧠</div>
+                <div className="text-6xl mb-4"></div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">第一层：能力中心</h3>
                 <p className="text-gray-600 mb-4">
                   数据采集与基础能力层，包含{totalCapabilities}+个能力

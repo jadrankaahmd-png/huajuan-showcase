@@ -24,7 +24,7 @@ export const CATEGORIES = [
   { id: 'dev', name: '开发工具', icon: '🔧', description: '代码生成、技能创建、GitHub' },
   { id: 'data', name: '数据接入', icon: '📡', description: 'QVeris、Finnhub、API集成' },
   { id: 'automation', name: '自动化任务', icon: '⏰', description: 'cron、财报追踪、定时预警' },
-  { id: 'knowledge', name: '知识与记忆', icon: '🧠', description: '知识库、OpenViking、记忆系统' },
+  { id: 'knowledge', name: '知识与记忆', icon: '', description: '知识库、OpenViking、记忆系统' },
   { id: 'web', name: '网络与搜索', icon: '🌐', description: '爬虫、搜索引擎、RSS' },
   { id: 'communication', name: '通讯与推送', icon: '💬', description: 'Telegram Bot、消息推送' },
   { id: 'system', name: '系统工具', icon: '🛠️', description: '其他所有工具' },
