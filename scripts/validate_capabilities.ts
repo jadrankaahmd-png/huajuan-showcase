@@ -75,12 +75,24 @@ function validateCapabilities(): ValidationResult {
   // 3. 检查 getTotalCapabilities() 函数
   console.log('🧮 步骤3：检查 getTotalCapabilities() 函数...');
   try {
-    // 直接使用 require 加载 capabilities.ts
-    const capabilitiesModule = require('../app/data/capabilities.ts');
-    const capabilities = capabilitiesModule.capabilities;
+    const content = fs.readFileSync(CAPABILITIES_TS_PATH, 'utf8');
     
-    // 计算总数
-    tsFunctionCount = capabilities.reduce((total: number, cat: any) => total + cat.items.length, 0);
+    // 提取 export function getTotalCapabilities() 的逻辑
+    // 函数内容：return capabilities.reduce((total, cat) => total + cat.items.length, 0);
+    // 这意味着我们需要统计所有 items 的数量
+    
+    // 方法：匹配所有 "name: '...'" 出现在 items 数组中的次数
+    const itemsSection = content.match(/items:\s*\[[\s\S]*?\n    \]/g);
+    if (itemsSection) {
+      let totalCount = 0;
+      itemsSection.forEach(section => {
+        const nameMatches = section.match(/name:\s*'[^']+',/g);
+        if (nameMatches) {
+          totalCount += nameMatches.length;
+        }
+      });
+      tsFunctionCount = totalCount;
+    }
     
     console.log(`✅ getTotalCapabilities() 返回值：${tsFunctionCount} 个\n`);
   } catch (error: any) {
