@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "prebuild": "npx ts-node scripts/validate_capabilities.ts",
-    "prebuild": "npx ts-node scripts/validate_capabilities.ts",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
