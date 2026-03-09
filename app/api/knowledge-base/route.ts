@@ -1,28 +1,11 @@
 import { NextResponse } from 'next/server';
-import Database from 'better-sqlite3';
 import fs from 'fs';
 import path from 'path';
 
 export async function GET() {
   try {
-    const db = new Database('data/capabilities.db');
-    
-    // 1. 从数据库读取知识库相关能力
-    const dbKnowledge = db.prepare(`
-      SELECT 
-        name as title,
-        description as summary,
-        details_json
-      FROM capabilities 
-      WHERE category = 'knowledge' 
-         OR category = 'knowledge-base'
-         OR type = '知识库'
-         OR name LIKE '%知识%'
-      ORDER BY created_at DESC
-    `).all() as Array<{ title: string; summary: string; details_json: string }>;
-    
-    // 2. 从 knowledge_base/ 目录读取文件
-    const knowledgeBaseDir = path.join(process.cwd(), 'knowledge_base');
+    // 1. 读取知识条目文件
+    const knowledgeBaseDir = path.join(process.cwd(), 'public/knowledge_base');
     const fileKnowledge: any[] = [];
     
     if (fs.existsSync(knowledgeBaseDir)) {
@@ -67,67 +50,29 @@ export async function GET() {
       }
     }
     
-    // 3. 合并并去重（以 title 为唯一标识）
-    const allKnowledge: any[] = [];
-    const seenTitles = new Set<string>();
+    // 2. 读取书籍来源文件
+    const bookSourcesPath = path.join(process.cwd(), 'public/knowledge_base/book-sources.json');
+    let bookSources: any[] = [];
     
-    // 添加数据库知识
-    for (const item of dbKnowledge) {
-      let details: any = {};
+    if (fs.existsSync(bookSourcesPath)) {
       try {
-        details = JSON.parse(item.details_json || '{}');
-      } catch {}
-      
-      const title = item.title;
-      if (!seenTitles.has(title)) {
-        seenTitles.add(title);
-        allKnowledge.push({
-          title,
-          summary: item.summary || details.whatItDoes || '',
-          insights: details.features || details.key_points || [],
-          source: 'SQLite 数据库',
-          date: new Date().toISOString().split('T')[0],
-          category: '数据库知识库',
-          type: '知识条目',
-          icon: '📖'
-        });
+        const bookSourcesContent = fs.readFileSync(bookSourcesPath, 'utf-8');
+        bookSources = JSON.parse(bookSourcesContent);
+      } catch (err) {
+        console.error('读取书籍来源失败:', err);
       }
     }
     
-    // 添加文件知识（去重）
+    // 3. 去重（以 title 为唯一标识）
+    const allKnowledge: any[] = [];
+    const seenTitles = new Set<string>();
+    
     for (const item of fileKnowledge) {
       if (!seenTitles.has(item.title)) {
         seenTitles.add(item.title);
         allKnowledge.push(item);
       }
     }
-    
-    // 4. 从数据库读取书籍来源
-    const dbBookSources = db.prepare(`
-      SELECT 
-        name,
-        description,
-        details_json
-      FROM capabilities 
-      WHERE category = 'book-sources'
-      ORDER BY created_at DESC
-    `).all() as Array<{ name: string; description: string; details_json: string }>;
-    
-    const bookSources = dbBookSources.map(item => {
-      let details: any = {};
-      try {
-        details = JSON.parse(item.details_json || '{}');
-      } catch {}
-      
-      return {
-        name: item.name,
-        description: item.description,
-        url: details.url || '#',
-        example: details.example || ''
-      };
-    });
-    
-    db.close();
     
     return NextResponse.json({
       knowledge: allKnowledge,
@@ -138,7 +83,6 @@ export async function GET() {
         grandTotal: allKnowledge.length + bookSources.length
       },
       source: {
-        database: dbKnowledge.length,
         files: fileKnowledge.length
       }
     });

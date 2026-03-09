@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Project Gutenberg",
+    "url": "https://www.gutenberg.org/",
+    "description": "70,000+ 经典投资书籍（公共领域）",
+    "example": "《聪明的投资者》、《证券分析》"
+  },
+  {
+    "name": "Open Library",
+    "url": "https://openlibrary.org/",
+    "description": "数百万本现代投资书籍（合法借阅）",
+    "example": "当代投资理论、最新市场分析"
+  },
+  {
+    "name": "SEC EDGAR",
+    "url": "https://www.sec.gov/cgi-bin/browse-edgar",
+    "description": "公司财报、年报、招股书（公共领域）",
+    "example": "巴菲特致股东信、公司10-K年报"
+  },
+  {
+    "name": "Internet Archive",
+    "url": "https://archive.org/",
+    "description": "数百万本历史投资文献（合法借阅）",
+    "example": "历史市场分析、经典投资案例"
+  }
+]
