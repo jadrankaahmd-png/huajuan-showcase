@@ -1178,5 +1178,45 @@
     "createdAt": "2026-03-10T09:08:11.609Z",
     "updatedAt": "2026-03-10T09:08:11.609Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773134456810",
+    "name": "ASCII Wireframe快速原型设计",
+    "description": "mockdown.design工具，30秒绘制UI原型，ASCII wireframe→Claude Code→生成完整页面，AI读取wireframe比文字描述更快",
+    "category": "design",
+    "categoryName": "design",
+    "type": "原型设计",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "mockdown.design工具，30秒绘制UI原型，ASCII wireframe→Claude Code→生成完整页面，AI读取wireframe比文字描述更快",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T09:20:56.810Z",
+    "updatedAt": "2026-03-10T09:20:56.811Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773134459183",
+    "name": "AI辅助UI代码生成",
+    "description": "Claude Code集成，ASCII wireframe粘贴→自动生成HTML/CSS/React代码，效率提升5倍，快速验证设计想法",
+    "category": "development-tools",
+    "categoryName": "development-tools",
+    "type": "代码生成",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "Claude Code集成，ASCII wireframe粘贴→自动生成HTML/CSS/React代码，效率提升5倍，快速验证设计想法",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T09:20:59.183Z",
+    "updatedAt": "2026-03-10T09:20:59.184Z",
+    "source": "custom"
   }
 ]
