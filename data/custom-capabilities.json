@@ -1758,5 +1758,45 @@
     "createdAt": "2026-03-10T11:51:26.633Z",
     "updatedAt": "2026-03-10T11:51:26.634Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773143488972",
+    "name": "AI芯片层投资监控器实现",
+    "description": "实时监控NVDA/AMD/AVGO股价和新闻，跟踪GPU出货量、AI芯片市场份额、产能情况，输出产能短缺预警和竞争动态分析",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "行业监控",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "实时监控NVDA/AMD/AVGO股价和新闻，跟踪GPU出货量、AI芯片市场份额、产能情况，输出产能短缺预警和竞争动态分析",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:51:28.972Z",
+    "updatedAt": "2026-03-10T11:51:28.973Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773143491672",
+    "name": "AI基建层投资监控器实现",
+    "description": "实时监控MSFT/AMZN/GOOGL股价和新闻，跟踪云服务增速、数据中心投资规模、AI工作负载占比，输出增长趋势分析和投资机会",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "行业监控",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "实时监控MSFT/AMZN/GOOGL股价和新闻，跟踪云服务增速、数据中心投资规模、AI工作负载占比，输出增长趋势分析和投资机会",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:51:31.672Z",
+    "updatedAt": "2026-03-10T11:51:31.673Z",
+    "source": "custom"
   }
 ]
