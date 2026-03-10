@@ -1,0 +1,42 @@
+{
+  "timestamp": "2026-03-10T11:48:08.066Z",
+  "totalNews": 1,
+  "recommendations": [
+    {
+      "news": {
+        "title": "OpenAI releases GPT-5",
+        "description": "OpenAI announced GPT-5 with breakthrough capabilities...",
+        "publishedAt": "2026-03-10T11:48:08.062Z",
+        "source": "Example Source"
+      },
+      "layer": {
+        "name": "模型层",
+        "description": "竞争激烈，利润率承压",
+        "matchScore": 2
+      },
+      "prediction": {
+        "priceInTime": 5,
+        "timeUnit": "小时"
+      },
+      "recommendations": [
+        {
+          "symbol": "OpenAI",
+          "type": "短期交易"
+        },
+        {
+          "symbol": "Anthropic",
+          "type": "短期交易"
+        },
+        {
+          "symbol": "GOOGL",
+          "type": "短期交易"
+        },
+        {
+          "symbol": "META",
+          "type": "短期交易"
+        }
+      ],
+      "riskLevel": "高"
+    }
+  ]
+}
