@@ -2038,5 +2038,25 @@
     "createdAt": "2026-03-10T13:41:31.896Z",
     "updatedAt": "2026-03-10T13:41:31.897Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773150095267",
+    "name": "PDF内容提取器",
+    "description": "从 URL 或本地文件提取 PDF 内容，支持提取文本、页数、元数据，自动保存到知识库。当用户说'提取 PDF'、'读取 PDF'、'解析 PDF'、'PDF 转文本'时使用。基于 pdf-parse 库。",
+    "category": "data",
+    "categoryName": "data",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "从 URL 或本地文件提取 PDF 内容，支持提取文本、页数、元数据，自动保存到知识库。当用户说'提取 PDF'、'读取 PDF'、'解析 PDF'、'PDF 转文本'时使用。基于 pdf-parse 库。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T13:41:35.267Z",
+    "updatedAt": "2026-03-10T13:41:35.268Z",
+    "source": "custom"
   }
 ]
