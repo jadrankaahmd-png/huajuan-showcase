@@ -1,0 +1,74 @@
+{
+  "symbol": "UBER",
+  "timestamp": "2026-02-10T23:29:29.456343",
+  "comprehensive_score": 68.47,
+  "recommendation": "NEUTRAL_BULLISH",
+  "confidence": "high",
+  "factor_scores": {
+    "technical": {
+      "score": 66.5,
+      "details": {
+        "trend": 30,
+        "momentum": 85,
+        "support_resistance": 80,
+        "volatility": 80
+      },
+      "indicators": {
+        "current_price": 74.65,
+        "ma20": 80.41,
+        "ma50": 82.86,
+        "rsi": 24.85,
+        "volatility": 32.0
+      }
+    },
+    "fundamental": {
+      "score": 77.0,
+      "details": {
+        "valuation": 75,
+        "profitability": 90,
+        "growth": 80,
+        "financial_health": 50
+      },
+      "metrics": {
+        "pe_ratio": 15.78,
+        "forward_pe": 17.48,
+        "pb_ratio": 5.73,
+        "roe": 39.93,
+        "revenue_growth": 20.1
+      }
+    },
+    "sentiment": {
+      "score": 65.0,
+      "details": {
+        "market_sentiment": 65,
+        "social_sentiment": 70,
+        "news_sentiment": 60
+      },
+      "note": "简化评分，建议结合sentiment_analyzer使用"
+    },
+    "fund_flow": {
+      "score": 65.5,
+      "details": {
+        "institutional": 70,
+        "insider": 65,
+        "fund_flow": 60
+      },
+      "note": "简化评分，建议结合institutional_tracker使用"
+    },
+    "macro": {
+      "score": 65,
+      "details": {
+        "macro_environment": 65,
+        "sector_trend": 65
+      },
+      "sector": "Technology"
+    }
+  },
+  "weights": {
+    "technical": 0.25,
+    "fundamental": 0.25,
+    "sentiment": 0.2,
+    "fund_flow": 0.2,
+    "macro": 0.1
+  }
+}

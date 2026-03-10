@@ -1,0 +1,74 @@
+{
+  "symbol": "NVDA",
+  "timestamp": "2026-02-13T23:09:07.836218",
+  "comprehensive_score": 65.54,
+  "recommendation": "NEUTRAL_BULLISH",
+  "confidence": "high",
+  "factor_scores": {
+    "technical": {
+      "score": 56.0,
+      "details": {
+        "trend": 30,
+        "momentum": 60,
+        "support_resistance": 65,
+        "volatility": 80
+      },
+      "indicators": {
+        "current_price": 183.63,
+        "ma20": 185.35,
+        "ma50": 184.42,
+        "rsi": 47.38,
+        "volatility": 34.8
+      }
+    },
+    "fundamental": {
+      "score": 75.75,
+      "details": {
+        "valuation": 45,
+        "profitability": 90,
+        "growth": 90,
+        "financial_health": 85
+      },
+      "metrics": {
+        "pe_ratio": 45.45,
+        "forward_pe": 23.78,
+        "pb_ratio": 37.54,
+        "roe": 107.36,
+        "revenue_growth": 62.5
+      }
+    },
+    "sentiment": {
+      "score": 65.0,
+      "details": {
+        "market_sentiment": 65,
+        "social_sentiment": 70,
+        "news_sentiment": 60
+      },
+      "note": "简化评分，建议结合sentiment_analyzer使用"
+    },
+    "fund_flow": {
+      "score": 65.5,
+      "details": {
+        "institutional": 70,
+        "insider": 65,
+        "fund_flow": 60
+      },
+      "note": "简化评分，建议结合institutional_tracker使用"
+    },
+    "macro": {
+      "score": 65,
+      "details": {
+        "macro_environment": 65,
+        "sector_trend": 65
+      },
+      "sector": "Technology"
+    }
+  },
+  "weights": {
+    "technical": 0.25,
+    "fundamental": 0.25,
+    "sentiment": 0.2,
+    "fund_flow": 0.2,
+    "macro": 0.1
+  }
+}

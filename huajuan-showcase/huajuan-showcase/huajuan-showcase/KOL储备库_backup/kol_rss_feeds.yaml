@@ -1,0 +1,261 @@
+# KOL RSS订阅配置
+# 46位KOL的Nitter RSS订阅链接
+# 更新时间：2026-02-10
+# 使用方法：导入到RSS阅读器或脚本中
+
+nitter_instances:
+  - https://nitter.net
+  - https://nitter.it
+  - https://nitter.cz
+  - https://nitter.privacydev.net
+
+kol_rss_feeds:
+  # 科技/AI领袖 (10位)
+  - username: elonmusk
+    category: 科技/AI
+    priority: high
+    rss: https://nitter.net/elonmusk/rss
+    
+  - username: nvidia
+    category: 科技/AI
+    priority: high
+    rss: https://nitter.net/nvidia/rss
+    
+  - username: sundarpichai
+    category: 科技/AI
+    priority: high
+    rss: https://nitter.net/sundarpichai/rss
+    
+  - username: satyanadella
+    category: 科技/AI
+    priority: high
+    rss: https://nitter.net/satyanadella/rss
+    
+  - username: tim_cook
+    category: 科技/AI
+    priority: high
+    rss: https://nitter.net/tim_cook/rss
+    
+  - username: MarkZuckerberg
+    category: 科技/AI
+    priority: medium
+    rss: https://nitter.net/MarkZuckerberg/rss
+    
+  - username: sama
+    category: 科技/AI
+    priority: high
+    rss: https://nitter.net/sama/rss
+    
+  - username: DoveyWan
+    category: 科技/AI
+    priority: high
+    rss: https://nitter.net/DoveyWan/rss
+    
+  - username: demishassabis
+    category: 科技/AI
+    priority: high
+    rss: https://nitter.net/demishassabis/rss
+    
+  - username: DrJimFan
+    category: 科技/AI
+    priority: high
+    rss: https://nitter.net/DrJimFan/rss
+
+  # 半导体专家 (10位)
+  - username: semianalysis
+    category: 半导体
+    priority: high
+    rss: https://nitter.net/semianalysis/rss
+    
+  - username: jrjaramillo
+    category: 半导体
+    priority: medium
+    rss: https://nitter.net/jrjaramillo/rss
+    
+  - username: DougOLeary2
+    category: 半导体
+    priority: medium
+    rss: https://nitter.net/DougOLeary2/rss
+    
+  - username: kylebrussell
+    category: 半导体
+    priority: medium
+    rss: https://nitter.net/kylebrussell/rss
+    
+  - username: Tech_Portal
+    category: 半导体
+    priority: low
+    rss: https://nitter.net/Tech_Portal/rss
+    
+  - username: danielnenni
+    category: 半导体
+    priority: medium
+    rss: https://nitter.net/danielnenni/rss
+    
+  - username: esilvestro
+    category: 半导体
+    priority: medium
+    rss: https://nitter.net/esilvestro/rss
+    
+  - username: BobOToole
+    category: 半导体
+    priority: medium
+    rss: https://nitter.net/BobOToole/rss
+    
+  - username: IanCutress
+    category: 半导体
+    priority: high
+    rss: https://nitter.net/IanCutress/rss
+    
+  - username: awei01
+    category: 半导体
+    priority: medium
+    rss: https://nitter.net/awei01/rss
+
+  # 投资/金融专家 (10位)
+  - username: CathieDWood
+    category: 投资/金融
+    priority: high
+    rss: https://nitter.net/CathieDWood/rss
+    
+  - username: jimcramer
+    category: 投资/金融
+    priority: medium
+    rss: https://nitter.net/jimcramer/rss
+    
+  - username: chamath
+    category: 投资/金融
+    priority: medium
+    rss: https://nitter.net/chamath/rss
+    
+  - username: paulg
+    category: 投资/金融
+    priority: high
+    rss: https://nitter.net/paulg/rss
+    
+  - username: fredwilson
+    category: 投资/金融
+    priority: medium
+    rss: https://nitter.net/fredwilson/rss
+    
+  - username: davidmarcus
+    category: 投资/金融
+    priority: medium
+    rss: https://nitter.net/davidmarcus/rss
+    
+  - username: billackman
+    category: 投资/金融
+    priority: medium
+    rss: https://nitter.net/billackman/rss
+    
+  - username: gdb
+    category: 投资/金融
+    priority: medium
+    rss: https://nitter.net/gdb/rss
+    
+  - username: howardmarks
+    category: 投资/金融
+    priority: high
+    rss: https://nitter.net/howardmarks/rss
+    
+  - username: rabois
+    category: 投资/金融
+    priority: medium
+    rss: https://nitter.net/rabois/rss
+
+  # Crypto/Web3专家 (8位)
+  - username: VitalikButerin
+    category: Crypto
+    priority: high
+    rss: https://nitter.net/VitalikButerin/rss
+    
+  - username: balajis
+    category: Crypto
+    priority: high
+    rss: https://nitter.net/balajis/rss
+    
+  - username: saylor
+    category: Crypto
+    priority: medium
+    rss: https://nitter.net/saylor/rss
+    
+  - username: naval
+    category: Crypto
+    priority: high
+    rss: https://nitter.net/naval/rss
+    
+  - username: aantonop
+    category: Crypto
+    priority: medium
+    rss: https://nitter.net/aantonop/rss
+    
+  - username: RyanWatkins_
+    category: Crypto
+    priority: medium
+    rss: https://nitter.net/RyanWatkins_/rss
+    
+  - username: twobitidiot
+    category: Crypto
+    priority: medium
+    rss: https://nitter.net/twobitidiot/rss
+    
+  - username: APompliano
+    category: Crypto
+    priority: medium
+    rss: https://nitter.net/APompliano/rss
+
+  # 宏观/策略分析师 (6位)
+  - username: GoldmanSachs
+    category: 宏观/策略
+    priority: medium
+    rss: https://nitter.net/GoldmanSachs/rss
+    
+  - username: MorganStanley
+    category: 宏观/策略
+    priority: medium
+    rss: https://nitter.net/MorganStanley/rss
+    
+  - username: DeItaone
+    category: 宏观/策略
+    priority: medium
+    rss: https://nitter.net/DeItaone/rss
+    
+  - username: tracyalloway
+    category: 宏观/策略
+    priority: medium
+    rss: https://nitter.net/tracyalloway/rss
+    
+  - username: byron_gill
+    category: 宏观/策略
+    priority: medium
+    rss: https://nitter.net/byron_gill/rss
+    
+  - username: LynAldenContact
+    category: 宏观/策略
+    priority: high
+    rss: https://nitter.net/LynAldenContact/rss
+
+  # 新增KOL（第45位）
+  - username: jukan05
+    category: 半导体
+    priority: high
+    rss: https://nitter.net/jukan05/rss
+
+  # 新增KOL（第46位）
+  - username: damnang2
+    category: 半导体
+    priority: high
+    rss: https://nitter.net/damnang2/rss
+
+# 监控配置
+monitor_config:
+  check_interval: 3600  # 每小时检查一次
+  max_tweets_per_kol: 10  # 每位KOL最多获取10条
+  data_retention_days: 30  # 数据保留30天
+  
+# 关键词监控（用于情绪分析）
+keywords:
+  bullish: ["buy", "bullish", "upgrade", "outperform", "strong", "growth", "breakthrough", "innovation"]
+  bearish: ["sell", "bearish", "downgrade", "underperform", "weak", "decline", "risk", "concern"]
+  stocks: ["NVDA", "TSM", "AMD", "INTC", "AAPL", "MSFT", "GOOGL", "TSLA", "AMZN", "META"]
+  sectors: ["AI", "semiconductor", "chip", "GPU", "HBM", "crypto", "bitcoin", "ethereum"]

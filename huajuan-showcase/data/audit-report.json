@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-03-10T11:04:28.903Z",
+  "codeVerification": {
+    "status": "fail",
+    "message": "Command failed: node /Users/fox/.openclaw/workspace/.agents/skills/code-change-verification/scripts/verify.js\nnode:internal/modules/cjs/loader:1450\n  throw err;\n  ^\n\nError: Cannot find module '@upstash/redis'\nRequire stack:\n- /Users/fox/.openclaw/workspace/.agents/skills/code-change-verification/scripts/verify.js\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1447:15)\n    at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)\n    at Module._load (node:internal/modules/cjs/loader:1233:25)\n    at TracingChannel.traceSync (node:diagnostics_channel:328:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)\n    at Module.require (node:internal/modules/cjs/loader:1547:12)\n    at require (node:internal/modules/helpers:152:16)\n    at Object.<anonymous> (/Users/fox/.openclaw/workspace/.agents/skills/code-change-verification/scripts/verify.js:14:19)\n    at Module._compile (node:internal/modules/cjs/loader:1803:14) {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: [\n    '/Users/fox/.openclaw/workspace/.agents/skills/code-change-verification/scripts/verify.js'\n  ]\n}\n\nNode.js v25.5.0\n"
+  },
+  "docsSync": {
+    "status": "fail",
+    "message": "Command failed: node /Users/fox/.openclaw/workspace/.agents/skills/docs-sync/scripts/audit.js\nnode:internal/modules/cjs/loader:1450\n  throw err;\n  ^\n\nError: Cannot find module '@upstash/redis'\nRequire stack:\n- /Users/fox/.openclaw/workspace/.agents/skills/docs-sync/scripts/audit.js\n    at Module._resolveFilename (node:internal/modules/cjs/loader:1447:15)\n    at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)\n    at Module._load (node:internal/modules/cjs/loader:1233:25)\n    at TracingChannel.traceSync (node:diagnostics_channel:328:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)\n    at Module.require (node:internal/modules/cjs/loader:1547:12)\n    at require (node:internal/modules/helpers:152:16)\n    at Object.<anonymous> (/Users/fox/.openclaw/workspace/.agents/skills/docs-sync/scripts/audit.js:15:19)\n    at Module._compile (node:internal/modules/cjs/loader:1803:14) {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: [\n    '/Users/fox/.openclaw/workspace/.agents/skills/docs-sync/scripts/audit.js'\n  ]\n}\n\nNode.js v25.5.0\n"
+  },
+  "gitStatus": {
+    "status": "warning",
+    "message": "1 个文件未提交"
+  }
+}

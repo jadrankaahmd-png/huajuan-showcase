@@ -1,0 +1,74 @@
+{
+  "symbol": "SMCI",
+  "timestamp": "2026-02-10T17:53:10.851400",
+  "comprehensive_score": 64.85,
+  "recommendation": "NEUTRAL_BULLISH",
+  "confidence": "high",
+  "factor_scores": {
+    "technical": {
+      "score": 54.0,
+      "details": {
+        "trend": 70,
+        "momentum": 50,
+        "support_resistance": 40,
+        "volatility": 50
+      },
+      "indicators": {
+        "current_price": 33.53,
+        "ma20": 31.06,
+        "ma50": 31.51,
+        "rsi": 56.16,
+        "volatility": 62.1
+      }
+    },
+    "fundamental": {
+      "score": 75.0,
+      "details": {
+        "valuation": 75,
+        "profitability": 65,
+        "growth": 90,
+        "financial_health": 70
+      },
+      "metrics": {
+        "pe_ratio": 24.47,
+        "forward_pe": 11.32,
+        "pb_ratio": 2.87,
+        "roe": 13.19,
+        "revenue_growth": 123.4
+      }
+    },
+    "sentiment": {
+      "score": 65.0,
+      "details": {
+        "market_sentiment": 65,
+        "social_sentiment": 70,
+        "news_sentiment": 60
+      },
+      "note": "简化评分，建议结合sentiment_analyzer使用"
+    },
+    "fund_flow": {
+      "score": 65.5,
+      "details": {
+        "institutional": 70,
+        "insider": 65,
+        "fund_flow": 60
+      },
+      "note": "简化评分，建议结合institutional_tracker使用"
+    },
+    "macro": {
+      "score": 65,
+      "details": {
+        "macro_environment": 65,
+        "sector_trend": 65
+      },
+      "sector": "Technology"
+    }
+  },
+  "weights": {
+    "technical": 0.25,
+    "fundamental": 0.25,
+    "sentiment": 0.2,
+    "fund_flow": 0.2,
+    "macro": 0.1
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "symbol": "AVGO",
+  "timestamp": "2026-02-10T17:36:23.179669",
+  "comprehensive_score": 62.54,
+  "recommendation": "NEUTRAL_BULLISH",
+  "confidence": "high",
+  "factor_scores": {
+    "technical": {
+      "score": 60.0,
+      "details": {
+        "trend": 70,
+        "momentum": 50,
+        "support_resistance": 40,
+        "volatility": 80
+      },
+      "indicators": {
+        "current_price": 343.94,
+        "ma20": 332.41,
+        "ma50": 350.29,
+        "rsi": 56.45,
+        "volatility": 48.2
+      }
+    },
+    "fundamental": {
+      "score": 59.75,
+      "details": {
+        "valuation": 30,
+        "profitability": 90,
+        "growth": 65,
+        "financial_health": 50
+      },
+      "metrics": {
+        "pe_ratio": 71.95,
+        "forward_pe": 23.95,
+        "pb_ratio": 5.81,
+        "roe": 31.05,
+        "revenue_growth": 16.4
+      }
+    },
+    "sentiment": {
+      "score": 65.0,
+      "details": {
+        "market_sentiment": 65,
+        "social_sentiment": 70,
+        "news_sentiment": 60
+      },
+      "note": "简化评分，建议结合sentiment_analyzer使用"
+    },
+    "fund_flow": {
+      "score": 65.5,
+      "details": {
+        "institutional": 70,
+        "insider": 65,
+        "fund_flow": 60
+      },
+      "note": "简化评分，建议结合institutional_tracker使用"
+    },
+    "macro": {
+      "score": 65,
+      "details": {
+        "macro_environment": 65,
+        "sector_trend": 65
+      },
+      "sector": "Technology"
+    }
+  },
+  "weights": {
+    "technical": 0.25,
+    "fundamental": 0.25,
+    "sentiment": 0.2,
+    "fund_flow": 0.2,
+    "macro": 0.1
+  }
+}

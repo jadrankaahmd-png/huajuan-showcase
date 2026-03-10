@@ -1,0 +1,74 @@
+{
+  "symbol": "HOOD",
+  "timestamp": "2026-02-10T23:29:42.593626",
+  "comprehensive_score": 65.22,
+  "recommendation": "NEUTRAL_BULLISH",
+  "confidence": "high",
+  "factor_scores": {
+    "technical": {
+      "score": 57.5,
+      "details": {
+        "trend": 30,
+        "momentum": 75,
+        "support_resistance": 80,
+        "volatility": 50
+      },
+      "indicators": {
+        "current_price": 87.38,
+        "ma20": 99.37,
+        "ma50": 113.2,
+        "rsi": 31.49,
+        "volatility": 69.92
+      }
+    },
+    "fundamental": {
+      "score": 75.0,
+      "details": {
+        "valuation": 60,
+        "profitability": 90,
+        "growth": 90,
+        "financial_health": 50
+      },
+      "metrics": {
+        "pe_ratio": 36.4,
+        "forward_pe": 33.65,
+        "pb_ratio": 9.16,
+        "roe": 27.82,
+        "revenue_growth": 100.0
+      }
+    },
+    "sentiment": {
+      "score": 65.0,
+      "details": {
+        "market_sentiment": 65,
+        "social_sentiment": 70,
+        "news_sentiment": 60
+      },
+      "note": "简化评分，建议结合sentiment_analyzer使用"
+    },
+    "fund_flow": {
+      "score": 65.5,
+      "details": {
+        "institutional": 70,
+        "insider": 65,
+        "fund_flow": 60
+      },
+      "note": "简化评分，建议结合institutional_tracker使用"
+    },
+    "macro": {
+      "score": 60,
+      "details": {
+        "macro_environment": 60,
+        "sector_trend": 60
+      },
+      "sector": "Financial Services"
+    }
+  },
+  "weights": {
+    "technical": 0.25,
+    "fundamental": 0.25,
+    "sentiment": 0.2,
+    "fund_flow": 0.2,
+    "macro": 0.1
+  }
+}

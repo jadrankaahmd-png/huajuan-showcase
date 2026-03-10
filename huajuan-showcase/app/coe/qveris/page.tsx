@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navigation from '@/components/Navigation';
 import StockQuery from '@/components/qveris/StockQuery';
 import StockRanking from '@/components/qveris/StockRanking';
@@ -9,7 +9,32 @@ import AlertSettings from '@/components/qveris/AlertSettings';
 import Backtest from '@/components/qveris/Backtest';
 import MarketAnalyst from '@/components/qveris/MarketAnalyst';
 
+interface QVerisCapability {
+  name: string;
+  description: string;
+  type: string;
+  status: string;
+}
+
 export default function QVerisPage() {
+  const [capabilities, setCapabilities] = useState<QVerisCapability[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchCapabilities() {
+      try {
+        const res = await fetch('/api/qveris-capabilities');
+        const data = await res.json();
+        setCapabilities(data.capabilities || []);
+      } catch (error) {
+        console.error('Error fetching capabilities:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    fetchCapabilities();
+  }, []);
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Navigation currentLayer={1} />
@@ -36,6 +61,26 @@ export default function QVerisPage() {
               </div>
             </div>
           </div>
+
+          {/* 能力列表 */}
+          {!isLoading && capabilities.length > 0 && (
+            <div className="mt-6 pt-6 border-t border-green-200">
+              <h3 className="text-sm font-semibold text-gray-700 mb-3">QVeris 能力清单（{capabilities.length}条）</h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                {capabilities.map((cap, idx) => (
+                  <div 
+                    key={idx}
+                    className="bg-white px-3 py-2 rounded-lg text-sm flex items-center gap-2"
+                  >
+                    <span className={cap.status === 'active' ? 'text-green-600' : 'text-gray-400'}>
+                      {cap.status === 'active' ? '✓' : '○'}
+                    </span>
+                    <span className="text-gray-700">{cap.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
 
         {/* 功能模块网格 */}
