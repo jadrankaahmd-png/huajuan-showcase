@@ -1618,5 +1618,65 @@
     "createdAt": "2026-03-10T11:13:50.512Z",
     "updatedAt": "2026-03-10T11:13:50.513Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773141987306",
+    "name": "FDA事件传导预测器实现",
+    "description": "监听FDA药物批准/拒绝事件，用多Agent角色传导机制预测股价影响，预测信息被price in需要多长时间，输出方向预测+传导时间预测",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "事件预测",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "监听FDA药物批准/拒绝事件，用多Agent角色传导机制预测股价影响，预测信息被price in需要多长时间，输出方向预测+传导时间预测",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:26:27.306Z",
+    "updatedAt": "2026-03-10T11:26:27.306Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773141989586",
+    "name": "财报事件传导预测器实现",
+    "description": "监听美股财报发布事件，预测财报发布后信息传播路径（分析师→KOL→记者→散户），预测股价何时完全消化信息，输出方向预测+price-in时间预测",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "事件预测",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "监听美股财报发布事件，预测财报发布后信息传播路径（分析师→KOL→记者→散户），预测股价何时完全消化信息，输出方向预测+price-in时间预测",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:26:29.586Z",
+    "updatedAt": "2026-03-10T11:26:29.587Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773141991798",
+    "name": "信息滞后机会扫描器实现",
+    "description": "实时扫描市场事件，识别信息滞后交易机会（散户还没反应的窗口），输出机会列表+预估剩余时间窗口，基于多Agent角色传导模型",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "机会扫描",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "实时扫描市场事件，识别信息滞后交易机会（散户还没反应的窗口），输出机会列表+预估剩余时间窗口，基于多Agent角色传导模型",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:26:31.798Z",
+    "updatedAt": "2026-03-10T11:26:31.799Z",
+    "source": "custom"
   }
 ]
