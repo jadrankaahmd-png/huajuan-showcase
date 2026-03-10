@@ -1718,5 +1718,45 @@
     "createdAt": "2026-03-10T11:40:15.680Z",
     "updatedAt": "2026-03-10T11:40:15.681Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773143484122",
+    "name": "AI五层架构投资机会识别器实现",
+    "description": "输入市场新闻事件，识别属于哪一层（能源/芯片/基建/模型/应用），根据不同层级使用不同price-in时间预测，推荐对应投资标的",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "投资分析",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "输入市场新闻事件，识别属于哪一层（能源/芯片/基建/模型/应用），根据不同层级使用不同price-in时间预测，推荐对应投资标的",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:51:24.122Z",
+    "updatedAt": "2026-03-10T11:51:24.123Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773143486633",
+    "name": "AI能源层投资监控器实现",
+    "description": "实时监控NEE/VST/CEG股价和新闻，跟踪电力需求增长、核电装机、数据中心能耗占比，输出投资机会提醒和风险预警",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "行业监控",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "实时监控NEE/VST/CEG股价和新闻，跟踪电力需求增长、核电装机、数据中心能耗占比，输出投资机会提醒和风险预警",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:51:26.633Z",
+    "updatedAt": "2026-03-10T11:51:26.634Z",
+    "source": "custom"
   }
 ]

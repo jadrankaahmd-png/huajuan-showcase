@@ -1,0 +1,42 @@
+{
+  "timestamp": "2026-03-10T11:48:32.168Z",
+  "stocks": [
+    {
+      "symbol": "NVDA",
+      "price": 182.65,
+      "change": 4.83,
+      "changePercent": 2.7162
+    },
+    {
+      "symbol": "AMD",
+      "price": 202.68,
+      "change": 10.25,
+      "changePercent": 5.3266
+    },
+    {
+      "symbol": "AVGO",
+      "price": 345.75,
+      "change": 15.27,
+      "changePercent": 4.6206
+    }
+  ],
+  "news": [
+    {
+      "title": "AI chip market size reaches $100B",
+      "description": "AI semiconductor market grows 40% YoY...",
+      "publishedAt": "2026-03-10T11:48:32.166Z",
+      "source": {
+        "name": "Example Source"
+      }
+    }
+  ],
+  "opportunities": [
+    {
+      "type": "买入机会",
+      "symbol": "AMD",
+      "reason": "股价上涨超过5%",
+      "currentPrice": 202.68,
+      "changePercent": 5.3266
+    }
+  ]
+}
