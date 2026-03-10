@@ -25,16 +25,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const companies = await Promise.all(
       tickers.map(async (ticker) => {
         const [incomeStatements, balanceSheets] = await Promise.all([
-          callFinancialDatasetsAPI('income-statements', { ticker, period: 'annual', limit: 1 }),
-          callFinancialDatasetsAPI('balance-sheets', { ticker, period: 'annual', limit: 1 }),
+          callFinancialDatasetsAPI('financials/income-statements', { ticker, period: 'annual', limit: 1 }),
+          callFinancialDatasetsAPI('financials/balance-sheets', { ticker, period: 'annual', limit: 1 }),
         ]);
+
+        // 提取数据（Financial Datasets API 返回的是 {income_statements: [...]}）
+        const incomeData = incomeStatements.income_statements?.[0] || incomeStatements[0];
+        const balanceData = balanceSheets.balance_sheets?.[0] || balanceSheets[0];
 
         return {
           ticker,
-          revenue: incomeStatements[0]?.revenue || 0,
-          netIncome: incomeStatements[0]?.net_income || 0,
-          grossProfit: incomeStatements[0]?.gross_profit || 0,
-          shareholdersEquity: balanceSheets[0]?.shareholders_equity || 1,
+          revenue: incomeData?.revenue || 0,
+          netIncome: incomeData?.net_income || 0,
+          grossProfit: incomeData?.gross_profit || 0,
+          shareholdersEquity: balanceData?.shareholders_equity || 1,
         };
       })
     );

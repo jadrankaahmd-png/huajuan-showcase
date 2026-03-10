@@ -21,11 +21,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(400).json({ error: 'Missing ticker' });
     }
 
-    // 获取财务数据
+    // 获取财务数据（使用正确的端点）
     const [incomeStatements, balanceSheets, cashFlowStatements] = await Promise.all([
-      callFinancialDatasetsAPI('income-statements', { ticker, period: 'annual', limit: 5 }),
-      callFinancialDatasetsAPI('balance-sheets', { ticker, period: 'annual', limit: 5 }),
-      callFinancialDatasetsAPI('cash-flow-statements', { ticker, period: 'annual', limit: 5 }),
+      callFinancialDatasetsAPI('financials/income-statements', { ticker, period: 'annual', limit: 5 }),
+      callFinancialDatasetsAPI('financials/balance-sheets', { ticker, period: 'annual', limit: 5 }),
+      callFinancialDatasetsAPI('financials/cash-flow-statements', { ticker, period: 'annual', limit: 5 }),
     ]);
 
     // 计算财务指标
@@ -37,10 +37,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       roe: [],
     };
 
-    for (let i = 0; i < incomeStatements.length; i++) {
-      const income = incomeStatements[i];
-      const balance = balanceSheets[i];
-      const cashFlow = cashFlowStatements[i];
+    for (let i = 0; i < incomeData.length; i++) {
+      const income = incomeData[i];
+      const balance = balanceData[i];
+      const cashFlow = cashFlowData[i];
 
       // 收入增长率
       if (i < incomeStatements.length - 1) {

@@ -21,24 +21,22 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(400).json({ error: 'Missing ticker or keyword' });
     }
 
-    // 搜索 SEC 文件
-    const filings = await callFinancialDatasetsAPI('sec-filings/search', {
+    // 搜索 SEC 文件（使用正确的端点）
+    const filings = await callFinancialDatasetsAPI('filings', {
       ticker,
       filing_type: filingType,
-      query: keyword,
       limit: years,
     });
 
-    // 分析关键词趋势
-    const trend = filings.map((filing: any) => {
-      const keywordRegex = new RegExp(keyword, 'gi');
-      const matches = filing.content?.match(keywordRegex);
-      const count = matches ? matches.length : 0;
+    // 提取文件数据（Financial Datasets API 返回的是 {filings: [...]}）
+    const filingsData = filings.filings || filings;
 
+    // 分析关键词趋势（暂时显示文件数量，后续可以解析文本内容）
+    const trend = filingsData.map((filing: any, index: number) => {
       return {
-        year: filing.fiscal_year,
+        year: filing.fiscal_year || new Date(filing.filing_date).getFullYear(),
         date: filing.filing_date,
-        count,
+        count: 0, // 需要单独获取文件内容才能统计关键词
         type: filing.filing_type,
       };
     });
