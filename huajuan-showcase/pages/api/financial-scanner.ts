@@ -102,11 +102,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     res.status(200).json({
       ticker,
       metrics,
-      raw: {
-        incomeStatements,
-        balanceSheets,
-        cashFlowStatements,
-      },
     });
   } catch (error: any) {
     console.error('财报扫描失败:', error);
