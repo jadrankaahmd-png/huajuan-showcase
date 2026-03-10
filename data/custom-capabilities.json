@@ -998,5 +998,125 @@
     "createdAt": "2026-03-10T08:28:59.840Z",
     "updatedAt": "2026-03-10T08:28:59.841Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773132394754",
+    "name": "Heartbeat定期唤醒机制",
+    "description": "Agent Harness设计：定期唤醒Agent执行5件事（回顾、日记、扫描、健康检查、刷新状态板），保持系统活跃和自我监控",
+    "category": "automation",
+    "categoryName": "automation",
+    "type": "定时任务",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "Agent Harness设计：定期唤醒Agent执行5件事（回顾、日记、扫描、健康检查、刷新状态板），保持系统活跃和自我监控",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:46:34.754Z",
+    "updatedAt": "2026-03-10T08:46:34.754Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773132397010",
+    "name": "渐进式上下文加载",
+    "description": "Agent Harness设计：三层记忆（当前状态/短期记忆/长期知识），按需加载不把所有上下文塞进去，节省Token",
+    "category": "memory",
+    "categoryName": "memory",
+    "type": "记忆管理",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "Agent Harness设计：三层记忆（当前状态/短期记忆/长期知识），按需加载不把所有上下文塞进去，节省Token",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:46:37.010Z",
+    "updatedAt": "2026-03-10T08:46:37.010Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773132399231",
+    "name": "系统精简清理机制",
+    "description": "Agent Harness设计：系统变稳靠删，删除低价值自动化，保持清晰度，减少复杂度，定期清理无用能力",
+    "category": "automation",
+    "categoryName": "automation",
+    "type": "系统优化",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "Agent Harness设计：系统变稳靠删，删除低价值自动化，保持清晰度，减少复杂度，定期清理无用能力",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:46:39.231Z",
+    "updatedAt": "2026-03-10T08:46:39.232Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773132401467",
+    "name": "Harness复利架构",
+    "description": "Agent Harness设计：模型会变，但文件结构/状态同步/记忆分层/heartbeat会复利，长期价值，可持续发展",
+    "category": "systems",
+    "categoryName": "systems",
+    "type": "架构设计",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "Agent Harness设计：模型会变，但文件结构/状态同步/记忆分层/heartbeat会复利，长期价值，可持续发展",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:46:41.467Z",
+    "updatedAt": "2026-03-10T08:46:41.467Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773132403726",
+    "name": "人格层设计",
+    "description": "Agent Harness设计：SOUL.md定义Agent身份和决策风格，遇到不确定就说不确定，保持人格一致性",
+    "category": "ai",
+    "categoryName": "ai",
+    "type": "人格设计",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "Agent Harness设计：SOUL.md定义Agent身份和决策风格，遇到不确定就说不确定，保持人格一致性",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:46:43.726Z",
+    "updatedAt": "2026-03-10T08:46:43.727Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773132405921",
+    "name": "最小Harness启动模式",
+    "description": "Agent Harness设计：SOUL.md + NOW.md + HEARTBEAT.md 三个文件，简单开始逐步扩展，可维护性",
+    "category": "systems",
+    "categoryName": "systems",
+    "type": "启动模式",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "Agent Harness设计：SOUL.md + NOW.md + HEARTBEAT.md 三个文件，简单开始逐步扩展，可维护性",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:46:45.921Z",
+    "updatedAt": "2026-03-10T08:46:45.921Z",
+    "source": "custom"
   }
 ]
