@@ -13,27 +13,26 @@ const http = require('http');
 // 注意：需要先安装 pdf-parse
 // npm install pdf-parse
 
-let pdfParse;
+let PDFParse;
 try {
   const pdfModule = require('pdf-parse');
-  // pdf-parse 可能导出为对象或函数
-  if (typeof pdfModule === 'function') {
-    pdfParse = pdfModule;
-  } else if (pdfModule.default && typeof pdfModule.default === 'function') {
-    pdfParse = pdfModule.default;
-  } else if (pdfModule.parse && typeof pdfModule.parse === 'function') {
-    pdfParse = pdfModule.parse;
+  // pdf-parse v2.0+ 导出 PDFParse 类
+  if (pdfModule.PDFParse) {
+    PDFParse = pdfModule.PDFParse;
+  } else if (typeof pdfModule === 'function') {
+    // 旧版本直接导出函数
+    PDFParse = pdfModule;
   } else {
-    console.log('⚠️  pdf-parse 导出格式不兼容:', typeof pdfModule);
+    console.log('⚠️  pdf-parse 导出格式不兼容');
     console.log('💡 使用备用方案');
-    pdfParse = null;
+    PDFParse = null;
   }
 } catch (e) {
   console.log('❌ pdf-parse 未安装:', e.message);
   console.log('📦 安装中: npm install pdf-parse');
   console.log('');
   console.log('💡 使用备用方案：直接提取文本（不需要 pdf-parse）');
-  pdfParse = null;
+  PDFParse = null;
 }
 
 const KNOWLEDGE_BASE_DIR = path.join(__dirname, '../public/knowledge_base');
@@ -65,15 +64,17 @@ async function readLocalPDF(filePath) {
 
 // 提取 PDF 内容（使用 pdf-parse）
 async function extractWithPDFParse(buffer) {
-  if (!pdfParse) {
-    throw new Error('pdf-parse 未安装');
+  if (!PDFParse) {
+    throw new Error('pdf-parse 未安装或不兼容');
   }
   
-  const data = await pdfParse(buffer);
+  const parser = new PDFParse({ data: buffer });
+  const result = await parser.getText();
+  
   return {
-    text: data.text,
-    pages: data.numpages,
-    info: data.info,
+    text: result.text || result,
+    pages: result.pages ? result.pages.length : 1,
+    info: result.info || {},
   };
 }
 
@@ -119,7 +120,7 @@ async function extractPDF(source) {
   console.log(`✅ PDF 大小: ${(buffer.length / 1024).toFixed(2)} KB\n`);
   
   // 尝试使用 pdf-parse
-  if (pdfParse) {
+  if (PDFParse) {
     try {
       console.log('🔍 使用 pdf-parse 提取内容...');
       return await extractWithPDFParse(buffer);
