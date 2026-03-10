@@ -1,0 +1,8 @@
+# Telegram 抓取依赖
+requests==2.32.5
+beautifulsoup4==4.14.3
+lxml==5.3.2
+python-dotenv==1.2.2
+
+# Telethon（备选方案）
+telethon==1.42.0

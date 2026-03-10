@@ -1,0 +1,74 @@
+{
+  "symbol": "MSFT",
+  "timestamp": "2026-02-10T23:28:28.753450",
+  "comprehensive_score": 65.66,
+  "recommendation": "NEUTRAL_BULLISH",
+  "confidence": "high",
+  "factor_scores": {
+    "technical": {
+      "score": 63.5,
+      "details": {
+        "trend": 30,
+        "momentum": 75,
+        "support_resistance": 80,
+        "volatility": 80
+      },
+      "indicators": {
+        "current_price": 420.87,
+        "ma20": 441.83,
+        "ma50": 466.32,
+        "rsi": 42.68,
+        "volatility": 25.09
+      }
+    },
+    "fundamental": {
+      "score": 68.75,
+      "details": {
+        "valuation": 60,
+        "profitability": 90,
+        "growth": 65,
+        "financial_health": 50
+      },
+      "metrics": {
+        "pe_ratio": 26.37,
+        "forward_pe": 22.31,
+        "pb_ratio": 8.0,
+        "roe": 34.39,
+        "revenue_growth": 16.7
+      }
+    },
+    "sentiment": {
+      "score": 65.0,
+      "details": {
+        "market_sentiment": 65,
+        "social_sentiment": 70,
+        "news_sentiment": 60
+      },
+      "note": "简化评分，建议结合sentiment_analyzer使用"
+    },
+    "fund_flow": {
+      "score": 65.5,
+      "details": {
+        "institutional": 70,
+        "insider": 65,
+        "fund_flow": 60
+      },
+      "note": "简化评分，建议结合institutional_tracker使用"
+    },
+    "macro": {
+      "score": 65,
+      "details": {
+        "macro_environment": 65,
+        "sector_trend": 65
+      },
+      "sector": "Technology"
+    }
+  },
+  "weights": {
+    "technical": 0.25,
+    "fundamental": 0.25,
+    "sentiment": 0.2,
+    "fund_flow": 0.2,
+    "macro": 0.1
+  }
+}

@@ -1,192 +1,180 @@
 #!/usr/bin/env python3
 """
-Telegram 频道新闻抓取脚本（Telethon MTProto API 版本）- v3.0
-功能：从活跃频道抓取真实消息（使用官方 API）
-优势：更稳定、更全面、无需网页解析
-运行频率：每15分钟一次
-输出：data/telegram_news/latest.json
+Telegram Channel Scraper using Telethon
+真实抓取 Telegram 频道消息
 """
 
-import os
-import json
 import asyncio
-from datetime import datetime, timezone, timedelta
-from pathlib import Path
-from dotenv import load_dotenv
+import json
+import argparse
+import sys
+from datetime import datetime, timezone
 from telethon import TelegramClient
-from telethon.errors import ChannelPrivateError, ChatAdminRequiredError, UsernameNotOccupiedError
-from telethon.tl.types import Channel
+from telethon.tl.functions.messages import GetHistoryRequest
+from telethon.tl.types import InputPeerChannel
+from telethon.errors import SessionPasswordNeededError
 
-# 加载环境变量
-load_dotenv()
+# 配置
+API_ID = None
+API_HASH = None
+SESSION_NAME = 'telegram_session'
 
-# API 凭证
-API_ID = int(os.getenv('TELEGRAM_API_ID'))
-API_HASH = os.getenv('TELEGRAM_API_HASH')
+class TelegramScraper:
+    def __init__(self, api_id, api_hash):
+        self.api_id = api_id
+        self.api_hash = api_hash
+        self.client = None
+        
+    async def connect(self):
+        """连接到 Telegram"""
+        print(f'🔌 正在连接 Telegram API...')
+        print(f'   API ID: {self.api_id}')
+        
+        self.client = TelegramClient(SESSION_NAME, self.api_id, self.api_hash)
+        await self.client.connect()
+        
+        if not await self.client.is_user_authorized():
+            print('❌ 需要授权！请先运行授权流程')
+            print('   提示：首次使用需要输入手机号和验证码')
+            sys.exit(1)
+        
+        print('✅ 已连接到 Telegram')
+    
+    async def get_channel_messages(self, channel_username, limit=50):
+        """获取频道消息"""
+        try:
+            print(f'📡 正在获取频道 @{channel_username} 的消息...')
+            
+            # 获取频道实体
+            try:
+                entity = await self.client.get_entity(channel_username)
+            except Exception as e:
+                print(f'   ⚠️ 无法获取频道实体: {e}')
+                return []
+            
+            # 获取消息历史
+            messages = await self.client(GetHistoryRequest(
+                peer=entity,
+                limit=limit,
+                offset_date=None,
+                offset_id=0,
+                max_id=0,
+                min_id=0,
+                add_offset=0,
+                hash=0
+            ))
+            
+            result = []
+            for msg in messages.messages:
+                if hasattr(msg, 'message') and msg.message:
+                    result.append({
+                        'channel': channel_username,
+                        'message_id': msg.id,
+                        'text': msg.message,
+                        'timestamp': msg.date.isoformat() if msg.date else None,
+                        'views': msg.views or 0,
+                        'link': f'https://t.me/{channel_username}/{msg.id}',
+                        'channel_name': channel_username.title().replace('_', ' '),
+                        'category': 'unknown',
+                        'lang': 'unknown'
+                    })
+            
+            print(f'   ✅ 获取到 {len(result)} 条消息')
+            return result
+            
+        except Exception as e:
+            print(f'   ❌ 获取消息失败: {e}')
+            return []
+    
+    async def scrape_channels(self, channels_list):
+        """抓取多个频道"""
+        all_news = {
+            'last_update': datetime.now(timezone.utc).isoformat(),
+            'source': 'Telegram MTProto API (真实数据)',
+            'channels': {
+                'blockchain': [],
+                'finance': [],
+                'tech': []
+            },
+            'total_messages': 0,
+            'active_channels': 0
+        }
+        
+        # 解析频道列表
+        for item in channels_list:
+            if ':' in item:
+                category, channel = item.split(':', 1)
+            else:
+                category = 'blockchain'
+                channel = item
+            
+            messages = await self.get_channel_messages(channel, limit=50)
+            
+            if messages:
+                # 更新分类
+                for msg in messages:
+                    msg['category'] = category
+                
+                if category in all_news['channels']:
+                    all_news['channels'][category].extend(messages)
+                else:
+                    all_news['channels'][category] = messages
+                
+                all_news['active_channels'] += 1
+        
+        # 计算总数
+        all_news['total_messages'] = sum(
+            len(msgs) for msgs in all_news['channels'].values()
+        )
+        
+        return all_news
+    
+    async def close(self):
+        """关闭连接"""
+        if self.client:
+            await self.client.disconnect()
+            print('🔌 已断开 Telegram 连接')
 
-# 频道配置（已验证：24小时内有更新的活跃频道）
-CHANNELS = {
-    "blockchain": [
-        {"username": "theblockbeats", "name": "BlockBeats", "lang": "zh"},
-        {"username": "cointelegraph", "name": "Cointelegraph", "lang": "en"},
-    ],
-    "finance": [
-        # 注：传统金融媒体的 Telegram 频道大多私有或无公开消息
-    ],
-    "tech": [
-        {"username": "hackernewsfeed", "name": "Hacker News", "lang": "en"},
-        {"username": "wired", "name": "Wired", "lang": "en"},
-    ],
-}
-
-# 每个频道抓取的消息数量
-MESSAGES_PER_CHANNEL = 50
-
-# 时间过滤：只保留24小时内的新闻
-TIME_FILTER_HOURS = 24
-
-async def fetch_channel_messages(client, channel_username, limit=50):
-    """抓取单个频道的最新消息（使用 Telethon）"""
-    messages = []
+async def main():
+    parser = argparse.ArgumentParser(description='Telegram 频道抓取器')
+    parser.add_argument('--api-id', required=True, help='Telegram API ID')
+    parser.add_argument('--api-hash', required=True, help='Telegram API Hash')
+    parser.add_argument('--channels', required=True, help='频道列表（格式: category:channel,category:channel）')
+    parser.add_argument('--output', required=True, help='输出文件路径')
+    
+    args = parser.parse_args()
+    
+    # 解析频道列表
+    channels_list = [ch.strip() for ch in args.channels.split(',')]
+    print(f'📋 要抓取的频道: {len(channels_list)} 个')
+    
+    # 创建抓取器
+    scraper = TelegramScraper(args.api_id, args.api_hash)
+    
     try:
-        # 获取频道实体
-        entity = await client.get_entity(channel_username)
+        # 连接
+        await scraper.connect()
         
-        # 计算时间截止点
-        now = datetime.now(timezone.utc)
-        cutoff = now - timedelta(hours=TIME_FILTER_HOURS)
+        # 抓取
+        all_news = await scraper.scrape_channels(channels_list)
         
-        # 抓取消息
-        async for message in client.iter_messages(entity, limit=limit):
-            # 只保留有文本的消息
-            if not message.text:
-                continue
-            
-            # 时间过滤
-            if message.date < cutoff:
-                break  # 因为消息是按时间倒序，遇到旧消息就可以停止
-            
-            messages.append({
-                "channel": channel_username,
-                "message_id": message.id,
-                "text": message.text[:500],  # 限制文本长度
-                "timestamp": message.date.isoformat(),
-                "views": message.views or 0,
-                "link": f"https://t.me/{channel_username}/{message.id}",
-            })
+        # 保存结果
+        import os
+        os.makedirs(os.path.dirname(args.output), exist_ok=True)
         
-        print(f"   ✅ 抓取了 {len(messages)} 条消息（24小时内）")
+        with open(args.output, 'w', encoding='utf-8') as f:
+            json.dump(all_news, f, ensure_ascii=False, indent=2)
         
-    except ChannelPrivateError:
-        print(f"   ❌ 频道 @{channel_username} 是私有频道，无法访问")
-    except ChatAdminRequiredError:
-        print(f"   ❌ 频道 @{channel_username} 需要管理员权限")
-    except UsernameNotOccupiedError:
-        print(f"   ❌ 用户名 @{channel_username} 不存在")
-    except Exception as e:
-        print(f"   ❌ 抓取频道 @{channel_username} 失败: {e}")
-    
-    return messages
+        print(f'\n✅ 抓取完成！')
+        print(f'📊 统计:')
+        print(f'   - 总消息数: {all_news["total_messages"]}')
+        print(f'   - 活跃频道: {all_news["active_channels"]}')
+        print(f'   - 最后更新: {all_news["last_update"]}')
+        print(f'   - 数据来源: {all_news["source"]}')
+        print(f'   - 保存位置: {args.output}')
+        
+    finally:
+        await scraper.close()
 
-async def fetch_all_channels():
-    """抓取所有频道的消息（使用 Telethon）"""
-    print("🚀 开始使用 Telethon MTProto API 抓取 Telegram 频道...")
-    print(f"📅 执行时间：{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print(f"⏰ 时间过滤：只保留 {TIME_FILTER_HOURS} 小时内的新闻")
-    
-    # 创建 Telegram 客户端（使用已保存的 session）
-    client = TelegramClient('telegram_session', API_ID, API_HASH)
-    await client.start()
-    
-    print("✅ Telegram 客户端已连接（使用已保存的 session）")
-    
-    all_messages = []
-    channel_stats = {}
-    
-    # 抓取每个分类的频道
-    for category, channels in CHANNELS.items():
-        for channel in channels:
-            print(f"📡 正在抓取 @{channel['username']}...")
-            messages = await fetch_channel_messages(
-                client, 
-                channel['username'], 
-                limit=MESSAGES_PER_CHANNEL
-            )
-            
-            # 添加频道信息
-            for msg in messages:
-                msg["channel_name"] = channel['name']
-                msg["category"] = category
-                msg["lang"] = channel['lang']
-            
-            all_messages.extend(messages)
-            
-            # 记录统计信息
-            channel_stats[channel['username']] = len(messages)
-    
-    await client.disconnect()
-    
-    # 按时间倒序排序（最新的排最前面）
-    all_messages.sort(key=lambda x: x['timestamp'], reverse=True)
-    
-    # 按分类重新组织
-    news_data = {
-        "last_update": datetime.now().isoformat(),
-        "channels": {
-            "blockchain": [],
-            "finance": [],
-            "tech": [],
-        },
-        "total_messages": len(all_messages),
-        "channel_stats": channel_stats,
-        "source": "Telethon MTProto API",
-    }
-    
-    for msg in all_messages:
-        news_data["channels"][msg["category"]].append(msg)
-    
-    return news_data
-
-def save_news_data(news_data):
-    """保存新闻数据到 JSON 文件"""
-    output_dir = Path(__file__).parent.parent / "data" / "telegram_news"
-    output_dir.mkdir(parents=True, exist_ok=True)
-    
-    output_file = output_dir / "latest.json"
-    with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(news_data, f, ensure_ascii=False, indent=2)
-    
-    print(f"\n✅ 新闻数据已保存到 {output_file}")
-    print(f"📊 总计 {news_data['total_messages']} 条新闻（24小时内）")
-    print(f"⏰ 更新时间：{news_data['last_update']}")
-    print(f"📡 数据来源：{news_data['source']}")
-    
-    # 显示各频道统计
-    print("\n📋 各频道抓取统计：")
-    for channel, count in news_data['channel_stats'].items():
-        status = "✅" if count > 0 else "⚠️"
-        print(f"  {status} @{channel}: {count} 条")
-
-def main():
-    """主函数"""
-    try:
-        # 运行异步抓取
-        news_data = asyncio.run(fetch_all_channels())
-        
-        # 保存数据
-        save_news_data(news_data)
-        
-        print("\n✨ 抓取完成！")
-        print("\n💡 说明：")
-        print("- 使用 Telethon MTProto API（官方 API）")
-        print("- 只保留24小时内的新闻")
-        print("- 按时间倒序排列（最新的在最前面）")
-        print("- 数据更稳定、更全面")
-        
-    except Exception as e:
-        print(f"\n❌ 抓取失败: {e}")
-        import traceback
-        traceback.print_exc()
-
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    asyncio.run(main())

@@ -89,6 +89,7 @@
 - Marinesia: `wQIYUyrFIRNCpmHPYPeyOHANL`（备用，HTTP REST API）
 - NASA FIRMS: `04d70a06913c6da0fdb433ed6bc1d854`
 - **QVeris**: `sk-YFaMAuNb1r1qBE4_0Pr3wZYtvzqHbKL8Ths6SvWOiRU`（10,000+数据接口）✅
+- **Financial Datasets**: `e881af97-a866-4ffb-9e4f-63fa9adc0ed9`（17,000+家公司30年财务数据）✅
 
 ---
 

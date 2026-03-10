@@ -236,3 +236,73 @@ _最后更新：2026-03-09 21:45_
 ---
 
 _最后更新：2026-03-09 21:48_
+
+---
+
+## 知识库新增：Groq被NVIDIA收购（2026-03-09 21:52）
+
+**新增内容：** NVIDIA以约200亿美元收购Groq，推理芯片商业量产
+
+**投资分析要点：**
+- ✅ NVIDIA约200亿美元收购Groq
+- ✅ 三星代工厂晶圆产量从9000片提升至15000片
+- ✅ 进入推理芯片商业量产阶段
+- ✅ NVIDIA通过非排他性技术许可协议间接收购Groq
+- ✅ 三星4nm工艺同时为Groq和HyperAccel生产推理AI芯片
+- ✅ NVIDIA预计在GTC 2026发布基于Groq架构的推理专用芯片
+- ✅ 用SRAM替代HBM（更快传输速度、更高能效、更低成本）
+
+**投资逻辑：**
+- 推理AI芯片市场即将全面爆发
+- NVIDIA通过收购Groq布局推理市场
+- 三星代工受益
+- 关注NVDA及推理芯片相关标的
+
+**更新文件：**
+- ✅ knowledge_base/groq_nvidia_acquisition_2026-03-09.md（新建）
+- ✅ capabilities.ts knowledge-base 分类（新增1个条目）
+- ✅ layer1-change-log.md（本记录）
+
+**能力统计变化：**
+- knowledge-base 分类：16 → 17（+1）
+- 总能力数：604 → 605（+1）
+
+---
+
+_最后更新：2026-03-09 21:52_
+
+---
+
+## knowledge_base/ 目录5个文件追加到 capabilities.ts（2026-03-09 23:18）
+
+**任务：** 将 knowledge_base/ 目录的5个文件作为5个能力追加到 capabilities.ts
+
+**追加条目：**
+1. ✅ AI创业价值迁移：Copilot vs Autopilot（2026-03-07）
+   - 来源：Twitter @wangray
+   - 内容：AI创业公司价值迁移分析
+
+2. ✅ 模拟AI计算：物理定律取代数字计算（2026-03-07）
+   - 来源：Twitter @NuttyCLD
+   - 内容：模拟AI计算技术分析
+
+3. ✅ LLM编程的局限性：SQLite重写案例（2026-03-07）
+   - 来源：技术案例分析
+   - 内容：LLM在软件工程中的局限性
+
+**未追加条目（已存在）：**
+- $AAOI 1.6T数据中心收发器首单分析（已存在于 capabilities.ts）
+- Groq被NVIDIA收购：推理芯片商业量产（已存在于 capabilities.ts）
+
+**能力统计更新：**
+- knowledge-base 分类：17 → 20（+3）
+- 总能力数：605 → 608（+3）
+
+**同步更新文件：**
+- ✅ capabilities.ts（追加3个条目）
+- ✅ layer1-capabilities-index.md（记录更新）
+- ✅ layer1-change-log.md（本记录）
+
+---
+
+_最后更新：2026-03-09 23:18_

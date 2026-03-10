@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 interface NavigationProps {
-  currentLayer?: 1 | 2 | 3;
+  currentLayer?: 0 | 1 | 2 | 3;
 }
 
 export default function Navigation({ currentLayer }: NavigationProps) {
@@ -13,19 +13,21 @@ export default function Navigation({ currentLayer }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   // 自动检测当前层级
-  const detectLayer = (): 1 | 2 | 3 => {
-    if (currentLayer) return currentLayer;
-    if (pathname === '/dynamic-model' || pathname.startsWith('/dynamic-model/')) return 2;
-    if (pathname === '/stock-picker' || pathname.startsWith('/stock-picker/')) return 3;
-    return 1;
+  const detectLayer = (): 0 | 1 | 2 | 3 => {
+    if (currentLayer !== undefined) return currentLayer;
+    if (pathname === '/') return 0; // 首页
+    if (pathname === '/dynamic-model' || pathname?.startsWith(('/dynamic-model/')) return 2;
+    if (pathname === '/stock-picker' || pathname?.startsWith(('/stock-picker/')) return 3;
+    return 1; // 默认第一层
   };
   
   const layer = detectLayer();
   
   const navItems = [
-    { href: '/', label: '🌸 花卷能力中心', layer: 1 },
-    { href: '/dynamic-model', label: '✨ 花卷动态模型', layer: 2 },
-    { href: '/stock-picker', label: '🌸 花卷选股', layer: 3 }
+    { href: '/', label: '🏠 首页', layer: 0 },
+    { href: '/coe', label: '🧠 花卷能力中心', layer: 1 },
+    { href: '/dynamic-model', label: '⚡ 花卷动态模型', layer: 2 },
+    { href: '/stock-picker', label: '🎯 花卷选股', layer: 3 }
   ];
   
   return (

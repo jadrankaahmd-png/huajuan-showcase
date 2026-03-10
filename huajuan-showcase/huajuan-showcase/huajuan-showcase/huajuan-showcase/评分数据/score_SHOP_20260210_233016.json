@@ -1,0 +1,74 @@
+{
+  "symbol": "SHOP",
+  "timestamp": "2026-02-10T23:30:16.767294",
+  "comprehensive_score": 65.54,
+  "recommendation": "NEUTRAL_BULLISH",
+  "confidence": "high",
+  "factor_scores": {
+    "technical": {
+      "score": 63.5,
+      "details": {
+        "trend": 30,
+        "momentum": 75,
+        "support_resistance": 80,
+        "volatility": 80
+      },
+      "indicators": {
+        "current_price": 127.45,
+        "ma20": 135.98,
+        "ma50": 152.72,
+        "rsi": 40.85,
+        "volatility": 48.79
+      }
+    },
+    "fundamental": {
+      "score": 68.25,
+      "details": {
+        "valuation": 30,
+        "profitability": 80,
+        "growth": 90,
+        "financial_health": 85
+      },
+      "metrics": {
+        "pe_ratio": 93.68,
+        "forward_pe": 69.17,
+        "pb_ratio": 13.25,
+        "roe": 15.74,
+        "revenue_growth": 31.5
+      }
+    },
+    "sentiment": {
+      "score": 65.0,
+      "details": {
+        "market_sentiment": 65,
+        "social_sentiment": 70,
+        "news_sentiment": 60
+      },
+      "note": "简化评分，建议结合sentiment_analyzer使用"
+    },
+    "fund_flow": {
+      "score": 65.5,
+      "details": {
+        "institutional": 70,
+        "insider": 65,
+        "fund_flow": 60
+      },
+      "note": "简化评分，建议结合institutional_tracker使用"
+    },
+    "macro": {
+      "score": 65,
+      "details": {
+        "macro_environment": 65,
+        "sector_trend": 65
+      },
+      "sector": "Technology"
+    }
+  },
+  "weights": {
+    "technical": 0.25,
+    "fundamental": 0.25,
+    "sentiment": 0.2,
+    "fund_flow": 0.2,
+    "macro": 0.1
+  }
+}

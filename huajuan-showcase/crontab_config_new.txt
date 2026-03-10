@@ -1,0 +1,22 @@
+# 虾虾crontab配置
+# 运行命令安装: crontab crontab_config.txt
+
+# 双重监控 - 每分钟检查OpenClaw和虾虾系统
+*/1 * * * * /Users/fox/.openclaw/workspace/tools/dual_monitor.sh >> /Users/fox/.openclaw/workspace/交易日志/cron_dual_monitor.log 2>&1
+
+# IB Gateway监控 - 每5分钟检查
+*/5 * * * * /Users/fox/.openclaw/workspace/tools/ib_gateway_monitor.sh >> /Users/fox/.openclaw/workspace/交易日志/cron_ib_monitor.log 2>&1
+
+# 虾虾系统日常检查 - 每天21:25（交易前5分钟）
+25 21 * * 1-5 cd /Users/fox/.openclaw/workspace/tools && python3 master_control.py >> /Users/fox/.openclaw/workspace/交易日志/cron_trading.log 2>&1
+0 9 * * 1 /opt/homebrew/Caskroom/miniconda/base/bin/python3 /Users/fox/.openclaw/workspace/tools/ultimate_evolution_v4.py >> /tmp/trading_evolution.log 2>&1
+0 9 * * * cd /Users/fox/.openclaw/workspace/investment_distillation && /opt/homebrew/bin/python3 /Users/fox/.openclaw/workspace/investment_distillation/daily_update.py >> /Users/fox/.openclaw/workspace/investment_distillation/data/daily_update.log 2>&1
+*/5 * * * * /opt/homebrew/bin/python3 /Users/fox/.openclaw/workspace/tools/update_market_prices.py >> /tmp/market_prices.log 2>&1
+*/5 * * * * /Users/fox/.openclaw/workspace/tools/realtime_data_update.sh
+0 18 * * * ~/.openclaw/workspace/tools/daily_check_predictions.sh
+* * * * * cd /Users/fox/.openclaw/workspace && python3 tools/update_iran_real_time_data.py >> /tmp/iran_data_update.log 2>&1
+
+# Telegram 新闻抓取 - 每15分钟抓取并自动推送
+*/15 * * * * cd /Users/fox/.openclaw/workspace/huajuan-showcase && /Users/fox/.openclaw/workspace/huajuan-showcase/venv/bin/python3 tools/telegram_channel_scraper.py >> /tmp/telegram_scraper.log 2>&1 && git add data/telegram_news/latest.json && git commit -m "auto: update telegram news $(date +\%Y-\%m-\%d\ \%H:\%M)" && git push >> /tmp/telegram_git_push.log 2>&1
+
+0 0 * * * ~/fix-memory.sh

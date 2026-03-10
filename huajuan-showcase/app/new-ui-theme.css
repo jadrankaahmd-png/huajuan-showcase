@@ -1,0 +1,207 @@
+/* 新UI主题 - 基于参考图片风格 */
+
+:root {
+  /* 主色 */
+  --primary-color: #FFB800;
+  --primary-hover: #FFA500;
+  
+  /* 辅色 */
+  --accent-red: #FF5252;
+  --accent-green: #4CAF50;
+  --accent-yellow: #FFC107;
+  
+  /* 背景色 */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F0F0F0;
+  --bg-sidebar: #FFB800;
+  
+  /* 文字色 */
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-light: #999999;
+  --text-inverse: #FFFFFF;
+  
+  /* 边框和阴影 */
+  --border-color: #E0E0E0;
+  --shadow-light: 0 2px 4px rgba(0,0,0,0.1);
+  --shadow-medium: 0 4px 8px rgba(0,0,0,0.15);
+  
+  /* 圆角 */
+  --radius-none: 0px;
+  --radius-small: 4px;
+  --radius-medium: 8px;
+  
+  /* 间距 */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 20px;
+  --spacing-xl: 24px;
+  
+  /* 字体 */
+  --font-family: 'Arial', 'Helvetica', sans-serif;
+  --font-size-xs: 10px;
+  --font-size-sm: 12px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  
+  /* 布局 */
+  --sidebar-width: 200px;
+  --card-padding: 16px;
+  --card-gap: 20px;
+}
+
+/* 新UI组件样式 */
+
+/* 侧边栏 */
+.new-sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--bg-sidebar);
+  padding: var(--spacing-lg);
+  border-right: 1px solid var(--border-color);
+}
+
+.new-sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: var(--radius-none);
+  margin-bottom: var(--spacing-md);
+}
+
+.new-sidebar-item:hover {
+  background-color: rgba(0,0,0,0.1);
+}
+
+.new-sidebar-item.active {
+  background-color: #000000;
+  color: var(--text-inverse);
+}
+
+.new-sidebar-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* 主内容区 */
+.new-main-content {
+  flex: 1;
+  padding: var(--spacing-md);
+  background-color: var(--bg-primary);
+}
+
+/* 卡片 */
+.new-card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-none);
+  padding: var(--card-padding);
+  box-shadow: var(--shadow-light);
+  transition: box-shadow 0.3s ease;
+}
+
+.new-card:hover {
+  box-shadow: var(--shadow-medium);
+}
+
+.new-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.new-card-title {
+  font-size: var(--font-size-md);
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.new-card-subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+/* 进度条 */
+.new-progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-small);
+  overflow: hidden;
+  margin: var(--spacing-sm) 0;
+}
+
+.new-progress-fill {
+  height: 100%;
+  border-radius: var(--radius-small);
+  transition: width 0.3s ease;
+}
+
+.new-progress-fill.red {
+  background-color: var(--accent-red);
+}
+
+.new-progress-fill.green {
+  background-color: var(--accent-green);
+}
+
+.new-progress-fill.yellow {
+  background-color: var(--accent-yellow);
+}
+
+/* 标签 */
+.new-tag {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-small);
+  font-size: var(--font-size-xs);
+  font-weight: bold;
+  margin-right: var(--spacing-sm);
+}
+
+.new-tag.neutral {
+  background-color: var(--accent-yellow);
+  color: #000000;
+}
+
+.new-tag.keyword {
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+/* 时间显示 */
+.new-time-badge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--accent-green);
+  color: var(--text-inverse);
+  border-radius: var(--radius-small);
+  font-size: var(--font-size-xs);
+}
+
+/* 网格布局 */
+.new-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--card-gap);
+}
+
+@media (max-width: 768px) {
+  .new-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 页面容器 */
+.new-page-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: var(--font-family);
+}

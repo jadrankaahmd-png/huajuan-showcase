@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-03-06T00:02:30.433299",
+  "active_analyses": 1,
+  "pending_analyses": 0,
+  "completed_analyses": 0,
+  "failed_analyses": 0,
+  "agent_pool_size": 8,
+  "active_agents": 2,
+  "memory_usage_mb": 512.0,
+  "cpu_usage_percent": 25.0
+}

@@ -1,6 +1,6 @@
 ---
 name: prune-system-prompts
-description: 自动扫描和精简 workspace 文件（AGENTS.md、MEMORY.md、NOW.md），超过阈值时自动精简，保留关键信息，删除冗余内容，节省 Token
+description: 自动扫描和精简 workspace 文件（AGENTS.md、MEMORY.md、NOW.md），超过阈值时自动精简，保留关键信息，删除冗余内容，节省 Token。当用户说"精简系统提示词"、"节省 Token"、"压缩 MEMORY.md"、"清理冗余"时使用。
 ---
 
 # Prune System Prompts

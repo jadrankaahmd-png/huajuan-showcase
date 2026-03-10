@@ -1,6 +1,6 @@
 ---
 name: heartbeat-orchestrator
-description: 统一调度 Heartbeat 5件事（回顾、日记、扫描、健康检查、刷新状态板），每30分钟自动运行，协调5个子 skill
+description: 统一调度 Heartbeat 5件事（回顾、日记、扫描、健康检查、刷新状态板），每30分钟自动运行，协调5个子 skill。当用户说"运行 heartbeat"、"执行心跳检查"、"检查系统状态"、"刷新状态板"时使用。
 ---
 
 # Heartbeat Orchestrator

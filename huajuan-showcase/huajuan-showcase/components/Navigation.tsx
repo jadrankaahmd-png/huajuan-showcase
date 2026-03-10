@@ -16,8 +16,8 @@ export default function Navigation({ currentLayer }: NavigationProps) {
   const detectLayer = (): 0 | 1 | 2 | 3 => {
     if (currentLayer !== undefined) return currentLayer;
     if (pathname === '/') return 0; // 首页
-    if (pathname === '/dynamic-model' || pathname.startsWith('/dynamic-model/')) return 2;
-    if (pathname === '/stock-picker' || pathname.startsWith('/stock-picker/')) return 3;
+    if (pathname === '/dynamic-model' || pathname?.startsWith(('/dynamic-model/')) return 2;
+    if (pathname === '/stock-picker' || pathname?.startsWith(('/stock-picker/')) return 3;
     return 1; // 默认第一层
   };
   
@@ -25,7 +25,7 @@ export default function Navigation({ currentLayer }: NavigationProps) {
   
   const navItems = [
     { href: '/', label: '🏠 首页', layer: 0 },
-    { href: '/coe', label: '🧠 花卷能力中心', layer: 1 },
+    { href: '/coe', label: '🔧 花卷能力中心', layer: 1 },
     { href: '/dynamic-model', label: '⚡ 花卷动态模型', layer: 2 },
     { href: '/stock-picker', label: '🎯 花卷选股', layer: 3 }
   ];

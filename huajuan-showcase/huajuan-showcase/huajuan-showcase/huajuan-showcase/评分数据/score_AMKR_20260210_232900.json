@@ -1,0 +1,74 @@
+{
+  "symbol": "AMKR",
+  "timestamp": "2026-02-10T23:29:00.100284",
+  "comprehensive_score": 63.98,
+  "recommendation": "NEUTRAL_BULLISH",
+  "confidence": "high",
+  "factor_scores": {
+    "technical": {
+      "score": 68.0,
+      "details": {
+        "trend": 90,
+        "momentum": 60,
+        "support_resistance": 65,
+        "volatility": 50
+      },
+      "indicators": {
+        "current_price": 51.36,
+        "ma20": 49.44,
+        "ma50": 45.94,
+        "rsi": 45.21,
+        "volatility": 63.56
+      }
+    },
+    "fundamental": {
+      "score": 57.5,
+      "details": {
+        "valuation": 45,
+        "profitability": 50,
+        "growth": 65,
+        "financial_health": 85
+      },
+      "metrics": {
+        "pe_ratio": 41.42,
+        "forward_pe": 23.4,
+        "pb_ratio": 2.84,
+        "roe": 8.66,
+        "revenue_growth": 15.9
+      }
+    },
+    "sentiment": {
+      "score": 65.0,
+      "details": {
+        "market_sentiment": 65,
+        "social_sentiment": 70,
+        "news_sentiment": 60
+      },
+      "note": "简化评分，建议结合sentiment_analyzer使用"
+    },
+    "fund_flow": {
+      "score": 65.5,
+      "details": {
+        "institutional": 70,
+        "insider": 65,
+        "fund_flow": 60
+      },
+      "note": "简化评分，建议结合institutional_tracker使用"
+    },
+    "macro": {
+      "score": 65,
+      "details": {
+        "macro_environment": 65,
+        "sector_trend": 65
+      },
+      "sector": "Technology"
+    }
+  },
+  "weights": {
+    "technical": 0.25,
+    "fundamental": 0.25,
+    "sentiment": 0.2,
+    "fund_flow": 0.2,
+    "macro": 0.1
+  }
+}

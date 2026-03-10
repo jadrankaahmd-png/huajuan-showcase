@@ -1958,5 +1958,305 @@
     "createdAt": "2026-03-10T13:24:59.332Z",
     "updatedAt": "2026-03-10T13:24:59.333Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773149579072",
+    "name": "Anthropic Skill 最佳实践指南",
+    "description": "Anthropic 官方 Skill 构建标准：描述字段、触发短语、文件夹结构、三层加载、技能类型、测试方法。当用户说'优化 skill 描述'、'检查 skill 标准'、'Anthropic 最佳实践'时使用。",
+    "category": "best-practices",
+    "categoryName": "best-practices",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "Anthropic 官方 Skill 构建标准：描述字段、触发短语、文件夹结构、三层加载、技能类型、测试方法。当用户说'优化 skill 描述'、'检查 skill 标准'、'Anthropic 最佳实践'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T13:32:59.072Z",
+    "updatedAt": "2026-03-10T13:32:59.073Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773150081037",
+    "name": "Skill描述优化器",
+    "description": "自动扫描 .agents/skills/ 目录下所有 skill，检查描述字段是否包含触发短语，不符合标准的自动生成优化建议。当用户说'优化 skill 描述'、'检查 skill 标准'、'优化触发短语'时使用。",
+    "category": "automation",
+    "categoryName": "automation",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "自动扫描 .agents/skills/ 目录下所有 skill，检查描述字段是否包含触发短语，不符合标准的自动生成优化建议。当用户说'优化 skill 描述'、'检查 skill 标准'、'优化触发短语'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T13:41:21.037Z",
+    "updatedAt": "2026-03-10T13:41:21.038Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773150087789",
+    "name": "Skill测试生成器",
+    "description": "为每个 skill 自动生成测试用例，包括应该触发的场景、不应该触发的场景、预期输出验证。当用户说'生成 skill 测试'、'创建测试用例'、'测试 skill'时使用。",
+    "category": "testing",
+    "categoryName": "testing",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "为每个 skill 自动生成测试用例，包括应该触发的场景、不应该触发的场景、预期输出验证。当用户说'生成 skill 测试'、'创建测试用例'、'测试 skill'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T13:41:27.789Z",
+    "updatedAt": "2026-03-10T13:41:27.790Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773150091896",
+    "name": "Skill文档生成器",
+    "description": "为每个 skill 自动生成使用文档，包括使用示例、触发方式、故障排查指南。当用户说'生成 skill 文档'、'创建使用文档'、'文档生成'时使用。",
+    "category": "documentation",
+    "categoryName": "documentation",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "为每个 skill 自动生成使用文档，包括使用示例、触发方式、故障排查指南。当用户说'生成 skill 文档'、'创建使用文档'、'文档生成'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T13:41:31.896Z",
+    "updatedAt": "2026-03-10T13:41:31.897Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773150095267",
+    "name": "PDF内容提取器",
+    "description": "从 URL 或本地文件提取 PDF 内容，支持提取文本、页数、元数据，自动保存到知识库。当用户说'提取 PDF'、'读取 PDF'、'解析 PDF'、'PDF 转文本'时使用。基于 pdf-parse 库。",
+    "category": "data",
+    "categoryName": "data",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "从 URL 或本地文件提取 PDF 内容，支持提取文本、页数、元数据，自动保存到知识库。当用户说'提取 PDF'、'读取 PDF'、'解析 PDF'、'PDF 转文本'时使用。基于 pdf-parse 库。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T13:41:35.267Z",
+    "updatedAt": "2026-03-10T13:41:35.268Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773150502910",
+    "name": "Anthropic官方Skill构建指南PDF",
+    "description": "Anthropic官方完整指南：《The Complete Guide to Building Skills for Claude》33页PDF提取内容。当用户说'Anthropic Skill 指南'、'官方 Skill 教程'、'构建 Skill 完整指南'时使用。",
+    "category": "knowledge",
+    "categoryName": "knowledge",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "Anthropic官方完整指南：《The Complete Guide to Building Skills for Claude》33页PDF提取内容。当用户说'Anthropic Skill 指南'、'官方 Skill 教程'、'构建 Skill 完整指南'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T13:48:22.910Z",
+    "updatedAt": "2026-03-10T13:48:22.912Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773151296052",
+    "name": "RF머트리얼즈投资分析",
+    "description": "韩国半导体封装公司RF머트리얼즈深度投资分析，涉及AI数据中心光模块、激光武器、卫星通信三大市场。当用户说'RF머트리얼즈'、'韩国半导体封装'、'Lumentum供应链'、'化合物半导体封装'时使用。",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "韩国半导体封装公司RF머트리얼즈深度投资分析，涉及AI数据中心光模块、激光武器、卫星通信三大市场。当用户说'RF머트리얼즈'、'韩国半导体封装'、'Lumentum供应链'、'化合物半导体封装'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T14:01:36.052Z",
+    "updatedAt": "2026-03-10T14:01:36.053Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773151302926",
+    "name": "网页内容清洗工具(Jina Reader)",
+    "description": "使用Jina Reader API清洗网页正文，去除广告和无关内容，支持Twitter/X链接读取。当用户说'清洗网页'、'提取网页正文'、'读取Twitter'、'网页内容提取'时使用。",
+    "category": "tools",
+    "categoryName": "tools",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "使用Jina Reader API清洗网页正文，去除广告和无关内容，支持Twitter/X链接读取。当用户说'清洗网页'、'提取网页正文'、'读取Twitter'、'网页内容提取'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T14:01:42.926Z",
+    "updatedAt": "2026-03-10T14:01:42.927Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773151753983",
+    "name": "光模块供应链监控器",
+    "description": "实时监控Lumentum/Coherent/Fabrinet股价和新闻，跟踪AI数据中心光模块需求，识别订单拐点信号。当用户说'光模块'、'Lumentum'、'AI数据中心'、'光通信'时使用。",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "实时监控Lumentum/Coherent/Fabrinet股价和新闻，跟踪AI数据中心光模块需求，识别订单拐点信号。当用户说'光模块'、'Lumentum'、'AI数据中心'、'光通信'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T14:09:13.983Z",
+    "updatedAt": "2026-03-10T14:09:13.984Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773151759147",
+    "name": "K-防务出口跟踪器",
+    "description": "监控韩国防务公司中东/欧洲出口订单，分析对美股防务板块(LMT/RTX/NOC)的联动影响。当用户说'韩国防务'、'K-防务'、'LIG NexOne'、'韩华防务'时使用。",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "监控韩国防务公司中东/欧洲出口订单，分析对美股防务板块(LMT/RTX/NOC)的联动影响。当用户说'韩国防务'、'K-防务'、'LIG NexOne'、'韩华防务'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T14:09:19.147Z",
+    "updatedAt": "2026-03-10T14:09:19.148Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773151764270",
+    "name": "化合物半导体封装分析器",
+    "description": "分析HTCC/金属化/钎焊技术壁垒，跟踪Kyocera/NTK/RF머트리얼즈市场份额动态。当用户说'半导体封装'、'HTCC'、'化合物半导体'、'技术壁垒'时使用。",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "分析HTCC/金属化/钎焊技术壁垒，跟踪Kyocera/NTK/RF머트리얼즈市场份额动态。当用户说'半导体封装'、'HTCC'、'化合物半导体'、'技术壁垒'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T14:09:24.270Z",
+    "updatedAt": "2026-03-10T14:09:24.271Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773152154293",
+    "name": "Financial Datasets MCP 集成",
+    "description": "通过 MCP 服务器访问 17,000+ 家公司 30 年财务数据，支持自然语言查询损益表/资产负债表/现金流表/股价/SEC文件。当用户说'查询财报'、'获取财务数据'、'对比财务报表'、'MCP 财务数据'时使用。",
+    "category": "api",
+    "categoryName": "api",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "通过 MCP 服务器访问 17,000+ 家公司 30 年财务数据，支持自然语言查询损益表/资产负债表/现金流表/股价/SEC文件。当用户说'查询财报'、'获取财务数据'、'对比财务报表'、'MCP 财务数据'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T14:15:54.293Z",
+    "updatedAt": "2026-03-10T14:15:54.294Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773152892768",
+    "name": "财报快速扫描器",
+    "description": "基于Financial Datasets API，一键获取公司5年财报核心指标（收入增长率、毛利率、净利率、自由现金流、ROE）。当用户说'扫描财报'、'获取财务数据'、'分析财报'时使用。",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "基于Financial Datasets API，一键获取公司5年财报核心指标（收入增长率、毛利率、净利率、自由现金流、ROE）。当用户说'扫描财报'、'获取财务数据'、'分析财报'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T14:28:12.768Z",
+    "updatedAt": "2026-03-10T14:28:12.769Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773152897394",
+    "name": "公司对比分析器",
+    "description": "基于Financial Datasets API，自动对比多家公司财务表现（收入规模、增长率、利润率、ROE）。当用户说'对比公司'、'对比财务数据'、'比较财报'时使用。",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "基于Financial Datasets API，自动对比多家公司财务表现（收入规模、增长率、利润率、ROE）。当用户说'对比公司'、'对比财务数据'、'比较财报'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T14:28:17.394Z",
+    "updatedAt": "2026-03-10T14:28:17.395Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773152901752",
+    "name": "SEC文件关键词追踪器",
+    "description": "基于Financial Datasets API，追踪SEC文件中关键词出现频率趋势，识别公司战略变化。当用户说'追踪关键词'、'SEC文件'、'10-K分析'时使用。",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "基于Financial Datasets API，追踪SEC文件中关键词出现频率趋势，识别公司战略变化。当用户说'追踪关键词'、'SEC文件'、'10-K分析'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T14:28:21.752Z",
+    "updatedAt": "2026-03-10T14:28:21.753Z",
+    "source": "custom"
   }
 ]

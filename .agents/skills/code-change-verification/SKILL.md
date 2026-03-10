@@ -1,6 +1,6 @@
 ---
 name: code-change-verification
-description: 运行强制验证栈（npm run sync、Redis 验证、统计验证）当能力或知识库改变时。触发条件：修改 data/custom-capabilities.json、public/knowledge_base/、scripts/ 后必须运行。
+description: 运行强制验证栈（npm run sync、Redis 验证、统计验证）当能力或知识库改变时。当用户说"验证代码变更"、"检查 Redis 数据"、"同步能力"、"验证统计"时使用。触发条件：修改 data/custom-capabilities.json、public/knowledge_base/、scripts/ 后必须运行。
 ---
 
 # Code Change Verification

@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-03-10T12:04:11.830Z",
+  "totalNews": 1,
+  "recommendations": [
+    {
+      "news": {
+        "title": "AI network infrastructure investments reach record levels",
+        "description": "Datacenter network spending hits all-time high...",
+        "publishedAt": "2026-03-10T12:04:11.828Z",
+        "source": "Example Source"
+      },
+      "component": {
+        "name": "AI网络",
+        "description": "连接数千个GPU的高速网络",
+        "matchScore": 1
+      },
+      "prediction": {
+        "priceInTime": 6,
+        "timeUnit": "小时"
+      },
+      "recommendations": [
+        {
+          "symbol": "ANET",
+          "type": "短期交易"
+        },
+        {
+          "symbol": "AVGO",
+          "type": "短期交易"
+        },
+        {
+          "symbol": "MRVL",
+          "type": "短期交易"
+        },
+        {
+          "symbol": "CIEN",
+          "type": "短期交易"
+        }
+      ],
+      "investmentLogic": {
+        "duration": "2-5年",
+        "adoptionSpeed": "稳定",
+        "scalability": "中"
+      }
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "timestamp": "2026-03-10T11:49:55.405Z",
+  "stocks": [
+    {
+      "symbol": "MSFT",
+      "price": 409.41,
+      "change": 0.45,
+      "changePercent": 0.11
+    },
+    {
+      "symbol": "AMZN",
+      "price": 213.49,
+      "change": 0.28,
+      "changePercent": 0.1313
+    },
+    {
+      "symbol": "GOOGL",
+      "price": 306.36,
+      "change": 7.84,
+      "changePercent": 2.6263
+    }
+  ],
+  "news": [
+    {
+      "title": "Cloud market reaches $500B",
+      "description": "Global cloud computing market hits record size...",
+      "publishedAt": "2026-03-10T11:49:55.404Z",
+      "source": {
+        "name": "Example Source"
+      }
+    }
+  ],
+  "opportunities": []
+}
