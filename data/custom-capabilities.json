@@ -558,5 +558,245 @@
     "createdAt": "2026-03-10T07:22:21.756Z",
     "updatedAt": "2026-03-10T07:22:21.756Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773129631984",
+    "name": "Polymarket预测市场分析",
+    "description": "clawhub.ai/skills/polymarketodds，Polymarket预测市场赔率追踪，市场情绪监控、事件概率预测、投资决策辅助",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "市场分析",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "clawhub.ai/skills/polymarketodds，Polymarket预测市场赔率追踪，市场情绪监控、事件概率预测、投资决策辅助",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:00:31.984Z",
+    "updatedAt": "2026-03-10T08:00:31.989Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773129634339",
+    "name": "Tavily高级AI搜索",
+    "description": "clawhub.ai/skills/tavily-search，高级AI搜索工具，全网信息检索、实时数据获取、深度研究",
+    "category": "data-fetching",
+    "categoryName": "data-fetching",
+    "type": "搜索工具",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "clawhub.ai/skills/tavily-search，高级AI搜索工具，全网信息检索、实时数据获取、深度研究",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:00:34.339Z",
+    "updatedAt": "2026-03-10T08:00:34.339Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773129636584",
+    "name": "浏览器自动化抓取",
+    "description": "clawhub.ai/skills/agent-browser，浏览器自动化工具，网页抓取、交互自动化、数据提取",
+    "category": "data-fetching",
+    "categoryName": "data-fetching",
+    "type": "数据采集",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "clawhub.ai/skills/agent-browser，浏览器自动化工具，网页抓取、交互自动化、数据提取",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:00:36.584Z",
+    "updatedAt": "2026-03-10T08:00:36.585Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773129639028",
+    "name": "Google Workspace集成",
+    "description": "clawhub.ai/skills/gog，Google Workspace CLI，Gmail/Calendar/Drive/Sheets管理，企业协作",
+    "category": "api-integration",
+    "categoryName": "api-integration",
+    "type": "企业工具",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "clawhub.ai/skills/gog，Google Workspace CLI，Gmail/Calendar/Drive/Sheets管理，企业协作",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:00:39.028Z",
+    "updatedAt": "2026-03-10T08:00:39.028Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773129641326",
+    "name": "AI自我改进系统",
+    "description": "clawhub.ai/skills/self-improving-agent，自我改进Agent，AI自我优化、持续学习、能力提升",
+    "category": "ai-analysis",
+    "categoryName": "ai-analysis",
+    "type": "AI优化",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "clawhub.ai/skills/self-improving-agent，自我改进Agent，AI自我优化、持续学习、能力提升",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:00:41.326Z",
+    "updatedAt": "2026-03-10T08:00:41.327Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773129643578",
+    "name": "智能摘要工具",
+    "description": "clawhub.ai/skills/summarize，长文本压缩摘要，关键信息提取、多语言支持",
+    "category": "data",
+    "categoryName": "data",
+    "type": "数据处理",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "clawhub.ai/skills/summarize，长文本压缩摘要，关键信息提取、多语言支持",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:00:43.578Z",
+    "updatedAt": "2026-03-10T08:00:43.579Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773129645828",
+    "name": "主动监控Agent",
+    "description": "clawhub.ai/skills/proactive-agent，主动Agent系统，主动监控、预警通知、自主决策",
+    "category": "data-monitoring",
+    "categoryName": "data-monitoring",
+    "type": "监控Agent",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "clawhub.ai/skills/proactive-agent，主动Agent系统，主动监控、预警通知、自主决策",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:00:45.828Z",
+    "updatedAt": "2026-03-10T08:00:45.829Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773129648108",
+    "name": "API网关统一管理",
+    "description": "clawhub.ai/skills/api-gateway，API网关，统一API管理、第三方服务集成、认证授权",
+    "category": "api-integration",
+    "categoryName": "api-integration",
+    "type": "API管理",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "clawhub.ai/skills/api-gateway，API网关，统一API管理、第三方服务集成、认证授权",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:00:48.108Z",
+    "updatedAt": "2026-03-10T08:00:48.108Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773129650371",
+    "name": "GitHub深度集成",
+    "description": "clawhub.ai/skills/github，GitHub操作工具，PR/Issue管理、代码审查、CI/CD集成",
+    "category": "development-tools",
+    "categoryName": "development-tools",
+    "type": "开发工具",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "clawhub.ai/skills/github，GitHub操作工具，PR/Issue管理、代码审查、CI/CD集成",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:00:50.371Z",
+    "updatedAt": "2026-03-10T08:00:50.372Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773129652803",
+    "name": "MCP服务器管理工具",
+    "description": "clawhub.ai/skills/mcporter，MCP服务器工具，MCP协议实现、工具调用、服务配置",
+    "category": "api",
+    "categoryName": "api",
+    "type": "协议工具",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "clawhub.ai/skills/mcporter，MCP服务器工具，MCP协议实现、工具调用、服务配置",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:00:52.803Z",
+    "updatedAt": "2026-03-10T08:00:52.804Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773129655046",
+    "name": "Notion知识库集成",
+    "description": "clawhub.ai/skills/notion，Notion集成工具，笔记管理、知识库同步、团队协作",
+    "category": "knowledge-base",
+    "categoryName": "knowledge-base",
+    "type": "知识管理",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "clawhub.ai/skills/notion，Notion集成工具，笔记管理、知识库同步、团队协作",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:00:55.046Z",
+    "updatedAt": "2026-03-10T08:00:55.047Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773129657393",
+    "name": "Obsidian笔记系统",
+    "description": "clawhub.ai/skills/obsidian，Obsidian笔记集成，Markdown笔记、双向链接、知识图谱",
+    "category": "knowledge-base",
+    "categoryName": "knowledge-base",
+    "type": "知识管理",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "clawhub.ai/skills/obsidian，Obsidian笔记集成，Markdown笔记、双向链接、知识图谱",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:00:57.393Z",
+    "updatedAt": "2026-03-10T08:00:57.394Z",
+    "source": "custom"
   }
 ]
