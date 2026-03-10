@@ -2058,5 +2058,25 @@
     "createdAt": "2026-03-10T13:41:35.267Z",
     "updatedAt": "2026-03-10T13:41:35.268Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773150502910",
+    "name": "Anthropic官方Skill构建指南PDF",
+    "description": "Anthropic官方完整指南：《The Complete Guide to Building Skills for Claude》33页PDF提取内容。当用户说'Anthropic Skill 指南'、'官方 Skill 教程'、'构建 Skill 完整指南'时使用。",
+    "category": "knowledge",
+    "categoryName": "knowledge",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "Anthropic官方完整指南：《The Complete Guide to Building Skills for Claude》33页PDF提取内容。当用户说'Anthropic Skill 指南'、'官方 Skill 教程'、'构建 Skill 完整指南'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T13:48:22.910Z",
+    "updatedAt": "2026-03-10T13:48:22.912Z",
+    "source": "custom"
   }
 ]
