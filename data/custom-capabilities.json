@@ -2178,5 +2178,25 @@
     "createdAt": "2026-03-10T14:09:24.270Z",
     "updatedAt": "2026-03-10T14:09:24.271Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773152154293",
+    "name": "Financial Datasets MCP 集成",
+    "description": "通过 MCP 服务器访问 17,000+ 家公司 30 年财务数据，支持自然语言查询损益表/资产负债表/现金流表/股价/SEC文件。当用户说'查询财报'、'获取财务数据'、'对比财务报表'、'MCP 财务数据'时使用。",
+    "category": "api",
+    "categoryName": "api",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "通过 MCP 服务器访问 17,000+ 家公司 30 年财务数据，支持自然语言查询损益表/资产负债表/现金流表/股价/SEC文件。当用户说'查询财报'、'获取财务数据'、'对比财务报表'、'MCP 财务数据'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T14:15:54.293Z",
+    "updatedAt": "2026-03-10T14:15:54.294Z",
+    "source": "custom"
   }
 ]
