@@ -938,5 +938,65 @@
     "createdAt": "2026-03-10T08:06:37.746Z",
     "updatedAt": "2026-03-10T08:06:37.747Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773131335385",
+    "name": "双Prompt Stack系统",
+    "description": "Matthew Berman最佳实践：Claude和GPT各一套prompt，每晚自动同步两套stack，防止prompt drift，LLM路由器按任务类型分配模型（简单任务用便宜模型）",
+    "category": "ai",
+    "categoryName": "ai",
+    "type": "模型管理",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "Matthew Berman最佳实践：Claude和GPT各一套prompt，每晚自动同步两套stack，防止prompt drift，LLM路由器按任务类型分配模型（简单任务用便宜模型）",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:28:55.385Z",
+    "updatedAt": "2026-03-10T08:28:55.386Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773131337620",
+    "name": "多层安全架构",
+    "description": "Matthew Berman最佳实践：每晚安全委员会自动审计，三层防御架构，防止错误操作和数据泄露，Redis数据审计、Git操作审计、敏感信息保护",
+    "category": "security",
+    "categoryName": "security",
+    "type": "安全架构",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "Matthew Berman最佳实践：每晚安全委员会自动审计，三层防御架构，防止错误操作和数据泄露，Redis数据审计、Git操作审计、敏感信息保护",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:28:57.620Z",
+    "updatedAt": "2026-03-10T08:28:57.620Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773131339840",
+    "name": "知识库自动内容管线",
+    "description": "Matthew Berman最佳实践：自动抓取全文、打标签、向量索引，搜知识库+社交媒体热度+历史内容去重（>40%相似拦住），输出完整选题卡",
+    "category": "knowledge-base",
+    "categoryName": "knowledge-base",
+    "type": "内容管理",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "Matthew Berman最佳实践：自动抓取全文、打标签、向量索引，搜知识库+社交媒体热度+历史内容去重（>40%相似拦住），输出完整选题卡",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:28:59.840Z",
+    "updatedAt": "2026-03-10T08:28:59.841Z",
+    "source": "custom"
   }
 ]
