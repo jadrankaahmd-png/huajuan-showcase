@@ -12,6 +12,7 @@
     "add-capability": "node scripts/add-capability.js"
   },
   "dependencies": {
+    "@mui/icons-material": "^7.3.9",
     "@upstash/redis": "^1.36.4",
     "cheerio": "^1.2.0",
     "next": "16.1.6",
