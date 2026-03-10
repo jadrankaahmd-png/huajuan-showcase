@@ -1958,5 +1958,25 @@
     "createdAt": "2026-03-10T13:24:59.332Z",
     "updatedAt": "2026-03-10T13:24:59.333Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773149579072",
+    "name": "Anthropic Skill 最佳实践指南",
+    "description": "Anthropic 官方 Skill 构建标准：描述字段、触发短语、文件夹结构、三层加载、技能类型、测试方法。当用户说'优化 skill 描述'、'检查 skill 标准'、'Anthropic 最佳实践'时使用。",
+    "category": "best-practices",
+    "categoryName": "best-practices",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "Anthropic 官方 Skill 构建标准：描述字段、触发短语、文件夹结构、三层加载、技能类型、测试方法。当用户说'优化 skill 描述'、'检查 skill 标准'、'Anthropic 最佳实践'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T13:32:59.072Z",
+    "updatedAt": "2026-03-10T13:32:59.073Z",
+    "source": "custom"
   }
 ]
