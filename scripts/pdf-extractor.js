@@ -15,12 +15,25 @@ const http = require('http');
 
 let pdfParse;
 try {
-  pdfParse = require('pdf-parse');
+  const pdfModule = require('pdf-parse');
+  // pdf-parse 可能导出为对象或函数
+  if (typeof pdfModule === 'function') {
+    pdfParse = pdfModule;
+  } else if (pdfModule.default && typeof pdfModule.default === 'function') {
+    pdfParse = pdfModule.default;
+  } else if (pdfModule.parse && typeof pdfModule.parse === 'function') {
+    pdfParse = pdfModule.parse;
+  } else {
+    console.log('⚠️  pdf-parse 导出格式不兼容:', typeof pdfModule);
+    console.log('💡 使用备用方案');
+    pdfParse = null;
+  }
 } catch (e) {
-  console.log('❌ pdf-parse 未安装');
+  console.log('❌ pdf-parse 未安装:', e.message);
   console.log('📦 安装中: npm install pdf-parse');
   console.log('');
   console.log('💡 使用备用方案：直接提取文本（不需要 pdf-parse）');
+  pdfParse = null;
 }
 
 const KNOWLEDGE_BASE_DIR = path.join(__dirname, '../public/knowledge_base');
