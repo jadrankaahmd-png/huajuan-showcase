@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { callFinancialDatasetsAPI, isAPIKeyConfigured } from '../../lib/financial-datasets-config';
 
 export const config = {
   api: {
@@ -14,13 +13,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // 检查 API Key
-  if (!isAPIKeyConfigured()) {
-    return res.status(500).json({
-      error: 'Financial Datasets API Key 未配置',
-      instructions: '请访问 https://financialdatasets.ai 获取 API Key',
-    });
-  }
+  // 直接使用 API Key（hardcode）
+  const apiKey = process.env.FINANCIAL_DATASETS_API_KEY || 'e881af97-a866-4ffb-9e4f-63fa9adc0ed9';
 
   try {
     const { ticker } = req.body;
@@ -29,14 +23,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(400).json({ error: 'Missing ticker' });
     }
 
-    // 获取财务数据（使用正确的端点）
+    // 直接调用 Financial Datasets API（不依赖 lib）
     const [incomeStatements, balanceSheets, cashFlowStatements] = await Promise.all([
-      callFinancialDatasetsAPI('financials/income-statements', { ticker, period: 'annual', limit: 5 }),
-      callFinancialDatasetsAPI('financials/balance-sheets', { ticker, period: 'annual', limit: 5 }),
-      callFinancialDatasetsAPI('financials/cash-flow-statements', { ticker, period: 'annual', limit: 5 }),
+      fetch(`https://api.financialdatasets.ai/financials/income-statements/?ticker=${ticker}&period=annual&limit=5`, {
+        headers: { 'X-API-KEY': apiKey },
+      }).then(r => r.json()),
+      fetch(`https://api.financialdatasets.ai/financials/balance-sheets/?ticker=${ticker}&period=annual&limit=5`, {
+        headers: { 'X-API-KEY': apiKey },
+      }).then(r => r.json()),
+      fetch(`https://api.financialdatasets.ai/financials/cash-flow-statements/?ticker=${ticker}&period=annual&limit=5`, {
+        headers: { 'X-API-KEY': apiKey },
+      }).then(r => r.json()),
     ]);
 
-    // 从响应中提取数据（Financial Datasets API 返回的是 {income_statements: [...]}）
+    // 从响应中提取数据
     const incomeData = incomeStatements.income_statements || incomeStatements;
     const balanceData = balanceSheets.balance_sheets || balanceSheets;
     const cashFlowData = cashFlowStatements.cash_flow_statements || cashFlowStatements;
@@ -62,8 +62,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const cashFlow = cashFlowData[i];
 
       // 收入增长率
-      if (i < incomeStatements.length - 1) {
-        const growth = ((income.revenue - incomeStatements[i + 1].revenue) / incomeStatements[i + 1].revenue) * 100;
+      if (i < incomeData.length - 1) {
+        const growth = ((income.revenue - incomeData[i + 1].revenue) / incomeData[i + 1].revenue) * 100;
         metrics.revenueGrowth.push({
           year: income.fiscal_year,
           value: growth,

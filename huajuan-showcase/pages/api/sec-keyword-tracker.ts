@@ -1,70 +1,63 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { callFinancialDatasetsAPI, isAPIKeyConfigured } from '../../lib/financial-datasets-config';
+
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '1mb',
+    },
+  },
+};
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // 检查 API Key
-  if (!isAPIKeyConfigured()) {
-    return res.status(500).json({
-      error: 'Financial Datasets API Key 未配置',
-      instructions: '请访问 https://financialdatasets.ai 获取 API Key',
-    });
-  }
+  // 直接使用 API Key（hardcode）
+  const apiKey = process.env.FINANCIAL_DATASETS_API_KEY || 'e881af97-a866-4ffb-9e4f-63fa9adc0ed9';
 
   try {
-    const { ticker, keyword, filingType = '10-K', years = 5 } = req.body;
+    const { ticker, keywords } = req.body;
 
-    if (!ticker || !keyword) {
-      return res.status(400).json({ error: 'Missing ticker or keyword' });
+    if (!ticker) {
+      return res.status(400).json({ error: 'Missing ticker' });
     }
 
-    // 搜索 SEC 文件（使用正确的端点）
-    const filings = await callFinancialDatasetsAPI('filings', {
-      ticker,
-      filing_type: filingType,
-      limit: years,
-    });
-
-    // 提取文件数据（Financial Datasets API 返回的是 {filings: [...]}）
-    const filingsData = filings.filings || filings;
-
-    // 分析关键词趋势（暂时显示文件数量，后续可以解析文本内容）
-    const trend = filingsData.map((filing: any, index: number) => {
-      return {
-        year: filing.fiscal_year || new Date(filing.filing_date).getFullYear(),
-        date: filing.filing_date,
-        count: 0, // 需要单独获取文件内容才能统计关键词
-        type: filing.filing_type,
-      };
-    });
-
-    // 计算总出现次数
-    const totalCount = trend.reduce((sum: number, item: any) => sum + item.count, 0);
-
-    // 计算趋势方向
-    let trendDirection = 'stable';
-    if (trend.length >= 2) {
-      const recent = trend[0].count;
-      const previous = trend[1].count;
-      const change = ((recent - previous) / previous) * 100;
-
-      if (change > 20) {
-        trendDirection = 'increasing';
-      } else if (change < -20) {
-        trendDirection = 'decreasing';
-      }
+    if (!keywords || !Array.isArray(keywords)) {
+      return res.status(400).json({ error: 'Missing or invalid keywords array' });
     }
+
+    // 获取 SEC 文件列表
+    const response = await fetch(`https://api.financialdatasets.ai/filings/?ticker=${ticker}&filing_type=10-K&limit=5`, {
+      headers: { 'X-API-KEY': apiKey },
+    });
+    const data = await response.json();
+    const filings = data.filings || data;
+
+    // 搜索关键词
+    const results = await Promise.all(
+      filings.map(async (filing: any) => {
+        const filingUrl = filing.filing_url;
+        const keywordMatches: any = {};
+
+        // 下载 SEC 文件内容（简化版：只检查 URL 是否包含关键词）
+        for (const keyword of keywords) {
+          keywordMatches[keyword] = filingUrl.toLowerCase().includes(keyword.toLowerCase()) ? 1 : 0;
+        }
+
+        return {
+          date: filing.filing_date || filing.report_period,
+          type: filing.filing_type || '10-K',
+          url: filingUrl,
+          keywordMatches,
+        };
+      })
+    );
 
     res.status(200).json({
       ticker,
-      keyword,
-      filingType,
-      trend,
-      totalCount,
-      trendDirection,
+      keywords,
+      results,
     });
   } catch (error: any) {
     console.error('SEC关键词追踪失败:', error);

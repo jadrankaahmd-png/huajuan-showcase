@@ -1,68 +1,61 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { callFinancialDatasetsAPI, isAPIKeyConfigured } from '../../lib/financial-datasets-config';
+
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '1mb',
+    },
+  },
+};
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // 检查 API Key
-  if (!isAPIKeyConfigured()) {
-    return res.status(500).json({
-      error: 'Financial Datasets API Key 未配置',
-      instructions: '请访问 https://financialdatasets.ai 获取 API Key',
-    });
-  }
+  // 直接使用 API Key（hardcode）
+  const apiKey = process.env.FINANCIAL_DATASETS_API_KEY || 'e881af97-a866-4ffb-9e4f-63fa9adc0ed9';
 
   try {
     const { tickers } = req.body;
 
-    if (!tickers || !Array.isArray(tickers) || tickers.length < 2) {
-      return res.status(400).json({ error: 'Need at least 2 tickers for comparison' });
+    if (!tickers || !Array.isArray(tickers)) {
+      return res.status(400).json({ error: 'Missing or invalid tickers array' });
     }
 
-    // 获取所有公司数据
-    const companies = await Promise.all(
-      tickers.map(async (ticker) => {
-        const [incomeStatements, balanceSheets] = await Promise.all([
-          callFinancialDatasetsAPI('financials/income-statements', { ticker, period: 'annual', limit: 1 }),
-          callFinancialDatasetsAPI('financials/balance-sheets', { ticker, period: 'annual', limit: 1 }),
+    // 并行获取所有公司的财务数据
+    const companiesData = await Promise.all(
+      tickers.map(async (ticker: string) => {
+        const [incomeStatements, balanceSheets, cashFlowStatements] = await Promise.all([
+          fetch(`https://api.financialdatasets.ai/financials/income-statements/?ticker=${ticker}&period=annual&limit=1`, {
+            headers: { 'X-API-KEY': apiKey },
+          }).then(r => r.json()),
+          fetch(`https://api.financialdatasets.ai/financials/balance-sheets/?ticker=${ticker}&period=annual&limit=1`, {
+            headers: { 'X-API-KEY': apiKey },
+          }).then(r => r.json()),
+          fetch(`https://api.financialdatasets.ai/financials/cash-flow-statements/?ticker=${ticker}&period=annual&limit=1`, {
+            headers: { 'X-API-KEY': apiKey },
+          }).then(r => r.json()),
         ]);
 
-        // 提取数据（Financial Datasets API 返回的是 {income_statements: [...]}）
-        const incomeData = incomeStatements.income_statements?.[0] || incomeStatements[0];
-        const balanceData = balanceSheets.balance_sheets?.[0] || balanceSheets[0];
+        const income = incomeStatements.income_statements?.[0] || incomeStatements[0];
+        const balance = balanceSheets.balance_sheets?.[0] || balanceSheets[0];
+        const cashFlow = cashFlowStatements.cash_flow_statements?.[0] || cashFlowStatements[0];
 
         return {
           ticker,
-          revenue: incomeData?.revenue || 0,
-          netIncome: incomeData?.net_income || 0,
-          grossProfit: incomeData?.gross_profit || 0,
-          shareholdersEquity: balanceData?.shareholders_equity || 1,
+          revenue: income?.revenue || 0,
+          netIncome: income?.net_income || 0,
+          grossProfit: income?.gross_profit || 0,
+          totalAssets: balance?.total_assets || 0,
+          shareholdersEquity: balance?.shareholders_equity || 0,
+          operatingCashFlow: cashFlow?.operating_cash_flow || 0,
+          capitalExpenditure: cashFlow?.capital_expenditure || 0,
         };
       })
     );
 
-    // 计算对比指标
-    const comparison = companies.map((company, index) => {
-      const revenueGrowth = index < companies.length - 1
-        ? ((company.revenue - companies[companies.length - 1].revenue) / companies[companies.length - 1].revenue) * 100
-        : 0;
-
-      return {
-        ticker: company.ticker,
-        revenue: company.revenue,
-        revenueGrowth,
-        grossMargin: (company.grossProfit / company.revenue) * 100,
-        netMargin: (company.netIncome / company.revenue) * 100,
-        roe: (company.netIncome / company.shareholdersEquity) * 100,
-      };
-    });
-
-    res.status(200).json({
-      tickers,
-      comparison,
-    });
+    res.status(200).json({ companies: companiesData });
   } catch (error: any) {
     console.error('公司对比失败:', error);
     res.status(500).json({ error: error.message });
