@@ -18,7 +18,7 @@ const path = require('path');
 // API Keys
 const FINNHUB_API_KEY = 'd61gv49r01qufbsn7v90d61gv49r01qufbsn7v9g';
 const NEWS_API_KEY = '332b7388f0fb42a9bf05d06a89fc10c9';
-const API_TIMEOUT = 3000;
+const API_TIMEOUT = 2500;
 
 // 台湾供应链标的
 const TAIWAN_SUPPLY_CHAIN_STOCKS = ['TSM', 'MU', 'ANET', 'FN'];
