@@ -1518,5 +1518,105 @@
     "createdAt": "2026-03-10T11:04:30.251Z",
     "updatedAt": "2026-03-10T11:04:30.252Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773141221051",
+    "name": "社会模拟预测市场传导",
+    "description": "用OASIS多Agent社会模拟预测信息在市场中的传播速度，5类投资者角色（分析师/KOL/记者/散户/机构）传导机制，预测price-in时间",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "量化预测",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "用OASIS多Agent社会模拟预测信息在市场中的传播速度，5类投资者角色（分析师/KOL/记者/散户/机构）传导机制，预测price-in时间",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:13:41.051Z",
+    "updatedAt": "2026-03-10T11:13:41.052Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773141223572",
+    "name": "信息传播时间预测",
+    "description": "预测新闻事件（FDA批准/财报/政策）被市场完全消化需要多长时间，基于信息传播路径和多Agent角色分析",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "事件预测",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "预测新闻事件（FDA批准/财报/政策）被市场完全消化需要多长时间，基于信息传播路径和多Agent角色分析",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:13:43.572Z",
+    "updatedAt": "2026-03-10T11:13:43.572Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773141225833",
+    "name": "多Agent角色传导机制",
+    "description": "模拟5类投资者角色（分析师/KOL/记者/散户/机构）的信息传导路径，预测不同类型投资者何时对信息做出反应",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "市场分析",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "模拟5类投资者角色（分析师/KOL/记者/散户/机构）的信息传导路径，预测不同类型投资者何时对信息做出反应",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:13:45.833Z",
+    "updatedAt": "2026-03-10T11:13:45.834Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773141228100",
+    "name": "Autoresearch自我进化循环",
+    "description": "AI agent自动调参优化模型，读取实验结果→调整参数→保留改进→丢弃回归→循环进化，无需人工干预",
+    "category": "ai-analysis",
+    "categoryName": "ai-analysis",
+    "type": "自动优化",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "AI agent自动调参优化模型，读取实验结果→调整参数→保留改进→丢弃回归→循环进化，无需人工干预",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:13:48.100Z",
+    "updatedAt": "2026-03-10T11:13:48.101Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773141230512",
+    "name": "Price-in时间预测",
+    "description": "预测股价何时完全消化新闻事件信息，基于OASIS社会模拟和真实市场数据对比，当前准确率34%（需优化）",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "时间预测",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "预测股价何时完全消化新闻事件信息，基于OASIS社会模拟和真实市场数据对比，当前准确率34%（需优化）",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:13:50.512Z",
+    "updatedAt": "2026-03-10T11:13:50.513Z",
+    "source": "custom"
   }
 ]
