@@ -15,8 +15,8 @@ export default function Navigation({ currentLayer }: NavigationProps) {
   // 自动检测当前层级
   const detectLayer = (): 1 | 2 | 3 => {
     if (currentLayer) return currentLayer;
-    if (pathname === '/dynamic-model' || pathname.startsWith('/dynamic-model/')) return 2;
-    if (pathname === '/stock-picker' || pathname.startsWith('/stock-picker/')) return 3;
+    if (pathname === '/dynamic-model' || pathname?.startsWith(('/dynamic-model/')) return 2;
+    if (pathname === '/stock-picker' || pathname?.startsWith(('/stock-picker/')) return 3;
     return 1;
   };
   
