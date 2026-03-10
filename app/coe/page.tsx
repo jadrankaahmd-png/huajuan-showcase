@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import Navigation from '@/components/Navigation';
 import CapabilityCard from '../components/CapabilityCard';
 import CapabilityDetail from '../components/CapabilityDetail';
-import FinancialTools from '@/components/FinancialTools';
 
 interface Capability {
   id: string;
@@ -141,14 +140,7 @@ export default function Home() {
     <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       {/* 统一导航栏 */}
       <Navigation currentLayer={1} />
-
-      {/* AI财报分析工具（最上方） */}
-      <section className="py-12 bg-gradient-to-br from-blue-50 to-purple-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FinancialTools />
-        </div>
-      </section>
-
+      
       {/* Header */}
       <header className="bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
