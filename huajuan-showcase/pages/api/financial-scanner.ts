@@ -34,7 +34,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const cashFlowData = cashFlowStatements.cash_flow_statements || cashFlowStatements;
 
     // 计算财务指标
-    const metrics = {
+    const metrics: {
+      revenueGrowth: Array<{ year: any; value: number }>;
+      grossMargin: Array<{ year: any; value: number }>;
+      netMargin: Array<{ year: any; value: number }>;
+      freeCashFlow: Array<{ year: any; value: number }>;
+      roe: Array<{ year: any; value: number }>;
+    } = {
       revenueGrowth: [],
       grossMargin: [],
       netMargin: [],
