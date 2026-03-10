@@ -1,5 +1,5 @@
 {
-  "last_update": "2026-03-10T21:15:14.838068",
+  "last_update": "2026-03-10T21:15:15.101964",
   "channels": {
     "blockchain": [
       {
@@ -913,7 +913,7 @@
         "message_id": "5939",
         "text": "🔐OpenAI buys Promptfoo to expand AI security testing toolsOpenAI announced the acquisition of Promptfoo on March 9, 2026. The platform focuses on testing AI systems for security issues during development.Promptfoo tools are used by more than 25% of Fortune 500 companies. The technology will be integrated into OpenAI Frontier, the company’s platform for building and operating AI agents.The Promptfoo team will focus on automated testing and vulnerability detection, including tools for red teaming,",
         "timestamp": "2026-03-10T12:03:35+00:00",
-        "views": 430,
+        "views": 434,
         "link": "https://t.me/producthunt/5939",
         "channel_name": "Product Hunt",
         "category": "tech",
