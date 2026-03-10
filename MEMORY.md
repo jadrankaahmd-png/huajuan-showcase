@@ -88,6 +88,11 @@
 **环境变量列表**：
 - `FINANCIAL_DATASETS_API_KEY` = `e881af97-a866-4ffb-9e4f-63fa9adc0ed9`
 
+**重要说明**：
+- GitHub 仓库：jadrankaahmd-png/huajuan-showcase
+- Vercel 项目：ztrades-projects/huajuan-showcase（不是 jadrankaahmd-png）
+- API 路由必须使用 app/api/ 目录（App Router），不是 pages/api/
+
 ---
 
 ## API Keys（永久保存）
