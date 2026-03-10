@@ -78,6 +78,18 @@
 
 ---
 
+## 🚀 Vercel 部署信息（永久）
+
+**正确的 Vercel 项目地址**：https://vercel.com/ztrades-projects/huajuan-showcase  
+**环境变量配置页面**：https://vercel.com/ztrades-projects/huajuan-showcase/settings/environment-variables  
+**主域名**：https://www.huajuan.news ✅  
+**备用域名**：https://huajuan-showcase.vercel.app  
+
+**环境变量列表**：
+- `FINANCIAL_DATASETS_API_KEY` = `e881af97-a866-4ffb-9e4f-63fa9adc0ed9`
+
+---
+
 ## API Keys（永久保存）
 - Finnhub: `d61gv49r01qufbsn7v90d61gv49r01qufbsn7v9g`
 - NewsAPI: `332b7388f0fb42a9bf05d06a89fc10c9`
