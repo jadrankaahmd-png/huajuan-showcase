@@ -1898,5 +1898,65 @@
     "createdAt": "2026-03-10T12:06:13.740Z",
     "updatedAt": "2026-03-10T12:06:13.741Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773149091884",
+    "name": "HBM4供应链实时监控器实现",
+    "description": "实时监控SK Hynix/Samsung/Micron HBM4相关新闻和动态，跟踪qual测试进展识别量产信号，监控MU/NVDA股价联动，输出风险预警+投资机会",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "供应链监控",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "实时监控SK Hynix/Samsung/Micron HBM4相关新闻和动态，跟踪qual测试进展识别量产信号，监控MU/NVDA股价联动，输出风险预警+投资机会",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T13:24:51.884Z",
+    "updatedAt": "2026-03-10T13:24:51.885Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773149094481",
+    "name": "GTC 2026事件跟踪器实现",
+    "description": "跟踪GTC 2026（3月16日开幕）关键事件时间表，监控NVIDIA Rubin AI加速器发布动态，预测每个关键事件对股价的影响和price-in时间，输出事件日历+预期影响分析",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "事件跟踪",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "跟踪GTC 2026（3月16日开幕）关键事件时间表，监控NVIDIA Rubin AI加速器发布动态，预测每个关键事件对股价的影响和price-in时间，输出事件日历+预期影响分析",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T13:24:54.481Z",
+    "updatedAt": "2026-03-10T13:24:54.481Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773149099332",
+    "name": "Bin 1 Bin 2分层分析器实现",
+    "description": "分析SK Hynix vs Samsung HBM4的Bin 1占比竞争，预测高端市场份额变化对股价影响，识别Bin 1占比提升的信号，输出市占率预测+受益标的",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "竞争分析",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "分析SK Hynix vs Samsung HBM4的Bin 1占比竞争，预测高端市场份额变化对股价影响，识别Bin 1占比提升的信号，输出市占率预测+受益标的",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T13:24:59.332Z",
+    "updatedAt": "2026-03-10T13:24:59.333Z",
+    "source": "custom"
   }
 ]
