@@ -1838,5 +1838,65 @@
     "createdAt": "2026-03-10T11:58:23.515Z",
     "updatedAt": "2026-03-10T11:58:23.516Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773144368450",
+    "name": "AI供应链投资机会识别器实现",
+    "description": "输入市场新闻，识别受影响的供应链组件（NVL72机架/光子学/AI网络/CPU/内存存储/封装），推荐相关美股标的，预测price-in时间，使用真实API数据零硬编码",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "投资识别",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "输入市场新闻，识别受影响的供应链组件（NVL72机架/光子学/AI网络/CPU/内存存储/封装），推荐相关美股标的，预测price-in时间，使用真实API数据零硬编码",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T12:06:08.450Z",
+    "updatedAt": "2026-03-10T12:06:08.450Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773144371150",
+    "name": "台湾供应链动态监控器实现",
+    "description": "实时监控TSM/MU/ANET/FN股价和新闻，跟踪产能瓶颈、月度出货数据、台湾公司访问报告，输出投资机会提醒和风险预警",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "动态监控",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "实时监控TSM/MU/ANET/FN股价和新闻，跟踪产能瓶颈、月度出货数据、台湾公司访问报告，输出投资机会提醒和风险预警",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T12:06:11.150Z",
+    "updatedAt": "2026-03-10T12:06:11.151Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773144373740",
+    "name": "AI新技术采用速度跟踪器实现",
+    "description": "跟踪HBM3E/光子学/3D封装技术成熟度和采用速度，识别技术拐点信号，推荐受益标的\n输出技术路线图",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "技术跟踪",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "跟踪HBM3E/光子学/3D封装技术成熟度和采用速度，识别技术拐点信号，推荐受益标的\n输出技术路线图",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T12:06:13.740Z",
+    "updatedAt": "2026-03-10T12:06:13.741Z",
+    "source": "custom"
   }
 ]
