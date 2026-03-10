@@ -2118,5 +2118,65 @@
     "createdAt": "2026-03-10T14:01:42.926Z",
     "updatedAt": "2026-03-10T14:01:42.927Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773151753983",
+    "name": "光模块供应链监控器",
+    "description": "实时监控Lumentum/Coherent/Fabrinet股价和新闻，跟踪AI数据中心光模块需求，识别订单拐点信号。当用户说'光模块'、'Lumentum'、'AI数据中心'、'光通信'时使用。",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "实时监控Lumentum/Coherent/Fabrinet股价和新闻，跟踪AI数据中心光模块需求，识别订单拐点信号。当用户说'光模块'、'Lumentum'、'AI数据中心'、'光通信'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T14:09:13.983Z",
+    "updatedAt": "2026-03-10T14:09:13.984Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773151759147",
+    "name": "K-防务出口跟踪器",
+    "description": "监控韩国防务公司中东/欧洲出口订单，分析对美股防务板块(LMT/RTX/NOC)的联动影响。当用户说'韩国防务'、'K-防务'、'LIG NexOne'、'韩华防务'时使用。",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "监控韩国防务公司中东/欧洲出口订单，分析对美股防务板块(LMT/RTX/NOC)的联动影响。当用户说'韩国防务'、'K-防务'、'LIG NexOne'、'韩华防务'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T14:09:19.147Z",
+    "updatedAt": "2026-03-10T14:09:19.148Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773151764270",
+    "name": "化合物半导体封装分析器",
+    "description": "分析HTCC/金属化/钎焊技术壁垒，跟踪Kyocera/NTK/RF머트리얼즈市场份额动态。当用户说'半导体封装'、'HTCC'、'化合物半导体'、'技术壁垒'时使用。",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "分析HTCC/金属化/钎焊技术壁垒，跟踪Kyocera/NTK/RF머트리얼즈市场份额动态。当用户说'半导体封装'、'HTCC'、'化合物半导体'、'技术壁垒'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T14:09:24.270Z",
+    "updatedAt": "2026-03-10T14:09:24.271Z",
+    "source": "custom"
   }
 ]
