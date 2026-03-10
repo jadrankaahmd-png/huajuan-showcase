@@ -1218,5 +1218,165 @@
     "createdAt": "2026-03-10T09:20:59.183Z",
     "updatedAt": "2026-03-10T09:20:59.184Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773134815427",
+    "name": "AGENTS.md仓库级指令系统",
+    "description": "OpenAI最佳实践：仓库级指令文件，定义强制skill使用规则、构建测试命令、兼容性规则，随代码库旅行",
+    "category": "systems",
+    "categoryName": "systems",
+    "type": "仓库管理",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "OpenAI最佳实践：仓库级指令文件，定义强制skill使用规则、构建测试命令、兼容性规则，随代码库旅行",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T09:26:55.427Z",
+    "updatedAt": "2026-03-10T09:26:55.428Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773134817814",
+    "name": "Code Change Verification",
+    "description": "OpenAI最佳实践：自动运行验证栈（格式化、lint、类型检查、测试），当代码或构建行为改变时，确保代码质量",
+    "category": "automation",
+    "categoryName": "automation",
+    "type": "代码验证",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "OpenAI最佳实践：自动运行验证栈（格式化、lint、类型检查、测试），当代码或构建行为改变时，确保代码质量",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T09:26:57.814Z",
+    "updatedAt": "2026-03-10T09:26:57.814Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773134820040",
+    "name": "Docs Sync自动审计",
+    "description": "OpenAI最佳实践：审计文档vs代码库，查找缺失、错误或过时的文档，保持文档同步，报告优先工作流",
+    "category": "documentation",
+    "categoryName": "documentation",
+    "type": "文档管理",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "OpenAI最佳实践：审计文档vs代码库，查找缺失、错误或过时的文档，保持文档同步，报告优先工作流",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T09:27:00.040Z",
+    "updatedAt": "2026-03-10T09:27:00.041Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773134822266",
+    "name": "Examples Auto Run",
+    "description": "OpenAI最佳实践：自动运行示例脚本，记录stdout/stderr，生成日志和重跑文件，验证示例正确性",
+    "category": "automation",
+    "categoryName": "automation",
+    "type": "示例验证",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "OpenAI最佳实践：自动运行示例脚本，记录stdout/stderr，生成日志和重跑文件，验证示例正确性",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T09:27:02.266Z",
+    "updatedAt": "2026-03-10T09:27:02.267Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773134824523",
+    "name": "Final Release Review",
+    "description": "OpenAI最佳实践：发布前检查兼容性、回归、迁移说明，比较上一个发布vs当前，生成发布就绪性判断",
+    "category": "automation",
+    "categoryName": "automation",
+    "type": "发布检查",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "OpenAI最佳实践：发布前检查兼容性、回归、迁移说明，比较上一个发布vs当前，生成发布就绪性判断",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T09:27:04.523Z",
+    "updatedAt": "2026-03-10T09:27:04.524Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773134826801",
+    "name": "Test Coverage Improver",
+    "description": "OpenAI最佳实践：自动分析测试覆盖率，识别未测试代码，提出高影响测试建议，报告优先工作流",
+    "category": "development-tools",
+    "categoryName": "development-tools",
+    "type": "测试工具",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "OpenAI最佳实践：自动分析测试覆盖率，识别未测试代码，提出高影响测试建议，报告优先工作流",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T09:27:06.801Z",
+    "updatedAt": "2026-03-10T09:27:06.801Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773134829084",
+    "name": "Integration Tests自动化",
+    "description": "OpenAI最佳实践：跨环境测试（Node.js/Bun/Deno/Cloudflare Workers/Vite），发布到本地Verdaccio，验证安装运行行为",
+    "category": "development-tools",
+    "categoryName": "development-tools",
+    "type": "集成测试",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "OpenAI最佳实践：跨环境测试（Node.js/Bun/Deno/Cloudflare Workers/Vite），发布到本地Verdaccio，验证安装运行行为",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T09:27:09.084Z",
+    "updatedAt": "2026-03-10T09:27:09.084Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773134831343",
+    "name": "Changeset Validation",
+    "description": "OpenAI最佳实践：验证changesets和bump级别匹配包差异，检查发布元数据准确性，确保版本管理正确",
+    "category": "automation",
+    "categoryName": "automation",
+    "type": "版本管理",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "OpenAI最佳实践：验证changesets和bump级别匹配包差异，检查发布元数据准确性，确保版本管理正确",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T09:27:11.343Z",
+    "updatedAt": "2026-03-10T09:27:11.343Z",
+    "source": "custom"
   }
 ]
