@@ -2078,5 +2078,45 @@
     "createdAt": "2026-03-10T13:48:22.910Z",
     "updatedAt": "2026-03-10T13:48:22.912Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773151296052",
+    "name": "RF머트리얼즈投资分析",
+    "description": "韩国半导体封装公司RF머트리얼즈深度投资分析，涉及AI数据中心光模块、激光武器、卫星通信三大市场。当用户说'RF머트리얼즈'、'韩国半导体封装'、'Lumentum供应链'、'化合物半导体封装'时使用。",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "韩国半导体封装公司RF머트리얼즈深度投资分析，涉及AI数据中心光模块、激光武器、卫星通信三大市场。当用户说'RF머트리얼즈'、'韩国半导体封装'、'Lumentum供应链'、'化合物半导体封装'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T14:01:36.052Z",
+    "updatedAt": "2026-03-10T14:01:36.053Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773151302926",
+    "name": "网页内容清洗工具(Jina Reader)",
+    "description": "使用Jina Reader API清洗网页正文，去除广告和无关内容，支持Twitter/X链接读取。当用户说'清洗网页'、'提取网页正文'、'读取Twitter'、'网页内容提取'时使用。",
+    "category": "tools",
+    "categoryName": "tools",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "使用Jina Reader API清洗网页正文，去除广告和无关内容，支持Twitter/X链接读取。当用户说'清洗网页'、'提取网页正文'、'读取Twitter'、'网页内容提取'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T14:01:42.926Z",
+    "updatedAt": "2026-03-10T14:01:42.927Z",
+    "source": "custom"
   }
 ]
