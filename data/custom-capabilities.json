@@ -1378,5 +1378,65 @@
     "createdAt": "2026-03-10T09:27:11.343Z",
     "updatedAt": "2026-03-10T09:27:11.343Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773138912307",
+    "name": "AGENTS.md实现",
+    "description": "花卷能力仓库级指令文件，定义能力管理规范、Redis同步规则、知识库管理规范、永久禁止事项",
+    "category": "systems",
+    "categoryName": "systems",
+    "type": "仓库管理",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "花卷能力仓库级指令文件，定义能力管理规范、Redis同步规则、知识库管理规范、永久禁止事项",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T10:35:12.307Z",
+    "updatedAt": "2026-03-10T10:35:12.308Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773138914565",
+    "name": "Code Change Verification实现",
+    "description": "自动验证栈：npm run sync验证、Redis数据完整性、统计数字准确性，Git push前自动运行",
+    "category": "automation",
+    "categoryName": "automation",
+    "type": "代码验证",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "自动验证栈：npm run sync验证、Redis数据完整性、统计数字准确性，Git push前自动运行",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T10:35:14.565Z",
+    "updatedAt": "2026-03-10T10:35:14.565Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773138916842",
+    "name": "Docs Sync实现",
+    "description": "自动审计：比较知识库vs能力库，检测缺失条目，生成同步报告，定期审计",
+    "category": "documentation",
+    "categoryName": "documentation",
+    "type": "文档审计",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "自动审计：比较知识库vs能力库，检测缺失条目，生成同步报告，定期审计",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T10:35:16.842Z",
+    "updatedAt": "2026-03-10T10:35:16.842Z",
+    "source": "custom"
   }
 ]

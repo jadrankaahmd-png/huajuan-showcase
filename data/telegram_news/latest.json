@@ -1,5 +1,5 @@
 {
-  "last_update": "2026-03-10T18:30:14.748225",
+  "last_update": "2026-03-10T18:30:14.940429",
   "channels": {
     "blockchain": [
       {
@@ -282,7 +282,7 @@
         "message_id": "106796",
         "text": "【前链上 HYPE 最大多头Loracle重建 HYPE 多单，规模达 157 万美元】比推消息，据 Coinbob热门地址监控显示，过去 1 小时，在 HYPE 大幅上涨期间。Hyperliquid 早期贡献者 Loracle重新开立 5 倍杠杆 HYPE 多单，均价 34.89 美元，持仓规模达 157 万美元。Loracle（X：loraclexyz）原名 Laurent Zeimes。此前曾于 1 月 12 日，以均价 22 美元精准抄底 HYPE，规模峰值一度达 5200 万美元，浮盈最高超过 1600 万美元，并曾成为链上 HYPE 最大多头，后于 HYPE 价格回落至 30 美元下方后止盈平仓。来源：https://t.me/Coinbob_track_CN",
         "timestamp": "2026-03-10T09:52:03+00:00",
-        "views": 6,
+        "views": 7,
         "link": "https://t.me/bitpush/106796",
         "channel_name": "BitPush",
         "category": "blockchain",
@@ -293,7 +293,7 @@
         "message_id": "106795",
         "text": "【微信员工辟谣：向 OpenClaw 发布指令使其自动发出红包为谣传】比推消息，微信员工客村小蒋表示，向 OpenClaw 发布指令促使 AI 自动发出微信红包的社群流传截图为假。QClaw 尚未有移动端部署方案，PC 端微信不支持发红包，大家不要以讹传讹。腾讯正在内测开源 AI 智能体 OpenClaw 的产品化封装工具 QClaw，核心形态为本地一键启动包，用户下载安装后可在本地电脑上快速部署 OpenClaw，也可一键关联已有安装。流出的内测截图显示，QClaw 默认集成 Kimi、Minimax、GLM、DeepSeek 等模型，支持自定义大模型。产品已打通微信和 QQ，用户可在两款应用内直接与 OpenClaw 对话，通过消息指令远程操控本地电脑执行任务。",
         "timestamp": "2026-03-10T09:51:03+00:00",
-        "views": 7,
+        "views": 8,
         "link": "https://t.me/bitpush/106795",
         "channel_name": "BitPush",
         "category": "blockchain",
