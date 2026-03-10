@@ -338,5 +338,65 @@
     "createdAt": "2026-03-09T23:04:19.183Z",
     "updatedAt": "2026-03-09T23:04:19.183Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773126191180",
+    "name": "LanceDB增强记忆系统",
+    "description": "生产级长期记忆插件：混合检索（Vector+BM25）、跨编码器Rerank、多Scope隔离、管理CLI、自我反思纠错",
+    "category": "memory",
+    "categoryName": "memory",
+    "type": "记忆系统",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "生产级长期记忆插件：混合检索（Vector+BM25）、跨编码器Rerank、多Scope隔离、管理CLI、自我反思纠错",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T07:03:11.180Z",
+    "updatedAt": "2026-03-10T07:03:11.184Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773126193405",
+    "name": "混合检索记忆技术",
+    "description": "Vector向量检索（语义理解）+ BM25关键词检索（精确匹配），跨编码器Rerank重排序，生产级准确率",
+    "category": "memory",
+    "categoryName": "memory",
+    "type": "技术方案",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "Vector向量检索（语义理解）+ BM25关键词检索（精确匹配），跨编码器Rerank重排序，生产级准确率",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T07:03:13.405Z",
+    "updatedAt": "2026-03-10T07:03:13.406Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773126195611",
+    "name": "记忆自优化机制",
+    "description": "Agent自我反思和纠错，不断优化知识库，自动清理过时信息，提升记忆质量，长期对话不遗忘",
+    "category": "memory",
+    "categoryName": "memory",
+    "type": "优化机制",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "Agent自我反思和纠错，不断优化知识库，自动清理过时信息，提升记忆质量，长期对话不遗忘",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T07:03:15.611Z",
+    "updatedAt": "2026-03-10T07:03:15.612Z",
+    "source": "custom"
   }
 ]
