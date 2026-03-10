@@ -1978,5 +1978,65 @@
     "createdAt": "2026-03-10T13:32:59.072Z",
     "updatedAt": "2026-03-10T13:32:59.073Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773150081037",
+    "name": "Skill描述优化器",
+    "description": "自动扫描 .agents/skills/ 目录下所有 skill，检查描述字段是否包含触发短语，不符合标准的自动生成优化建议。当用户说'优化 skill 描述'、'检查 skill 标准'、'优化触发短语'时使用。",
+    "category": "automation",
+    "categoryName": "automation",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "自动扫描 .agents/skills/ 目录下所有 skill，检查描述字段是否包含触发短语，不符合标准的自动生成优化建议。当用户说'优化 skill 描述'、'检查 skill 标准'、'优化触发短语'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T13:41:21.037Z",
+    "updatedAt": "2026-03-10T13:41:21.038Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773150087789",
+    "name": "Skill测试生成器",
+    "description": "为每个 skill 自动生成测试用例，包括应该触发的场景、不应该触发的场景、预期输出验证。当用户说'生成 skill 测试'、'创建测试用例'、'测试 skill'时使用。",
+    "category": "testing",
+    "categoryName": "testing",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "为每个 skill 自动生成测试用例，包括应该触发的场景、不应该触发的场景、预期输出验证。当用户说'生成 skill 测试'、'创建测试用例'、'测试 skill'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T13:41:27.789Z",
+    "updatedAt": "2026-03-10T13:41:27.790Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773150091896",
+    "name": "Skill文档生成器",
+    "description": "为每个 skill 自动生成使用文档，包括使用示例、触发方式、故障排查指南。当用户说'生成 skill 文档'、'创建使用文档'、'文档生成'时使用。",
+    "category": "documentation",
+    "categoryName": "documentation",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "为每个 skill 自动生成使用文档，包括使用示例、触发方式、故障排查指南。当用户说'生成 skill 文档'、'创建使用文档'、'文档生成'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T13:41:31.896Z",
+    "updatedAt": "2026-03-10T13:41:31.897Z",
+    "source": "custom"
   }
 ]
