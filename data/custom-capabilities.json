@@ -1118,5 +1118,65 @@
     "createdAt": "2026-03-10T08:46:45.921Z",
     "updatedAt": "2026-03-10T08:46:45.921Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773133686747",
+    "name": "MCP服务器集成实现",
+    "description": "花卷专属MCP服务器，让Claude直接访问知识库，提供股票查询工具，实现AI↔外部服务连接",
+    "category": "api",
+    "categoryName": "api",
+    "type": "MCP实现",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "花卷专属MCP服务器，让Claude直接访问知识库，提供股票查询工具，实现AI↔外部服务连接",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T09:08:06.747Z",
+    "updatedAt": "2026-03-10T09:08:06.748Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773133689347",
+    "name": "Claude Code终端集成",
+    "description": "Claude Code终端助手，优化脚本质量，自动调试scripts/目录，生成测试用例",
+    "category": "development-tools",
+    "categoryName": "development-tools",
+    "type": "代码优化",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "Claude Code终端助手，优化脚本质量，自动调试scripts/目录，生成测试用例",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T09:08:09.347Z",
+    "updatedAt": "2026-03-10T09:08:09.349Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773133691609",
+    "name": "高级MCP模式实现",
+    "description": "智能知识采样、实时价格预警通知、主动推送，Telegram通知集成",
+    "category": "api",
+    "categoryName": "api",
+    "type": "高级功能",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "智能知识采样、实时价格预警通知、主动推送，Telegram通知集成",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T09:08:11.609Z",
+    "updatedAt": "2026-03-10T09:08:11.609Z",
+    "source": "custom"
   }
 ]
