@@ -798,5 +798,145 @@
     "createdAt": "2026-03-10T08:00:57.393Z",
     "updatedAt": "2026-03-10T08:00:57.394Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773129984467",
+    "name": "多Agent调度系统",
+    "description": "OpenAI Symphony多Agent调度，自动分配隔离工作区，为每个Issue启动独立Agent，并发控制全局上限10个，按状态细粒度限制",
+    "category": "agents",
+    "categoryName": "agents",
+    "type": "调度系统",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "OpenAI Symphony多Agent调度，自动分配隔离工作区，为每个Issue启动独立Agent，并发控制全局上限10个，按状态细粒度限制",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:06:24.467Z",
+    "updatedAt": "2026-03-10T08:06:24.472Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773129986664",
+    "name": "并发控制机制",
+    "description": "OpenAI Symphony并发控制，全局上限10个Agent，按Issue状态细粒度限制，停滞检测5分钟自动重试，单次最多20轮续跑",
+    "category": "agents",
+    "categoryName": "agents",
+    "type": "控制机制",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "OpenAI Symphony并发控制，全局上限10个Agent，按Issue状态细粒度限制，停滞检测5分钟自动重试，单次最多20轮续跑",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:06:26.664Z",
+    "updatedAt": "2026-03-10T08:06:26.664Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773129988870",
+    "name": "任务停滞检测与重试",
+    "description": "OpenAI Symphony停滞检测，5分钟自动重试，任务超时处理，自动恢复机制",
+    "category": "automation",
+    "categoryName": "automation",
+    "type": "监控恢复",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "OpenAI Symphony停滞检测，5分钟自动重试，任务超时处理，自动恢复机制",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:06:28.870Z",
+    "updatedAt": "2026-03-10T08:06:28.871Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773129991079",
+    "name": "Agent可观测性系统",
+    "description": "OpenAI Symphony Observability Layer，任务状态追踪，Agent性能监控，运行日志分析",
+    "category": "data-monitoring",
+    "categoryName": "data-monitoring",
+    "type": "监控系统",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "OpenAI Symphony Observability Layer，任务状态追踪，Agent性能监控，运行日志分析",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:06:31.079Z",
+    "updatedAt": "2026-03-10T08:06:31.080Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773129993247",
+    "name": "六层架构设计模式",
+    "description": "OpenAI Symphony六层架构：Policy策略层、Configuration配置层、Coordination协调层、Execution执行层、Integration集成层、Observability可观测性层",
+    "category": "systems",
+    "categoryName": "systems",
+    "type": "架构设计",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "OpenAI Symphony六层架构：Policy策略层、Configuration配置层、Coordination协调层、Execution执行层、Integration集成层、Observability可观测性层",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:06:33.247Z",
+    "updatedAt": "2026-03-10T08:06:33.248Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773129995528",
+    "name": "WORKFLOW.md配置管理",
+    "description": "OpenAI Symphony WORKFLOW.md配置，放进代码仓库随代码版本控制，实时监听变更无需重启，热更新机制",
+    "category": "automation",
+    "categoryName": "automation",
+    "type": "配置管理",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "OpenAI Symphony WORKFLOW.md配置，放进代码仓库随代码版本控制，实时监听变更无需重启，热更新机制",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:06:35.528Z",
+    "updatedAt": "2026-03-10T08:06:35.529Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773129997746",
+    "name": "项目管理工具集成",
+    "description": "OpenAI Symphony集成能力，监听Linear等项目管理工具，自动创建Issue工作区，任务流转自动化",
+    "category": "api-integration",
+    "categoryName": "api-integration",
+    "type": "工具集成",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "OpenAI Symphony集成能力，监听Linear等项目管理工具，自动创建Issue工作区，任务流转自动化",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T08:06:37.746Z",
+    "updatedAt": "2026-03-10T08:06:37.747Z",
+    "source": "custom"
   }
 ]
