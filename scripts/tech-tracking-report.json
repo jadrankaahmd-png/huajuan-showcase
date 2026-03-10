@@ -1,0 +1,140 @@
+{
+  "timestamp": "2026-03-10T12:04:26.958Z",
+  "news": [
+    {
+      "title": "Optical interconnects gain traction in datacenters",
+      "description": "Optical interconnect adoption increases in hyperscale datacenters...",
+      "publishedAt": "2026-03-10T12:04:26.955Z",
+      "source": {
+        "name": "Example Source"
+      }
+    }
+  ],
+  "inflectionPoints": [
+    {
+      "technology": "光子学",
+      "maturity": "商业化（2026年）",
+      "adoptionSpeed": "中等",
+      "matchScore": 1,
+      "stocks": [
+        "COHR",
+        "LITE",
+        "FN"
+      ],
+      "nextMilestone": {
+        "date": "2025-Q2",
+        "event": "光模块400G量产"
+      }
+    }
+  ],
+  "technologies": {
+    "hbm3e": {
+      "name": "HBM3E",
+      "description": "高带宽内存3E代",
+      "maturity": "量产（2025年）",
+      "adoptionSpeed": "快速",
+      "stocks": [
+        "MU",
+        "WDC",
+        "STX"
+      ],
+      "keywords": [
+        "HBM3E",
+        "HBM",
+        "high bandwidth memory",
+        "DDR5",
+        "memory"
+      ],
+      "milestones": [
+        {
+          "date": "2024-Q4",
+          "event": "HBM3E 样品出货"
+        },
+        {
+          "date": "2025-Q1",
+          "event": "HBM3E 量产"
+        },
+        {
+          "date": "2025-Q3",
+          "event": "HBM3E 产能爬坡"
+        },
+        {
+          "date": "2026-Q1",
+          "event": "HBM3E 大规模部署"
+        }
+      ]
+    },
+    "photonics": {
+      "name": "光子学",
+      "description": "硅光技术和光互联",
+      "maturity": "商业化（2026年）",
+      "adoptionSpeed": "中等",
+      "stocks": [
+        "COHR",
+        "LITE",
+        "FN"
+      ],
+      "keywords": [
+        "photonics",
+        "optical",
+        "silicon photonics",
+        "light",
+        "laser"
+      ],
+      "milestones": [
+        {
+          "date": "2025-Q2",
+          "event": "光模块400G量产"
+        },
+        {
+          "date": "2025-Q4",
+          "event": "光互联800G商用"
+        },
+        {
+          "date": "2026-Q2",
+          "event": "硅光技术规模化"
+        },
+        {
+          "date": "2027-Q1",
+          "event": "光计算原型"
+        }
+      ]
+    },
+    "packaging3d": {
+      "name": "3D封装",
+      "description": "先进3D封装技术",
+      "maturity": "量产（2025年）",
+      "adoptionSpeed": "稳定",
+      "stocks": [
+        "ASX",
+        "AMKR",
+        "KLAC"
+      ],
+      "keywords": [
+        "3D packaging",
+        "CoWoS",
+        "advanced packaging",
+        "2.5D",
+        "substrate"
+      ],
+      "milestones": [
+        {
+          "date": "2024-Q3",
+          "event": "CoWoS产能翻倍"
+        },
+        {
+          "date": "2025-Q1",
+          "event": "3D封装量产"
+        },
+        {
+          "date": "2025-Q4",
+          "event": "混合键合技术商用"
+        },
+        {
+          "date": "2026-Q2",
+          "event": "3D封装成本下降30%"
+        }
+      ]
+    }
+  }
+}
