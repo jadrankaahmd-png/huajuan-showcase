@@ -17,8 +17,8 @@ export default function Navigation({ currentLayer }: NavigationProps) {
     if (currentLayer !== undefined) return currentLayer;
     if (!pathname) return 1; // pathname 为 null 时默认第一层
     if (pathname === '/') return 0; // 首页
-    if (pathname === '/dynamic-model' || pathname?.startsWith(('/dynamic-model/')) return 2;
-    if (pathname === '/stock-picker' || pathname?.startsWith(('/stock-picker/')) return 3;
+    if (pathname === '/dynamic-model' || pathname?.startsWith('/dynamic-model/')) return 2;
+    if (pathname === '/stock-picker' || pathname?.startsWith('/stock-picker/')) return 3;
     return 1; // 默认第一层
   };
   
