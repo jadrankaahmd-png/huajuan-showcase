@@ -1678,5 +1678,45 @@
     "createdAt": "2026-03-10T11:26:31.798Z",
     "updatedAt": "2026-03-10T11:26:31.799Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773142813243",
+    "name": "AI五层架构分析能力",
+    "description": "按NVIDIA AI五层蛋糕架构（能源/芯片/基建/模型/应用）分类美股标的，识别每层投资机会，越往下竞争越少壁垒越深，优先投资下四层",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "投资框架",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "按NVIDIA AI五层蛋糕架构（能源/芯片/基建/模型/应用）分类美股标的，识别每层投资机会，越往下竞争越少壁垒越深，优先投资下四层",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:40:13.243Z",
+    "updatedAt": "2026-03-10T11:40:13.243Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773142815680",
+    "name": "AI能源层投资分析",
+    "description": "分析AI能源层投资机会（NEE/VST/CEG核电/天然气/可再生能源），跟踪电力需求增长、数据中心能耗、核电审批进展，竞争最少壁垒最深",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "行业分析",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "分析AI能源层投资机会（NEE/VST/CEG核电/天然气/可再生能源），跟踪电力需求增长、数据中心能耗、核电审批进展，竞争最少壁垒最深",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:40:15.680Z",
+    "updatedAt": "2026-03-10T11:40:15.681Z",
+    "source": "custom"
   }
 ]
