@@ -2198,5 +2198,65 @@
     "createdAt": "2026-03-10T14:15:54.293Z",
     "updatedAt": "2026-03-10T14:15:54.294Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773152892768",
+    "name": "财报快速扫描器",
+    "description": "基于Financial Datasets API，一键获取公司5年财报核心指标（收入增长率、毛利率、净利率、自由现金流、ROE）。当用户说'扫描财报'、'获取财务数据'、'分析财报'时使用。",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "基于Financial Datasets API，一键获取公司5年财报核心指标（收入增长率、毛利率、净利率、自由现金流、ROE）。当用户说'扫描财报'、'获取财务数据'、'分析财报'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T14:28:12.768Z",
+    "updatedAt": "2026-03-10T14:28:12.769Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773152897394",
+    "name": "公司对比分析器",
+    "description": "基于Financial Datasets API，自动对比多家公司财务表现（收入规模、增长率、利润率、ROE）。当用户说'对比公司'、'对比财务数据'、'比较财报'时使用。",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "基于Financial Datasets API，自动对比多家公司财务表现（收入规模、增长率、利润率、ROE）。当用户说'对比公司'、'对比财务数据'、'比较财报'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T14:28:17.394Z",
+    "updatedAt": "2026-03-10T14:28:17.395Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773152901752",
+    "name": "SEC文件关键词追踪器",
+    "description": "基于Financial Datasets API，追踪SEC文件中关键词出现频率趋势，识别公司战略变化。当用户说'追踪关键词'、'SEC文件'、'10-K分析'时使用。",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "基于Financial Datasets API，追踪SEC文件中关键词出现频率趋势，识别公司战略变化。当用户说'追踪关键词'、'SEC文件'、'10-K分析'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T14:28:21.752Z",
+    "updatedAt": "2026-03-10T14:28:21.753Z",
+    "source": "custom"
   }
 ]
