@@ -28,6 +28,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       callFinancialDatasetsAPI('financials/cash-flow-statements', { ticker, period: 'annual', limit: 5 }),
     ]);
 
+    // 从响应中提取数据（Financial Datasets API 返回的是 {income_statements: [...]}）
+    const incomeData = incomeStatements.income_statements || incomeStatements;
+    const balanceData = balanceSheets.balance_sheets || balanceSheets;
+    const cashFlowData = cashFlowStatements.cash_flow_statements || cashFlowStatements;
+
     // 计算财务指标
     const metrics = {
       revenueGrowth: [],
