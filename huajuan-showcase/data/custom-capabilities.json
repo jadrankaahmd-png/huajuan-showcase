@@ -1798,5 +1798,45 @@
     "createdAt": "2026-03-10T11:51:31.672Z",
     "updatedAt": "2026-03-10T11:51:31.673Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773143901010",
+    "name": "AI供应链投资分析能力",
+    "description": "分析AI供应链关键组件（NVL72/光子学/AI网络/CPU/内存/封装），跟踪台湾供应链动态，核心投资逻辑：duration+新技术采用速度+规模化能力，未来2-5年投资展望",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "供应链分析",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "分析AI供应链关键组件（NVL72/光子学/AI网络/CPU/内存/封装），跟踪台湾供应链动态，核心投资逻辑：duration+新技术采用速度+规模化能力，未来2-5年投资展望",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:58:21.010Z",
+    "updatedAt": "2026-03-10T11:58:21.011Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773143903515",
+    "name": "台湾供应链美股分析能力",
+    "description": "分析台湾供应链相关美股标的（TSM/ASX/MU/FN），跟踪台积电/ASE/Micron/Fabrinet动态，识别产能瓶颈和投资机会",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "区域分析",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "分析台湾供应链相关美股标的（TSM/ASX/MU/FN），跟踪台积电/ASE/Micron/Fabrinet动态，识别产能瓶颈和投资机会",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:58:23.515Z",
+    "updatedAt": "2026-03-10T11:58:23.516Z",
+    "source": "custom"
   }
 ]
