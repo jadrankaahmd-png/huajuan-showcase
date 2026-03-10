@@ -1,6 +1,6 @@
 # NOW.md - 花卷当前状态
 
-**最后更新**：2026-03-10 22:41  
+**最后更新**：2026-03-10 22:54  
 **总能力数**：762
 
 ---
@@ -13,42 +13,40 @@
 - 知识库：51
 - 子页面：25
 
-### **最近完成的工作（22:32-22:41）**
-1. ✅ 配置 Financial Datasets API Key
-   - 永久保存到 MEMORY.md
-   - 本地环境变量已配置
-   - 测试成功获取 NVDA 真实财报数据
+### **最近完成的工作（22:45-22:54）**
+1. ✅ 修复 FinancialTools 组件构建错误
+   - 添加 'use client' 指令
+   - 修复 Navigation 组件 pathname 可能为 null 的问题
+   - 移除 Material-UI 依赖，改用 Tailwind CSS
 
-2. ✅ 修复 Financial Datasets API 端点格式
-   - 修正：/financials/income-statements
-   - 修正：/financials/balance-sheets
-   - 修正：/financials/cash-flow-statements
-   - 修正：/filings
-   - 测试成功（NVDA 收入 $215.94B）
+2. ✅ Git 提交修复
+   - 提交所有 TypeScript 构建错误修复
+   - 等待 pull 后 push
 
 ### **待完成任务**
+- [ ] Git pull 并 push 同步
 - [ ] 配置 Vercel 环境变量（Financial Datasets API Key）
-- [ ] 修复 AMD/AVGO 数据获取失败问题
-- [ ] 实现 SEC 文件内容提取（关键词统计）
+- [ ] 验证三个财报分析工具在 /coe 页面显示
 
 ---
 
 ## 🎯 优先级
 
-1. **高优先级**：配置 Vercel 环境变量
-2. **中优先级**：修复 AMD/AVGO 数据获取
-3. **低优先级**：实现 SEC 文件内容提取
+1. **高优先级**：Git pull + push 同步
+2. **中优先级**：验证 Web UI 功能
+3. **低优先级**：配置 Vercel 环境变量
 
 ---
 
 ## 📝 备注
 
-- Git 状态：clean ✅
+- Git 状态：需要 pull ✅
 - Redis 状态：正常 ✅
 - Heartbeat：完成 ✅
 - 能力总数：762 ✅
 - API Key：已配置 ✅
+- 构建状态：成功 ✅
 
 ---
 
-_下次更新：23:11（30分钟后）_
+_下次更新：23:24（30分钟后）_
