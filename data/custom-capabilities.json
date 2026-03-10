@@ -1498,5 +1498,25 @@
     "createdAt": "2026-03-10T10:47:32.997Z",
     "updatedAt": "2026-03-10T10:47:32.998Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773140670251",
+    "name": "Prune System Prompts实现",
+    "description": "自动扫描和精简 workspace 文件（AGENTS.md、MEMORY.md、NOW.md），超过阈值时自动精简，保留关键信息，节省 Token",
+    "category": "memory-optimization",
+    "categoryName": "memory-optimization",
+    "type": "Token优化",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "自动扫描和精简 workspace 文件（AGENTS.md、MEMORY.md、NOW.md），超过阈值时自动精简，保留关键信息，节省 Token",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:04:30.251Z",
+    "updatedAt": "2026-03-10T11:04:30.252Z",
+    "source": "custom"
   }
 ]
