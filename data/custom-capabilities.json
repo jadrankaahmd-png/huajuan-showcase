@@ -398,5 +398,165 @@
     "createdAt": "2026-03-10T07:03:15.611Z",
     "updatedAt": "2026-03-10T07:03:15.612Z",
     "source": "custom"
+  },
+  {
+    "id": "capability_1773127325866",
+    "name": "AI自动研究引擎监控",
+    "description": "监控karpathy/autoresearch项目进展，学习AI自动调优最佳实践，小模型验证→大模型迁移策略",
+    "category": "ai-analysis",
+    "categoryName": "ai-analysis",
+    "type": "研究工具",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "监控karpathy/autoresearch项目进展，学习AI自动调优最佳实践，小模型验证→大模型迁移策略",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T07:22:05.866Z",
+    "updatedAt": "2026-03-10T07:22:05.872Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773127328093",
+    "name": "Discord社区数据抓取",
+    "description": "steipete/discrawl工具，Discord CLI + SQLite后端，让Agent轻松抓取Discord社区数据，监控社区情绪",
+    "category": "data-fetching",
+    "categoryName": "data-fetching",
+    "type": "数据采集",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "steipete/discrawl工具，Discord CLI + SQLite后端，让Agent轻松抓取Discord社区数据，监控社区情绪",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T07:22:08.093Z",
+    "updatedAt": "2026-03-10T07:22:08.093Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773127330403",
+    "name": "CLI输出蒸馏技术",
+    "description": "samuelfaj/distill工具，把大型CLI输出蒸馏成小答案给LLM，长输出压缩、上下文优化",
+    "category": "data",
+    "categoryName": "data",
+    "type": "数据处理",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "samuelfaj/distill工具，把大型CLI输出蒸馏成小答案给LLM，长输出压缩、上下文优化",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T07:22:10.403Z",
+    "updatedAt": "2026-03-10T07:22:10.404Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773127332651",
+    "name": "AI编码Agent监控仪表盘",
+    "description": "f/agentlytics工具，AI编码Agent综合分析仪表盘，Agent性能监控、任务追踪、可视化分析",
+    "category": "data-monitoring",
+    "categoryName": "data-monitoring",
+    "type": "监控工具",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "f/agentlytics工具，AI编码Agent综合分析仪表盘，Agent性能监控、任务追踪、可视化分析",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T07:22:12.651Z",
+    "updatedAt": "2026-03-10T07:22:12.651Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773127334938",
+    "name": "社交媒体推文存储分析",
+    "description": "steipete/birdclaw工具，存储推文让AI Agent可检索可分析，社交媒体数据分析、情绪追踪",
+    "category": "data",
+    "categoryName": "data",
+    "type": "数据分析",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "steipete/birdclaw工具，存储推文让AI Agent可检索可分析，社交媒体数据分析、情绪追踪",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T07:22:14.938Z",
+    "updatedAt": "2026-03-10T07:22:14.938Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773127337235",
+    "name": "AI工具一键配置系统",
+    "description": "holysheep123/holysheep-cli工具，一键配置所有AI编码工具，快速部署AI工具链",
+    "category": "tool-library",
+    "categoryName": "tool-library",
+    "type": "工具管理",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "holysheep123/holysheep-cli工具，一键配置所有AI编码工具，快速部署AI工具链",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T07:22:17.235Z",
+    "updatedAt": "2026-03-10T07:22:17.236Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773127339469",
+    "name": "OpenClaw上下文诊断工具",
+    "description": "jzOcb/context-doctor工具，可视化诊断OpenClaw上下文窗口，Token使用监控、上下文优化",
+    "category": "data-monitoring",
+    "categoryName": "data-monitoring",
+    "type": "监控工具",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "jzOcb/context-doctor工具，可视化诊断OpenClaw上下文窗口，Token使用监控、上下文优化",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T07:22:19.469Z",
+    "updatedAt": "2026-03-10T07:22:19.470Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773127341756",
+    "name": "AI原生BDD验证框架",
+    "description": "ZhangHanDong/agent-spec工具，AI原生BDD验证工具，Agent行为测试、质量保证、自动化验证",
+    "category": "api",
+    "categoryName": "api",
+    "type": "测试工具",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "ZhangHanDong/agent-spec工具，AI原生BDD验证工具，Agent行为测试、质量保证、自动化验证",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T07:22:21.756Z",
+    "updatedAt": "2026-03-10T07:22:21.756Z",
+    "source": "custom"
   }
 ]
