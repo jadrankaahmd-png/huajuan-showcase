@@ -12,7 +12,48 @@ const MINIMAX_API_KEY = process.env.MINIMAX_API_KEY || '';
 const MINIMAX_API_URL = 'https://api.minimax.chat/v1/text/chatcompletion_v2';
 
 const QVERIS_EXECUTE_URL = 'https://qveris.ai/api/v1/tools/execute';
-const EODHD_EOD_TOOL_ID = 'eodhd.eod.retrieve.v1.34f25103'; // 历史数据工具（可用）
+// Tool ID now dynamically fetched
+
+// 缓存 tool_id（避免每次请求都搜索）
+let cachedToolId: string | null = null;
+
+// 动态获取 EODHD 历史数据工具ID（必须动态获取，不能hardcode）
+async function getEODToolId(): Promise<string | null> {
+  if (cachedToolId) return cachedToolId;
+  
+  try {
+    const response = await fetch('https://qveris.ai/api/v1/search', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${QVERIS_API_KEY}`,
+      },
+      body: JSON.stringify({
+        query: 'stock historical price eod',
+        limit: 3,
+      }),
+    });
+    
+    if (!response.ok) return null;
+    
+    const result = await response.json();
+    if (result.results && result.results.length > 0) {
+      const eodTool = result.results.find((t: any) => 
+        t.tool_id && t.tool_id.includes('eodhd') && t.tool_id.includes('historical')
+      );
+      if (eodTool) {
+        cachedToolId = eodTool.tool_id;
+        console.log('✅ QVeris tool_id:', cachedToolId);
+        return cachedToolId;
+      }
+    }
+    return null;
+  } catch (error) {
+    console.error('获取 tool_id 错误:', error);
+    return null;
+  }
+}
+
 
 // 全球指标（ETF）
 const GLOBAL_INDICATORS = [
@@ -55,7 +96,10 @@ async function getRecentEODData(symbol: string, days: number = 5) {
     startDate.setDate(startDate.getDate() - days);
     
     const executeUrl = new URL(QVERIS_EXECUTE_URL);
-    executeUrl.searchParams.set('tool_id', EODHD_EOD_TOOL_ID);
+    const toolId = await getEODToolId();
+    if (!toolId) return null;
+    
+    executeUrl.searchParams.set('tool_id', toolId);
     
     const response = await fetch(executeUrl.toString(), {
       method: 'POST',
