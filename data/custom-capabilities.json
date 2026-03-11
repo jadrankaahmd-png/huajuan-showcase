@@ -1518,5 +1518,32 @@
     "createdAt": "2026-03-10T11:04:30.251Z",
     "updatedAt": "2026-03-10T11:04:30.252Z",
     "source": "custom"
+  },
+  {
+    "name": "gh CLI",
+    "description": "GitHub CLI 工具 - 管理 GitHub issues, PRs, repos, 和 Git 操作。使用 gh auth login 登录，gh issue list 查看问题，gh pr create 创建 PR。",
+    "category": "tools",
+    "source": "custom",
+    "icon": "github"
+  },
+  {
+    "id": "capability_1773230450612",
+    "name": "gh CLI",
+    "description": "GitHub CLI 工具 - 管理 GitHub issues, PRs, repos, 和 Git 操作。使用 gh auth login 登录，gh issue list 查看问题，gh pr create 创建 PR。",
+    "category": "tools",
+    "categoryName": "tools",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "GitHub CLI 工具 - 管理 GitHub issues, PRs, repos, 和 Git 操作。使用 gh auth login 登录，gh issue list 查看问题，gh pr create 创建 PR。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-11T12:00:50.612Z",
+    "updatedAt": "2026-03-11T12:00:50.613Z",
+    "source": "custom"
   }
 ]
