@@ -2,60 +2,41 @@
 /**
  * 统一同步脚本 - 一键同步所有能力到 Redis
  * 
- * 功能：
+ * 功能（2026-03-11 升级版 - 仅Redis）：
  * 1. 读取 data/custom-capabilities.json（自定义能力）
- * 2. 读取 SQLite 数据库原有能力
- * 3. 合并所有能力
- * 4. 写入 Redis
- * 5. 更新统计数字
+ * 2. 读取 Redis 现有能力
+ * 3. 合并并更新 Redis
+ * 4. 同步知识库
+ * 5. 更新统计
+ * 
+ * 注意：已移除 SQLite 依赖，数据全部存储在 Redis
  * 
  * 使用：npm run sync 或 node scripts/sync-to-redis.js
  */
 
 const { Redis } = require('@upstash/redis');
-const Database = require('better-sqlite3');
 const fs = require('fs');
 const path = require('path');
 
 // Redis 客户端
 const redis = new Redis({
   url: process.env.UPSTASH_REDIS_REST_URL || 'https://valued-hamster-37498.upstash.io',
-  token: process.env.UPSTASH_REDIS_REST_TOKEN || 'AZJ6AAIncDE1YzRlYzY3NzI5OTU0MWIzOTM5YzNjMWE2NDkzMTkyZHAxMzc0OTg',
+  token: process.env.UPSTASH_REDIS_REST_TOKEN || 'AZJ6AAIncDE1YzRlYzY3NzI5OTU0MWIzOTM5YzNjMWE2NDkzMTkyZHAxMzc0OKg',
 });
 
 async function syncCapabilities() {
-  console.log('📦 同步主能力（从 SQLite + 自定义能力）...\n');
+  console.log('📦 同步主能力（从 Redis + 自定义能力）...\n');
   
-  const db = new Database('data/capabilities.db');
+  // 1. 获取 Redis 现有能力
+  let existingCaps = [];
+  try {
+    existingCaps = await redis.get('capabilities:all') || [];
+    console.log(`✅ 从 Redis 读取 ${existingCaps.length} 条现有能力`);
+  } catch (e) {
+    console.log('ℹ️  Redis 中暂无能力，从头开始');
+  }
   
-  // 1. 读取 SQLite 原有能力
-  const sqliteCaps = db.prepare(`
-    SELECT 
-      name,
-      description,
-      category,
-      type,
-      status,
-      icon,
-      details_json
-    FROM capabilities
-    ORDER BY category, name
-  `).all();
-  
-  const capabilitiesFromSqlite = sqliteCaps.map((cap, index) => ({
-    id: `capability_${index + 1}`,
-    name: cap.name,
-    description: cap.description,
-    category: cap.category,
-    categoryName: cap.category,
-    type: cap.type,
-    status: cap.status,
-    icon: cap.icon,
-    details: JSON.parse(cap.details_json || '{}'),
-    source: 'sqlite' // 标记来源
-  }));
-  
-  console.log(`✅ 从 SQLite 读取 ${capabilitiesFromSqlite.length} 条能力`);
+  const existingNames = new Set(existingCaps.map(c => c.name));
   
   // 2. 读取自定义能力
   const customCapsPath = path.join(__dirname, '../data/custom-capabilities.json');
@@ -65,18 +46,18 @@ async function syncCapabilities() {
     customCapabilities = JSON.parse(fs.readFileSync(customCapsPath, 'utf-8'));
     console.log(`✅ 从 custom-capabilities.json 读取 ${customCapabilities.length} 条自定义能力`);
   } else {
-    console.log('⚠️  未找到 custom-capabilities.json，跳过自定义能力');
+    console.log('⚠️  未找到 custom-capabilities.json');
   }
   
-  // 3. 合并能力（自定义能力优先，因为可能更新）
+  // 3. 合并能力（自定义优先）
   const capabilitiesMap = new Map();
   
-  // 先添加 SQLite 能力
-  for (const cap of capabilitiesFromSqlite) {
+  // 先添加现有能力
+  for (const cap of existingCaps) {
     capabilitiesMap.set(cap.name, cap);
   }
   
-  // 再添加自定义能力（会覆盖同名能力）
+  // 再添加自定义能力
   for (const cap of customCapabilities) {
     capabilitiesMap.set(cap.name, cap);
   }
@@ -102,8 +83,6 @@ async function syncCapabilities() {
     await redis.set(`capabilities:category:${category}`, items);
     console.log(`✅ 写入 capabilities:category:${category} (${items.length} 条)`);
   }
-  
-  db.close();
   
   return allCapabilities;
 }
@@ -173,17 +152,11 @@ async function syncBooks() {
   return bookSources;
 }
 
-async function syncSubPages() {
-  console.log('\n📦 同步子页面能力（伊朗局势、Telegram、QVeris）...\n');
+async function syncSubPages(capabilities) {
+  console.log('\n📦 同步子页面能力（从 capabilities:all 过滤）...\n');
   
-  // 1. 伊朗局势能力（从 SQLite iran-tracker 分类）
-  const db = new Database('data/capabilities.db');
-  const iranCaps = db.prepare(`
-    SELECT name, description, type, status, icon
-    FROM capabilities 
-    WHERE category = 'iran-tracker'
-  `).all();
-  
+  // 1. 伊朗局势能力
+  const iranCaps = capabilities.filter(c => c.category === 'iran-tracker');
   const iranCapabilities = iranCaps.map(cap => ({
     name: cap.name,
     description: cap.description,
@@ -194,20 +167,20 @@ async function syncSubPages() {
   await redis.set('iran:capabilities', iranCapabilities);
   console.log(`✅ 写入 iran:capabilities (${iranCapabilities.length} 条)`);
   
-  // 2. Telegram 频道（从数据文件）
-  const telegramData = JSON.parse(fs.readFileSync('data/telegram_news/latest.json', 'utf-8'));
-  const channelStats = telegramData.channel_stats || {};
+  // 2. Telegram 频道
+  let channelStats = {};
+  try {
+    const telegramData = JSON.parse(fs.readFileSync('data/telegram_news/latest.json', 'utf-8'));
+    channelStats = telegramData.channel_stats || {};
+  } catch (e) {
+    console.log('ℹ️  未找到 telegram_news/latest.json');
+  }
   
   await redis.set('telegram:channels', channelStats);
   console.log(`✅ 写入 telegram:channels (${Object.keys(channelStats).length} 个频道)`);
   
-  // 3. QVeris 能力（从 SQLite qveris 分类）
-  const qverisCaps = db.prepare(`
-    SELECT name, description, type, status
-    FROM capabilities 
-    WHERE category = 'qveris'
-  `).all();
-  
+  // 3. QVeris 能力
+  const qverisCaps = capabilities.filter(c => c.category === 'qveris');
   const qverisCapabilities = qverisCaps.map(cap => ({
     name: cap.name,
     description: cap.description,
@@ -217,8 +190,6 @@ async function syncSubPages() {
   
   await redis.set('qveris:capabilities', qverisCapabilities);
   console.log(`✅ 写入 qveris:capabilities (${qverisCapabilities.length} 条)`);
-  
-  db.close();
   
   return {
     iran: iranCapabilities.length,
@@ -232,11 +203,12 @@ async function updateStats(capabilities, knowledge, books, subPages) {
   
   const uniqueCapabilities = new Set(capabilities.map(c => c.name)).size;
   const customCaps = capabilities.filter(c => c.source === 'custom');
+  const sqliteCaps = capabilities.filter(c => c.source !== 'custom');
   
   const stats = {
     mainCapabilities: uniqueCapabilities,
     customCapabilities: customCaps.length,
-    sqliteCapabilities: capabilities.length - customCaps.length,
+    sqliteCapabilities: sqliteCaps.length,
     knowledge: knowledge.length,
     books: books.length,
     iran: subPages.iran,
@@ -251,7 +223,7 @@ async function updateStats(capabilities, knowledge, books, subPages) {
   console.log('✅ 写入 stats:total');
   console.log('\n📊 总统计:');
   console.log('  - 主能力：', stats.mainCapabilities);
-  console.log('    - SQLite 能力：', stats.sqliteCapabilities);
+  console.log('    - 原 SQLite 能力：', stats.sqliteCapabilities);
   console.log('    - 自定义能力：', stats.customCapabilities);
   console.log('  - 知识条目：', stats.knowledge);
   console.log('  - 书籍：', stats.books);
@@ -279,7 +251,7 @@ async function verify() {
 }
 
 async function main() {
-  console.log('🚀 开始一键同步到 Redis...\n');
+  console.log('🚀 开始一键同步到 Redis (纯Redis版)...\n');
   
   try {
     // 1. 同步主能力
@@ -292,7 +264,7 @@ async function main() {
     const books = await syncBooks();
     
     // 4. 同步子页面
-    const subPages = await syncSubPages();
+    const subPages = await syncSubPages(capabilities);
     
     // 5. 更新统计
     const stats = await updateStats(capabilities, knowledge, books, subPages);

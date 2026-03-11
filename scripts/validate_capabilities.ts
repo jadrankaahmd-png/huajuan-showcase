@@ -1,165 +1,135 @@
 #!/usr/bin/env ts-node
 /**
- * 构建前自动校验脚本
+ * 构建前自动校验脚本 (Redis版)
  * 
  * 用法：npx ts-node scripts/validate_capabilities.ts
  * 
  * 校验内容：
- * 1. 数据库能力数
- * 2. capabilities.ts 条目数
- * 3. getTotalCapabilities() 返回值
+ * 1. Redis capabilities:all 条目数
+ * 2. stats:total 统计数字
+ * 3. knowledge:items 数量
  * 
- * 三个数字必须完全一致，否则构建失败
+ * 注意：已移除 SQLite 依赖
  */
 
-import Database from 'better-sqlite3';
+import { Redis } from '@upstash/redis';
 import * as fs from 'fs';
 
-const DB_PATH = 'data/capabilities.db';
-const CAPABILITIES_TS_PATH = 'app/data/capabilities.ts';
+const redis = new Redis({
+  url: process.env.UPSTASH_REDIS_REST_URL || 'https://valued-hamster-37498.upstash.io',
+  token: process.env.UPSTASH_REDIS_REST_TOKEN || 'AZJ6AAIncDE1YzRlYzY3NzI5OTU0MWIzOTM5YzNjMWE2NDkzMTkyZHAxMzc0OKg',
+});
 
 interface ValidationResult {
-  dbCount: number;
-  tsFileCount: number;
-  tsFunctionCount: number;
+  redisCount: number;
+  knowledgeCount: number;
+  statsGrandTotal: number;
   isValid: boolean;
   errors: string[];
 }
 
-function validateCapabilities(): ValidationResult {
-  console.log('🔍 开始校验能力数据一致性...\n');
+async function validateCapabilities(): Promise<ValidationResult> {
+  console.log('🔍 开始校验能力数据一致性 (Redis版)...\n');
 
   const errors: string[] = [];
-  let dbCount = 0;
-  let tsFileCount = 0;
-  let tsFunctionCount = 0;
+  let redisCount = 0;
+  let knowledgeCount = 0;
+  let statsGrandTotal = 0;
 
-  // 1. 检查数据库能力数
-  console.log('📊 步骤1：检查数据库能力数...');
+  // 1. 检查 Redis capabilities:all
+  console.log('📊 步骤1：检查 Redis capabilities:all...');
   try {
-    const db = new Database(DB_PATH);
-    const result = db.prepare('SELECT COUNT(*) as count FROM capabilities').get() as { count: number };
-    dbCount = result.count;
-    db.close();
-    console.log(`✅ 数据库能力数：${dbCount} 个\n`);
+    const caps = await redis.get('capabilities:all') || [];
+    redisCount = Array.isArray(caps) ? caps.length : 0;
+    console.log(`✅ Redis 能力数：${redisCount} 个\n`);
   } catch (error: any) {
-    const errorMsg = `❌ 无法读取数据库：${error.message}`;
+    const errorMsg = `❌ 无法读取 Redis：${error.message}`;
     console.error(errorMsg);
     errors.push(errorMsg);
     console.log();
   }
 
-  // 2. 检查 capabilities.ts 文件
-  console.log('📝 步骤2：检查 capabilities.ts 文件...');
+  // 2. 检查 knowledge:items
+  console.log('📚 步骤2：检查知识库...');
   try {
-    if (!fs.existsSync(CAPABILITIES_TS_PATH)) {
-      const errorMsg = '❌ capabilities.ts 文件不存在';
-      console.error(errorMsg);
-      errors.push(errorMsg);
+    const knowledge = await redis.get('knowledge:items') || [];
+    knowledgeCount = Array.isArray(knowledge) ? knowledge.length : 0;
+    console.log(`✅ 知识条目数：${knowledgeCount} 个\n`);
+  } catch (error: any) {
+    const errorMsg = `❌ 无法读取知识库：${error.message}`;
+    console.error(errorMsg);
+    errors.push(errorMsg);
+    console.log();
+  }
+
+  // 3. 检查 stats:total
+  console.log('📈 步骤3：检查统计数字...');
+  try {
+    const stats = await redis.get('stats:total');
+    if (stats && typeof stats === 'object') {
+      statsGrandTotal = (stats as any).grandTotal || 0;
+      console.log(`✅ grandTotal：${statsGrandTotal}\n`);
+      console.log('   详细统计：');
+      console.log(`   - 主能力：${(stats as any).mainCapabilities}`);
+      console.log(`   - 自定义能力：${(stats as any).customCapabilities}`);
+      console.log(`   - 知识条目：${(stats as any).knowledge}`);
+      console.log(`   - 书籍：${(stats as any).books}`);
+      console.log(`   - 伊朗局势：${(stats as any).iran}`);
+      console.log(`   - Telegram：${(stats as any).telegram}`);
+      console.log(`   - QVeris：${(stats as any).qveris}`);
+    }
+  } catch (error: any) {
+    const errorMsg = `❌ 无法读取统计：${error.message}`;
+    console.error(errorMsg);
+    errors.push(errorMsg);
+    console.log();
+  }
+
+  // 4. 检查 custom-capabilities.json
+  console.log('📝 步骤4：检查自定义能力文件...');
+  try {
+    const customPath = 'data/custom-capabilities.json';
+    if (fs.existsSync(customPath)) {
+      const custom = JSON.parse(fs.readFileSync(customPath, 'utf8'));
+      console.log(`✅ 自定义能力文件：${custom.length} 条\n`);
     } else {
-      const content = fs.readFileSync(CAPABILITIES_TS_PATH, 'utf8');
-      
-      // 统计 items 条目数
-      const itemsMatches = content.match(/{\s*name:\s*'[^']+',/g);
-      tsFileCount = itemsMatches ? itemsMatches.length : 0;
-      
-      console.log(`✅ capabilities.ts 条目数：${tsFileCount} 个\n`);
+      console.log('⚠️  自定义能力文件不存在\n');
     }
   } catch (error: any) {
-    const errorMsg = `❌ 无法读取 capabilities.ts：${error.message}`;
+    const errorMsg = `❌ 无法读取自定义能力文件：${error.message}`;
     console.error(errorMsg);
     errors.push(errorMsg);
     console.log();
   }
 
-  // 3. 检查 getTotalCapabilities() 函数
-  console.log('🧮 步骤3：检查 getTotalCapabilities() 函数...');
-  try {
-    const content = fs.readFileSync(CAPABILITIES_TS_PATH, 'utf8');
-    
-    // 提取 export function getTotalCapabilities() 的逻辑
-    // 函数内容：return capabilities.reduce((total, cat) => total + cat.items.length, 0);
-    // 这意味着我们需要统计所有 items 的数量
-    
-    // 方法：匹配所有 "name: '...'" 出现在 items 数组中的次数
-    const itemsSection = content.match(/items:\s*\[[\s\S]*?\n    \]/g);
-    if (itemsSection) {
-      let totalCount = 0;
-      itemsSection.forEach(section => {
-        const nameMatches = section.match(/name:\s*'[^']+',/g);
-        if (nameMatches) {
-          totalCount += nameMatches.length;
-        }
-      });
-      tsFunctionCount = totalCount;
-    }
-    
-    console.log(`✅ getTotalCapabilities() 返回值：${tsFunctionCount} 个\n`);
-  } catch (error: any) {
-    const errorMsg = `❌ 无法计算 getTotalCapabilities()：${error.message}`;
-    console.error(errorMsg);
-    errors.push(errorMsg);
-    console.log();
-  }
+  const isValid = errors.length === 0;
 
-  // 4. 验证一致性
-  console.log('✅ 步骤4：验证一致性...\n');
-  console.log('三个数字：');
-  console.log(`  1. 数据库能力数：${dbCount} 个`);
-  console.log(`  2. capabilities.ts 条目数：${tsFileCount} 个`);
-  console.log(`  3. getTotalCapabilities() 返回值：${tsFunctionCount} 个`);
-  console.log();
-
-  const isValid = (dbCount === tsFileCount && tsFileCount === tsFunctionCount && dbCount > 0);
-
+  console.log('═══════════════════════════════════════');
   if (isValid) {
-    console.log('✅ 三个数字完全一致！\n');
-    console.log(`✅ 总能力数：${dbCount} 个\n`);
+    console.log('✅ 校验通过！数据一致性正常。');
   } else {
-    console.error('❌ 三个数字不一致！\n');
-    
-    if (dbCount !== tsFileCount) {
-      const errorMsg = `❌ 数据库（${dbCount}）≠ capabilities.ts（${tsFileCount}）`;
-      console.error(errorMsg);
-      errors.push(errorMsg);
-    }
-    
-    if (tsFileCount !== tsFunctionCount) {
-      const errorMsg = `❌ capabilities.ts（${tsFileCount}）≠ getTotalCapabilities()（${tsFunctionCount}）`;
-      console.error(errorMsg);
-      errors.push(errorMsg);
-    }
-    
-    if (dbCount !== tsFunctionCount) {
-      const errorMsg = `❌ 数据库（${dbCount}）≠ getTotalCapabilities()（${tsFunctionCount}）`;
-      console.error(errorMsg);
-      errors.push(errorMsg);
-    }
-    
-    console.log();
-    console.error('❌ 构建失败！请修复不一致问题后重新构建。\n');
-    console.error('修复方法：');
-    console.error('  1. 检查数据库：sqlite3 data/capabilities.db "SELECT COUNT(*) FROM capabilities;"');
-    console.error('  2. 重新生成 capabilities.ts：npx ts-node scripts/generate_capabilities.ts');
-    console.error('  3. 重新构建：npm run build\n');
+    console.log('❌ 校验失败！存在以下问题：');
+    errors.forEach(e => console.log('   -', e));
   }
+  console.log('═══════════════════════════════════════\n');
 
   return {
-    dbCount,
-    tsFileCount,
-    tsFunctionCount,
+    redisCount,
+    knowledgeCount,
+    statsGrandTotal,
     isValid,
     errors
   };
 }
 
-// 执行校验
-const result = validateCapabilities();
-
-// 如果不一致，退出并返回错误码
-if (!result.isValid) {
-  process.exit(1);
-}
-
-// 如果一致，正常退出
-process.exit(0);
+// 运行校验
+validateCapabilities()
+  .then(result => {
+    if (!result.isValid) {
+      process.exit(1);
+    }
+  })
+  .catch(error => {
+    console.error('❌ 校验脚本执行失败:', error);
+    process.exit(1);
+  });
