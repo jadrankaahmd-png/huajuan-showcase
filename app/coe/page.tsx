@@ -141,10 +141,6 @@ export default function Home() {
       {/* 统一导航栏 */}
       <Navigation currentLayer={1} />
 
-      <section className="py-12 bg-gradient-to-br from-blue-50 to-purple-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        </div>
-      </section>
 
       {/* Header */}
       <header className="bg-white shadow-sm">
