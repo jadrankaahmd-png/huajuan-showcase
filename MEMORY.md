@@ -290,3 +290,34 @@ npm run sync
 
 _规则9 添加时间： 2026-03-11 20:15
 _原因：统一能力统计口径，网站显示 716 = 650 + 37 + 4 + 10 + 9 + 6
+
+---
+
+### **规则10：QVeris API 禁用规则（2026-03-11 21:50 生效）**
+
+**QVeris API 只在用户明确说"使用QVeris"时才调用，其他任何情况不得自动触发！**
+
+#### 具体要求
+- ✅ `/api/market-analyst` - 已改用 MiniMax，只有手动调用才触发
+- ✅ `/api/backtest` - 量化回测，需要用户输入才调用
+- ✅ `/api/qveris/*` - 所有 QVeris 组件已禁用（显示"功能待开发"）
+- ✅ 禁止任何页面自动调用 QVeris API
+- ✅ 禁止 cron/定时任务自动调用 QVeris
+
+#### 已禁用的组件（全部显示"功能待开发"）
+- StockQuery (美股实时查询)
+- StockRanking (美股涨幅实时榜单)
+- StockAnalysis (个股深度研判)
+- AlertSettings (价格预警设置)
+- Backtest (量化策略回测)
+- MarketAnalyst (AI市场分析师)
+
+#### 触发条件
+只有以下情况可以调用 QVeris：
+- 用户明确输入"使用QVeris"或类似指令
+- 用户主动点击某个需要QVeris的功能按钮
+
+---
+
+_规则10 添加时间： 2026-03-11 21:50
+_原因：QVeris API credits 有限，仅供第三层选股推荐使用
