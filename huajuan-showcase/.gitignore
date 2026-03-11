@@ -27,3 +27,4 @@ node_modules/
 .next/
 .env.local
 .vercel
+data/capabilities.db
