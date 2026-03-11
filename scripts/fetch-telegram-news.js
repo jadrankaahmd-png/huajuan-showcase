@@ -61,8 +61,9 @@ async function main() {
   const channelsArg = allChannels.join(',');
   const outputPath = path.join(__dirname, '..', 'data', 'telegram_news', 'latest.json');
   
-  // 调用 Python 脚本
-  const command = `python3 "${pythonScript}" --api-id "${API_ID}" --api-hash "${API_HASH}" --channels "${channelsArg}" --output "${outputPath}"`;
+  // 调用 Python 脚本（明确指定 Python 路径以避免 crontab 环境问题）
+  const pythonPath = '/opt/homebrew/bin/python3';
+  const command = `${pythonPath} "${pythonScript}" --api-id "${API_ID}" --api-hash "${API_HASH}" --channels "${channelsArg}" --output "${outputPath}"`;
   
   console.log('\n📡 调用 Python Telethon 脚本...');
   console.log('📝 命令:', command.replace(API_HASH, '***'));
