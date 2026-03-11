@@ -31,6 +31,10 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const [stats, setStats] = useState({
     total: 0,
+    mainCapabilities: 0,
+    knowledge: 0,
+    books: 0,
+    subPages: 0,
     active: 0,
     categories: 0
   });
@@ -78,6 +82,10 @@ export default function Home() {
         setCapabilities(Array.from(categoryMap.values()));
         setStats({
           total: data.stats?.grandTotal || 0,
+          mainCapabilities: data.stats?.mainCapabilities || 0,
+          knowledge: data.stats?.knowledge || 0,
+          books: data.stats?.books || 0,
+          subPages: (data.stats?.iran || 0) + (data.stats?.telegram || 0) + (data.stats?.qveris || 0),
           active: activeCount,
           categories: categoryMap.size
         });
@@ -86,7 +94,7 @@ export default function Home() {
         setError(error instanceof Error ? error.message : '加载能力数据失败');
         // 设置空数据，防止页面崩溃
         setCapabilities([]);
-        setStats({ total: 0, active: 0, categories: 0 });
+        setStats({ total: 0, mainCapabilities: 0, knowledge: 0, books: 0, subPages: 0, active: 0, categories: 0 });
       } finally {
         setIsLoading(false);
       }
@@ -157,9 +165,25 @@ export default function Home() {
               <div className="bg-pink-50 px-4 py-2 rounded-lg">
                 <div className="text-pink-600 font-semibold">{stats.total}</div>
                 <div className="text-gray-600">总能力</div>
+                <div className="text-xs text-gray-400">主能力+知识库+子页面</div>
+              </div>
+              <div className="bg-blue-50 px-4 py-2 rounded-lg">
+                <div className="text-blue-600 font-semibold">{stats.mainCapabilities}</div>
+                <div className="text-gray-600">主能力</div>
+                <div className="text-xs text-gray-400">SQLite+自定义</div>
+              </div>
+              <div className="bg-purple-50 px-4 py-2 rounded-lg">
+                <div className="text-purple-600 font-semibold">{stats.knowledge + stats.books}</div>
+                <div className="text-gray-600">知识库</div>
+                <div className="text-xs text-gray-400">条目{stats.knowledge}+书籍{stats.books}</div>
               </div>
               <div className="bg-green-50 px-4 py-2 rounded-lg">
-                <div className="text-green-600 font-semibold">{stats.active}</div>
+                <div className="text-green-600 font-semibold">{stats.subPages}</div>
+                <div className="text-gray-600">子页面</div>
+                <div className="text-xs text-gray-400">伊朗+Telegram+QVeris</div>
+              </div>
+              <div className="bg-orange-50 px-4 py-2 rounded-lg">
+                <div className="text-orange-600 font-semibold">{stats.active}</div>
                 <div className="text-gray-600">正常运行</div>
               </div>
             </div>

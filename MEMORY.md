@@ -248,5 +248,45 @@ oldText: "_规则7 添加时间： 2026-03-11 19:55"
 
 ---
 
-_规则8 添加时间： 2026-03-11 20:02
-_原因：排查 "717 chars edit failed" 错误，发现是多个相同分隔符导致匹配失败
+### **规则9：能力统计规范（2026-03-11 20:15 生效）**
+
+**统一能力统计口径，确保网站显示数字与实际数据完全一致！**
+
+#### 数字定义（网站显示 716 = 650 + 37 + 4 + 10 + 9 + 6）
+
+| 名称 | 数量 | 定义 | 数据来源 |
+|------|------|------|----------|
+| **主能力** | 650 | SQLite (573) + 自定义 (77) 的合并去重结果 | Redis capabilities:all |
+| **自定义能力** | 77 | 用户添加的自定义能力 | data/custom-capabilities.json |
+| **SQLite能力** | 573 | 数据库原有能力（去重后） | data/capabilities.db |
+| **知识条目** | 37 | Markdown 文件 | public/knowledge_base/*.md |
+| **书籍** | 4 | 书籍来源 | public/knowledge_base/book-sources.json |
+| **伊朗局势** | 10 | 伊朗相关能力 | Redis irian:capabilities |
+| **Telegram** | 9 | Telegram 频道 | Redis telegram:channels |
+| **QVeris** | 6 | QVeris 相关能力 | Redis qveris:capabilities |
+| **总能力** | **716** | 主能力 + 知识库 + 子页面 | grandTotal |
+
+#### 计算公式
+```
+grandTotal = mainCapabilities + knowledge + books + iran + telegram + qveris
+           = 650 + 37 + 4 + 10 + 9 + 6
+           = 716
+```
+
+#### 禁止事项
+- ❌ 禁止 SQLite 能力出现重复名称（会导致覆盖丢失）
+- ❌ 禁止自定义能力出现重复名称
+- ❌ 禁止主能力数量与 Redis capabilities:all 不一致
+- ❌ 禁止网站显示数字与 Redis stats:total 不一致
+
+#### 验证命令
+```bash
+# 验证主能力数量
+npm run sync
+# 检查输出中的 "主能力" 数量
+```
+
+---
+
+_规则9 添加时间： 2026-03-11 20:15
+_原因：统一能力统计口径，网站显示 716 = 650 + 37 + 4 + 10 + 9 + 6
