@@ -6,7 +6,10 @@ const NEWSAPI_KEY = process.env.NEWSAPI_KEY || '332b7388f0fb42a9bf05d06a89fc10c9
 const FINNHUB_KEY = process.env.FINNHUB_KEY || 'd61gv49r01qufbsn7v90d61gv49r01qufbsn7v9g';
 const FRED_API_KEY = process.env.FRED_API_KEY || 'af7508267bd3d2d7820438698f28b3ec';
 const EIA_API_KEY = process.env.EIA_API_KEY || 'vFGhPvNPdmfdJ7YKMx1BgJ1Oz9FS82dIscKBB6G8';
-const ZHIPU_API_KEY = process.env.ZHIPU_API_KEY || 'f7487e41bdf944f6b270dfa79fed9c01.LalfTWriNsXz1Qm3';
+
+// MiniMax API 配置
+const MINIMAX_API_KEY = process.env.MINIMAX_API_KEY || '';
+const MINIMAX_API_URL = 'https://api.minimax.chat/v1/text/chatcompletion_v2';
 
 const QVERIS_EXECUTE_URL = 'https://qveris.ai/api/v1/tools/execute';
 const EODHD_EOD_TOOL_ID = 'eodhd.eod.retrieve.v1.34f25103'; // 历史数据工具（可用）
@@ -216,7 +219,7 @@ async function getEIAData() {
   }
 }
 
-// 生成AI分析报告（使用GLM-5）
+// 生成AI分析报告（使用 MiniMax M2.5）
 async function generateAIReport(
   globalData: any[],
   sectorData: any[],
@@ -225,22 +228,27 @@ async function generateAIReport(
   macroData: any,
   energyData: any
 ): Promise<string> {
+  // 检查 API Key
+  if (!MINIMAX_API_KEY) {
+    throw new Error('MiniMax API Key 未配置 (MINIMAX_API_KEY)');
+  }
+
   const dataContext = `
 全球指标：${JSON.stringify(globalData.map(d => ({ name: d.name, change: d.changePercent })))}
 板块表现：${JSON.stringify(sectorData.map(d => ({ name: d.name, change: d.changePercent })))}
 宏观数据：${JSON.stringify(macroData)}
 能源数据：${JSON.stringify(energyData)}
-最新新闻：${JSON.stringify(newsData?.articles?.slice(0,5).map((a:any) => a.title))}
+最新新闻：${JSON.stringify(newsData?.slice(0,5).map((a:any) => a.title))}
 `;
 
-  const response = await fetch('https://open.bigmodel.cn/api/paas/v4/chat/completions', {
+  const response = await fetch(MINIMAX_API_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${ZHIPU_API_KEY}`,
+      'Authorization': `Bearer ${MINIMAX_API_KEY}`,
     },
     body: JSON.stringify({
-      model: 'glm-5',
+      model: 'MiniMax-M2.5-highspeed',
       messages: [
         {
           role: 'system',
@@ -257,11 +265,15 @@ async function generateAIReport(
   });
 
   if (!response.ok) {
-    throw new Error(`GLM API错误: ${response.status}`);
+    const errorText = await response.text();
+    throw new Error(`MiniMax API错误: ${response.status} - ${errorText}`);
   }
 
   const result = await response.json();
-  return result.choices[0].message.content;
+  if (result.choices && result.choices[0]) {
+    return result.choices[0].message.content;
+  }
+  throw new Error('MiniMax 返回格式错误');
 }
 
 export async function POST(request: NextRequest) {
