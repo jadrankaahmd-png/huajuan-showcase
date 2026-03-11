@@ -75,7 +75,7 @@ export default function Home() {
           
           <div className="grid md:grid-cols-3 gap-8">
             {/* 第一层 */}
-            <Link href="/coe" className="group">
+            <Link href="/capabilities" className="group">
               <div className="bg-gradient-to-br from-pink-50 to-pink-100 rounded-2xl p-8 h-full transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
                 <div className="text-6xl mb-4">🔧</div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">第一层：能力中心</h3>
@@ -96,10 +96,10 @@ export default function Home() {
             </Link>
 
             {/* 第二层 */}
-            <Link href="/dynamic-model" className="group">
+            <Link href="/showcase" className="group">
               <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 h-full transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
                 <div className="text-6xl mb-4">⚡</div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">第二层：动态模型</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">第二层：展示厅</h3>
                 <p className="text-gray-600 mb-4">
                   AI分析与量化策略层，智能研判市场
                 </p>
@@ -111,16 +111,16 @@ export default function Home() {
                   <li>✓ QVeris 万级数据接入</li>
                 </ul>
                 <div className="flex items-center text-purple-600 font-semibold group-hover:translate-x-2 transition-transform">
-                  进入动态模型 →
+                  进入展示厅 →
                 </div>
               </div>
             </Link>
 
             {/* 第三层 */}
-            <Link href="/stock-picker" className="group">
+            <Link href="/lab" className="group">
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 h-full transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
                 <div className="text-6xl mb-4">🎯</div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">第三层：选股推荐</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">第三层：研究实验室</h3>
                 <p className="text-gray-600 mb-4">
                   真实选股推荐层，输出投资决策
                 </p>
@@ -132,7 +132,7 @@ export default function Home() {
                   <li>✓ 回测验证</li>
                 </ul>
                 <div className="flex items-center text-blue-600 font-semibold group-hover:translate-x-2 transition-transform">
-                  进入选股推荐 →
+                  进入研究实验室 →
                 </div>
               </div>
             </Link>

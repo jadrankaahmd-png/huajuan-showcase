@@ -15,20 +15,23 @@ export default function Navigation({ currentLayer }: NavigationProps) {
   // 自动检测当前层级
   const detectLayer = (): 0 | 1 | 2 | 3 => {
     if (currentLayer !== undefined) return currentLayer;
-    if (!pathname) return 1; // pathname 为 null 时默认第一层
-    if (pathname === '/') return 0; // 首页
-    if (pathname === '/dynamic-model' || pathname?.startsWith('/dynamic-model/')) return 2;
-    if (pathname === '/stock-picker' || pathname?.startsWith('/stock-picker/')) return 3;
-    return 1; // 默认第一层
+    if (!pathname) return 1;
+    if (pathname === '/') return 0;
+    if (pathname.startsWith('/capabilities')) return 1;
+    if (pathname.startsWith('/showcase')) return 1;
+    if (pathname.startsWith('/lab')) return 1;
+    if (pathname.startsWith('/knowledge')) return 1;
+    return 1;
   };
   
   const layer = detectLayer();
   
   const navItems = [
     { href: '/', label: '🏠 首页', layer: 0 },
-    { href: '/coe', label: '🔧 花卷能力中心', layer: 1 },
-    { href: '/dynamic-model', label: '⚡ 花卷动态模型', layer: 2 },
-    { href: '/stock-picker', label: '🎯 花卷选股', layer: 3 }
+    { href: '/capabilities', label: '🔧 能力中心', layer: 1 },
+    { href: '/showcase', label: '🎯 展示厅', layer: 1 },
+    { href: '/lab', label: '🔬 研究实验室', layer: 1 },
+    { href: '/knowledge', label: '📚 知识库', layer: 1 }
   ];
   
   return (
