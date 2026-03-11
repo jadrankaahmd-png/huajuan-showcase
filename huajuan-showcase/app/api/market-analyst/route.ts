@@ -89,7 +89,7 @@ const SECTOR_ETFS = [
 ];
 
 // 解析 CSV 为 JSON 数组
-function parseCSV(csv: string): any[] {
+function parseCSV(csv: string): any {
   const lines = csv.trim().split('\n');
   if (lines.length < 2) return [];
   
@@ -176,7 +176,7 @@ async function getBatchQuotes(symbols: string[]) {
     
     // 并行获取所有符号的历史数据
     const promises = symbols.map(async (symbol) => {
-      const data = await getRecentEODData(symbol, 5); // 获取最近5天数据
+      const data: any = await getRecentEODData(symbol, 5); // 获取最近5天数据
       
       if (!data || data.length < 2) {
         return null;

@@ -8,11 +8,16 @@ import asyncio
 import json
 import argparse
 import sys
+import os
 from datetime import datetime, timezone
 from telethon import TelegramClient
 from telethon.tl.functions.messages import GetHistoryRequest
 from telethon.tl.types import InputPeerChannel
 from telethon.errors import SessionPasswordNeededError
+
+# 配置代理（从环境变量读取，默认使用 127.0.0.1:8118）
+PROXY_HOST = os.environ.get('https_proxy', 'http://127.0.0.1:8118').replace('http://', '').split(':')[0]
+PROXY_PORT = int(os.environ.get('https_proxy', 'http://127.0.0.1:8118').replace('http://', '').split(':')[1]) if ':' in os.environ.get('https_proxy', 'http://127.0.0.1:8118') else 8118
 
 # 配置
 API_ID = None
@@ -29,8 +34,23 @@ class TelegramScraper:
         """连接到 Telegram"""
         print(f'🔌 正在连接 Telegram API...')
         print(f'   API ID: {self.api_id}')
+        print(f'   代理: {PROXY_HOST}:{PROXY_PORT}')
         
-        self.client = TelegramClient(SESSION_NAME, self.api_id, self.api_hash)
+        # 配置代理
+        try:
+            import socks
+            proxy = (socks.HTTP, PROXY_HOST, PROXY_PORT)
+            print(f'   ✅ 使用代理: HTTP {PROXY_HOST}:{PROXY_PORT}')
+        except ImportError:
+            print(f'   ⚠️ PySocks 未安装，尝试直接连接')
+            proxy = None
+        
+        self.client = TelegramClient(
+            SESSION_NAME,
+            self.api_id,
+            self.api_hash,
+            proxy=proxy
+        )
         await self.client.connect()
         
         if not await self.client.is_user_authorized():

@@ -1520,10 +1520,751 @@
     "source": "custom"
   },
   {
+<<<<<<< HEAD
     "name": "gh CLI",
     "description": "GitHub CLI 工具 - 管理 GitHub issues, PRs, repos, 和 Git 操作。使用 gh auth login 登录，gh issue list 查看问题，gh pr create 创建 PR。",
     "category": "tools",
     "source": "custom",
     "icon": "github"
+=======
+    "id": "capability_1773141221051",
+    "name": "社会模拟预测市场传导",
+    "description": "用OASIS多Agent社会模拟预测信息在市场中的传播速度，5类投资者角色（分析师/KOL/记者/散户/机构）传导机制，预测price-in时间",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "量化预测",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "用OASIS多Agent社会模拟预测信息在市场中的传播速度，5类投资者角色（分析师/KOL/记者/散户/机构）传导机制，预测price-in时间",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:13:41.051Z",
+    "updatedAt": "2026-03-10T11:13:41.052Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773141223572",
+    "name": "信息传播时间预测",
+    "description": "预测新闻事件（FDA批准/财报/政策）被市场完全消化需要多长时间，基于信息传播路径和多Agent角色分析",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "事件预测",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "预测新闻事件（FDA批准/财报/政策）被市场完全消化需要多长时间，基于信息传播路径和多Agent角色分析",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:13:43.572Z",
+    "updatedAt": "2026-03-10T11:13:43.572Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773141225833",
+    "name": "多Agent角色传导机制",
+    "description": "模拟5类投资者角色（分析师/KOL/记者/散户/机构）的信息传导路径，预测不同类型投资者何时对信息做出反应",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "市场分析",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "模拟5类投资者角色（分析师/KOL/记者/散户/机构）的信息传导路径，预测不同类型投资者何时对信息做出反应",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:13:45.833Z",
+    "updatedAt": "2026-03-10T11:13:45.834Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773141228100",
+    "name": "Autoresearch自我进化循环",
+    "description": "AI agent自动调参优化模型，读取实验结果→调整参数→保留改进→丢弃回归→循环进化，无需人工干预",
+    "category": "ai-analysis",
+    "categoryName": "ai-analysis",
+    "type": "自动优化",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "AI agent自动调参优化模型，读取实验结果→调整参数→保留改进→丢弃回归→循环进化，无需人工干预",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:13:48.100Z",
+    "updatedAt": "2026-03-10T11:13:48.101Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773141230512",
+    "name": "Price-in时间预测",
+    "description": "预测股价何时完全消化新闻事件信息，基于OASIS社会模拟和真实市场数据对比，当前准确率34%（需优化）",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "时间预测",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "预测股价何时完全消化新闻事件信息，基于OASIS社会模拟和真实市场数据对比，当前准确率34%（需优化）",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:13:50.512Z",
+    "updatedAt": "2026-03-10T11:13:50.513Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773141987306",
+    "name": "FDA事件传导预测器实现",
+    "description": "监听FDA药物批准/拒绝事件，用多Agent角色传导机制预测股价影响，预测信息被price in需要多长时间，输出方向预测+传导时间预测",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "事件预测",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "监听FDA药物批准/拒绝事件，用多Agent角色传导机制预测股价影响，预测信息被price in需要多长时间，输出方向预测+传导时间预测",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:26:27.306Z",
+    "updatedAt": "2026-03-10T11:26:27.306Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773141989586",
+    "name": "财报事件传导预测器实现",
+    "description": "监听美股财报发布事件，预测财报发布后信息传播路径（分析师→KOL→记者→散户），预测股价何时完全消化信息，输出方向预测+price-in时间预测",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "事件预测",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "监听美股财报发布事件，预测财报发布后信息传播路径（分析师→KOL→记者→散户），预测股价何时完全消化信息，输出方向预测+price-in时间预测",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:26:29.586Z",
+    "updatedAt": "2026-03-10T11:26:29.587Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773141991798",
+    "name": "信息滞后机会扫描器实现",
+    "description": "实时扫描市场事件，识别信息滞后交易机会（散户还没反应的窗口），输出机会列表+预估剩余时间窗口，基于多Agent角色传导模型",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "机会扫描",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "实时扫描市场事件，识别信息滞后交易机会（散户还没反应的窗口），输出机会列表+预估剩余时间窗口，基于多Agent角色传导模型",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:26:31.798Z",
+    "updatedAt": "2026-03-10T11:26:31.799Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773142813243",
+    "name": "AI五层架构分析能力",
+    "description": "按NVIDIA AI五层蛋糕架构（能源/芯片/基建/模型/应用）分类美股标的，识别每层投资机会，越往下竞争越少壁垒越深，优先投资下四层",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "投资框架",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "按NVIDIA AI五层蛋糕架构（能源/芯片/基建/模型/应用）分类美股标的，识别每层投资机会，越往下竞争越少壁垒越深，优先投资下四层",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:40:13.243Z",
+    "updatedAt": "2026-03-10T11:40:13.243Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773142815680",
+    "name": "AI能源层投资分析",
+    "description": "分析AI能源层投资机会（NEE/VST/CEG核电/天然气/可再生能源），跟踪电力需求增长、数据中心能耗、核电审批进展，竞争最少壁垒最深",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "行业分析",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "分析AI能源层投资机会（NEE/VST/CEG核电/天然气/可再生能源），跟踪电力需求增长、数据中心能耗、核电审批进展，竞争最少壁垒最深",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:40:15.680Z",
+    "updatedAt": "2026-03-10T11:40:15.681Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773143484122",
+    "name": "AI五层架构投资机会识别器实现",
+    "description": "输入市场新闻事件，识别属于哪一层（能源/芯片/基建/模型/应用），根据不同层级使用不同price-in时间预测，推荐对应投资标的",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "投资分析",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "输入市场新闻事件，识别属于哪一层（能源/芯片/基建/模型/应用），根据不同层级使用不同price-in时间预测，推荐对应投资标的",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:51:24.122Z",
+    "updatedAt": "2026-03-10T11:51:24.123Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773143486633",
+    "name": "AI能源层投资监控器实现",
+    "description": "实时监控NEE/VST/CEG股价和新闻，跟踪电力需求增长、核电装机、数据中心能耗占比，输出投资机会提醒和风险预警",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "行业监控",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "实时监控NEE/VST/CEG股价和新闻，跟踪电力需求增长、核电装机、数据中心能耗占比，输出投资机会提醒和风险预警",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:51:26.633Z",
+    "updatedAt": "2026-03-10T11:51:26.634Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773143488972",
+    "name": "AI芯片层投资监控器实现",
+    "description": "实时监控NVDA/AMD/AVGO股价和新闻，跟踪GPU出货量、AI芯片市场份额、产能情况，输出产能短缺预警和竞争动态分析",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "行业监控",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "实时监控NVDA/AMD/AVGO股价和新闻，跟踪GPU出货量、AI芯片市场份额、产能情况，输出产能短缺预警和竞争动态分析",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:51:28.972Z",
+    "updatedAt": "2026-03-10T11:51:28.973Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773143491672",
+    "name": "AI基建层投资监控器实现",
+    "description": "实时监控MSFT/AMZN/GOOGL股价和新闻，跟踪云服务增速、数据中心投资规模、AI工作负载占比，输出增长趋势分析和投资机会",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "行业监控",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "实时监控MSFT/AMZN/GOOGL股价和新闻，跟踪云服务增速、数据中心投资规模、AI工作负载占比，输出增长趋势分析和投资机会",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:51:31.672Z",
+    "updatedAt": "2026-03-10T11:51:31.673Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773143901010",
+    "name": "AI供应链投资分析能力",
+    "description": "分析AI供应链关键组件（NVL72/光子学/AI网络/CPU/内存/封装），跟踪台湾供应链动态，核心投资逻辑：duration+新技术采用速度+规模化能力，未来2-5年投资展望",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "供应链分析",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "分析AI供应链关键组件（NVL72/光子学/AI网络/CPU/内存/封装），跟踪台湾供应链动态，核心投资逻辑：duration+新技术采用速度+规模化能力，未来2-5年投资展望",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:58:21.010Z",
+    "updatedAt": "2026-03-10T11:58:21.011Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773143903515",
+    "name": "台湾供应链美股分析能力",
+    "description": "分析台湾供应链相关美股标的（TSM/ASX/MU/FN），跟踪台积电/ASE/Micron/Fabrinet动态，识别产能瓶颈和投资机会",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "区域分析",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "分析台湾供应链相关美股标的（TSM/ASX/MU/FN），跟踪台积电/ASE/Micron/Fabrinet动态，识别产能瓶颈和投资机会",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T11:58:23.515Z",
+    "updatedAt": "2026-03-10T11:58:23.516Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773144368450",
+    "name": "AI供应链投资机会识别器实现",
+    "description": "输入市场新闻，识别受影响的供应链组件（NVL72机架/光子学/AI网络/CPU/内存存储/封装），推荐相关美股标的，预测price-in时间，使用真实API数据零硬编码",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "投资识别",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "输入市场新闻，识别受影响的供应链组件（NVL72机架/光子学/AI网络/CPU/内存存储/封装），推荐相关美股标的，预测price-in时间，使用真实API数据零硬编码",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T12:06:08.450Z",
+    "updatedAt": "2026-03-10T12:06:08.450Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773144371150",
+    "name": "台湾供应链动态监控器实现",
+    "description": "实时监控TSM/MU/ANET/FN股价和新闻，跟踪产能瓶颈、月度出货数据、台湾公司访问报告，输出投资机会提醒和风险预警",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "动态监控",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "实时监控TSM/MU/ANET/FN股价和新闻，跟踪产能瓶颈、月度出货数据、台湾公司访问报告，输出投资机会提醒和风险预警",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T12:06:11.150Z",
+    "updatedAt": "2026-03-10T12:06:11.151Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773144373740",
+    "name": "AI新技术采用速度跟踪器实现",
+    "description": "跟踪HBM3E/光子学/3D封装技术成熟度和采用速度，识别技术拐点信号，推荐受益标的\n输出技术路线图",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "技术跟踪",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "跟踪HBM3E/光子学/3D封装技术成熟度和采用速度，识别技术拐点信号，推荐受益标的\n输出技术路线图",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T12:06:13.740Z",
+    "updatedAt": "2026-03-10T12:06:13.741Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773149091884",
+    "name": "HBM4供应链实时监控器实现",
+    "description": "实时监控SK Hynix/Samsung/Micron HBM4相关新闻和动态，跟踪qual测试进展识别量产信号，监控MU/NVDA股价联动，输出风险预警+投资机会",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "供应链监控",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "实时监控SK Hynix/Samsung/Micron HBM4相关新闻和动态，跟踪qual测试进展识别量产信号，监控MU/NVDA股价联动，输出风险预警+投资机会",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T13:24:51.884Z",
+    "updatedAt": "2026-03-10T13:24:51.885Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773149094481",
+    "name": "GTC 2026事件跟踪器实现",
+    "description": "跟踪GTC 2026（3月16日开幕）关键事件时间表，监控NVIDIA Rubin AI加速器发布动态，预测每个关键事件对股价的影响和price-in时间，输出事件日历+预期影响分析",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "事件跟踪",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "跟踪GTC 2026（3月16日开幕）关键事件时间表，监控NVIDIA Rubin AI加速器发布动态，预测每个关键事件对股价的影响和price-in时间，输出事件日历+预期影响分析",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T13:24:54.481Z",
+    "updatedAt": "2026-03-10T13:24:54.481Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773149099332",
+    "name": "Bin 1 Bin 2分层分析器实现",
+    "description": "分析SK Hynix vs Samsung HBM4的Bin 1占比竞争，预测高端市场份额变化对股价影响，识别Bin 1占比提升的信号，输出市占率预测+受益标的",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "竞争分析",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "分析SK Hynix vs Samsung HBM4的Bin 1占比竞争，预测高端市场份额变化对股价影响，识别Bin 1占比提升的信号，输出市占率预测+受益标的",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T13:24:59.332Z",
+    "updatedAt": "2026-03-10T13:24:59.333Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773149579072",
+    "name": "Anthropic Skill 最佳实践指南",
+    "description": "Anthropic 官方 Skill 构建标准：描述字段、触发短语、文件夹结构、三层加载、技能类型、测试方法。当用户说'优化 skill 描述'、'检查 skill 标准'、'Anthropic 最佳实践'时使用。",
+    "category": "best-practices",
+    "categoryName": "best-practices",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "Anthropic 官方 Skill 构建标准：描述字段、触发短语、文件夹结构、三层加载、技能类型、测试方法。当用户说'优化 skill 描述'、'检查 skill 标准'、'Anthropic 最佳实践'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T13:32:59.072Z",
+    "updatedAt": "2026-03-10T13:32:59.073Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773150081037",
+    "name": "Skill描述优化器",
+    "description": "自动扫描 .agents/skills/ 目录下所有 skill，检查描述字段是否包含触发短语，不符合标准的自动生成优化建议。当用户说'优化 skill 描述'、'检查 skill 标准'、'优化触发短语'时使用。",
+    "category": "automation",
+    "categoryName": "automation",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "自动扫描 .agents/skills/ 目录下所有 skill，检查描述字段是否包含触发短语，不符合标准的自动生成优化建议。当用户说'优化 skill 描述'、'检查 skill 标准'、'优化触发短语'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T13:41:21.037Z",
+    "updatedAt": "2026-03-10T13:41:21.038Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773150087789",
+    "name": "Skill测试生成器",
+    "description": "为每个 skill 自动生成测试用例，包括应该触发的场景、不应该触发的场景、预期输出验证。当用户说'生成 skill 测试'、'创建测试用例'、'测试 skill'时使用。",
+    "category": "testing",
+    "categoryName": "testing",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "为每个 skill 自动生成测试用例，包括应该触发的场景、不应该触发的场景、预期输出验证。当用户说'生成 skill 测试'、'创建测试用例'、'测试 skill'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T13:41:27.789Z",
+    "updatedAt": "2026-03-10T13:41:27.790Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773150091896",
+    "name": "Skill文档生成器",
+    "description": "为每个 skill 自动生成使用文档，包括使用示例、触发方式、故障排查指南。当用户说'生成 skill 文档'、'创建使用文档'、'文档生成'时使用。",
+    "category": "documentation",
+    "categoryName": "documentation",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "为每个 skill 自动生成使用文档，包括使用示例、触发方式、故障排查指南。当用户说'生成 skill 文档'、'创建使用文档'、'文档生成'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T13:41:31.896Z",
+    "updatedAt": "2026-03-10T13:41:31.897Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773150095267",
+    "name": "PDF内容提取器",
+    "description": "从 URL 或本地文件提取 PDF 内容，支持提取文本、页数、元数据，自动保存到知识库。当用户说'提取 PDF'、'读取 PDF'、'解析 PDF'、'PDF 转文本'时使用。基于 pdf-parse 库。",
+    "category": "data",
+    "categoryName": "data",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "从 URL 或本地文件提取 PDF 内容，支持提取文本、页数、元数据，自动保存到知识库。当用户说'提取 PDF'、'读取 PDF'、'解析 PDF'、'PDF 转文本'时使用。基于 pdf-parse 库。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T13:41:35.267Z",
+    "updatedAt": "2026-03-10T13:41:35.268Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773150502910",
+    "name": "Anthropic官方Skill构建指南PDF",
+    "description": "Anthropic官方完整指南：《The Complete Guide to Building Skills for Claude》33页PDF提取内容。当用户说'Anthropic Skill 指南'、'官方 Skill 教程'、'构建 Skill 完整指南'时使用。",
+    "category": "knowledge",
+    "categoryName": "knowledge",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "Anthropic官方完整指南：《The Complete Guide to Building Skills for Claude》33页PDF提取内容。当用户说'Anthropic Skill 指南'、'官方 Skill 教程'、'构建 Skill 完整指南'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T13:48:22.910Z",
+    "updatedAt": "2026-03-10T13:48:22.912Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773151296052",
+    "name": "RF머트리얼즈投资分析",
+    "description": "韩国半导体封装公司RF머트리얼즈深度投资分析，涉及AI数据中心光模块、激光武器、卫星通信三大市场。当用户说'RF머트리얼즈'、'韩国半导体封装'、'Lumentum供应链'、'化合物半导体封装'时使用。",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "韩国半导体封装公司RF머트리얼즈深度投资分析，涉及AI数据中心光模块、激光武器、卫星通信三大市场。当用户说'RF머트리얼즈'、'韩国半导体封装'、'Lumentum供应链'、'化合物半导体封装'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T14:01:36.052Z",
+    "updatedAt": "2026-03-10T14:01:36.053Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773151302926",
+    "name": "网页内容清洗工具(Jina Reader)",
+    "description": "使用Jina Reader API清洗网页正文，去除广告和无关内容，支持Twitter/X链接读取。当用户说'清洗网页'、'提取网页正文'、'读取Twitter'、'网页内容提取'时使用。",
+    "category": "tools",
+    "categoryName": "tools",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "使用Jina Reader API清洗网页正文，去除广告和无关内容，支持Twitter/X链接读取。当用户说'清洗网页'、'提取网页正文'、'读取Twitter'、'网页内容提取'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T14:01:42.926Z",
+    "updatedAt": "2026-03-10T14:01:42.927Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773151753983",
+    "name": "光模块供应链监控器",
+    "description": "实时监控Lumentum/Coherent/Fabrinet股价和新闻，跟踪AI数据中心光模块需求，识别订单拐点信号。当用户说'光模块'、'Lumentum'、'AI数据中心'、'光通信'时使用。",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "实时监控Lumentum/Coherent/Fabrinet股价和新闻，跟踪AI数据中心光模块需求，识别订单拐点信号。当用户说'光模块'、'Lumentum'、'AI数据中心'、'光通信'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T14:09:13.983Z",
+    "updatedAt": "2026-03-10T14:09:13.984Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773151759147",
+    "name": "K-防务出口跟踪器",
+    "description": "监控韩国防务公司中东/欧洲出口订单，分析对美股防务板块(LMT/RTX/NOC)的联动影响。当用户说'韩国防务'、'K-防务'、'LIG NexOne'、'韩华防务'时使用。",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "监控韩国防务公司中东/欧洲出口订单，分析对美股防务板块(LMT/RTX/NOC)的联动影响。当用户说'韩国防务'、'K-防务'、'LIG NexOne'、'韩华防务'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T14:09:19.147Z",
+    "updatedAt": "2026-03-10T14:09:19.148Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773151764270",
+    "name": "化合物半导体封装分析器",
+    "description": "分析HTCC/金属化/钎焊技术壁垒，跟踪Kyocera/NTK/RF머트리얼즈市场份额动态。当用户说'半导体封装'、'HTCC'、'化合物半导体'、'技术壁垒'时使用。",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "分析HTCC/金属化/钎焊技术壁垒，跟踪Kyocera/NTK/RF머트리얼즈市场份额动态。当用户说'半导体封装'、'HTCC'、'化合物半导体'、'技术壁垒'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T14:09:24.270Z",
+    "updatedAt": "2026-03-10T14:09:24.271Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773152154293",
+    "name": "Financial Datasets MCP 集成",
+    "description": "通过 MCP 服务器访问 17,000+ 家公司 30 年财务数据，支持自然语言查询损益表/资产负债表/现金流表/股价/SEC文件。当用户说'查询财报'、'获取财务数据'、'对比财务报表'、'MCP 财务数据'时使用。",
+    "category": "api",
+    "categoryName": "api",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "通过 MCP 服务器访问 17,000+ 家公司 30 年财务数据，支持自然语言查询损益表/资产负债表/现金流表/股价/SEC文件。当用户说'查询财报'、'获取财务数据'、'对比财务报表'、'MCP 财务数据'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T14:15:54.293Z",
+    "updatedAt": "2026-03-10T14:15:54.294Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773152892768",
+    "name": "财报快速扫描器",
+    "description": "基于Financial Datasets API，一键获取公司5年财报核心指标（收入增长率、毛利率、净利率、自由现金流、ROE）。当用户说'扫描财报'、'获取财务数据'、'分析财报'时使用。",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "基于Financial Datasets API，一键获取公司5年财报核心指标（收入增长率、毛利率、净利率、自由现金流、ROE）。当用户说'扫描财报'、'获取财务数据'、'分析财报'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T14:28:12.768Z",
+    "updatedAt": "2026-03-10T14:28:12.769Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773152897394",
+    "name": "公司对比分析器",
+    "description": "基于Financial Datasets API，自动对比多家公司财务表现（收入规模、增长率、利润率、ROE）。当用户说'对比公司'、'对比财务数据'、'比较财报'时使用。",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "基于Financial Datasets API，自动对比多家公司财务表现（收入规模、增长率、利润率、ROE）。当用户说'对比公司'、'对比财务数据'、'比较财报'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T14:28:17.394Z",
+    "updatedAt": "2026-03-10T14:28:17.395Z",
+    "source": "custom"
+  },
+  {
+    "id": "capability_1773152901752",
+    "name": "SEC文件关键词追踪器",
+    "description": "基于Financial Datasets API，追踪SEC文件中关键词出现频率趋势，识别公司战略变化。当用户说'追踪关键词'、'SEC文件'、'10-K分析'时使用。",
+    "category": "stock-analysis",
+    "categoryName": "stock-analysis",
+    "type": "能力",
+    "status": "active",
+    "icon": "📋",
+    "details": {
+      "whatItDoes": "基于Financial Datasets API，追踪SEC文件中关键词出现频率趋势，识别公司战略变化。当用户说'追踪关键词'、'SEC文件'、'10-K分析'时使用。",
+      "howItWorks": "待补充",
+      "currentStatus": "active",
+      "usage": "待补充",
+      "dependencies": []
+    },
+    "createdAt": "2026-03-10T14:28:21.752Z",
+    "updatedAt": "2026-03-10T14:28:21.753Z",
+    "source": "custom"
+>>>>>>> 6e361e8a5d307fb1338aed13c212afe59ce7b24c
   }
 ]

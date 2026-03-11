@@ -311,27 +311,50 @@ export default function TelegramNewsPage() {
           return diffDays + '天前';
         }
 
+        let lastUpdateTime = null;
+
         function updateLastUpdateTime(isoTime) {
+          lastUpdateTime = isoTime;
+          updateRelativeTime();
+        }
+
+        function updateRelativeTime() {
+          if (!lastUpdateTime) return;
+
           const el1 = document.getElementById('last-update');
           const el2 = document.getElementById('last-update-2');
-          if (el1 || el2) {
-            const date = new Date(isoTime);
-            const formatted = date.toLocaleString('zh-CN', {
-              year: 'numeric',
-              month: '2-digit',
-              day: '2-digit',
-              hour: '2-digit',
-              minute: '2-digit',
-            });
-            if (el1) el1.textContent = formatted;
-            if (el2) el2.textContent = formatted;
+
+          const now = new Date();
+          const past = new Date(lastUpdateTime);
+          const diffMs = now.getTime() - past.getTime();
+          const diffMins = Math.floor(diffMs / 60000);
+
+          let relativeTime = '';
+          if (diffMins < 1) {
+            relativeTime = '刚刚更新';
+          } else if (diffMins < 60) {
+            relativeTime = diffMins + ' 分钟前更新';
+          } else {
+            const diffHours = Math.floor(diffMins / 60);
+            if (diffHours < 24) {
+              relativeTime = diffHours + ' 小时前更新';
+            } else {
+              const diffDays = Math.floor(diffHours / 24);
+              relativeTime = diffDays + ' 天前更新';
+            }
           }
+
+          if (el1) el1.textContent = relativeTime;
+          if (el2) el2.textContent = relativeTime;
         }
 
         // 页面加载时立即执行
         loadNews();
 
-        // 每5分钟自动刷新
+        // 每分钟更新相对时间（倒计时）
+        setInterval(updateRelativeTime, 60 * 1000);
+
+        // 每5分钟自动刷新数据
         setInterval(() => loadNews(false), 5 * 60 * 1000);
 
         // 绑定刷新按钮点击事件
