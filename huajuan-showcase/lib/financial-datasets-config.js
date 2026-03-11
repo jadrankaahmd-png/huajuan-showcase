@@ -42,7 +42,7 @@ export async function callFinancialDatasetsAPI(endpoint, params) {
   
   const response = await fetch(url, {
     headers: {
-      'X-API-KEY': FINANCIAL_DATASETS_CONFIG.apiKey,  // 注意：必须是 X-API-KEY（大写）
+      'X-API-Key': FINANCIAL_DATASETS_CONFIG.apiKey,
     },
   });
   
