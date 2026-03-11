@@ -221,7 +221,7 @@ export default function IranGeopoliticalRiskPage() {
   }, [loadData]);
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-      <Navigation currentLayer={1} />
+      <Navigation />
       
       <header className="bg-white shadow-sm border-b border-pink-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">

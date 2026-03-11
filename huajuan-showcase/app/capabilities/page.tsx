@@ -111,7 +111,7 @@ export default function Home() {
   if (error) {
     return (
       <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-        <Navigation currentLayer={1} />
+        <Navigation />
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="text-center">
             <div className="text-6xl mb-4">⚠️</div>
@@ -133,7 +133,7 @@ export default function Home() {
   if (isLoading) {
     return (
       <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-        <Navigation currentLayer={1} />
+        <Navigation />
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="text-center">
             <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-pink-500"></div>
@@ -147,7 +147,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       {/* 统一导航栏 */}
-      <Navigation currentLayer={1} />
+      <Navigation />
 
 
       {/* Header */}

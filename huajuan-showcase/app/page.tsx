@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       {/* 统一导航栏 */}
-      <Navigation currentLayer={0} />
+      <Navigation />
       
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 py-20">

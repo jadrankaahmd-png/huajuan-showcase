@@ -8,7 +8,12 @@ interface ShowcaseItem {
   href: string;
   icon: string;
   description: string;
-  color: string;
+  color: {
+    bg: string;
+    border: string;
+    icon: string;
+    hover: string;
+  };
 }
 
 export default function ShowcasePage() {
@@ -21,83 +26,141 @@ export default function ShowcasePage() {
         href: '/showcase/iran',
         icon: '🌍',
         description: '实时地缘政治监控与影响分析',
-        color: 'from-red-50 to-orange-50'
+        color: {
+          bg: 'from-rose-500/20 to-orange-500/20',
+          border: 'border-rose-500/30',
+          icon: 'from-rose-500 to-orange-500',
+          hover: 'hover:border-rose-500/60'
+        }
       },
       {
         name: 'QVeris美股',
         href: '/showcase/qveris',
         icon: '📊',
         description: '万级数据实时查询与深度分析',
-        color: 'from-green-50 to-teal-50'
+        color: {
+          bg: 'from-emerald-500/20 to-teal-500/20',
+          border: 'border-emerald-500/30',
+          icon: 'from-emerald-500 to-teal-500',
+          hover: 'hover:border-emerald-500/60'
+        }
       },
       {
         name: 'Telegram新闻',
         href: '/showcase/telegram',
         icon: '📰',
         description: '加密货币与美股新闻聚合',
-        color: 'from-blue-50 to-indigo-50'
+        color: {
+          bg: 'from-blue-500/20 to-indigo-500/20',
+          border: 'border-blue-500/30',
+          icon: 'from-blue-500 to-indigo-500',
+          hover: 'hover:border-blue-500/60'
+        }
       },
       {
         name: 'AI分析师',
         href: '/showcase/market-analyst',
         icon: '🤖',
         description: 'MiniMax驱动的智能市场分析',
-        color: 'from-purple-50 to-pink-50'
+        color: {
+          bg: 'from-violet-500/20 to-purple-500/20',
+          border: 'border-violet-500/30',
+          icon: 'from-violet-500 to-purple-500',
+          hover: 'hover:border-violet-500/60'
+        }
       }
     ]);
   }, []);
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Header */}
+    <main className="min-h-screen bg-[#0a0a0f]">
+      {/* Hero Section */}
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0djJoLTJ2LTJoMnptLTQgNHYyaC0ydi0yaDJ6bTQtOGgydjJoLTJ2LTJ6bS04IDhoMnYyaC0ydi0yaDJ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-50"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 py-20 relative">
-          <div className="text-center">
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-violet-500 to-fuchsia-500 mb-6 shadow-2xl shadow-violet-500/30">
-              <span className="text-4xl">🎯</span>
+        {/* Animated Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#12121a] to-[#0a0a0f]">
+          {/* Grid Pattern */}
+          <div className="absolute inset-0 opacity-[0.03]" style={{
+            backgroundImage: `linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)`,
+            backgroundSize: '60px 60px'
+          }}></div>
+          
+          {/* Glow Effects */}
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-violet-500/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="max-w-6xl mx-auto px-6 py-24 relative">
+          {/* Badge */}
+          <div className="flex justify-center mb-8">
+            <div className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm text-white/60">
+              花卷实战展示
             </div>
-            <h1 className="text-5xl font-bold text-white mb-4 tracking-tight">
-              花卷展示厅
-            </h1>
-            <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-              实时数据展示与智能分析能力
-            </p>
           </div>
+
+          {/* Title */}
+          <h1 className="text-5xl md:text-6xl font-bold text-center text-white mb-6 tracking-tight">
+            展示厅
+          </h1>
+          
+          <p className="text-xl text-white/50 text-center max-w-2xl mx-auto leading-relaxed">
+            实时数据展示与智能分析能力
+          </p>
         </div>
       </div>
 
-      {/* Showcase Grid */}
-      <div className="max-w-7xl mx-auto px-4 pb-20">
+      {/* Cards Grid */}
+      <div className="max-w-6xl mx-auto px-6 pb-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {items.map((item, index) => (
             <Link
               key={index}
               href={item.href}
-              className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br ${item.color} p-8 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl`}
-              style={{ animationDelay: `${index * 100}ms` }}
+              className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br ${item.color.bg} border ${item.color.border} ${item.color.hover} p-8 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl`}
             >
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-16 h-16 rounded-xl bg-white/80 backdrop-blur-sm flex items-center justify-center text-3xl shadow-lg">
+              {/* Corner Decor */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-white/10 to-transparent rounded-bl-full"></div>
+              
+              <div className="flex items-start gap-5">
+                {/* Icon */}
+                <div className={`flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br ${item.color.icon} flex items-center justify-center text-2xl shadow-lg shadow-black/20`}>
                   {item.icon}
                 </div>
-                <div className="flex-1">
-                  <h2 className="text-2xl font-bold text-slate-900 mb-2 group-hover:text-violet-600 transition-colors">
+                
+                {/* Content */}
+                <div className="flex-1 min-w-0">
+                  <h2 className="text-xl font-semibold text-white mb-2 group-hover:text-white/90 transition-colors">
                     {item.name}
                   </h2>
-                  <p className="text-slate-600">
+                  <p className="text-white/50 text-sm leading-relaxed">
                     {item.description}
                   </p>
                 </div>
-                <div className="text-2xl opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-4 group-hover:translate-x-0">
-                  →
+                
+                {/* Arrow */}
+                <div className="text-white/30 group-hover:text-white/70 group-hover:translate-x-1 transition-all">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
                 </div>
               </div>
-              
-              {/* Decorative corner */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-white/20 to-transparent rounded-bl-full"></div>
+
+              {/* Bottom Line */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </Link>
+          ))}
+        </div>
+
+        {/* Stats */}
+        <div className="mt-12 grid grid-cols-3 gap-4">
+          {[
+            { label: '实时数据源', value: '8+' },
+            { label: '日处理数据', value: '100M+' },
+            { label: 'AI分析能力', value: 'MiniMax' }
+          ].map((stat, i) => (
+            <div key={i} className="text-center py-4 px-6 rounded-xl bg-white/5 border border-white/10">
+              <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
+              <div className="text-xs text-white/40">{stat.label}</div>
+            </div>
           ))}
         </div>
       </div>
