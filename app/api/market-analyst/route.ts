@@ -6,6 +6,7 @@ const NEWSAPI_KEY = process.env.NEWSAPI_KEY || '332b7388f0fb42a9bf05d06a89fc10c9
 const FINNHUB_KEY = process.env.FINNHUB_KEY || 'd61gv49r01qufbsn7v90d61gv49r01qufbsn7v9g';
 const FRED_API_KEY = process.env.FRED_API_KEY || 'af7508267bd3d2d7820438698f28b3ec';
 const EIA_API_KEY = process.env.EIA_API_KEY || 'vFGhPvNPdmfdJ7YKMx1BgJ1Oz9FS82dIscKBB6G8';
+const ZHIPU_API_KEY = process.env.ZHIPU_API_KEY || 'f7487e41bdf944f6b270dfa79fed9c01.LalfTWriNsXz1Qm3';
 
 const QVERIS_EXECUTE_URL = 'https://qveris.ai/api/v1/tools/execute';
 const EODHD_EOD_TOOL_ID = 'eodhd.eod.retrieve.v1.34f25103'; // 历史数据工具（可用）
@@ -215,143 +216,52 @@ async function getEIAData() {
   }
 }
 
-// 生成综合分析报告
-function generateComprehensiveReport(
+// 生成AI分析报告（使用GLM-5）
+async function generateAIReport(
   globalData: any[],
   sectorData: any[],
-  newsData: any[],
+  newsData: any,
+  finnhubData: any,
   macroData: any,
   energyData: any
-): string {
-  // 异常识别
-  const anomalies: string[] = [];
-  
-  const spy = globalData.find(d => d.symbol === 'SPY');
-  const qqq = globalData.find(d => d.symbol === 'QQQ');
-  const vixy = globalData.find(d => d.symbol === 'VIXY');
-  const gld = globalData.find(d => d.symbol === 'GLD');
-  const uup = globalData.find(d => d.symbol === 'UUP');
-  
-  // 跨数据源交叉验证异常
-  if (vixy?.changePercent > 5 && qqq?.changePercent < -2) {
-    anomalies.push(`🚨 **恐慌性抛售信号**：VIX ETF暴涨 ${vixy.changePercent.toFixed(2)}% + 纳指ETF暴跌 ${qqq.changePercent.toFixed(2)}%`);
-  }
-  
-  if (uup?.changePercent > 1 && gld?.changePercent > 2) {
-    anomalies.push(`⚠️ **避险异常**：美元ETF走强 ${uup.changePercent.toFixed(2)}% 同时黄金ETF上涨 ${gld.changePercent.toFixed(2)}%`);
-  }
-  
-  if (energyData?.value !== 'N/A') {
-    anomalies.push(`📊 **原油库存数据**：${energyData.value}（${energyData.period}）`);
-  }
-  
-  // 板块异常
-  const strongSectors = sectorData.filter(s => s.changePercent > 3);
-  const weakSectors = sectorData.filter(s => s.changePercent < -3);
-  
-  if (strongSectors.length >= 5) {
-    anomalies.push(`🔥 **板块普涨**：${strongSectors.length}个板块涨幅超3%`);
-  }
-  
-  if (weakSectors.length >= 5) {
-    anomalies.push(`❄️ **板块普跌**：${weakSectors.length}个板块跌幅超3%`);
-  }
-  
-  // 板块梯队
-  const sortedSectors = [...sectorData].sort((a, b) => b.changePercent - a.changePercent);
-  
-  const tier1 = sortedSectors.slice(0, 4);
-  const tier2 = sortedSectors.slice(4, 8);
-  const tier3 = sortedSectors.slice(8, 12);
-  const tier4 = sortedSectors.slice(12, 16);
-  const tier5 = sortedSectors.slice(16, 20);
-  
-  // 主线逻辑
-  let logicChain = '';
-  if (uup?.changePercent > 0.5) {
-    logicChain = `美元走强（${uup.changePercent.toFixed(2)}%）→ 压制风险资产 → 美股承压 → 资金流向防御性板块`;
-  } else if (vixy?.changePercent > 10) {
-    logicChain = `恐慌情绪上升（VIX +${vixy.changePercent.toFixed(2)}%）→ 避险需求增加 → 黄金和国债上涨 → 成长股下跌`;
-  } else {
-    logicChain = `市场情绪平稳 → 板块轮动正常 → 资金流向强势板块 → 结构性机会`;
-  }
-  
-  // 生成报告
-  const report = `# 🤖 AI美股市场分析师报告（综合版）
-
-**生成时间：** ${new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}
-**数据源：** QVeris（EODHD历史数据）+ NewsAPI + Finnhub + FRED + EIA
-
----
-
-## 🌍 宏观环境
-
-### 利率与宏观经济
-${macroData ? `**${macroData.indicator}**：${macroData.value}（${macroData.date}）` : '数据暂不可用'}
-
-### 全球指标
-| 指标 | 最新价 | 涨跌幅 |
-|------|--------|--------|
-${globalData.map(g => `**${g.name}** | $${g.close?.toFixed(2) || '-'} | ${g.changePercent > 0 ? '+' : ''}${g.changePercent?.toFixed(2) || '0.00'}%`).join('\n')}
-
----
-
-## 📊 市场概况
-
-### 板块强弱梯队
-
-#### 第一梯队（强势板块）✅
-${tier1.map(s => `- **${s.name}** (${s.symbol}): ${s.changePercent > 0 ? '+' : ''}${s.changePercent.toFixed(2)}%`).join('\n')}
-
-#### 第二梯队（中上板块）📈
-${tier2.map(s => `- **${s.name}** (${s.symbol}): ${s.changePercent > 0 ? '+' : ''}${s.changePercent.toFixed(2)}%`).join('\n')}
-
-#### 第三梯队（中性板块）➡️
-${tier3.map(s => `- **${s.name}** (${s.symbol}): ${s.changePercent > 0 ? '+' : ''}${s.changePercent.toFixed(2)}%`).join('\n')}
-
-#### 第四梯队（弱势板块）📉
-${tier4.map(s => `- **${s.name}** (${s.symbol}): ${s.changePercent.toFixed(2)}%`).join('\n')}
-
-#### 第五梯队（最弱板块）❄️
-${tier5.map(s => `- **${s.name}** (${s.symbol}): ${s.changePercent.toFixed(2)}%`).join('\n')}
-
----
-
-## 🔥 异常信号
-
-${anomalies.length > 0 ? anomalies.join('\n\n') : '✅ **无明显异常**，市场运行平稳'}
-
----
-
-## 🔗 主线逻辑
-
-${logicChain}
-
----
-
-## 📰 重要新闻
-
-### NewsAPI
-${newsData.slice(0, 3).map(n => `- **${n.title}** (${n.source?.name || '未知来源'})`).join('\n') || '暂无新闻'}
-
----
-
-## 🎯 关键关注
-
-1. **美元走势**：${uup?.changePercent > 0.5 ? '走强，压制风险资产' : uup?.changePercent < -0.5 ? '走弱，利好风险资产' : '平稳'}
-2. **恐慌指数**：${vixy?.changePercent > 5 ? '暴涨，市场恐慌' : vixy?.changePercent > 2 ? '上升，谨慎情绪' : '平稳'}
-3. **科技股**：${qqq?.changePercent > 1 ? '强势，市场情绪乐观' : qqq?.changePercent < -1 ? '弱势，市场情绪悲观' : '震荡'}
-4. **能源板块**：${energyData ? '关注原油库存数据变化' : '数据暂不可用'}
-5. **利率环境**：${macroData ? '关注美联储政策动向' : '数据暂不可用'}
-
----
-
-**⚠️ 风险提示：** 本报告整合多数据源，由AI自动生成，仅供参考，不构成投资建议。市场有风险，投资需谨慎。
-
-**📊 数据源：** QVeris（EODHD历史数据）+ NewsAPI（新闻）+ Finnhub（市场情绪）+ FRED（宏观经济）+ EIA（能源数据）
+): Promise<string> {
+  const dataContext = `
+全球指标：${JSON.stringify(globalData.map(d => ({ name: d.name, change: d.changePercent })))}
+板块表现：${JSON.stringify(sectorData.map(d => ({ name: d.name, change: d.changePercent })))}
+宏观数据：${JSON.stringify(macroData)}
+能源数据：${JSON.stringify(energyData)}
+最新新闻：${JSON.stringify(newsData?.articles?.slice(0,5).map((a:any) => a.title))}
 `;
 
-  return report;
+  const response = await fetch('https://open.bigmodel.cn/api/paas/v4/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${ZHIPU_API_KEY}`,
+    },
+    body: JSON.stringify({
+      model: 'glm-5',
+      messages: [
+        {
+          role: 'system',
+          content: '你是花卷AI投资系统的专业美股市场分析师。基于真实市场数据，用中文生成简洁专业的分析报告。包含：市场概况、板块强弱梯队、异常信号、主线逻辑、风险提示。'
+        },
+        {
+          role: 'user',
+          content: `请基于以下今日市场数据生成分析报告：\n${dataContext}`
+        }
+      ],
+      max_tokens: 1500,
+      temperature: 0.7,
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error(`GLM API错误: ${response.status}`);
+  }
+
+  const result = await response.json();
+  return result.choices[0].message.content;
 }
 
 export async function POST(request: NextRequest) {
@@ -415,13 +325,14 @@ export async function POST(request: NextRequest) {
     
     // 合并新闻数据
     const allNews = [...newsData, ...finnhubData];
-    
-    // 生成综合报告
-    console.log('2. 生成综合分析报告...');
-    const report = generateComprehensiveReport(
+
+    // 生成AI分析报告
+    console.log('2. 生成AI分析报告（GLM-5）...');
+    const report = await generateAIReport(
       globalData,
       sectorData,
       allNews,
+      finnhubData,
       macroData,
       energyData
     );
