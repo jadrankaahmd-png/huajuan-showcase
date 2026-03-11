@@ -88,6 +88,22 @@ const SECTOR_ETFS = [
   { symbol: 'UNG', name: '天然气' },
 ];
 
+// 解析 CSV 为 JSON 数组
+function parseCSV(csv: string): any[] {
+  const lines = csv.trim().split('\n');
+  if (lines.length < 2) return [];
+  
+  const headers = lines[0].split(',');
+  return lines.slice(1).map(line => {
+    const values = line.split(',');
+    const obj: any = {};
+    headers.forEach((h, i) => {
+      obj[h.trim()] = isNaN(Number(values[i])) ? values[i] : Number(values[i]);
+    });
+    return obj;
+  });
+}
+
 // 获取最近N天的历史数据（用于计算实时价格和涨跌幅）
 async function getRecentEODData(symbol: string, days: number = 5) {
   try {
@@ -110,7 +126,7 @@ async function getRecentEODData(symbol: string, days: number = 5) {
       body: JSON.stringify({
         search_id: `market-analyst-${symbol}-${Date.now()}`,
         parameters: {
-          symbol: `${symbol}.US`,
+          ticker: `${symbol}.US`,
           from: startDate.toISOString().split('T')[0],
           to: endDate.toISOString().split('T')[0],
           period: 'd',
@@ -123,8 +139,28 @@ async function getRecentEODData(symbol: string, days: number = 5) {
     if (!response.ok) return null;
     
     const result = await response.json();
-    if (result.success && result.result && result.result.data) {
-      return result.result.data;
+    // QVeris 返回 CSV 格式，需要解析
+    if (result.success && result.result) {
+      let csvData = null;
+      
+      // 优先使用 truncated_content（JSON 数组格式）
+      if (result.result.truncated_content) {
+        try {
+          csvData = JSON.parse(result.result.truncated_content);
+        } catch (e) {
+          // 如果是 CSV 字符串，解析 CSV
+          csvData = parseCSV(result.result.truncated_content);
+        }
+      } else if (result.result.data) {
+        // 可能是 JSON 数组
+        if (typeof result.result.data === 'string') {
+          csvData = parseCSV(result.result.data);
+        } else {
+          csvData = result.result.data;
+        }
+      }
+      
+      return csvData;
     }
     return null;
   } catch (error) {
@@ -151,8 +187,9 @@ async function getBatchQuotes(symbols: string[]) {
       // 前一天的数据（用于计算涨跌幅）
       const previous = data[data.length - 2];
       
-      const close = latest.close || latest.adjusted_close || 0;
-      const prevClose = previous.close || previous.adjusted_close || 0;
+      // CSV 字段名是 Close, Adjusted_close 等
+      const close = latest.Close || latest.Close || latest.adjusted_close || 0;
+      const prevClose = previous.Close || previous.Close || previous.adjusted_close || 0;
       const change = close - prevClose;
       const changePercent = prevClose > 0 ? ((change / prevClose) * 100) : 0;
       
