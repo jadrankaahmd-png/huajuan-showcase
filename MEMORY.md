@@ -349,3 +349,43 @@ const toolId = searchResult.results[0].tool_id;
 
 _规则11 添加时间： 2026-03-11 22:05
 _原因：之前 hardcode tool_id 导致数据为0，必须动态获取
+
+---
+
+### **规则12：禁止使用edit工具（永久生效）**
+
+**绝对禁止对任何文件使用edit工具进行修改！**
+
+#### 允许的修改方式
+
+1. **sed 命令**（推荐）
+   ```bash
+   sed -i '' 's|旧字符串|新字符串|g' 文件路径
+   ```
+
+2. **整文件重写**
+   ```bash
+   cat > 文件路径 << 'EOF'
+   文件内容
+   EOF
+   ```
+
+3. **Python/Node脚本处理**
+   ```javascript
+   const fs = require('fs');
+   let content = fs.readFileSync('file', 'utf8');
+   content = content.replace(/旧/g, '新');
+   fs.writeFileSync('file', content);
+   ```
+
+#### 禁止方式
+- ❌ **禁止使用 edit 工具**
+- ❌ **禁止使用 patch 方式编辑**
+
+#### 原因
+edit 工具在文件有多个相同字符串时会匹配失败，导致 "XXX chars edit failed" 错误。
+
+---
+
+_规则12 添加时间： 2026-03-11 22:45
+_原因：edit 工具频繁失败，必须禁止使用
