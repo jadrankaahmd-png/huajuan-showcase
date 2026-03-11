@@ -321,3 +321,31 @@ _原因：统一能力统计口径，网站显示 716 = 650 + 37 + 4 + 10 + 9 + 
 
 _规则10 添加时间： 2026-03-11 21:50
 _原因：QVeris API credits 有限，仅供第三层选股推荐使用
+
+### **规则11：QVeris tool_id 必须动态获取（2026-03-11 22:05 生效）**
+
+**禁止 hardcode 任何 tool_id，必须动态从 Search API 获取！**
+
+#### 具体要求
+- ✅ 调用 QVeris 前必须先调用 Search API 获取可用工具列表
+- ✅ 从搜索结果中筛选正确的 tool_id
+- ✅ 缓存 tool_id 避免重复搜索
+- ✅ 代码示例：先 search "stock historical price eod"，再从结果中提取 tool_id
+
+#### 错误示例
+```javascript
+// ❌ 禁止 hardcode
+const TOOL_ID = 'eodhd.eod.retrieve.v1.34f25103';
+```
+
+#### 正确示例
+```javascript
+// ✅ 动态获取
+const searchResult = await fetch('/api/v1/search', { query: 'stock historical price eod' });
+const toolId = searchResult.results[0].tool_id;
+```
+
+---
+
+_规则11 添加时间： 2026-03-11 22:05
+_原因：之前 hardcode tool_id 导致数据为0，必须动态获取
